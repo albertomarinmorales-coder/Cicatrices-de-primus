@@ -126,26 +126,35 @@
 
     .nav-dropdown {
       position: absolute;
-      top: calc(100% + 14px);
+      /* starts flush with bottom of li — transparent padding bridges the gap */
+      top: 100%;
       left: 0;
+      padding-top: 14px; /* invisible bridge so mouse doesn't leave :hover zone */
+      background: transparent;
+      border: none;
+      list-style: none;
+      min-width: 200px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 1001;
+    }
+    /* The visible panel is this inner pseudo-wrapper via the ::after trick —
+       instead we use a real wrapper approach: wrap items in a styled inner box */
+    .nav-dropdown-inner {
       background: rgba(10, 9, 7, 0.97);
       border: 1px solid rgba(176, 16, 16, 0.35);
       border-top: 2px solid var(--accent);
-      list-style: none;
-      min-width: 200px;
       padding: 8px 0;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-8px);
-      transition: opacity 0.22s ease, transform 0.22s ease;
-      z-index: 1001;
       backdrop-filter: blur(18px);
       box-shadow: 0 20px 48px rgba(0,0,0,0.75);
+      position: relative;
     }
-    .nav-dropdown::before {
+    .nav-dropdown-inner::before {
       content: '';
       position: absolute;
-      top: -6px;
+      top: -7px;
       left: 22px;
       border-left: 6px solid transparent;
       border-right: 6px solid transparent;
@@ -177,8 +186,8 @@
       padding-left: 28px;
     }
     /* Wide 2-col variant */
-    .nav-dropdown.wide {
-      min-width: 360px;
+    .nav-dropdown.wide { min-width: 360px; }
+    .nav-dropdown.wide .nav-dropdown-inner {
       padding: 10px;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -191,7 +200,7 @@
       left: auto;
       right: 0;
     }
-    .nav-dropdown.align-right::before {
+    .nav-dropdown.align-right .nav-dropdown-inner::before {
       left: auto;
       right: 22px;
     }
@@ -1356,55 +1365,63 @@
       <li>
         <span onclick="showPage('lore')" id="nav-lore">Lore</span>
         <ul class="nav-dropdown">
-          <li><span onclick="showPage('historia')">Historia</span></li>
-          <li><span onclick="showPage('deidades')">Deidades</span></li>
+          <div class="nav-dropdown-inner">
+            <li><span onclick="showPage('historia')">Historia</span></li>
+            <li><span onclick="showPage('deidades')">Deidades</span></li>
+          </div>
         </ul>
       </li>
 
       <li>
         <span onclick="showPage('razas')" id="nav-razas">Razas</span>
         <ul class="nav-dropdown wide">
-          <li><span onclick="showPage('raza-humano')">Humano</span></li>
-          <li><span onclick="showPage('raza-elfo')">Elfo</span></li>
-          <li><span onclick="showPage('raza-enano')">Enano</span></li>
-          <li><span onclick="showPage('raza-shazari')">Shazari</span></li>
-          <li><span onclick="showPage('raza-ossalyth')">Ossalyth</span></li>
-          <li><span onclick="showPage('raza-malvakari')">Malvakari</span></li>
-          <li><span onclick="showPage('raza-thaetirs')">Thaetirs</span></li>
-          <li><span onclick="showPage('raza-mestizo')">Mestizo</span></li>
+          <div class="nav-dropdown-inner">
+            <li><span onclick="showPage('raza-humano')">Humano</span></li>
+            <li><span onclick="showPage('raza-elfo')">Elfo</span></li>
+            <li><span onclick="showPage('raza-enano')">Enano</span></li>
+            <li><span onclick="showPage('raza-shazari')">Shazari</span></li>
+            <li><span onclick="showPage('raza-ossalyth')">Ossalyth</span></li>
+            <li><span onclick="showPage('raza-malvakari')">Malvakari</span></li>
+            <li><span onclick="showPage('raza-thaetirs')">Thaetirs</span></li>
+            <li><span onclick="showPage('raza-mestizo')">Mestizo</span></li>
+          </div>
         </ul>
       </li>
 
       <li>
         <span onclick="showPage('oficios')" id="nav-oficios">Oficios</span>
         <ul class="nav-dropdown wide align-right">
-          <li><span onclick="showPage('oficio-galeno')">Galeno</span></li>
-          <li><span onclick="showPage('oficio-herrero')">Herrero</span></li>
-          <li><span onclick="showPage('oficio-minero')">Minero</span></li>
-          <li><span onclick="showPage('oficio-tabernero')">Tabernero</span></li>
-          <li><span onclick="showPage('oficio-joyero')">Joyero</span></li>
-          <li><span onclick="showPage('oficio-artesano')">Artesano</span></li>
-          <li><span onclick="showPage('oficio-granjero')">Granjero</span></li>
-          <li><span onclick="showPage('oficio-guardia')">Guardia</span></li>
-          <li><span onclick="showPage('oficio-alquimia')">Alquimia</span></li>
-          <li><span onclick="showPage('oficio-sastre')">Sastre</span></li>
-          <li><span onclick="showPage('oficio-cazador')">Cazador</span></li>
+          <div class="nav-dropdown-inner">
+            <li><span onclick="showPage('oficio-galeno')">Galeno</span></li>
+            <li><span onclick="showPage('oficio-herrero')">Herrero</span></li>
+            <li><span onclick="showPage('oficio-minero')">Minero</span></li>
+            <li><span onclick="showPage('oficio-tabernero')">Tabernero</span></li>
+            <li><span onclick="showPage('oficio-joyero')">Joyero</span></li>
+            <li><span onclick="showPage('oficio-artesano')">Artesano</span></li>
+            <li><span onclick="showPage('oficio-granjero')">Granjero</span></li>
+            <li><span onclick="showPage('oficio-guardia')">Guardia</span></li>
+            <li><span onclick="showPage('oficio-alquimia')">Alquimia</span></li>
+            <li><span onclick="showPage('oficio-sastre')">Sastre</span></li>
+            <li><span onclick="showPage('oficio-cazador')">Cazador</span></li>
+          </div>
         </ul>
       </li>
 
       <li>
         <span onclick="showPage('normativa')" id="nav-normativa">Normativa</span>
         <ul class="nav-dropdown wide align-right">
-          <li><span onclick="showPage('norm-general')">General</span></li>
-          <li><span onclick="showPage('norm-concepto')">Concepto de Rol</span></li>
-          <li><span onclick="showPage('norm-ic')">Normativa IC</span></li>
-          <li><span onclick="showPage('norm-construccion')">Construcción</span></li>
-          <li><span onclick="showPage('norm-heridas')">Heridas</span></li>
-          <li><span onclick="showPage('norm-combate')">Combate</span></li>
-          <li><span onclick="showPage('norm-esclavitud')">Esclavitud</span></li>
-          <li><span onclick="showPage('norm-robo')">Robo</span></li>
-          <li><span onclick="showPage('norm-mazmorra')">Mazmorra</span></li>
-          <li><span onclick="showPage('norm-housing')">Housing</span></li>
+          <div class="nav-dropdown-inner">
+            <li><span onclick="showPage('norm-general')">General</span></li>
+            <li><span onclick="showPage('norm-concepto')">Concepto de Rol</span></li>
+            <li><span onclick="showPage('norm-ic')">Normativa IC</span></li>
+            <li><span onclick="showPage('norm-construccion')">Construcción</span></li>
+            <li><span onclick="showPage('norm-heridas')">Heridas</span></li>
+            <li><span onclick="showPage('norm-combate')">Combate</span></li>
+            <li><span onclick="showPage('norm-esclavitud')">Esclavitud</span></li>
+            <li><span onclick="showPage('norm-robo')">Robo</span></li>
+            <li><span onclick="showPage('norm-mazmorra')">Mazmorra</span></li>
+            <li><span onclick="showPage('norm-housing')">Housing</span></li>
+          </div>
         </ul>
       </li>
 

@@ -444,21 +444,24 @@
     .home-sections {
       display: flex;
       flex-direction: column;
-      padding-bottom: 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px 80px;
+      gap: 2px;
     }
     .home-section {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 380px;
+      min-height: 340px;
       cursor: pointer;
       overflow: hidden;
-      border-top: 1px solid var(--border);
+      border: 1px solid var(--border);
     }
-    .home-section:last-child { border-bottom: 1px solid var(--border); }
+    .home-section:not(:first-child) { border-top: none; }
     .home-section:nth-child(even) .home-section-text { order: 2; }
     .home-section:nth-child(even) .home-section-img   { order: 1; }
     .home-section-text {
-      padding: 64px 72px;
+      padding: 52px 56px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -875,11 +878,12 @@
       .nav-links.open { display: flex; }
       .nav-toggle { display: flex; }
       .home-intro { grid-template-columns: 1fr; }
+      .home-sections { padding: 0 20px 60px; }
       .home-section { grid-template-columns: 1fr; min-height: auto; }
-      .home-section-img { min-height: 240px; }
+      .home-section-img { min-height: 220px; }
       .home-section:nth-child(even) .home-section-text { order: unset; }
       .home-section:nth-child(even) .home-section-img   { order: unset; }
-      .home-section-text { padding: 40px 32px; }
+      .home-section-text { padding: 36px 28px; }
       .razas-grid { grid-template-columns: 1fr 1fr; }
       .oficios-grid { grid-template-columns: 1fr 1fr; }
       .lore-grid { grid-template-columns: 1fr; }

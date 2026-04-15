@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     /* ─── RESET & BASE ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -663,10 +664,17 @@
     }
 
     .norm-icon {
-      width: 36px;
-      height: 36px;
+      font-size: 1.9rem;
       flex-shrink: 0;
-      opacity: 0.6;
+      opacity: 0.65;
+      color: var(--gold);
+      width: 36px;
+      text-align: center;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .norm-item:hover .norm-icon {
+      opacity: 1;
+      transform: scale(1.15);
     }
 
     .norm-item h3 {
@@ -1782,81 +1790,61 @@
       <div class="norm-grid">
 
         <div class="norm-item" onclick="showPage('norm-general')">
-          <svg class="norm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-          </svg>
+          <i class="fa-solid fa-scroll norm-icon"></i>
           <h3>General</h3>
           <span class="norm-arrow">→</span>
         </div>
 
         <div class="norm-item" onclick="showPage('norm-concepto')">
-          <svg class="norm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
-          </svg>
+          <i class="fa-solid fa-masks-theater norm-icon"></i>
           <h3>Concepto de Rol</h3>
           <span class="norm-arrow">→</span>
         </div>
 
         <div class="norm-item" onclick="showPage('norm-ic')">
-          <svg class="norm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/>
-          </svg>
+          <i class="fa-solid fa-list-check norm-icon"></i>
           <h3>Normativa IC</h3>
           <span class="norm-arrow">→</span>
         </div>
 
         <div class="norm-item" onclick="showPage('norm-construccion')">
-          <svg class="norm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"/>
-          </svg>
+          <i class="fa-solid fa-hammer norm-icon"></i>
           <h3>Construcción</h3>
           <span class="norm-arrow">→</span>
         </div>
 
         <div class="norm-item" onclick="showPage('norm-heridas')">
-          <svg class="norm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M4.5 12.75l6 6 9-13.5"/>
-          </svg>
+          <i class="fa-solid fa-heart-pulse norm-icon"></i>
           <h3>Heridas</h3>
           <span class="norm-arrow">→</span>
         </div>
 
         <div class="norm-item" onclick="showPage('norm-combate')">
-          <svg class="norm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M14.25 9v6m-4.5 0V9M3 12a9 9 0 1118 0 9 9 0 01-18 0z"/>
-          </svg>
+          <i class="fa-solid fa-shield-halved norm-icon"></i>
           <h3>Sistema de Combate</h3>
           <span class="norm-arrow">→</span>
         </div>
 
         <div class="norm-item" onclick="showPage('norm-esclavitud')">
-          <svg class="norm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/>
-          </svg>
+          <i class="fa-solid fa-link-slash norm-icon"></i>
           <h3>Sistemas de Esclavitud</h3>
           <span class="norm-arrow">→</span>
         </div>
 
         <div class="norm-item" onclick="showPage('norm-robo')">
-          <svg class="norm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/>
-          </svg>
+          <i class="fa-solid fa-user-secret norm-icon"></i>
           <h3>Sistemas de Robo</h3>
           <span class="norm-arrow">→</span>
         </div>
 
         <div class="norm-item" onclick="showPage('norm-mazmorra')">
-          <svg class="norm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
-          </svg>
+          <i class="fa-solid fa-dungeon norm-icon"></i>
           <h3>Sistemas de Mazmorra</h3>
           <span class="norm-arrow">→</span>
         </div>
 
         <div class="norm-item" onclick="showPage('norm-housing')">
-          <svg class="norm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
-          </svg>
+          <i class="fa-solid fa-house norm-icon"></i>
           <h3>Sistemas de Housing</h3>
           <span class="norm-arrow">→</span>
         </div>

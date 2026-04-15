@@ -1251,17 +1251,45 @@
     .back-btn:hover { color: var(--gold); }
     .back-btn::before { content: '←'; font-size: 1rem; }
 
-    /* Historia eras */
-    .era-block {
+    /* Historia eras — alternating two-column layout */
+    .historia-eras .era-block:not(:last-child) {
+      padding-bottom: 72px;
+      margin-bottom: 72px;
+      border-bottom: 1px solid var(--border);
+    }
+    .historia-eras .era-block:last-child {
       margin-bottom: 56px;
+    }
+    .era-block {
+      display: grid;
+      grid-template-areas: "text visual";
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .historia-eras .era-block:nth-child(even) {
+      grid-template-areas: "visual text";
+    }
+    .era-text { grid-area: text; }
+    .era-visual { grid-area: visual; }
+    .era-visual img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      filter: saturate(0.72) brightness(0.82);
+      display: block;
     }
     .era-num {
       font-family: 'Cinzel Decorative', serif;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 4px;
+      display: inline-block;
+      border: 1px solid var(--accent);
+      padding: 4px 14px;
+      margin-bottom: 16px;
     }
     .era-block h2 {
       font-family: 'Cinzel', serif;
@@ -1282,6 +1310,12 @@
       background: var(--surface);
       border: 1px solid var(--border);
       overflow: hidden;
+    }
+    .ciudad-card-img {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      filter: saturate(0.6) brightness(0.7);
     }
     .ciudad-card-body {
       padding: 24px;
@@ -1306,36 +1340,63 @@
       line-height: 1.75;
     }
 
-    /* Deidades */
+    /* Deidades — alternating two-column layout */
     .deity-card {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 40px;
+      grid-template-areas: "portrait info";
+      grid-template-columns: 280px 1fr;
+      gap: 48px;
       align-items: start;
-      margin-bottom: 60px;
-      padding-bottom: 60px;
+      margin-bottom: 72px;
+      padding-bottom: 72px;
       border-bottom: 1px solid var(--border);
     }
-    .deity-card:last-child { border-bottom: none; }
+    .deity-card:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .deidades-list .deity-card:nth-child(even) {
+      grid-template-areas: "info portrait";
+      grid-template-columns: 1fr 280px;
+    }
+    .deity-portrait { grid-area: portrait; }
+    .deity-info { grid-area: info; }
     .deity-card img {
       width: 100%;
-      aspect-ratio: 3/4;
+      aspect-ratio: 2/3;
       object-fit: cover;
-      border: 1px solid var(--border);
-      filter: saturate(0.7) brightness(0.85);
+      border: 1px solid var(--gold);
+      filter: saturate(0.72) brightness(0.82);
+      display: block;
     }
     .deity-name {
       font-family: 'Cinzel Decorative', serif;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--gold);
-      margin-bottom: 6px;
+      margin-bottom: 10px;
+      line-height: 1.4;
     }
     .deity-quote {
       font-style: italic;
       color: var(--accent);
-      font-size: 0.95rem;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      border-left: 2px solid var(--accent);
+      padding-left: 14px;
+    }
+    .deity-domains {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       margin-bottom: 20px;
+    }
+    .deity-domain {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 3px 10px;
+      opacity: 0.75;
     }
     .deity-desc {
       font-size: 0.98rem;
@@ -1346,7 +1407,16 @@
     @media (max-width: 768px) {
       .detail-hero-content { padding: 0 20px 40px; }
       .detail-body { padding: 40px 20px 60px; }
-      .deity-card { grid-template-columns: 1fr; }
+      .era-block,
+      .historia-eras .era-block:nth-child(even) {
+        grid-template-areas: "text" "visual";
+        grid-template-columns: 1fr;
+      }
+      .deity-card,
+      .deidades-list .deity-card:nth-child(even) {
+        grid-template-areas: "portrait" "info";
+        grid-template-columns: 1fr;
+      }
       .herida-tier ul { columns: 1; }
     }
   </style>
@@ -2042,65 +2112,90 @@
     <div class="detail-body">
       <span class="back-btn" onclick="showPage('lore')">Volver al Lore</span>
 
-      <div class="era-block">
-        <div class="era-num">I Era</div>
-        <h2>"El Nacimiento de las Civilizaciones"</h2>
-        <div class="detail-text">
-          <p>Eones habían transcurrido desde la creación. En el vasto mundo, los continentes se alzaban separados por océanos inmensos, y en aquellos días remotos solo uno era conocido: Primus. Este extenso territorio fue, en sus albores, el hogar de las primeras tribus: Humanos, Elfos, Shazari, Ossalyth y Enanos.</p>
-          <p>Los Elfos fueron los primeros en erigirse como una gran tribu. Pronto dividieron a su pueblo en castas: los Primales, de sangre pura, tomaron el mando absoluto; los Silvanos se dedicaron a la caza y la exploración; mientras que los Oscuros quedaron relegados a la casta más baja, convertidos en sirvientes y esclavos.</p>
-          <p>Los humanos tardaron en dejar su marca. Algunos relatos cuentan que fueron los últimos en civilizarse, e incluso que durante un tiempo fueron esclavos de los Primales. Con los años se dividieron en pueblos diversos, fundaron aldeas, ciudades y capitales, y fueron los primeros en explorar las tierras desconocidas.</p>
-          <p>Los Shazari, descendientes de los felinos, tejieron lazos comerciales con los clanes Silvanos. Los Ossalyth establecieron aldeas y puertos en las costas, convirtiéndose en enclaves neutrales reconocidos por su sabiduría. Los Enanos construyeron fortalezas inexpugnables y minas colosales en las cumbres del norte.</p>
-          <p>Poco se sabía entonces de los Malvakari y los Thae'Tirs. Sin embargo, todas las tribus recuerdan el día en que el cielo ardió en llamas vivas. Durante siete días y siete noches, el cielo fue un infierno encendido, hasta que aparecieron los Malvakari junto a los Thae'tirs: criaturas extraviadas, desconcertadas, como si no supieran en qué lugar del mundo habían caído.</p>
-        </div>
-        <img class="detail-img" src="https://static.wixstatic.com/media/938f05_82528c51b3f4476799987dbd0f2003a9~mv2.png" alt="I Era" loading="lazy" />
-      </div>
+      <div class="historia-eras">
 
-      <div class="era-block">
-        <div class="era-num">II Era</div>
-        <h2>Las Primeras Guerras</h2>
-        <div class="detail-text">
-          <p>3 siglos después... La segunda era quedó marcada por las primeras guerras. Lo que antes fueron alianzas débiles entre tribus comenzó a resquebrajarse. Los Elfos Primales, viendo crecer a los Humanos y Shazari, decidieron imponer su supremacía mediante la fuerza.</p>
-          <p>Los Shazari demostraron ser formidables combatientes. Los humanos sorprendieron por su capacidad de innovación: inventaron nuevas armas y lo que parecían fortificaciones móviles. Fue durante esta era que los primeros mestizos surgieron, rechazados por ambos bandos.</p>
-          <p>Los Malvakari junto a los Thaetirs comenzaron a organizarse. Aunque nadie sabía exactamente de dónde venían, su dominio sobre el Thae los convertía en piezas codiciadas para cualquier ejército. Sin embargo, los Malvakari preferían mantenerse como mercenarios, ofreciendo sus servicios al mejor postor.</p>
+        <div class="era-block">
+          <div class="era-text">
+            <div class="era-num">I Era</div>
+            <h2>"El Nacimiento de las Civilizaciones"</h2>
+            <div class="detail-text">
+              <p>Eones habían transcurrido desde la creación. En el vasto mundo, los continentes se alzaban separados por océanos inmensos, y en aquellos días remotos solo uno era conocido: Primus. Este extenso territorio fue, en sus albores, el hogar de las primeras tribus: Humanos, Elfos, Shazari, Ossalyth y Enanos.</p>
+              <p>Los Elfos fueron los primeros en erigirse como una gran tribu. Pronto dividieron a su pueblo en castas: los Primales, de sangre pura, tomaron el mando absoluto; los Silvanos se dedicaron a la caza y la exploración; mientras que los Oscuros quedaron relegados a la casta más baja, convertidos en sirvientes y esclavos.</p>
+              <p>Los humanos tardaron en dejar su marca. Algunos relatos cuentan que fueron los últimos en civilizarse, e incluso que durante un tiempo fueron esclavos de los Primales. Con los años se dividieron en pueblos diversos, fundaron aldeas, ciudades y capitales, y fueron los primeros en explorar las tierras desconocidas.</p>
+              <p>Los Shazari, descendientes de los felinos, tejieron lazos comerciales con los clanes Silvanos. Los Ossalyth establecieron aldeas y puertos en las costas, convirtiéndose en enclaves neutrales reconocidos por su sabiduría. Los Enanos construyeron fortalezas inexpugnables y minas colosales en las cumbres del norte.</p>
+              <p>Poco se sabía entonces de los Malvakari y los Thae'Tirs. Sin embargo, todas las tribus recuerdan el día en que el cielo ardió en llamas vivas. Durante siete días y siete noches, el cielo fue un infierno encendido, hasta que aparecieron los Malvakari junto a los Thae'tirs: criaturas extraviadas, desconcertadas, como si no supieran en qué lugar del mundo habían caído.</p>
+            </div>
+          </div>
+          <div class="era-visual">
+            <img src="https://static.wixstatic.com/media/938f05_82528c51b3f4476799987dbd0f2003a9~mv2.png" alt="I Era — El Nacimiento de las Civilizaciones" loading="lazy" />
+          </div>
         </div>
-        <img class="detail-img" src="https://static.wixstatic.com/media/938f05_d8a4840d292e405a9412b588b94968d4~mv2.png" alt="II Era" loading="lazy" />
-      </div>
 
-      <div class="era-block">
-        <div class="era-num">III Era</div>
-        <h2>La Gran Guerra de Civilizaciones</h2>
-        <div class="detail-text">
-          <p>2 siglos después... La tercera era estalló con una gran guerra, ya no entre tribus, sino entre civilizaciones. Los Elfos Primales convocaron a todas sus fuerzas, incluso a los Oscuros, a quienes prometieron libertad a cambio de lealtad. Sin embargo, los Oscuros tenían sus propios planes.</p>
-          <p>Los humanos formaron un gran pacto con los enanos del norte y los Shazari, creando una coalición sin precedentes. Los Ossalyth lanzaron ofensivas navales que incendiaron puertos y devastaron las costas. Los Malvakari jugaron un papel oscuro: algunos se aliaron a los rebeldes, otros vendieron su poder a los elfos.</p>
-          <p>Al final de esta era, no hubo vencedores claros, solo sobrevivientes.</p>
+        <div class="era-block">
+          <div class="era-text">
+            <div class="era-num">II Era</div>
+            <h2>Las Primeras Guerras</h2>
+            <div class="detail-text">
+              <p>3 siglos después... La segunda era quedó marcada por las primeras guerras. Lo que antes fueron alianzas débiles entre tribus comenzó a resquebrajarse. Los Elfos Primales, viendo crecer a los Humanos y Shazari, decidieron imponer su supremacía mediante la fuerza.</p>
+              <p>Los Shazari demostraron ser formidables combatientes. Los humanos sorprendieron por su capacidad de innovación: inventaron nuevas armas y lo que parecían fortificaciones móviles. Fue durante esta era que los primeros mestizos surgieron, rechazados por ambos bandos.</p>
+              <p>Los Malvakari junto a los Thaetirs comenzaron a organizarse. Aunque nadie sabía exactamente de dónde venían, su dominio sobre el Thae los convertía en piezas codiciadas para cualquier ejército. Sin embargo, los Malvakari preferían mantenerse como mercenarios, ofreciendo sus servicios al mejor postor.</p>
+            </div>
+          </div>
+          <div class="era-visual">
+            <img src="https://static.wixstatic.com/media/938f05_d8a4840d292e405a9412b588b94968d4~mv2.png" alt="II Era — Las Primeras Guerras" loading="lazy" />
+          </div>
         </div>
-        <img class="detail-img" src="https://static.wixstatic.com/media/938f05_4c965443699c48d7879df5e0f2c047f4~mv2.png" alt="III Era" loading="lazy" />
-      </div>
 
-      <div class="era-block">
-        <div class="era-num">IV Era</div>
-        <h2>La Era de los Reinos Fracturados</h2>
-        <div class="detail-text">
-          <p>Tras generaciones de guerra, las tierras estaban divididas en cientos de pequeños feudos, ciudades amuralladas y fortalezas aisladas. El Thae había dejado cicatrices imborrables en la tierra: zonas de energía corrupta, bestias deformadas, regiones donde las estaciones no siguen su curso natural.</p>
-          <p>En medio del caos, surgieron figuras legendarias. Entre los elfos, la Casa Blackwood empezó a destacarse por su habilidad para unir facciones enemigas. Los Shazari prosperaron como comerciantes, mercenarios y espías. Los Malvakari comenzaron a establecer sus propios enclaves.</p>
+        <div class="era-block">
+          <div class="era-text">
+            <div class="era-num">III Era</div>
+            <h2>La Gran Guerra de Civilizaciones</h2>
+            <div class="detail-text">
+              <p>2 siglos después... La tercera era estalló con una gran guerra, ya no entre tribus, sino entre civilizaciones. Los Elfos Primales convocaron a todas sus fuerzas, incluso a los Oscuros, a quienes prometieron libertad a cambio de lealtad. Sin embargo, los Oscuros tenían sus propios planes.</p>
+              <p>Los humanos formaron un gran pacto con los enanos del norte y los Shazari, creando una coalición sin precedentes. Los Ossalyth lanzaron ofensivas navales que incendiaron puertos y devastaron las costas. Los Malvakari jugaron un papel oscuro: algunos se aliaron a los rebeldes, otros vendieron su poder a los elfos.</p>
+              <p>Al final de esta era, no hubo vencedores claros, solo sobrevivientes.</p>
+            </div>
+          </div>
+          <div class="era-visual">
+            <img src="https://static.wixstatic.com/media/938f05_4c965443699c48d7879df5e0f2c047f4~mv2.png" alt="III Era — La Gran Guerra de Civilizaciones" loading="lazy" />
+          </div>
         </div>
-        <img class="detail-img" src="https://static.wixstatic.com/media/938f05_6fcb70fda3f4406c9bacac8b2e6d8048~mv2.png" alt="IV Era" loading="lazy" />
-      </div>
 
-      <div class="era-block">
-        <div class="era-num">V Era</div>
-        <h2>La Era de las Unificaciones</h2>
-        <div class="detail-text">
-          <p>2 siglos después... La quinta era fue llamada la Era de las Unificaciones. Los siglos de conflicto habían agotado a todos, y las grandes casas comenzaron a buscar algo que antes parecía imposible: la paz. Bajo el liderazgo de los elfos Primales de la Casa Blackwood, se firmaron los primeros tratados de unión.</p>
-          <p>Así nacieron tres grandes ciudades: <strong>Raventree Hall</strong>, construida en la Isla de Mármol como capital del nuevo orden; <strong>Ravensvik</strong>, en las heladas tierras del norte; y <strong>Ash'Torin</strong>, en el sur, un crisol de culturas.</p>
+        <div class="era-block">
+          <div class="era-text">
+            <div class="era-num">IV Era</div>
+            <h2>La Era de los Reinos Fracturados</h2>
+            <div class="detail-text">
+              <p>Tras generaciones de guerra, las tierras estaban divididas en cientos de pequeños feudos, ciudades amuralladas y fortalezas aisladas. El Thae había dejado cicatrices imborrables en la tierra: zonas de energía corrupta, bestias deformadas, regiones donde las estaciones no siguen su curso natural.</p>
+              <p>En medio del caos, surgieron figuras legendarias. Entre los elfos, la Casa Blackwood empezó a destacarse por su habilidad para unir facciones enemigas. Los Shazari prosperaron como comerciantes, mercenarios y espías. Los Malvakari comenzaron a establecer sus propios enclaves.</p>
+            </div>
+          </div>
+          <div class="era-visual">
+            <img src="https://static.wixstatic.com/media/938f05_6fcb70fda3f4406c9bacac8b2e6d8048~mv2.png" alt="IV Era — La Era de los Reinos Fracturados" loading="lazy" />
+          </div>
         </div>
-        <img class="detail-img" src="https://static.wixstatic.com/media/938f05_156a74c1aa9a4b06b6a5da69a955e632~mv2.png" alt="V Era" loading="lazy" />
-      </div>
+
+        <div class="era-block">
+          <div class="era-text">
+            <div class="era-num">V Era</div>
+            <h2>La Era de las Unificaciones</h2>
+            <div class="detail-text">
+              <p>2 siglos después... La quinta era fue llamada la Era de las Unificaciones. Los siglos de conflicto habían agotado a todos, y las grandes casas comenzaron a buscar algo que antes parecía imposible: la paz. Bajo el liderazgo de los elfos Primales de la Casa Blackwood, se firmaron los primeros tratados de unión.</p>
+              <p>Así nacieron tres grandes ciudades: <strong>Raventree Hall</strong>, construida en la Isla de Mármol como capital del nuevo orden; <strong>Ravensvik</strong>, en las heladas tierras del norte; y <strong>Ash'Torin</strong>, en el sur, un crisol de culturas.</p>
+            </div>
+          </div>
+          <div class="era-visual">
+            <img src="https://static.wixstatic.com/media/938f05_156a74c1aa9a4b06b6a5da69a955e632~mv2.png" alt="V Era — La Era de las Unificaciones" loading="lazy" />
+          </div>
+        </div>
+
+      </div><!-- /historia-eras -->
 
       <h2 class="section-title" style="text-align:left;margin-bottom:8px;">Explora las Ciudades</h2>
       <div class="section-underline" style="margin:0 0 32px;"></div>
       <div class="ciudad-grid">
         <div class="ciudad-card">
+          <div class="ciudad-card-img" style="background-image:url('https://static.wixstatic.com/media/938f05_82528c51b3f4476799987dbd0f2003a9~mv2.png')"></div>
           <div class="ciudad-card-body">
             <h3>Raventree Hall</h3>
             <span class="ciudad-tag">La Corona del Cuervo – Capital del nuevo orden</span>
@@ -2108,6 +2203,7 @@
           </div>
         </div>
         <div class="ciudad-card">
+          <div class="ciudad-card-img" style="background-image:url('https://static.wixstatic.com/media/938f05_4c965443699c48d7879df5e0f2c047f4~mv2.png')"></div>
           <div class="ciudad-card-body">
             <h3>Ash'Torin</h3>
             <span class="ciudad-tag">El Enclave del Silencio Ardiente – Último bastión del sur</span>
@@ -2115,6 +2211,7 @@
           </div>
         </div>
         <div class="ciudad-card">
+          <div class="ciudad-card-img" style="background-image:url('https://static.wixstatic.com/media/938f05_d8a4840d292e405a9412b588b94968d4~mv2.png')"></div>
           <div class="ciudad-card-body">
             <h3>Ravensvik</h3>
             <span class="ciudad-tag">La Última Frontera – Provincia suspendida entre los riscos del norte</span>
@@ -2157,41 +2254,73 @@
     <div class="detail-body">
       <span class="back-btn" onclick="showPage('lore')">Volver al Lore</span>
 
-      <div class="deity-card">
-        <img src="https://static.wixstatic.com/media/938f05_729c6d8a00ca48549257b2c08439f9f4~mv2.png" alt="Eselia" loading="lazy" />
-        <div>
-          <div class="deity-name">ESELIA, LA LLAMA QUE GUÍA</div>
-          <div class="deity-quote">"No es el fuego lo que quema… es la luz lo que revela."</div>
-          <p class="deity-desc">Eselia es una deidad de la luz pura, la revelación interior y la sabiduría silenciosa, representada como una figura femenina etérea de ojos dorados, cuyo resplandor guía sin imponer. No busca adoración, sino despertar, y su culto se basa en la introspección, la compasión y el orden. Sus símbolos, como un sol con un ojo central o una vela sobre un lago, evocan su esencia serena. Se manifiesta en presencias sutiles: una niebla dorada, un rayo de sol, una voz en sueños. Sus fieles practican actos de bondad anónimos. Según el mito fundacional, fue ella quien inspiró a Tempus en una cueva durante una tormenta.</p>
-        </div>
-      </div>
+      <div class="deidades-list">
 
-      <div class="deity-card">
-        <img src="https://static.wixstatic.com/media/938f05_efb15aea444a4f94939937a6185e6d37~mv2.png" alt="Nazhur" loading="lazy" />
-        <div>
-          <div class="deity-name">NAZHUR, EL QUE DESPIERTA EN LAS MAREAS</div>
-          <div class="deity-quote">"Las arenas lo olvidaron. El mar jamás."</div>
-          <p class="deity-desc">Nazhur es una deidad del mar profundo, los secretos sumergidos y las tormentas del sur. Representa el ciclo de abundancia y pérdida. Su figura colosal de piel azul verdosa, ojos morados brillantes y túnicas que fluyen como corrientes inspira tanto temor como reverencia. Sus fieles, los Hijos del Oasis Hundido, practican rituales de inmersión nocturna en busca de visiones. Se dice que el agua en movimiento es bendita, mientras que el agua estancada es una ofensa. Según un antiguo mito, cuando el Primer Imperio intentó someter el mar, Nazhur desató una ola negra que arrasó cinco ciudades costeras.</p>
+        <div class="deity-card">
+          <div class="deity-portrait">
+            <img src="https://static.wixstatic.com/media/938f05_729c6d8a00ca48549257b2c08439f9f4~mv2.png" alt="Eselia" loading="lazy" />
+          </div>
+          <div class="deity-info">
+            <div class="deity-name">ESELIA, LA LLAMA QUE GUÍA</div>
+            <div class="deity-quote">"No es el fuego lo que quema… es la luz lo que revela."</div>
+            <div class="deity-domains">
+              <span class="deity-domain">Luz</span>
+              <span class="deity-domain">Sabiduría</span>
+              <span class="deity-domain">Orden</span>
+            </div>
+            <p class="deity-desc">Eselia es una deidad de la luz pura, la revelación interior y la sabiduría silenciosa, representada como una figura femenina etérea de ojos dorados, cuyo resplandor guía sin imponer. No busca adoración, sino despertar, y su culto se basa en la introspección, la compasión y el orden. Sus símbolos, como un sol con un ojo central o una vela sobre un lago, evocan su esencia serena. Se manifiesta en presencias sutiles: una niebla dorada, un rayo de sol, una voz en sueños. Sus fieles practican actos de bondad anónimos. Según el mito fundacional, fue ella quien inspiró a Tempus en una cueva durante una tormenta.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="deity-card">
-        <img src="https://static.wixstatic.com/media/938f05_92a7cc5c5d0c453ca20e9a5449b24d2f~mv2.png" alt="Vorgrimm" loading="lazy" />
-        <div>
-          <div class="deity-name">VORGRIMM, EL HERMANO DE LA TORMENTA</div>
-          <div class="deity-quote">"Cuando los cuervos se agolpan sobre los campos de batalla y el trueno ruge sin lluvia, Vorgrimm ha despertado."</div>
-          <p class="deity-desc">Vorgrimm es una deidad ancestral venerada y temida en las frías tierras del Norte, donde representa tanto el fin como el renacimiento. Su figura es la de un coloso cubierto de pieles y huesos, con cuernos de alce, una máscara de hielo negro y relámpagos azules por venas. Sus símbolos —una espiral rota con un ojo sangrante— se graban en huesos o escudos. Sus seguidores realizan rituales que incluyen sacrificios, rupturas de juramentos y guerras tribales. Vorgrimm se manifiesta como un gigante furioso, un anciano intrigante o una aurora boreal sangrante.</p>
+        <div class="deity-card">
+          <div class="deity-portrait">
+            <img src="https://static.wixstatic.com/media/938f05_efb15aea444a4f94939937a6185e6d37~mv2.png" alt="Nazhur" loading="lazy" />
+          </div>
+          <div class="deity-info">
+            <div class="deity-name">NAZHUR, EL QUE DESPIERTA EN LAS MAREAS</div>
+            <div class="deity-quote">"Las arenas lo olvidaron. El mar jamás."</div>
+            <div class="deity-domains">
+              <span class="deity-domain">Mar</span>
+              <span class="deity-domain">Secretos</span>
+              <span class="deity-domain">Tormenta</span>
+            </div>
+            <p class="deity-desc">Nazhur es una deidad del mar profundo, los secretos sumergidos y las tormentas del sur. Representa el ciclo de abundancia y pérdida. Su figura colosal de piel azul verdosa, ojos morados brillantes y túnicas que fluyen como corrientes inspira tanto temor como reverencia. Sus fieles, los Hijos del Oasis Hundido, practican rituales de inmersión nocturna en busca de visiones. Se dice que el agua en movimiento es bendita, mientras que el agua estancada es una ofensa. Según un antiguo mito, cuando el Primer Imperio intentó someter el mar, Nazhur desató una ola negra que arrasó cinco ciudades costeras.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="deity-card">
-        <img src="https://static.wixstatic.com/media/938f05_82528c51b3f4476799987dbd0f2003a9~mv2.png" alt="Zenhra" loading="lazy" />
-        <div>
-          <div class="deity-name">ZENHRA, LA SEMILLA DEL MUNDO</div>
-          <div class="deity-quote">"Donde mis pies toquen, el olvido florecerá."</div>
-          <p class="deity-desc">Zenhra es la diosa de la naturaleza, la fertilidad y la libertad. Se manifiesta como una mujer de piel terrosa, con cabello de raíces y musgo en los brazos, aunque también adopta formas animales o vegetales. No tiene templos ni tronos: es un santuario viviente. Sus seguidores, sabios nómadas, creen que la vida no debe encerrarse ni regularse, y que todo nacimiento lleva en sí la semilla de la muerte y el renacimiento. Zenhra no habla con palabras: su presencia se siente en el brote tras un incendio o el rugido protector de una madre salvaje.</p>
+        <div class="deity-card">
+          <div class="deity-portrait">
+            <img src="https://static.wixstatic.com/media/938f05_92a7cc5c5d0c453ca20e9a5449b24d2f~mv2.png" alt="Vorgrimm" loading="lazy" />
+          </div>
+          <div class="deity-info">
+            <div class="deity-name">VORGRIMM, EL HERMANO DE LA TORMENTA</div>
+            <div class="deity-quote">"Cuando los cuervos se agolpan sobre los campos de batalla y el trueno ruge sin lluvia, Vorgrimm ha despertado."</div>
+            <div class="deity-domains">
+              <span class="deity-domain">Fin</span>
+              <span class="deity-domain">Renacimiento</span>
+              <span class="deity-domain">Guerra</span>
+            </div>
+            <p class="deity-desc">Vorgrimm es una deidad ancestral venerada y temida en las frías tierras del Norte, donde representa tanto el fin como el renacimiento. Su figura es la de un coloso cubierto de pieles y huesos, con cuernos de alce, una máscara de hielo negro y relámpagos azules por venas. Sus símbolos —una espiral rota con un ojo sangrante— se graban en huesos o escudos. Sus seguidores realizan rituales que incluyen sacrificios, rupturas de juramentos y guerras tribales. Vorgrimm se manifiesta como un gigante furioso, un anciano intrigante o una aurora boreal sangrante.</p>
+          </div>
         </div>
-      </div>
+
+        <div class="deity-card">
+          <div class="deity-portrait">
+            <img src="https://static.wixstatic.com/media/938f05_82528c51b3f4476799987dbd0f2003a9~mv2.png" alt="Zenhra" loading="lazy" />
+          </div>
+          <div class="deity-info">
+            <div class="deity-name">ZENHRA, LA SEMILLA DEL MUNDO</div>
+            <div class="deity-quote">"Donde mis pies toquen, el olvido florecerá."</div>
+            <div class="deity-domains">
+              <span class="deity-domain">Naturaleza</span>
+              <span class="deity-domain">Fertilidad</span>
+              <span class="deity-domain">Libertad</span>
+            </div>
+            <p class="deity-desc">Zenhra es la diosa de la naturaleza, la fertilidad y la libertad. Se manifiesta como una mujer de piel terrosa, con cabello de raíces y musgo en los brazos, aunque también adopta formas animales o vegetales. No tiene templos ni tronos: es un santuario viviente. Sus seguidores, sabios nómadas, creen que la vida no debe encerrarse ni regularse, y que todo nacimiento lleva en sí la semilla de la muerte y el renacimiento. Zenhra no habla con palabras: su presencia se siente en el brote tras un incendio o el rugido protector de una madre salvaje.</p>
+          </div>
+        </div>
+
+      </div><!-- /deidades-list -->
     </div>
     <footer>
       <img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy" />

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -945,44 +945,153 @@
       color: var(--gold);
     }
 
-    /* Tiers (oficios) */
-    .tier-grid {
+    /* ── Oficio Portrait Layout ──────────────────────────────── */
+    .oficio-intro {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
-      margin: 32px 0;
+      grid-template-columns: 1fr 260px;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 40px;
     }
-    .tier-card {
+    .oficio-intro .detail-quote { margin: 0; }
+    .oficio-portrait {
+      width: 260px;
+      height: 340px;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--gold);
+      border-radius: 6px;
+      box-shadow: 0 0 40px rgba(201,168,76,0.18), 0 8px 32px rgba(0,0,0,0.6);
+      display: block;
+      flex-shrink: 0;
+    }
+    @media (max-width: 700px) {
+      .oficio-intro {
+        grid-template-columns: 1fr;
+      }
+      .oficio-portrait {
+        width: 100%;
+        height: 220px;
+        object-position: center 20%;
+      }
+    }
+
+    /* ── Tier Tab System ─────────────────────────────────────── */
+    .oficio-tiers { margin: 40px 0; }
+    .tier-tabs {
+      display: flex;
+      border-bottom: 2px solid var(--border);
+      gap: 4px;
+    }
+    .tier-tab {
+      flex: 1;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-top: 2px solid var(--accent);
-      padding: 24px;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      padding: 20px 16px 16px;
+      cursor: pointer;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      border-radius: 4px 4px 0 0;
+      transition: background 0.2s, border-color 0.2s;
     }
-    .tier-card h4 {
+    .tier-tab:hover { background: rgba(201,168,76,0.06); }
+    .tier-tab.active {
+      border-bottom-color: var(--gold);
+      background: rgba(201,168,76,0.07);
+    }
+    .tier-num {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.5rem;
+      color: #555;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .tier-tab.active .tier-num,
+    .tier-tab:hover .tier-num { color: var(--gold); }
+    .tier-tab-name {
       font-family: 'Cinzel', serif;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.18em;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      color: #555;
+      transition: color 0.2s;
     }
-    .tier-card h5 {
+    .tier-tab.active .tier-tab-name,
+    .tier-tab:hover .tier-tab-name { color: var(--gold); }
+    .tier-panel {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: none;
+      padding: 36px;
+    }
+    .tier-panel.active {
+      display: block;
+      animation: tierIn 0.22s ease;
+    }
+    @keyframes tierIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .tier-panel-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .tier-badge {
       font-family: 'Cinzel', serif;
-      font-size: 0.9rem;
-      color: var(--gold);
-      margin-bottom: 12px;
+      font-size: 0.63rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+      white-space: nowrap;
     }
-    .tier-card p, .tier-card li {
+    .tier-badge.t1 { background: rgba(80,80,80,0.2);  color: #888;          border: 1px solid #3a3a3a; }
+    .tier-badge.t2 { background: rgba(201,168,76,0.12); color: var(--gold);   border: 1px solid rgba(201,168,76,0.35); }
+    .tier-badge.t3 { background: rgba(176,16,16,0.12);  color: var(--accent); border: 1px solid rgba(176,16,16,0.35); }
+    .tier-panel h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      color: #f0e8d5;
+      margin: 0;
+    }
+    .tier-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+    .tier-perks {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .tier-perks li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
       font-size: 0.9rem;
       color: var(--text-muted);
-      line-height: 1.75;
+      line-height: 1.5;
     }
-    .tier-card ul {
-      padding-left: 16px;
-    }
-    .tier-card li {
-      margin-bottom: 5px;
+    .tier-perks li::before {
+      content: '◆';
+      color: var(--gold);
+      font-size: 0.5rem;
+      margin-top: 5px;
+      flex-shrink: 0;
     }
 
     /* Normativa lists */
@@ -2232,31 +2341,62 @@
     </div>
     <div class="detail-body">
       <span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span>
-      <blockquote class="detail-quote">"Versado en los misterios del cuerpo y del alma, el galeno es un sanador que combina el saber de la medicina natural, lo espiritual y, en muchos casos, la magia. Ya sea en aldeas humildes o cortes reales, cumple el rol de curandero, herbolario y consejero, aplicando sus conocimientos para aliviar dolores, purificar maldiciones o guiar en tiempos de crisis."</blockquote>
-      <div class="tier-grid">
-        <div class="tier-card">
-          <h4>Tier 1</h4>
-          <h5>Galeno Iniciado</h5>
-          <p>Los galenos novatos son capaces de limpiar y curar heridas leves, como arañazos, magulladuras y algunos cortes más profundos. Con esfuerzo puede hacer suturas burdas que cumplen su función. Tienen leves conocimientos sobre efectos de venenos.</p>
-          <ul><li>Sueldo Semanal</li><li>Bonificación de dados +3 Medicina</li></ul>
+      <div class="oficio-intro">
+        <blockquote class="detail-quote">"Versado en los misterios del cuerpo y del alma, el galeno es un sanador que combina el saber de la medicina natural, lo espiritual y, en muchos casos, la magia. Ya sea en aldeas humildes o cortes reales, cumple el rol de curandero, herbolario y consejero, aplicando sus conocimientos para aliviar dolores, purificar maldiciones o guiar en tiempos de crisis."</blockquote>
+        <img class="oficio-portrait" src="https://static.wixstatic.com/media/938f05_4cc087c79ab444d982585329f1a7f390~mv2.png" alt="Galeno" loading="lazy"/>
+      </div>
+      <div class="oficio-tiers">
+        <div class="tier-tabs">
+          <button class="tier-tab active" onclick="showTier(this,'galeno-t1')">
+            <span class="tier-num">I</span>
+            <span class="tier-tab-name">Iniciado</span>
+          </button>
+          <button class="tier-tab" onclick="showTier(this,'galeno-t2')">
+            <span class="tier-num">II</span>
+            <span class="tier-tab-name">Experto</span>
+          </button>
+          <button class="tier-tab" onclick="showTier(this,'galeno-t3')">
+            <span class="tier-num">III</span>
+            <span class="tier-tab-name">Maestro</span>
+          </button>
         </div>
-        <div class="tier-card">
-          <h4>Tier 2</h4>
-          <h5>Galeno Avanzado</h5>
-          <p>Con más experiencia, puede tratar heridas medias y fracturas. Sus conocimientos de herboristería y alquimia básica le permiten elaborar antídotos y ungüentos curativos.</p>
-          <ul><li>Sueldo Semanal mayor</li><li>Bonificación de dados +5 Medicina</li></ul>
+        <div class="tier-panel active" id="galeno-t1">
+          <div class="tier-panel-top">
+            <span class="tier-badge t1">Tier I</span>
+            <h3>Galeno Iniciado</h3>
+          </div>
+          <p class="tier-desc">Los galenos novatos acaban de empezar a recorrer el camino de la sanación. Son capaces de limpiar y curar heridas leves, como arañazos, magulladuras y algunos cortes algo más profundos. Con un poco de esfuerzo pueden hacer suturas burdas que cumplen con su función. Tienen leves conocimientos sobre los efectos de algunos venenos y sus antídotos, por lo que suelen acudir a los alquimistas más experimentados. También tienen conocimiento sobre vendajes y primeros auxilios.</p>
+          <ul class="tier-perks">
+            <li>Sueldo Semanal</li>
+            <li>Bonificación de dados +3 Medicina</li>
+          </ul>
         </div>
-        <div class="tier-card">
-          <h4>Tier 3</h4>
-          <h5>Maestro Galeno</h5>
-          <p>Los maestros galenos pueden tratar heridas graves, órganos comprometidos y envenenamientos críticos. Su reputación les abre puertas en cortes y gobiernos.</p>
-          <ul><li>Sueldo Semanal premium</li><li>Bonificación de dados +8 Medicina</li></ul>
+        <div class="tier-panel" id="galeno-t2">
+          <div class="tier-panel-top">
+            <span class="tier-badge t2">Tier II</span>
+            <h3>Galeno Experto</h3>
+          </div>
+          <p class="tier-desc">Con experiencia acumulada, puede tratar heridas medias, fracturas simples y dislocaciones. Sus conocimientos de herboristería y alquimia básica le permiten elaborar antídotos y ungüentos curativos. Puede asistir en intervenciones quirúrgicas menores y colaborar con otros galenos en casos difíciles.</p>
+          <ul class="tier-perks">
+            <li>Sueldo Semanal</li>
+            <li>Bonificación de dados +5 Medicina</li>
+          </ul>
+        </div>
+        <div class="tier-panel" id="galeno-t3">
+          <div class="tier-panel-top">
+            <span class="tier-badge t3">Tier III</span>
+            <h3>Maestro Galeno</h3>
+          </div>
+          <p class="tier-desc">Los maestros galenos pueden tratar heridas graves, órganos comprometidos y envenenamientos críticos. Pueden estabilizar personajes en estado de Heridas Tier 4. Su reputación les abre puertas en cortes, gobiernos y órdenes religiosas, siendo considerados pilares de cualquier comunidad.</p>
+          <ul class="tier-perks">
+            <li>Sueldo Semanal</li>
+            <li>Bonificación de dados +8 Medicina</li>
+            <li>Capacidad de reanimar personajes en Heridas Tier 4</li>
+          </ul>
         </div>
       </div>
     </div>
-    <footer>
-      <img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy" /><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div>
-    </footer>
+    <footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer>
   </div>
 
   <!-- HERRERO -->
@@ -2272,51 +2412,369 @@
     </div>
     <div class="detail-body">
       <span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span>
-      <blockquote class="detail-quote">"La herrería es el arte de moldear el metal desde la mena extraída de la mina, hasta el lingote transportado a las fraguas, llegando a la forja de armas, armaduras, herraduras y un sinfín de utensilios. Aquellos que ejercen la herrería nunca tienen falta de trabajo: a ellos acuden tanto soldados como campesinos, tanto artistas como sanadores."</blockquote>
-      <div class="tier-grid">
-        <div class="tier-card">
-          <h4>Tier 1</h4>
-          <h5>Herrero Iniciado</h5>
-          <p>La herrería es un camino que al comienzo puede ser difícil y frustrante. Todos parten desde el mismo mineral: el Kronyxium.</p>
-          <ul><li>Dote para armas y herramientas de Eldario</li><li>Dote Beyond Forge T3</li><li>Receta redux T1</li><li>Beneficios dados: +3 Herrería</li></ul>
+      <div class="oficio-intro">
+        <blockquote class="detail-quote">"La herrería es el arte de moldear el metal desde la mena extraída de la mina, hasta el lingote transportado a las fraguas, llegando a la forja de armas, armaduras, herraduras y un sinfín de utensilios. Aquellos que ejercen la herrería nunca tienen falta de trabajo: a ellos acuden tanto soldados como campesinos, tanto artistas como sanadores."</blockquote>
+        <img class="oficio-portrait" src="https://static.wixstatic.com/media/938f05_afa7e9a9d31c47458606affce75fe192~mv2.png" alt="Herrero" loading="lazy"/>
+      </div>
+      <div class="oficio-tiers">
+        <div class="tier-tabs">
+          <button class="tier-tab active" onclick="showTier(this,'herrero-t1')">
+            <span class="tier-num">I</span>
+            <span class="tier-tab-name">Iniciado</span>
+          </button>
+          <button class="tier-tab" onclick="showTier(this,'herrero-t2')">
+            <span class="tier-num">II</span>
+            <span class="tier-tab-name">Experto</span>
+          </button>
+          <button class="tier-tab" onclick="showTier(this,'herrero-t3')">
+            <span class="tier-num">III</span>
+            <span class="tier-tab-name">Maestro</span>
+          </button>
         </div>
-        <div class="tier-card">
-          <h4>Tier 2</h4>
-          <h5>Herrero Experto</h5>
-          <p>Con dominio del metal y las técnicas de templado, puede forjar armas de mayor calidad y armaduras especializadas.</p>
-          <ul><li>Recetas avanzadas desbloqueadas</li><li>Beneficios dados: +5 Herrería</li></ul>
+        <div class="tier-panel active" id="herrero-t1">
+          <div class="tier-panel-top">
+            <span class="tier-badge t1">Tier I</span>
+            <h3>Herrero Iniciado</h3>
+          </div>
+          <p class="tier-desc">A lo igual que los otros oficios, la herrería es un camino que al comienzo puede ser difícil, agotador e incluso frustrante, ya que el mínimo fallo en la fuerza a la hora de martillar y moldear, en el tiempo que expones la barra al fuego o el golpe al cambio de temperatura puede hacerte fallar. Quizás encuentres distintos maestros herreros y cada uno tenga una forma especial a la hora de enseñarte, pero todos parten desde el mismo mineral: el Kronyxium.</p>
+          <ul class="tier-perks">
+            <li>Dote para armas y herramientas de Eldario</li>
+            <li>Dote Beyond Forge T3</li>
+            <li>Receta redux T1</li>
+            <li>Beneficios dados: +3 Herrería</li>
+          </ul>
         </div>
-        <div class="tier-card">
-          <h4>Tier 3</h4>
-          <h5>Maestro Herrero</h5>
-          <p>Los maestros herreros son capaces de crear equipamiento legendario. Sus obras son codiciadas por reyes y héroes por igual.</p>
-          <ul><li>Todas las recetas desbloqueadas</li><li>Beneficios dados: +8 Herrería</li></ul>
+        <div class="tier-panel" id="herrero-t2">
+          <div class="tier-panel-top">
+            <span class="tier-badge t2">Tier II</span>
+            <h3>Herrero Experto</h3>
+          </div>
+          <p class="tier-desc">Con dominio de las aleaciones y las técnicas avanzadas de templado, puede forjar armas de mayor calidad, armaduras especializadas y herramientas de precisión. Sus piezas empiezan a contar con propiedades únicas nacidas de la técnica perfeccionada. Los clientes vienen desde lejos buscando su trabajo.</p>
+          <ul class="tier-perks">
+            <li>Recetas avanzadas desbloqueadas</li>
+            <li>Beneficios dados: +5 Herrería</li>
+          </ul>
+        </div>
+        <div class="tier-panel" id="herrero-t3">
+          <div class="tier-panel-top">
+            <span class="tier-badge t3">Tier III</span>
+            <h3>Maestro Herrero</h3>
+          </div>
+          <p class="tier-desc">Los maestros herreros son capaces de crear equipamiento legendario cuya calidad va más allá de lo puramente funcional. Sus obras son codiciadas por reyes, comandantes y héroes por igual. Un arma forjada por su mano es un símbolo de prestigio y poder que trasciende generaciones.</p>
+          <ul class="tier-perks">
+            <li>Todas las recetas desbloqueadas</li>
+            <li>Beneficios dados: +8 Herrería</li>
+          </ul>
         </div>
       </div>
     </div>
-    <footer>
-      <img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy" /><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div>
-    </footer>
+    <footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer>
   </div>
 
-  <!-- OFICIOS STUB TEMPLATE (Minero, Tabernero, Joyero, Artesano, Granjero, Guardia, Alquimia, Sastre, Cazador) -->
-  <div class="page" id="page-oficio-minero"><div class="detail-hero"><div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_450b19490e31426681072153e346a447~mv2.png')"></div><div class="detail-hero-overlay"></div><div class="detail-hero-content"><div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Minero</span></div><h1>Minero</h1><span class="detail-tag">Dado: Fuerza</span></div></div><div class="detail-body"><span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span><blockquote class="detail-quote">"El minero extrae de las entrañas del mundo los recursos que hacen posible toda civilización. Sin su trabajo incansable, la herrería, la construcción y el comercio serían imposibles."</blockquote><div class="tier-grid"><div class="tier-card"><h4>Tier 1</h4><h5>Minero Iniciado</h5><ul><li>Acceso a venas de mineral básico</li><li>+3 Minería</li></ul></div><div class="tier-card"><h4>Tier 2</h4><h5>Minero Experto</h5><ul><li>Acceso a minerales raros</li><li>+5 Minería</li></ul></div><div class="tier-card"><h4>Tier 3</h4><h5>Maestro Minero</h5><ul><li>Acceso a minerales legendarios</li><li>+8 Minería</li></ul></div></div></div><footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer></div>
+  <!-- MINERO -->
+  <div class="page" id="page-oficio-minero">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_450b19490e31426681072153e346a447~mv2.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Minero</span></div>
+        <h1>Minero</h1>
+        <span class="detail-tag">Dado: Fuerza</span>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span>
+      <div class="oficio-intro">
+        <blockquote class="detail-quote">“El minero es un experto en adentrarse en las entrañas de la tierra, donde busca metales preciosos, gemas y cristales imbuidos de magia. Con pico en mano y linterna al cinto, explora minas, cavernas y ruinas olvidadas, siempre en busca de los tesoros ocultos bajo la roca y el silencio del subsuelo.”</blockquote>
+        <img class="oficio-portrait" src="https://static.wixstatic.com/media/c41305_450b19490e31426681072153e346a447~mv2.png" alt="Minero" loading="lazy"/>
+      </div>
+      <div class="oficio-tiers">
+        <div class="tier-tabs">
+          <button class="tier-tab active" onclick="showTier(this,'minero-t1')"><span class="tier-num">I</span><span class="tier-tab-name">Iniciado</span></button>
+          <button class="tier-tab" onclick="showTier(this,'minero-t2')"><span class="tier-num">II</span><span class="tier-tab-name">Experto</span></button>
+          <button class="tier-tab" onclick="showTier(this,'minero-t3')"><span class="tier-num">III</span><span class="tier-tab-name">Maestro</span></button>
+        </div>
+        <div class="tier-panel active" id="minero-t1">
+          <div class="tier-panel-top"><span class="tier-badge t1">Tier I</span><h3>Minero Iniciado</h3></div>
+          <p class="tier-desc">Con un pico en las manos y una linterna temblorosa, entra a la mina por primera vez con el corazón latiendo fuerte. Pica sin técnica, pero con fuerza. Saca carbón, hierro pobre y algunas piedras preciosas básicas. Aprende a temer los derrumbes, a confiar en el eco de las cavernas y a no subestimar la oscuridad.</p>
+          <ul class="tier-perks"><li>Item de recoleccion T1</li><li>Beneficios dados: +3 Recolección</li></ul>
+        </div>
+        <div class="tier-panel" id="minero-t2">
+          <div class="tier-panel-top"><span class="tier-badge t2">Tier II</span><h3>Minero Experto</h3></div>
+          <p class="tier-desc">Domina las técnicas de extracción y conoce las vetas más ricas. Se aventura en zonas más profundas donde se encuentran minerales raros y cristales con propiedades arcanas básicas. Sus herramientas son más eficientes y su instinto bajo tierra, infalible.</p>
+          <ul class="tier-perks"><li>Item de recoleccion T2</li><li>Beneficios dados: +5 Recolección</li></ul>
+        </div>
+        <div class="tier-panel" id="minero-t3">
+          <div class="tier-panel-top"><span class="tier-badge t3">Tier III</span><h3>Maestro Minero</h3></div>
+          <p class="tier-desc">Cartografiá rutas subterráneas olvidadas y se adentra donde otros no se atreven. Extrae minerales legendarios, gemas imbuidas de magia y materiales que solo existen en las profundidades más peligrosas. Su conocimiento del subsuelo es enciclopédico.</p>
+          <ul class="tier-perks"><li>Item de recoleccion T3</li><li>Beneficios dados: +8 Recolección</li></ul>
+        </div>
+      </div>
+    </div>
+    <footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer>
+  </div>
 
-  <div class="page" id="page-oficio-tabernero"><div class="detail-hero"><div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_a956788f56e04134849a17a0a71cb299~mv2.png')"></div><div class="detail-hero-overlay"></div><div class="detail-hero-content"><div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Tabernero</span></div><h1>Tabernero</h1><span class="detail-tag">Dado: Carisma</span></div></div><div class="detail-body"><span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span><blockquote class="detail-quote">"El tabernero es el corazón social de cualquier ciudad. Sirve bebidas, escucha confesiones y guarda secretos. Su taberna es el lugar donde las alianzas se forjan y los planes se trazan."</blockquote><div class="tier-grid"><div class="tier-card"><h4>Tier 1</h4><h5>Tabernero Aprendiz</h5><ul><li>Pociones básicas</li><li>+3 Tabernería</li></ul></div><div class="tier-card"><h4>Tier 2</h4><h5>Tabernero Experto</h5><ul><li>Bebidas especiales</li><li>+5 Tabernería</li></ul></div><div class="tier-card"><h4>Tier 3</h4><h5>Maestro Tabernero</h5><ul><li>Brebajes legendarios</li><li>+8 Tabernería</li></ul></div></div></div><footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer></div>
+  <!-- TABERNERO -->
+  <div class="page" id="page-oficio-tabernero">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_a956788f56e04134849a17a0a71cb299~mv2.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Tabernero</span></div>
+        <h1>Tabernero</h1>
+        <span class="detail-tag">Dado: Destreza</span>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span>
+      <div class="oficio-intro">
+        <blockquote class="detail-quote">“Más que un simple servidor de mesas, el tabernero es el alma de la comunidad, custodio de historias, secretos y copas bien servidas. En su taberna convergen viajeros, mercaderes y aventureros. Ofrece comida caliente, refugio y bebida, pero también escucha rumores, media disputas y, cuando conviene, comercia con información tan valiosa como el oro.”</blockquote>
+        <img class="oficio-portrait" src="https://static.wixstatic.com/media/c41305_a956788f56e04134849a17a0a71cb299~mv2.png" alt="Tabernero" loading="lazy"/>
+      </div>
+      <div class="oficio-tiers">
+        <div class="tier-tabs">
+          <button class="tier-tab active" onclick="showTier(this,'tabernero-t1')"><span class="tier-num">I</span><span class="tier-tab-name">Iniciado</span></button>
+          <button class="tier-tab" onclick="showTier(this,'tabernero-t2')"><span class="tier-num">II</span><span class="tier-tab-name">Experto</span></button>
+          <button class="tier-tab" onclick="showTier(this,'tabernero-t3')"><span class="tier-num">III</span><span class="tier-tab-name">Maestro</span></button>
+        </div>
+        <div class="tier-panel active" id="tabernero-t1">
+          <div class="tier-panel-top"><span class="tier-badge t1">Tier I</span><h3>Tabernero Iniciado</h3></div>
+          <p class="tier-desc">Comienza limpiando mesas y aprendiendo el nombre de las bebidas, pero escucha más de lo que parece. Ve al ebrio que no paga, al viajero con secretos y al noble disfrazado. Sirve con torpeza, pero su sonrisa es honesta. Aprende rápido.</p>
+          <ul class="tier-perks"><li>Items Redux T1</li><li>Beneficios dados: +3 Cocina</li></ul>
+        </div>
+        <div class="tier-panel" id="tabernero-t2">
+          <div class="tier-panel-top"><span class="tier-badge t2">Tier II</span><h3>Tabernero Experto</h3></div>
+          <p class="tier-desc">Con rodaje y sazón propios, crea preparaciones especiales y recetas únicas. Sus clientes regresan porque nadie más sirve como él. Conoce los rumores de la ciudad y sabe usar esa información con discrección.</p>
+          <ul class="tier-perks"><li>Items Redux T2</li><li>Beneficios dados: +5 Cocina</li></ul>
+        </div>
+        <div class="tier-panel" id="tabernero-t3">
+          <div class="tier-panel-top"><span class="tier-badge t3">Tier III</span><h3>Maestro Tabernero</h3></div>
+          <p class="tier-desc">Su establecimiento es leyenda. Los brebajes que prepara tienen fama en toda la región: algunos curan, otros simplemente saben a algo que nunca antes probaste. Conoce el secreto de cada viajero que ha pasado por sus puertas.</p>
+          <ul class="tier-perks"><li>Items Redux T3</li><li>Beneficios dados: +8 Cocina</li></ul>
+        </div>
+      </div>
+    </div>
+    <footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer>
+  </div>
 
-  <div class="page" id="page-oficio-joyero"><div class="detail-hero"><div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_c7c28dffb9144911b61ab3a9ae7e5262~mv2.png')"></div><div class="detail-hero-overlay"></div><div class="detail-hero-content"><div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Joyero</span></div><h1>Joyero</h1><span class="detail-tag">Dado: Destreza</span></div></div><div class="detail-body"><span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span><blockquote class="detail-quote">"El joyero esculpe belleza en metal y piedra preciosa. Sus creaciones no solo adornan: pueden portar magia, sellar pactos y demostrar el estatus de quienes las llevan."</blockquote><div class="tier-grid"><div class="tier-card"><h4>Tier 1</h4><h5>Joyero Aprendiz</h5><ul><li>Joyas básicas</li><li>+3 Joyería</li></ul></div><div class="tier-card"><h4>Tier 2</h4><h5>Joyero Experto</h5><ul><li>Joyas encantadas</li><li>+5 Joyería</li></ul></div><div class="tier-card"><h4>Tier 3</h4><h5>Maestro Joyero</h5><ul><li>Artefactos únicos</li><li>+8 Joyería</li></ul></div></div></div><footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer></div>
+  <!-- JOYERO -->
+  <div class="page" id="page-oficio-joyero">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_c7c28dffb9144911b61ab3a9ae7e5262~mv2.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Joyero</span></div>
+        <h1>Joyero</h1>
+        <span class="detail-tag">Dado: Destreza</span>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span>
+      <div class="oficio-intro">
+        <blockquote class="detail-quote">“Experto en el arte de transformar gemas y metales nobles en auténticas obras maestras, el joyero es tanto un artesano como un custodio de la belleza y el poder. Sus creaciones van desde anillos y coronas hasta amuletos cargados de magia. En muchas culturas, su oficio está estrechamente ligado a lo arcano.”</blockquote>
+        <img class="oficio-portrait" src="https://static.wixstatic.com/media/c41305_c7c28dffb9144911b61ab3a9ae7e5262~mv2.png" alt="Joyero" loading="lazy"/>
+      </div>
+      <div class="oficio-tiers">
+        <div class="tier-tabs">
+          <button class="tier-tab active" onclick="showTier(this,'joyero-t1')"><span class="tier-num">I</span><span class="tier-tab-name">Iniciado</span></button>
+          <button class="tier-tab" onclick="showTier(this,'joyero-t2')"><span class="tier-num">II</span><span class="tier-tab-name">Experto</span></button>
+          <button class="tier-tab" onclick="showTier(this,'joyero-t3')"><span class="tier-num">III</span><span class="tier-tab-name">Maestro</span></button>
+        </div>
+        <div class="tier-panel active" id="joyero-t1">
+          <div class="tier-panel-top"><span class="tier-badge t1">Tier I</span><h3>Joyero Iniciado</h3></div>
+          <p class="tier-desc">Inicia con paciencia, lija en mano y la mirada fija en pequeños destellos. Trabaja en una mesa iluminada, ajustando engastes y limpiando metales. No conoce el valor de lo que toca, pero sí su belleza. Su trabajo embellece, aunque aún no deslumbra.</p>
+          <ul class="tier-perks"><li>Items Redux T1</li><li>Beneficios dados: +3 Joyería</li></ul>
+        </div>
+        <div class="tier-panel" id="joyero-t2">
+          <div class="tier-panel-top"><span class="tier-badge t2">Tier II</span><h3>Joyero Experto</h3></div>
+          <p class="tier-desc">Trabaja con gemas semipreciosas y metales nobles con habilidad creciente. Sus piezas tienen equilibrio entre forma y función. Puede incorporar encantamientos básicos y empieza a recibir encargos de clientes de renombre.</p>
+          <ul class="tier-perks"><li>Items Redux T2</li><li>Beneficios dados: +5 Joyería</li></ul>
+        </div>
+        <div class="tier-panel" id="joyero-t3">
+          <div class="tier-panel-top"><span class="tier-badge t3">Tier III</span><h3>Maestro Joyero</h3></div>
+          <p class="tier-desc">Sus manos hábiles no solo tallan la materia, sino que preparan el canal para encantamientos y rituales antiguos. Crea artefactos únicos codiciados por nobles, magos y coleccionistas. Una joya suya es más que adorno: es poder.</p>
+          <ul class="tier-perks"><li>Items Redux T3</li><li>Beneficios dados: +8 Joyería</li></ul>
+        </div>
+      </div>
+    </div>
+    <footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer>
+  </div>
 
-  <div class="page" id="page-oficio-artesano"><div class="detail-hero"><div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_f7e748b32dc04f1aa18899ddc12a24fa~mv2.png')"></div><div class="detail-hero-overlay"></div><div class="detail-hero-content"><div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Artesano</span></div><h1>Artesano</h1><span class="detail-tag">Dado: Destreza</span></div></div><div class="detail-body"><span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span><blockquote class="detail-quote">"El artesano da forma a la madera, el cuero y la piedra con manos expertas. Crea muebles, utensilios, decoraciones y objetos necesarios para la vida cotidiana de cualquier hogar."</blockquote><div class="tier-grid"><div class="tier-card"><h4>Tier 1</h4><h5>Artesano Aprendiz</h5><ul><li>Objetos básicos</li><li>+3 Artesanía</li></ul></div><div class="tier-card"><h4>Tier 2</h4><h5>Artesano Experto</h5><ul><li>Objetos decorativos</li><li>+5 Artesanía</li></ul></div><div class="tier-card"><h4>Tier 3</h4><h5>Maestro Artesano</h5><ul><li>Obras maestras</li><li>+8 Artesanía</li></ul></div></div></div><footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer></div>
+  <!-- ARTESANO -->
+  <div class="page" id="page-oficio-artesano">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_f7e748b32dc04f1aa18899ddc12a24fa~mv2.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Artesano</span></div>
+        <h1>Artesano</h1>
+        <span class="detail-tag">Dado: Destreza</span>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span>
+      <div class="oficio-intro">
+        <blockquote class="detail-quote">“Maestro de la carpintería e ingeniería, transforma la materia en utilidad o belleza. Construye desde instrumentos y muebles hasta estatuas, carrozas o mecanismos mágicos. Trabaja con madera, piedra, cerámica y metales blandos. Colabora con magos o alquimistas para crear reliquias encantadas y mecanismos complejos.”</blockquote>
+        <img class="oficio-portrait" src="https://static.wixstatic.com/media/c41305_f7e748b32dc04f1aa18899ddc12a24fa~mv2.png" alt="Artesano" loading="lazy"/>
+      </div>
+      <div class="oficio-tiers">
+        <div class="tier-tabs">
+          <button class="tier-tab active" onclick="showTier(this,'artesano-t1')"><span class="tier-num">I</span><span class="tier-tab-name">Aprendiz</span></button>
+          <button class="tier-tab" onclick="showTier(this,'artesano-t2')"><span class="tier-num">II</span><span class="tier-tab-name">Experto</span></button>
+          <button class="tier-tab" onclick="showTier(this,'artesano-t3')"><span class="tier-num">III</span><span class="tier-tab-name">Maestro</span></button>
+        </div>
+        <div class="tier-panel active" id="artesano-t1">
+          <div class="tier-panel-top"><span class="tier-badge t1">Tier I</span><h3>Artesano Aprendiz</h3></div>
+          <p class="tier-desc">El aprendiz se familiariza con la madera, el metal y la piedra. Su taller es modesto y su trabajo se limita a reparaciones sencillas o pequeñas creaciones útiles: bancos, cucharas o herramientas básicas. Observa más de lo que actúa, pero en su mirada hay hambre por dominar el oficio.</p>
+          <ul class="tier-perks"><li>Items Redux T1</li><li>Recetas Shani's</li><li>Bonificación dados +3 Artesanía</li></ul>
+        </div>
+        <div class="tier-panel" id="artesano-t2">
+          <div class="tier-panel-top"><span class="tier-badge t2">Tier II</span><h3>Artesano Experto</h3></div>
+          <p class="tier-desc">Construye muebles elaborados, herramientas de precisión y objetos decorativos para hogares y negocios. Su trabajo requiere y recibe encargos más complejos. Empieza a colaborar con otros oficios para proyectos mayores.</p>
+          <ul class="tier-perks"><li>Items Redux T2</li><li>Bonificación dados +5 Artesanía</li></ul>
+        </div>
+        <div class="tier-panel" id="artesano-t3">
+          <div class="tier-panel-top"><span class="tier-badge t3">Tier III</span><h3>Maestro Artesano</h3></div>
+          <p class="tier-desc">Sus obras son consideradas arte. Estatuas, carrozas, mecanismos y reliquias coleccionables. Colabora con magos y alquimistas para crear objetos encantados de alto valor. Su nombre circula entre nobles y clérigos que pagan bien por su trabajo.</p>
+          <ul class="tier-perks"><li>Items Redux T3</li><li>Bonificación dados +8 Artesanía</li></ul>
+        </div>
+      </div>
+    </div>
+    <footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer>
+  </div>
 
-  <div class="page" id="page-oficio-granjero"><div class="detail-hero"><div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_25ee06668752409a9d9e3d83fbf0178a~mv2.png')"></div><div class="detail-hero-overlay"></div><div class="detail-hero-content"><div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Granjero</span></div><h1>Granjero</h1><span class="detail-tag">Dado: Constitución</span></div></div><div class="detail-body"><span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span><blockquote class="detail-quote">"El granjero es el sustento de la civilización. Sin sus cosechas, los soldados no marchan, las ciudades no prosperan y los mercados se vacían. Su trabajo bajo el sol y la lluvia alimenta a generaciones enteras."</blockquote><div class="tier-grid"><div class="tier-card"><h4>Tier 1</h4><h5>Granjero Aprendiz</h5><ul><li>Cultivos básicos</li><li>+3 Granja</li></ul></div><div class="tier-card"><h4>Tier 2</h4><h5>Granjero Experto</h5><ul><li>Cultivos especiales</li><li>+5 Granja</li></ul></div><div class="tier-card"><h4>Tier 3</h4><h5>Maestro Granjero</h5><ul><li>Cultivos exóticos y ganadería</li><li>+8 Granja</li></ul></div></div></div><footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer></div>
+  <!-- GRANJERO -->
+  <div class="page" id="page-oficio-granjero">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_25ee06668752409a9d9e3d83fbf0178a~mv2.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Granjero</span></div>
+        <h1>Granjero</h1>
+        <span class="detail-tag">Dado: Constitución</span>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span>
+      <div class="oficio-intro">
+        <blockquote class="detail-quote">“El granjero es la base sólida que sostiene aldeas y ciudades, dedicándose con paciencia y esfuerzo al cultivo de tierras, la cosecha de alimentos y la cría de animales. Su trabajo produce no solo el sustento necesario para alimentar al reino, sino también hierbas medicinales y materias primas para textiles.”</blockquote>
+        <img class="oficio-portrait" src="https://static.wixstatic.com/media/c41305_25ee06668752409a9d9e3d83fbf0178a~mv2.png" alt="Granjero" loading="lazy"/>
+      </div>
+      <div class="oficio-tiers">
+        <div class="tier-tabs">
+          <button class="tier-tab active" onclick="showTier(this,'granjero-t1')"><span class="tier-num">I</span><span class="tier-tab-name">Iniciado</span></button>
+          <button class="tier-tab" onclick="showTier(this,'granjero-t2')"><span class="tier-num">II</span><span class="tier-tab-name">Experto</span></button>
+          <button class="tier-tab" onclick="showTier(this,'granjero-t3')"><span class="tier-num">III</span><span class="tier-tab-name">Maestro</span></button>
+        </div>
+        <div class="tier-panel active" id="granjero-t1">
+          <div class="tier-panel-top"><span class="tier-badge t1">Tier I</span><h3>Granjero Iniciado</h3></div>
+          <p class="tier-desc">Comienza arando la tierra con manos callosas y espalda encorvada. Aprende cuándo sembrar y cuándo regar, cómo cuidar a las gallinas y cuántas veces hay que voltear el estiércol. Es la base de todo lo que se come, aunque rara vez recibe agradecimientos. Pero sin él, el resto no vive.</p>
+          <ul class="tier-perks"><li>Item de recoleccion T1</li><li>Cría de caballos y monturas</li><li>Beneficios dados: +3 Recolección</li></ul>
+        </div>
+        <div class="tier-panel" id="granjero-t2">
+          <div class="tier-panel-top"><span class="tier-badge t2">Tier II</span><h3>Granjero Experto</h3></div>
+          <p class="tier-desc">Cultiva hierbas medicinales y especias de mayor valor. Gestiona granjas más complejas y diversificadas con distintas cosechas por temporada. Sus conocimientos sobre el ciclo natural le permiten maximizar la producción.</p>
+          <ul class="tier-perks"><li>Item de recoleccion T2</li><li>Beneficios dados: +5 Recolección</li></ul>
+        </div>
+        <div class="tier-panel" id="granjero-t3">
+          <div class="tier-panel-top"><span class="tier-badge t3">Tier III</span><h3>Maestro Granjero</h3></div>
+          <p class="tier-desc">Domina los ciclos naturales y los secretos de la tierra. Cultiva plantas exóticas y cría criaturas poco comunes. Su granja es autosuficiente y abastece a comunidades enteras. Es pilar indispensable de la economía y la comunidad.</p>
+          <ul class="tier-perks"><li>Item de recoleccion T3</li><li>Beneficios dados: +8 Recolección</li></ul>
+        </div>
+      </div>
+    </div>
+    <footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer>
+  </div>
 
-  <div class="page" id="page-oficio-guardia"><div class="detail-hero"><div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/938f05_57904073b16248879c89cfebe1b101f8~mv2.png')"></div><div class="detail-hero-overlay"></div><div class="detail-hero-content"><div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Guardia</span></div><h1>Guardia</h1><span class="detail-tag">Dado: Fuerza</span></div></div><div class="detail-body"><span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span><blockquote class="detail-quote">"El guardia es la primera línea entre la civilización y el caos. Protege a los ciudadanos, hace cumplir la ley y defiende las murallas contra amenazas externas. Su presencia es el símbolo del orden."</blockquote><div class="tier-grid"><div class="tier-card"><h4>Tier 1</h4><h5>Guardia Recluta</h5><ul><li>Patrullaje básico</li><li>+3 Combate</li></ul></div><div class="tier-card"><h4>Tier 2</h4><h5>Guardia Veterano</h5><ul><li>Mando de pequeñas unidades</li><li>+5 Combate</li></ul></div><div class="tier-card"><h4>Tier 3</h4><h5>Guardia de Élite</h5><ul><li>Acceso a misiones especiales</li><li>+8 Combate</li></ul></div></div></div><footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer></div>
+  <!-- GUARDIA -->
+  <div class="page" id="page-oficio-guardia">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/938f05_57904073b16248879c89cfebe1b101f8~mv2.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Guardia</span></div>
+        <h1>Guardia</h1>
+        <span class="detail-tag">Dado: Fuerza</span>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span>
+      <div class="oficio-intro">
+        <blockquote class="detail-quote">“Estos hombres y mujeres son los guardianes juramentados de las ciudades, aldeas, fortalezas y senderos que cruzan el reino. Su presencia impone orden y seguridad en tiempos de paz, y su espada es la primera en alzarse cuando el conflicto se cierne sobre la tierra.”</blockquote>
+        <img class="oficio-portrait" src="https://static.wixstatic.com/media/938f05_57904073b16248879c89cfebe1b101f8~mv2.png" alt="Guardia" loading="lazy"/>
+      </div>
+      <div class="oficio-tiers">
+        <div class="tier-tabs">
+          <button class="tier-tab active" onclick="showTier(this,'guardia-t1')"><span class="tier-num">I</span><span class="tier-tab-name">Recluta</span></button>
+          <button class="tier-tab" onclick="showTier(this,'guardia-t2')"><span class="tier-num">II</span><span class="tier-tab-name">Veterano</span></button>
+          <button class="tier-tab" onclick="showTier(this,'guardia-t3')"><span class="tier-num">III</span><span class="tier-tab-name">Élite</span></button>
+        </div>
+        <div class="tier-panel active" id="guardia-t1">
+          <div class="tier-panel-top"><span class="tier-badge t1">Tier I</span><h3>Recluta Vigilante</h3></div>
+          <p class="tier-desc">Lleva una armadura que aún le queda algo suelta, pero marcha con el orgullo de quien jura proteger algo mayor que sí mismo. Patrulla calles tranquilas, vigila puertas y aprende a no reaccionar con miedo al primer grito. Cumple órdenes con diligencia, aunque todavía depende de sus superiores para cada decisión.</p>
+          <ul class="tier-perks"><li>Items Herrería T1</li><li>Sueldo Semanal</li><li>Beneficios dados: +1 Atletismo, +1 Inmovilizar, +1 Cargar</li></ul>
+        </div>
+        <div class="tier-panel" id="guardia-t2">
+          <div class="tier-panel-top"><span class="tier-badge t2">Tier II</span><h3>Guardia Veterano</h3></div>
+          <p class="tier-desc">Con años de patrulla y escaramuzas, ya no necesita que le digan qué hacer. Lidera pequeños grupos, interroga sospechosos y mantiene el orden con firmeza. Su instinto lo alerta antes de que el peligro se vea venir.</p>
+          <ul class="tier-perks"><li>Items Herrería T2</li><li>Sueldo Semanal</li><li>Beneficios dados: +2 Atletismo, +2 Inmovilizar, +2 Cargar</li></ul>
+        </div>
+        <div class="tier-panel" id="guardia-t3">
+          <div class="tier-panel-top"><span class="tier-badge t3">Tier III</span><h3>Guardia de Élite</h3></div>
+          <p class="tier-desc">Defensor temido y respetado. Manda pelotones, ejecuta misiones especiales y es referente de honor y disciplina marcial. Algunos sirven como guardia personal de nobles, otros encabezan órdenes militares. Su sola presencia disuade.</p>
+          <ul class="tier-perks"><li>Items Herrería T3</li><li>Sueldo Semanal</li><li>Beneficios dados: +3 Atletismo, +3 Inmovilizar, +3 Cargar</li></ul>
+        </div>
+      </div>
+    </div>
+    <footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer>
+  </div>
 
-  <div class="page" id="page-oficio-alquimia"><div class="detail-hero"><div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_b3fd63c5e124474db9690e54fcaa5ea1~mv2.png')"></div><div class="detail-hero-overlay"></div><div class="detail-hero-content"><div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Alquimia</span></div><h1>Alquimia</h1><span class="detail-tag">Dado: Inteligencia</span></div></div><div class="detail-body"><span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span><blockquote class="detail-quote">"El alquimista es un artista del fuego y la transmutación. Combina ingredientes arcanos para crear pociones, venenos, explosivos y elixires que desafían las leyes naturales. Su laboratorio es su fortaleza."</blockquote><div class="tier-grid"><div class="tier-card"><h4>Tier 1</h4><h5>Alquimista Aprendiz</h5><ul><li>Pociones simples</li><li>+3 Alquimia</li></ul></div><div class="tier-card"><h4>Tier 2</h4><h5>Alquimista Experto</h5><ul><li>Pociones avanzadas y venenos</li><li>+5 Alquimia</li></ul></div><div class="tier-card"><h4>Tier 3</h4><h5>Maestro Alquimista</h5><ul><li>Transmutaciones y elixires legendarios</li><li>+8 Alquimia</li></ul></div></div></div><footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer></div>
+  <div class="page" id="page-oficio-alquimia"><div class="detail-hero"><div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_b3fd63c5e124474db9690e54fcaa5ea1~mv2.png')"></div><div class="detail-hero-overlay"></div><div class="detail-hero-content"><div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Alquimia</span></div><h1>Alquimia</h1><span class="detail-tag">Dado: Inteligencia</span></div></div><div class="detail-body"><span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span><div class="oficio-intro"><blockquote class="detail-quote">"El alquimista es un artista del fuego y la transmutación. Combina ingredientes arcanos para crear pociones, venenos, explosivos y elixires que desafían las leyes naturales. Su laboratorio es su fortaleza."</blockquote><img class="oficio-portrait" src="https://static.wixstatic.com/media/c41305_b3fd63c5e124474db9690e54fcaa5ea1~mv2.png" alt="Alquimia" loading="lazy"/></div><div class="tier-grid"><div class="tier-card"><h4>Tier 1</h4><h5>Alquimista Aprendiz</h5><ul><li>Pociones simples</li><li>+3 Alquimia</li></ul></div><div class="tier-card"><h4>Tier 2</h4><h5>Alquimista Experto</h5><ul><li>Pociones avanzadas y venenos</li><li>+5 Alquimia</li></ul></div><div class="tier-card"><h4>Tier 3</h4><h5>Maestro Alquimista</h5><ul><li>Transmutaciones y elixires legendarios</li><li>+8 Alquimia</li></ul></div></div></div><footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer></div>
 
-  <div class="page" id="page-oficio-sastre"><div class="detail-hero"><div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_a0e74e81ea0f4adf9fb93f7aa0e66efd~mv2.png')"></div><div class="detail-hero-overlay"></div><div class="detail-hero-content"><div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Sastre</span></div><h1>Sastre</h1><span class="detail-tag">Dado: Destreza</span></div></div><div class="detail-body"><span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span><blockquote class="detail-quote">"El sastre da identidad a quienes visten sus creaciones. Desde uniformes militares hasta vestidos de corte, pasando por capas de aventurero, su aguja y su hilo tejen más que tela: tejen historia."</blockquote><div class="tier-grid"><div class="tier-card"><h4>Tier 1</h4><h5>Sastre Aprendiz</h5><ul><li>Ropa básica</li><li>+3 Sastrería</li></ul></div><div class="tier-card"><h4>Tier 2</h4><h5>Sastre Experto</h5><ul><li>Armaduras de cuero</li><li>+5 Sastrería</li></ul></div><div class="tier-card"><h4>Tier 3</h4><h5>Maestro Sastre</h5><ul><li>Vestimentas encantadas</li><li>+8 Sastrería</li></ul></div></div></div><footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer></div>
+  <div class="page" id="page-oficio-sastre"><div class="detail-hero"><div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_a0e74e81ea0f4adf9fb93f7aa0e66efd~mv2.png')"></div><div class="detail-hero-overlay"></div><div class="detail-hero-content"><div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Sastre</span></div><h1>Sastre</h1><span class="detail-tag">Dado: Destreza</span></div></div><div class="detail-body"><span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span><div class="oficio-intro"><blockquote class="detail-quote">"El sastre da identidad a quienes visten sus creaciones. Desde uniformes militares hasta vestidos de corte, pasando por capas de aventurero, su aguja y su hilo tejen más que tela: tejen historia."</blockquote><img class="oficio-portrait" src="https://static.wixstatic.com/media/c41305_a0e74e81ea0f4adf9fb93f7aa0e66efd~mv2.png" alt="Sastre" loading="lazy"/></div><div class="tier-grid"><div class="tier-card"><h4>Tier 1</h4><h5>Sastre Aprendiz</h5><ul><li>Ropa básica</li><li>+3 Sastrería</li></ul></div><div class="tier-card"><h4>Tier 2</h4><h5>Sastre Experto</h5><ul><li>Armaduras de cuero</li><li>+5 Sastrería</li></ul></div><div class="tier-card"><h4>Tier 3</h4><h5>Maestro Sastre</h5><ul><li>Vestimentas encantadas</li><li>+8 Sastrería</li></ul></div></div></div><footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer></div>
 
-  <div class="page" id="page-oficio-cazador"><div class="detail-hero"><div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_939b85edc3c342189fc4033a8c83a56b~mv2.png')"></div><div class="detail-hero-overlay"></div><div class="detail-hero-content"><div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Cazador</span></div><h1>Cazador</h1><span class="detail-tag">Dado: Destreza</span></div></div><div class="detail-body"><span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span><blockquote class="detail-quote">"El cazador es el depredador silencioso que conoce el bosque mejor que su propio hogar. Provee carne, pieles y materiales preciosos. En tiempos de guerra, sus habilidades de rastreo y sigilo lo convierten en el arma más letal del ejército."</blockquote><div class="tier-grid"><div class="tier-card"><h4>Tier 1</h4><h5>Cazador Aprendiz</h5><ul><li>Caza menor</li><li>+3 Caza</li></ul></div><div class="tier-card"><h4>Tier 2</h4><h5>Cazador Experto</h5><ul><li>Caza mayor y trampas</li><li>+5 Caza</li></ul></div><div class="tier-card"><h4>Tier 3</h4><h5>Maestro Cazador</h5><ul><li>Bestias mágicas y rastreo arcano</li><li>+8 Caza</li></ul></div></div></div><footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer></div>
+  <!-- CAZADOR -->
+  <div class="page" id="page-oficio-cazador">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_939b85edc3c342189fc4033a8c83a56b~mv2.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('oficios')">Oficios <span>/ Cazador</span></div>
+        <h1>Cazador</h1>
+        <span class="detail-tag">Dado: Destreza</span>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('oficios')">Volver a Oficios</span>
+      <div class="oficio-intro">
+        <blockquote class="detail-quote">“Guardián silencioso de los bosques y sus secretos, el cazador es un experto rastreador que provee carne, pieles y huesos para la comunidad. Con habilidad y paciencia, caza bestias salvajes y criaturas mágicas, abasteciendo a herreros, alquimistas y artesanos con materiales únicos extraídos del entorno natural.”</blockquote>
+        <img class="oficio-portrait" src="https://static.wixstatic.com/media/c41305_939b85edc3c342189fc4033a8c83a56b~mv2.png" alt="Cazador" loading="lazy"/>
+      </div>
+      <div class="oficio-tiers">
+        <div class="tier-tabs">
+          <button class="tier-tab active" onclick="showTier(this,'cazador-t1')"><span class="tier-num">I</span><span class="tier-tab-name">Iniciado</span></button>
+          <button class="tier-tab" onclick="showTier(this,'cazador-t2')"><span class="tier-num">II</span><span class="tier-tab-name">Experto</span></button>
+          <button class="tier-tab" onclick="showTier(this,'cazador-t3')"><span class="tier-num">III</span><span class="tier-tab-name">Maestro</span></button>
+        </div>
+        <div class="tier-panel active" id="cazador-t1">
+          <div class="tier-panel-top"><span class="tier-badge t1">Tier I</span><h3>Cazador Iniciado</h3></div>
+          <p class="tier-desc">Camina descalzo en la hierba húmeda y reconoce huellas que otros pisan sin notar. Caza con trampas simples y arco corto. Sus presas son conejos, ardillas y aves. No busca gloria, busca supervivencia. A menudo es más silencioso que el bosque mismo, y conoce qué hierba sana... y cuál mata.</p>
+          <ul class="tier-perks"><li>Item de recoleccion T1</li><li>Beneficios dados: +3 Recolección</li></ul>
+        </div>
+        <div class="tier-panel" id="cazador-t2">
+          <div class="tier-panel-top"><span class="tier-badge t2">Tier II</span><h3>Cazador Experto</h3></div>
+          <p class="tier-desc">Caza presas mayores: ciervos, jabaliîs y criaturas más peligrosas. Diseña trampas elaboradas y conoce los venenos de la fauna local. Aprovecha cada parte de su presa y abastece a herreros, alquimistas y artesanos con materiales únicos.</p>
+          <ul class="tier-perks"><li>Item de recoleccion T2</li><li>Beneficios dados: +5 Recolección</li></ul>
+        </div>
+        <div class="tier-panel" id="cazador-t3">
+          <div class="tier-panel-top"><span class="tier-badge t3">Tier III</span><h3>Maestro Cazador</h3></div>
+          <p class="tier-desc">Rastrea criaturas mágicas y bestias legendarias en lugares donde otros no se atreven a entrar. Es fantasma en el bosque y sombra en la noche. Su conexión con la naturaleza lo convierte en un depredador sin igual y en el compañero más valioso de cualquier expedición.</p>
+          <ul class="tier-perks"><li>Item de recoleccion T3</li><li>Rastreo de bestias mágicas</li><li>Beneficios dados: +8 Recolección</li></ul>
+        </div>
+      </div>
+    </div>
+    <footer><img class="footer-banner" src="https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy"/><div class="footer-content"><div class="footer-logo">Cicatrices de Primus</div><ul class="footer-links"><li><span onclick="showPage('inicio')">Inicio</span></li><li><span onclick="showPage('lore')">Lore</span></li><li><span onclick="showPage('razas')">Razas</span></li><li><span onclick="showPage('oficios')">Oficios</span></li><li><span onclick="showPage('normativa')">Normativa</span></li></ul><div class="footer-divider"></div><p class="footer-copy">© 2025 Creado por Cicatrices de Primus</p></div></footer>
+  </div>
 
 
   <!-- ═══════════════════════════════════════════════════════════ -->
@@ -2887,6 +3345,14 @@
 
       // Close mobile menu
       document.getElementById('navLinks').classList.remove('open');
+    }
+
+    function showTier(btn, panelId) {
+      const cont = btn.closest('.oficio-tiers');
+      cont.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
+      cont.querySelectorAll('.tier-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(panelId).classList.add('active');
     }
 
     function toggleMenu() {

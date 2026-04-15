@@ -440,72 +440,66 @@
       pointer-events: none;
     }
 
-    /* ─── NAV CARDS (home quick links) ─────────────────────────── */
-    .nav-cards {
+    /* ─── HOME SECTIONS (main page nav) ──────────────────────────── */
+    .home-sections {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 80px;
+    }
+    .home-section {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      padding: 0 0 80px;
-    }
-
-    .nav-card {
-      position: relative;
-      height: 260px;
-      overflow: hidden;
+      grid-template-columns: 1fr 1fr;
+      min-height: 380px;
       cursor: pointer;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
     }
-
-    .nav-card-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      filter: brightness(0.35) saturate(0.6);
-      transition: filter 0.4s, transform 0.5s;
-    }
-
-    .nav-card:hover .nav-card-bg {
-      filter: brightness(0.5) saturate(0.8);
-      transform: scale(1.05);
-    }
-
-    .nav-card-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+    .home-section:last-child { border-bottom: 1px solid var(--border); }
+    .home-section:nth-child(even) .home-section-text { order: 2; }
+    .home-section:nth-child(even) .home-section-img   { order: 1; }
+    .home-section-text {
+      padding: 64px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--surface);
       transition: background 0.3s;
     }
-
-    .nav-card:hover .nav-card-overlay {
-      background: linear-gradient(to top, rgba(176,16,16,0.5) 0%, transparent 70%);
+    .home-section:hover .home-section-text { background: #1f1c15; }
+    .home-section-text h2 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.6rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
     }
-
-    .nav-card-label {
-      position: absolute;
-      bottom: 24px;
-      left: 0; right: 0;
-      text-align: center;
+    .home-section-text p {
+      color: var(--text-muted);
+      line-height: 1.85;
+      font-size: 0.98rem;
+      margin-bottom: 28px;
+      max-width: 480px;
+    }
+    .home-section-cta {
       font-family: 'Cinzel', serif;
-      font-size: 0.92rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--white);
-      text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+      color: var(--accent);
       transition: color 0.3s;
+      align-self: flex-start;
     }
-
-    .nav-card:hover .nav-card-label { color: var(--gold2); }
-
-    .nav-card-border {
-      position: absolute;
-      inset: 0;
-      border: 1px solid rgba(176,16,16,0);
-      transition: border-color 0.3s;
-      pointer-events: none;
+    .home-section:hover .home-section-cta { color: var(--gold); }
+    .home-section-img {
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.38) saturate(0.55);
+      transition: filter 0.5s, transform 0.6s;
     }
-
-    .nav-card:hover .nav-card-border { border-color: rgba(176,16,16,0.5); }
+    .home-section:hover .home-section-img {
+      filter: brightness(0.55) saturate(0.75);
+      transform: scale(1.03);
+    }
 
     /* ─── LORE CARDS ────────────────────────────────────────────── */
     .lore-grid {
@@ -881,7 +875,11 @@
       .nav-links.open { display: flex; }
       .nav-toggle { display: flex; }
       .home-intro { grid-template-columns: 1fr; }
-      .nav-cards { grid-template-columns: 1fr 1fr; }
+      .home-section { grid-template-columns: 1fr; min-height: auto; }
+      .home-section-img { min-height: 240px; }
+      .home-section:nth-child(even) .home-section-text { order: unset; }
+      .home-section:nth-child(even) .home-section-img   { order: unset; }
+      .home-section-text { padding: 40px 32px; }
       .razas-grid { grid-template-columns: 1fr 1fr; }
       .oficios-grid { grid-template-columns: 1fr 1fr; }
       .lore-grid { grid-template-columns: 1fr; }
@@ -891,7 +889,7 @@
     }
 
     @media (max-width: 560px) {
-      .nav-cards { grid-template-columns: 1fr; }
+      .home-section-text { padding: 32px 24px; }
       .razas-grid { grid-template-columns: 1fr; }
       .oficios-grid { grid-template-columns: 1fr; }
       .hero-title { font-size: 2.2rem; }
@@ -1554,32 +1552,45 @@
       </div>
     </div>
 
-    <!-- Quick-nav cards -->
-    <div class="nav-cards">
-      <div class="nav-card" onclick="showPage('lore')">
-        <div class="nav-card-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png')"></div>
-        <div class="nav-card-overlay"></div>
-        <div class="nav-card-label">Lore</div>
-        <div class="nav-card-border"></div>
+    <!-- Home sections -->
+    <div class="home-sections">
+
+      <div class="home-section" onclick="showPage('lore')">
+        <div class="home-section-text">
+          <h2>Lore</h2>
+          <p>Descubre la historia de Primus: cinco eras de guerras, traiciones y alianzas que moldearon el continente. Conoce sus deidades, sus cicatrices y los secretos que aún aguardan en la oscuridad.</p>
+          <span class="home-section-cta">Explorar →</span>
+        </div>
+        <div class="home-section-img" style="background-image:url('https://static.wixstatic.com/media/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png')"></div>
       </div>
-      <div class="nav-card" onclick="showPage('razas')">
-        <div class="nav-card-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_884a15d7ed9a4713a13fc68832bcb4c1~mv2.png')"></div>
-        <div class="nav-card-overlay"></div>
-        <div class="nav-card-label">Razas</div>
-        <div class="nav-card-border"></div>
+
+      <div class="home-section" onclick="showPage('razas')">
+        <div class="home-section-text">
+          <h2>Razas</h2>
+          <p>Humanos, Elfos, Shazari, Ossalyth, Enanos y más. Cada linaje carga con su historia, sus ventajas y sus sombras. Elige la raza que definirá tu lugar en el mundo de Primus.</p>
+          <span class="home-section-cta">Explorar →</span>
+        </div>
+        <div class="home-section-img" style="background-image:url('https://static.wixstatic.com/media/c41305_884a15d7ed9a4713a13fc68832bcb4c1~mv2.png')"></div>
       </div>
-      <div class="nav-card" onclick="showPage('oficios')">
-        <div class="nav-card-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_f3fe37fdd485426fb37873838f2563b0~mv2.png')"></div>
-        <div class="nav-card-overlay"></div>
-        <div class="nav-card-label">Oficios</div>
-        <div class="nav-card-border"></div>
+
+      <div class="home-section" onclick="showPage('oficios')">
+        <div class="home-section-text">
+          <h2>Oficios</h2>
+          <p>Once caminos esperan ser tomados. Desde el Guerrero hasta el Ladrón, cada oficio define tus habilidades, tu rol en el campo de batalla y tu lugar en la sociedad de Primus.</p>
+          <span class="home-section-cta">Explorar →</span>
+        </div>
+        <div class="home-section-img" style="background-image:url('https://static.wixstatic.com/media/c41305_f3fe37fdd485426fb37873838f2563b0~mv2.png')"></div>
       </div>
-      <div class="nav-card" onclick="showPage('normativa')">
-        <div class="nav-card-bg" style="background-image:url('https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png')"></div>
-        <div class="nav-card-overlay"></div>
-        <div class="nav-card-label">Normativa</div>
-        <div class="nav-card-border"></div>
+
+      <div class="home-section" onclick="showPage('normativa')">
+        <div class="home-section-text">
+          <h2>Normativa</h2>
+          <p>Las reglas que sostienen el orden en Primus. Combate, economía, construcción y convivencia. Comprende el código antes de actuar — en este mundo, la ignorancia no es excusa.</p>
+          <span class="home-section-cta">Explorar →</span>
+        </div>
+        <div class="home-section-img" style="background-image:url('https://static.wixstatic.com/media/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png')"></div>
       </div>
+
     </div>
 
     <!-- Footer -->

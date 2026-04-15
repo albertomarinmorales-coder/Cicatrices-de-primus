@@ -121,6 +121,85 @@
       transition: 0.3s;
     }
 
+    /* ─── NAV DROPDOWN ──────────────────────────────────────────── */
+    .nav-links > li { position: relative; }
+
+    .nav-dropdown {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 0;
+      background: rgba(10, 9, 7, 0.97);
+      border: 1px solid rgba(176, 16, 16, 0.35);
+      border-top: 2px solid var(--accent);
+      list-style: none;
+      min-width: 200px;
+      padding: 8px 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 1001;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.75);
+    }
+    .nav-dropdown::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 22px;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid var(--accent);
+    }
+    .nav-links > li:hover > .nav-dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .nav-dropdown li { position: static; }
+    .nav-dropdown li > span {
+      display: block;
+      padding: 10px 22px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.52);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.18s, background 0.18s, padding-left 0.18s;
+      border-bottom: none !important;
+    }
+    .nav-dropdown li > span:hover {
+      color: var(--gold);
+      background: rgba(176,16,16,0.1);
+      padding-left: 28px;
+    }
+    /* Wide 2-col variant */
+    .nav-dropdown.wide {
+      min-width: 360px;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .nav-dropdown.wide li > span { padding: 9px 14px; }
+    .nav-dropdown.wide li > span:hover { padding-left: 18px; }
+    /* Right-align for last items so they don't overflow */
+    .nav-dropdown.align-right {
+      left: auto;
+      right: 0;
+    }
+    .nav-dropdown.align-right::before {
+      left: auto;
+      right: 22px;
+    }
+    /* Mobile: hide dropdowns in hamburger mode */
+    @media (max-width: 768px) {
+      .nav-dropdown { display: none !important; }
+    }
+
     /* ─── HERO ──────────────────────────────────────────────────── */
     .hero {
       position: relative;
@@ -1269,11 +1348,66 @@
   <nav>
     <div class="nav-logo" onclick="showPage('inicio')">Cicatrices de Primus</div>
     <ul class="nav-links" id="navLinks">
-      <li><span onclick="showPage('inicio')" class="active-nav" id="nav-inicio">Inicio</span></li>
-      <li><span onclick="showPage('lore')" id="nav-lore">Lore</span></li>
-      <li><span onclick="showPage('razas')" id="nav-razas">Razas</span></li>
-      <li><span onclick="showPage('oficios')" id="nav-oficios">Oficios</span></li>
-      <li><span onclick="showPage('normativa')" id="nav-normativa">Normativa</span></li>
+
+      <li>
+        <span onclick="showPage('inicio')" class="active-nav" id="nav-inicio">Inicio</span>
+      </li>
+
+      <li>
+        <span onclick="showPage('lore')" id="nav-lore">Lore</span>
+        <ul class="nav-dropdown">
+          <li><span onclick="showPage('historia')">Historia</span></li>
+          <li><span onclick="showPage('deidades')">Deidades</span></li>
+        </ul>
+      </li>
+
+      <li>
+        <span onclick="showPage('razas')" id="nav-razas">Razas</span>
+        <ul class="nav-dropdown wide">
+          <li><span onclick="showPage('raza-humano')">Humano</span></li>
+          <li><span onclick="showPage('raza-elfo')">Elfo</span></li>
+          <li><span onclick="showPage('raza-enano')">Enano</span></li>
+          <li><span onclick="showPage('raza-shazari')">Shazari</span></li>
+          <li><span onclick="showPage('raza-ossalyth')">Ossalyth</span></li>
+          <li><span onclick="showPage('raza-malvakari')">Malvakari</span></li>
+          <li><span onclick="showPage('raza-thaetirs')">Thaetirs</span></li>
+          <li><span onclick="showPage('raza-mestizo')">Mestizo</span></li>
+        </ul>
+      </li>
+
+      <li>
+        <span onclick="showPage('oficios')" id="nav-oficios">Oficios</span>
+        <ul class="nav-dropdown wide align-right">
+          <li><span onclick="showPage('oficio-galeno')">Galeno</span></li>
+          <li><span onclick="showPage('oficio-herrero')">Herrero</span></li>
+          <li><span onclick="showPage('oficio-minero')">Minero</span></li>
+          <li><span onclick="showPage('oficio-tabernero')">Tabernero</span></li>
+          <li><span onclick="showPage('oficio-joyero')">Joyero</span></li>
+          <li><span onclick="showPage('oficio-artesano')">Artesano</span></li>
+          <li><span onclick="showPage('oficio-granjero')">Granjero</span></li>
+          <li><span onclick="showPage('oficio-guardia')">Guardia</span></li>
+          <li><span onclick="showPage('oficio-alquimia')">Alquimia</span></li>
+          <li><span onclick="showPage('oficio-sastre')">Sastre</span></li>
+          <li><span onclick="showPage('oficio-cazador')">Cazador</span></li>
+        </ul>
+      </li>
+
+      <li>
+        <span onclick="showPage('normativa')" id="nav-normativa">Normativa</span>
+        <ul class="nav-dropdown wide align-right">
+          <li><span onclick="showPage('norm-general')">General</span></li>
+          <li><span onclick="showPage('norm-concepto')">Concepto de Rol</span></li>
+          <li><span onclick="showPage('norm-ic')">Normativa IC</span></li>
+          <li><span onclick="showPage('norm-construccion')">Construcción</span></li>
+          <li><span onclick="showPage('norm-heridas')">Heridas</span></li>
+          <li><span onclick="showPage('norm-combate')">Combate</span></li>
+          <li><span onclick="showPage('norm-esclavitud')">Esclavitud</span></li>
+          <li><span onclick="showPage('norm-robo')">Robo</span></li>
+          <li><span onclick="showPage('norm-mazmorra')">Mazmorra</span></li>
+          <li><span onclick="showPage('norm-housing')">Housing</span></li>
+        </ul>
+      </li>
+
     </ul>
     <div class="nav-toggle" id="navToggle" onclick="toggleMenu()">
       <span></span><span></span><span></span>

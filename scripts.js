@@ -85,15 +85,7 @@ const pages = ['inicio', 'lore', 'razas', 'oficios', 'gremios', 'gremio-aventura
         audioToggle.style.borderColor = 'var(--accent)';
     }
 
-    // Attempt to play on load
-    window.addEventListener('load', () => {
-        playAudio();
-    });
-
-    // Strategy for browsers: play on first user interaction anywhere
-    document.addEventListener('click', () => {
-      if(!isPlaying) playAudio();
-    }, { once: true });
+    // No autoplay anymore. Only manual via button.
 
     audioToggle.addEventListener('click', (e) => {
       e.stopPropagation();

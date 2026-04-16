@@ -739,6 +739,12 @@
       gap: 24px;
     }
 
+    /* Centrar cards en la página de Gremios si hay pocas */
+    #page-gremios .oficios-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+      justify-content: center;
+    }
+
     .oficio-card {
       background: var(--surface);
       border: 1px solid var(--border);

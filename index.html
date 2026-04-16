@@ -1735,6 +1735,90 @@
         columns: 1;
       }
     }
+
+    /* ─── MODERN AUDIO PLAYER ───────────────────────────────────── */
+    .audio-player {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 1000;
+    }
+    
+    .audio-toggle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(12, 11, 9, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--accent);
+      color: var(--gold);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+    }
+    
+    .audio-toggle:hover {
+      background: rgba(176, 16, 16, 0.25);
+      border-color: var(--gold);
+      transform: scale(1.05);
+      box-shadow: 0 0 24px rgba(201, 168, 76, 0.35);
+    }
+    
+    .audio-toggle i {
+      transition: transform 0.3s ease;
+    }
+    .audio-toggle.playing i {
+      color: var(--accent);
+    }
+
+    .audio-waves {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      display: none;
+      gap: 3px;
+      align-items: flex-end;
+      height: 20px;
+    }
+    
+    .audio-waves.playing {
+      display: flex;
+    }
+    
+    .audio-waves span {
+      display: block;
+      width: 3px;
+      background: var(--gold);
+      border-radius: 1px;
+      animation: sound-wave 1.2s infinite ease-in-out;
+    }
+    
+    .audio-waves span:nth-child(1) { height: 10px; animation-delay: 0s; }
+    .audio-waves span:nth-child(2) { height: 20px; animation-delay: 0.15s; }
+    .audio-waves span:nth-child(3) { height: 12px; animation-delay: 0.3s; }
+    
+    @keyframes sound-wave {
+      0%, 100% { transform: scaleY(0.4); }
+      50% { transform: scaleY(1); }
+    }
+    
+    @media (max-width: 768px) {
+      .audio-player {
+        bottom: 24px;
+        right: 24px;
+      }
+      .audio-toggle {
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 
@@ -5155,7 +5239,46 @@
         heroBg.style.transform = `scale(1.04) translateY(${scrollY * 0.25}px)`;
       }, { passive: true });
     }
+
+    // ─── AUDIO PLAYER LOGIC ───────────────────────────────────────────
+    const bgMusic = document.getElementById('bgMusic');
+    const audioToggle = document.getElementById('audioToggle');
+    const audioWaves = document.getElementById('audioWaves');
+    const audioIcon = audioToggle.querySelector('i');
+    let isPlaying = false;
+
+    bgMusic.volume = 0.5; // Ajusta el volumen a gusto
+
+    audioToggle.addEventListener('click', () => {
+      if (isPlaying) {
+        bgMusic.pause();
+        audioWaves.classList.remove('playing');
+        audioToggle.classList.remove('playing');
+        audioIcon.className = 'fa-solid fa-music';
+        audioToggle.style.borderColor = 'var(--accent)';
+      } else {
+        bgMusic.play().catch(e => console.log('Autoplay blocked:', e));
+        audioWaves.classList.add('playing');
+        audioToggle.classList.add('playing');
+        audioIcon.className = 'fa-solid fa-pause';
+        audioToggle.style.borderColor = 'var(--gold)';
+      }
+      isPlaying = !isPlaying;
+    });
   </script>
+
+  <!-- ─── MODERN AUDIO PLAYER ───────────────────────────────────── -->
+  <div class="audio-player" id="audioPlayer">
+    <audio id="bgMusic" loop>
+      <source src="audio/audio.mp3" type="audio/mpeg">
+    </audio>
+    <button class="audio-toggle" id="audioToggle" aria-label="Reproducir/Pausar Música">
+      <i class="fa-solid fa-music"></i>
+      <div class="audio-waves" id="audioWaves">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
+  </div>
 
 </body>
 

@@ -1,59 +1,64 @@
-const pages = ['inicio', 'lore', 'razas', 'oficios', 'gremios', 'gremio-aventuras', 'normativa', 'historia', 'deidades', 'oficio-galeno', 'oficio-herrero', 'oficio-minero', 'oficio-tabernero', 'oficio-joyero', 'oficio-artesano', 'oficio-granjero', 'oficio-guardia', 'oficio-alquimia', 'oficio-sastre', 'oficio-cazador', 'norm-general', 'norm-concepto', 'norm-ic', 'norm-construccion', 'norm-heridas', 'norm-combate', 'norm-esclavitud', 'norm-robo', 'norm-mazmorra', 'norm-housing', 'clases', 'clase-ciudadano', 'clase-vhark-hul', 'clase-argent-praetor', 'clase-dualhar', 'clase-luminari-vox', 'clase-noc-thar', 'clase-stormheilm', 'clase-velum-caedis', 'clase-velum-cantoris', 'clase-zereth-mor', 'clase-magharyn', 'clase-desconocido', 'raza-gen-elfos', 'raza-gen-enanos', 'raza-gen-humanos', 'raza-gen-malvakari', 'raza-gen-mestizos', 'raza-gen-nhek-thal', 'raza-gen-ossalyth', 'raza-gen-rosaveld', 'raza-gen-shazari', 'raza-gen-thae-tir'];
+const pages = ['inicio', 'lore', 'razas', 'oficios', 'gremios', 'gremio-aventuras', 'normativa', 'historia', 'deidades', 'norm-general', 'norm-concepto', 'norm-ic', 'norm-construccion', 'norm-heridas', 'norm-combate', 'norm-esclavitud', 'norm-robo', 'norm-mazmorra', 'norm-housing', 'clases', 'raza-gen-elfos', 'raza-gen-enanos', 'raza-gen-humanos', 'raza-gen-malvakari', 'raza-gen-mestizos', 'raza-gen-nhek-thal', 'raza-gen-ossalyth', 'raza-gen-rosaveld', 'raza-gen-shazari', 'raza-gen-thae-tir', 'clase-ciudadano', 'clase-vhark-hul', 'clase-argent-praetor', 'clase-dualhar', 'clase-luminari-vox', 'clase-noc-thar', 'clase-stormheilm', 'clase-velum-caedis', 'clase-velum-cantoris', 'clase-zereth-mor', 'clase-magharyn', 'clase-desconocido', 'oficio-gen-alquimista', 'oficio-gen-artifices-del-velo-y-del-brillo', 'oficio-gen-cazador', 'oficio-gen-forjador', 'oficio-gen-galeno', 'oficio-gen-granjero', 'oficio-gen-guardia', 'oficio-gen-minero', 'oficio-gen-seeker', 'oficio-gen-tabernero'];
 
     function showPage(id) {
       // Hide all pages
       pages.forEach(p => {
         const el = document.getElementById('page-' + p);
         if (el) el.classList.remove('active');
-        const nav = document.getElementById('nav-' + p);
-        if (nav) nav.classList.remove('active-nav');
+        const navEl = document.getElementById('nav-' + p);
+        if (navEl) navEl.classList.remove('active-nav');
       });
 
-      // Show target
+      // Show the requested page
       const target = document.getElementById('page-' + id);
-      if (target) target.classList.add('active');
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo(0, 0);
+      }
+
+      // Highlight the nav link
       const navTarget = document.getElementById('nav-' + id);
       if (navTarget) navTarget.classList.add('active-nav');
 
-      // Scroll to top
-      window.scrollTo({ top: 0, behavior: 'instant' });
-
-      // Close mobile menu
-      document.getElementById('navLinks').classList.remove('open');
-    }
-
-    function showTier(btn, panelId) {
-      const cont = btn.closest('.oficio-tiers');
-      cont.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
-      cont.querySelectorAll('.tier-panel').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(panelId).classList.add('active');
+      // Close mobile menu if open
+      const navLinks = document.getElementById('navLinks');
+      const navToggle = document.getElementById('navToggle');
+      if (navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+      }
     }
 
     function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('open');
+      const navLinks = document.getElementById('navLinks');
+      const navToggle = document.getElementById('navToggle');
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('active');
     }
 
-    // Keyboard nav accessibility
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        document.getElementById('navLinks').classList.remove('open');
+    function showTier(btn, tierId) {
+      const container = btn.closest('.oficio-tiers');
+      // Tab active
+      container.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      // Panel active
+      container.querySelectorAll('.tier-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById(tierId).classList.add('active');
+    }
+
+    // Scroll effect for nav
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
       }
-    });
-
-    // Subtle parallax on hero bg
-    const heroBg = document.querySelector('.hero-bg');
-    if (heroBg) {
-      window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        heroBg.style.transform = `scale(1.04) translateY(${scrollY * 0.25}px)`;
-      }, { passive: true });
-    }
+    }, { passive: true });
 
     // ─── AUDIO PLAYER LOGIC ───────────────────────────────────────────
     const bgMusic = document.getElementById('bgMusic');
     const audioToggle = document.getElementById('audioToggle');
-    const audioWaves = document.getElementById('audioWaves');
     const audioIcon = audioToggle.querySelector('i');
     const audioLabel = document.getElementById('audioLabel');
     let isPlaying = false;
@@ -63,35 +68,38 @@ const pages = ['inicio', 'lore', 'razas', 'oficios', 'gremios', 'gremio-aventura
     function playAudio() {
       bgMusic.play().then(() => {
         isPlaying = true;
-        audioWaves.classList.add('playing');
         audioToggle.classList.add('playing');
-        audioToggle.classList.remove('attention-pulse');
-        audioIcon.className = 'fa-solid fa-pause';
-        if(audioLabel) audioLabel.style.display = 'none';
+        audioIcon.className = 'fa-solid fa-pause'; 
         audioToggle.style.borderColor = 'var(--gold)';
       }).catch(e => {
-        console.log('Autoplay blocked, waiting for interaction');
+          isPlaying = false;
+          console.log('Autoplay blocked');
       });
     }
 
-    // Intenta sonar al cargar (casi siempre bloqueado por navegador)
-    window.addEventListener('load', playAudio);
-    // También intenta al primer clic en cualquier sitio por si acaso
+    function pauseAudio() {
+        bgMusic.pause();
+        isPlaying = false;
+        audioToggle.classList.remove('playing');
+        audioIcon.className = 'fa-solid fa-music'; // Corchea
+        audioToggle.style.borderColor = 'var(--accent)';
+    }
+
+    // Attempt to play on load
+    window.addEventListener('load', () => {
+        playAudio();
+    });
+
+    // Strategy for browsers: play on first user interaction anywhere
     document.addEventListener('click', () => {
       if(!isPlaying) playAudio();
     }, { once: true });
 
     audioToggle.addEventListener('click', (e) => {
-      e.stopPropagation(); // Evita el listener global de arriba
+      e.stopPropagation();
       if (isPlaying) {
-        bgMusic.pause();
-        audioWaves.classList.remove('playing');
-        audioToggle.classList.remove('playing');
-        audioIcon.className = 'fa-solid fa-music';
-        audioToggle.style.borderColor = 'var(--accent)';
-        if(audioLabel) audioLabel.style.display = 'inline';
+        pauseAudio();
       } else {
         playAudio();
       }
-      isPlaying = !isPlaying;
     });

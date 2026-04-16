@@ -814,6 +814,33 @@
       background: var(--accent);
     }
 
+    /* ─── NORM QUOTE ─────────────────────────────────────────────── */
+    .norm-quote {
+      position: relative;
+      margin: 28px 0;
+      padding: 22px 28px 22px 36px;
+      background: rgba(201, 168, 76, 0.04);
+      border-left: 3px solid var(--gold);
+      color: var(--text-muted);
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.9;
+    }
+
+    .norm-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: -8px;
+      left: 10px;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 3.5rem;
+      color: var(--gold);
+      opacity: 0.18;
+      line-height: 1;
+      font-style: normal;
+    }
+
     /* ─── DETAIL PAGES (Classes/Races Common) ───────────────────── */
     .detail-hero {
       position: relative;
@@ -1963,4 +1990,47 @@
         grid-row: span 1;
       }
       .norm-2x2 h3, .norm-tall h3 { font-size: 1.1rem; }
+    }
+
+    /* ─── NORM CONTENT CARDS ───────────────────────────────────── */
+    .norm-content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .norm-card {
+      background: rgba(20, 18, 15, 0.4);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 1.8rem;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      /* Sin animaciones por petición del usuario */
+    }
+
+    .norm-card h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 0;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .norm-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .norm-content-grid {
+        grid-template-columns: 1fr;
+      }
     }

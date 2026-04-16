@@ -1708,11 +1708,11 @@
 
     .footer-copy {
       font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
+      font-size: 0.8rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      opacity: 0.6;
+      color: #ffffff;
+      opacity: 0.9;
     }
 
     /* ─── GLOW DIVIDER ───────────────────────────────────────────── */
@@ -1801,10 +1801,11 @@
 
     .footer-copy {
       font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: #554a3a;
+      color: #ffffff;
+      opacity: 0.9;
     }
 
     /* ── BENTO GRID (INICIO) ───────────────────────────────────────── */

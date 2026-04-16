@@ -2064,7 +2064,8 @@
 
 
 /* CLASES ALTERNATE LAYOUT */
-.clase-feature-row { display: flex; align-items: center; gap: 3rem; margin: 4rem 0;}
+.clase-feature-row { display: flex; align-items: center; gap: 3rem; padding: 4rem 0;}
+.clase-feature-row:not(:last-child) { border-bottom: 1px solid rgba(212, 175, 55, 0.4); } /* Fino separador dorado */
 .clase-feature-row.reverse { flex-direction: row-reverse; }
 .clase-feature-text { flex: 1; display: flex; flex-direction: column; justify-content: center;}
 .clase-feature-img { flex: 1; max-width: 500px; margin: 0 auto;}

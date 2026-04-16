@@ -290,7 +290,7 @@
     }
 
     .hero:hover .hero-bg {
-      transform: scale(1.07);
+      /* No scale on hover as requested */
     }
 
     .hero-overlay {
@@ -576,7 +576,6 @@
 
     .home-section:hover .home-section-img {
       filter: brightness(0.55) saturate(0.75);
-      transform: scale(1.03);
     }
 
     /* ─── LORE CARDS ────────────────────────────────────────────── */
@@ -609,7 +608,6 @@
 
     .lore-card:hover .lore-card-img {
       filter: saturate(0.85) brightness(0.95);
-      transform: scale(1.03);
     }
 
     .lore-card-img-wrap {
@@ -699,7 +697,6 @@
 
     .raza-card:hover .raza-card-img {
       filter: saturate(0.9) brightness(1);
-      transform: scale(1.08);
     }
 
     .raza-card-body {
@@ -761,7 +758,6 @@
 
     .oficio-card:hover .oficio-card-img {
       filter: saturate(0.85) brightness(0.95);
-      transform: scale(1.06);
     }
 
     .oficio-card-label {
@@ -1797,7 +1793,7 @@
     }
 
     .bento-item:hover .bento-bg {
-      transform: scale(1.1);
+      /* Remove internal scale */
     }
 
     .bento-overlay {

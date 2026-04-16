@@ -672,6 +672,8 @@
       background: var(--surface);
       border: 1px solid var(--border);
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
       transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
     }
@@ -684,7 +686,7 @@
 
     .raza-card-img-wrap {
       overflow: hidden;
-      height: 180px;
+      height: 240px;
     }
 
     .raza-card-img {
@@ -700,11 +702,11 @@
     }
 
     .raza-card-body {
-      padding: 16px 18px 20px;
+      padding: 14px 16px 16px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
+      gap: 6px;
+      flex: 1;
     }
 
     .raza-card-body h3 {
@@ -716,9 +718,18 @@
       color: var(--gold);
     }
 
+    .raza-card-body .raza-card-role {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin: 0;
+    }
+
     .raza-card-body .btn-ghost {
       font-size: 0.7rem;
       padding: 6px 16px;
+      align-self: flex-end;
+      margin-top: auto;
     }
 
     /* ─── OFICIOS GRID ──────────────────────────────────────────── */

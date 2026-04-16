@@ -1173,6 +1173,22 @@
       flex-shrink: 0;
     }
 
+    .raza-variant-card {
+      background: rgba(0,0,0,0.15);
+      border: 1px solid var(--border);
+      padding: 24px;
+      margin-bottom: 16px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .raza-variant-title {
+      font-family: 'Cinzel', serif;
+      color: var(--accent);
+      margin-bottom: 14px;
+      font-size: 1.15rem;
+      letter-spacing: 0.05em;
+    }
+
     /* Normativa lists */
     .norm-list {
       list-style: none;
@@ -2045,3 +2061,11 @@
         grid-template-columns: 1fr;
       }
     }
+
+
+/* CLASES ALTERNATE LAYOUT */
+.clase-feature-row { display: flex; align-items: center; gap: 3rem; margin: 4rem 0;}
+.clase-feature-row.reverse { flex-direction: row-reverse; }
+.clase-feature-text { flex: 1; display: flex; flex-direction: column; justify-content: center;}
+.clase-feature-img { flex: 1; max-width: 500px; margin: 0 auto;}
+@media (max-width: 900px) { .clase-feature-row, .clase-feature-row.reverse { flex-direction: column; gap: 1.5rem; text-align: center; } .clase-feature-img { max-width: 100%; } }

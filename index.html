@@ -53,6 +53,27 @@
       </li>
 
       <li>
+        <span onclick="showPage('clases')" id="nav-clases">Clases</span>
+        <ul class="nav-dropdown wide">
+          <div class="nav-dropdown-inner">
+            <li><span onclick="showPage('clase-ciudadano')">Ciudadano</span></li>
+            <li><span onclick="showPage('clase-vhark-hul')">Vhark'Hul</span></li>
+            <li><span onclick="showPage('clase-argent-praetor')">Argent Praetor</span></li>
+            <li><span onclick="showPage('clase-dualhar')">Dualhar</span></li>
+            <li><span onclick="showPage('clase-luminari-vox')">Luminari Vox</span></li>
+            <li><span onclick="showPage('clase-noc-thar')">Noc'thar</span></li>
+            <li><span onclick="showPage('clase-stormheilm')">Stormheilm</span></li>
+            <li><span onclick="showPage('clase-velum-caedis')">Velum Caedis</span></li>
+            <li><span onclick="showPage('clase-velum-cantoris')">Velum Cantoris</span></li>
+            <li><span onclick="showPage('clase-zereth-mor')">Zereth-Mor</span></li>
+            <li><span onclick="showPage('clase-magharyn')">Magharyn</span></li>
+            <li><span onclick="showPage('clase-desconocido')">Desconocido</span></li>
+
+          </div>
+        </ul>
+      </li>
+
+      <li>
         <span onclick="showPage('oficios')" id="nav-oficios">Oficios</span>
         <ul class="nav-dropdown wide align-right">
           <div class="nav-dropdown-inner">
@@ -67,6 +88,15 @@
             <li><span onclick="showPage('oficio-alquimia')">Alquimia</span></li>
             <li><span onclick="showPage('oficio-sastre')">Sastre</span></li>
             <li><span onclick="showPage('oficio-cazador')">Cazador</span></li>
+          </div>
+        </ul>
+      </li>
+
+      <li>
+        <span onclick="showPage('gremios')" id="nav-gremios">Gremios</span>
+        <ul class="nav-dropdown wide align-right">
+          <div class="nav-dropdown-inner">
+            <li><span onclick="showPage('gremio-aventuras')">Gremio de Aventuras</span></li>
           </div>
         </ul>
       </li>
@@ -209,6 +239,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -291,6 +322,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -434,6 +466,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -580,6 +613,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -700,6 +734,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -713,6 +748,731 @@
 
 
   <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: GREMIOS                                              -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-gremios">
+
+    <div class="page-header">
+      <div class="page-header-bg"
+        style="background-image:url('images/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png')">
+      </div>
+      <div class="page-header-overlay"></div>
+      <div class="page-header-content">
+        <h1>Gremios</h1>
+        <p>Los Gremios de Primus</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Nuestros Gremios</h2>
+      <div class="section-underline"></div>
+
+      <div class="oficios-grid">
+
+        <div class="oficio-card" onclick="showPage('gremio-aventuras')">
+          <div class="oficio-card-img-wrap" style="background:#111; display:flex; align-items:center; justify-content:center;">
+            <i class="fa-solid fa-map-location-dot" style="font-size:3rem; color:var(--gold);"></i>
+          </div>
+          <div class="oficio-card-label">Gremio de Aventuras</div>
+        </div>
+
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+      <img class="footer-banner"
+        src="images/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt=""
+        loading="lazy" />
+      <div class="footer-content">
+        <div class="footer-logo">Cicatrices de Primus</div>
+        <ul class="footer-links">
+          <li><span onclick="showPage('inicio')">Inicio</span></li>
+          <li><span onclick="showPage('lore')">Lore</span></li>
+          <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
+          <li><span onclick="showPage('oficios')">Oficios</span></li>
+          <li><span onclick="showPage('normativa')">Normativa</span></li>
+        </ul>
+        <div class="footer-divider"></div>
+        <p class="footer-copy">© 2026 Creado por Cicatrices de Primus</p>
+      </div>
+    </footer>
+
+  </div><!-- /page-gremios -->
+
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: GREMIO DE AVENTURAS                                  -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-gremio-aventuras">
+    <div class="detail-hero">
+      <div class="detail-hero-bg"
+        style="background-image:url('images/aventureros.webp')">
+      </div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('gremios')">Gremios <span>/ Gremio de Aventuras</span></div>
+        <h1>Gremio de Aventuras</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('gremios')">Volver a Gremios</span>
+      
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p style="font-style: italic; font-size: 1.2rem; border-left: 4px solid var(--gold); padding-left: 1rem; color: var(--gold); margin-bottom: 2rem;">
+          "Un grupo desordenado sobrevive una vez. Una formación entrenada vuelve a casa como una leyenda."
+        </p>
+
+        <p>Bienvenido al nuevo Gremio de Aventuras, un espacio pensado para quienes buscan participar, disfrutar y vivir historias épicas sin depender de horarios rígidos ni largas esperas.</p>
+
+        <p>Tras escuchar propuestas e inquietudes de la comunidad, hemos trabajado en un sistema más dinámico y accesible, donde pequeños grupos de aventureros podrán adentrarse en las peligrosas tierras de Primus, superar misiones, crecer en poder y desarrollar la historia de sus personajes con total libertad creativa.</p>
+
+        <p>Cada expedición será una oportunidad para colaborar, improvisar, combatir y dejar huella. No importa si dispones de mucho o poco tiempo: la idea es que todos puedan formar parte de la experiencia y avanzar a su ritmo.</p>
+
+        <p>Para explicar el funcionamiento completo del sistema, normas, mecánicas y detalles importantes, hemos preparado una guía en Notion que encontrarás justo debajo.</p>
+
+        <p>Consulta toda la información en el siguiente enlace y prepárate para comenzar la aventura.</p>
+
+        <div style="margin-top: 3rem; margin-bottom: 2rem; text-align: center;">
+          <a class="btn-primary" href="https://www.notion.so/Gremio-de-aventuras-3388d8f1501f8041b9e9d8c52f01cae9" target="_blank" rel="noopener" style="padding: 1rem 2rem; font-size: 1.1rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.8rem; text-decoration: none;">
+            <i class="fa-solid fa-scroll"></i>
+            Guía: Gremio de Aventuras
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /page-gremio-aventuras -->
+
+
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASES  (LANDING)                                    -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clases">
+    <div class="page-header">
+      <div class="page-header-bg" style="background-image:url('images/c41305_884a15d7ed9a4713a13fc68832bcb4c1~mv2.png')"></div> <!-- reusing raza bg -->
+      <div class="page-header-overlay"></div>
+      <div class="page-header-content">
+        <h1>Clases</h1>
+        <p>Las Clases del continente de Primus</p>
+      </div>
+    </div>
+    <div class="section">
+      <h2 class="section-title">Las Clases</h2>
+      <div class="section-underline"></div>
+      <div class="razas-grid">
+
+        <div class="raza-card">
+          <div class="raza-card-img-wrap">
+            <img class="raza-card-img" src="sources/Clases/1.%20Ciudadano/fotos/avatar.png" alt="Ciudadano" loading="lazy" />
+          </div>
+          <div class="raza-card-body">
+            <h3>Ciudadano</h3>
+            <span onclick="showPage('clase-ciudadano')" class="btn-ghost">Ver más</span>
+          </div>
+        </div>
+    
+        <div class="raza-card">
+          <div class="raza-card-img-wrap">
+            <img class="raza-card-img" src="sources/Clases/10.%20Vhark'Hul/fotos/avatar.png" alt="Vhark'Hul" loading="lazy" />
+          </div>
+          <div class="raza-card-body">
+            <h3>Vhark'Hul</h3>
+            <span onclick="showPage('clase-vhark-hul')" class="btn-ghost">Ver más</span>
+          </div>
+        </div>
+    
+        <div class="raza-card">
+          <div class="raza-card-img-wrap">
+            <img class="raza-card-img" src="sources/Clases/2.%20Argent%20Praetor/fotos/foto1.png" alt="Argent Praetor" loading="lazy" />
+          </div>
+          <div class="raza-card-body">
+            <h3>Argent Praetor</h3>
+            <span onclick="showPage('clase-argent-praetor')" class="btn-ghost">Ver más</span>
+          </div>
+        </div>
+    
+        <div class="raza-card">
+          <div class="raza-card-img-wrap">
+            <img class="raza-card-img" src="sources/Clases/3.%20Dualhar/fotos/foto1.png" alt="Dualhar" loading="lazy" />
+          </div>
+          <div class="raza-card-body">
+            <h3>Dualhar</h3>
+            <span onclick="showPage('clase-dualhar')" class="btn-ghost">Ver más</span>
+          </div>
+        </div>
+    
+        <div class="raza-card">
+          <div class="raza-card-img-wrap">
+            <img class="raza-card-img" src="sources/Clases/4.%20Luminari%20Vox/fotos/avatar.png" alt="Luminari Vox" loading="lazy" />
+          </div>
+          <div class="raza-card-body">
+            <h3>Luminari Vox</h3>
+            <span onclick="showPage('clase-luminari-vox')" class="btn-ghost">Ver más</span>
+          </div>
+        </div>
+    
+        <div class="raza-card">
+          <div class="raza-card-img-wrap">
+            <img class="raza-card-img" src="sources/Clases/5.%20Noc'thar/fotos/avatar.png" alt="Noc'thar" loading="lazy" />
+          </div>
+          <div class="raza-card-body">
+            <h3>Noc'thar</h3>
+            <span onclick="showPage('clase-noc-thar')" class="btn-ghost">Ver más</span>
+          </div>
+        </div>
+    
+        <div class="raza-card">
+          <div class="raza-card-img-wrap">
+            <img class="raza-card-img" src="sources/Clases/6.%20Stormheilm/fotos/avatar.png" alt="Stormheilm" loading="lazy" />
+          </div>
+          <div class="raza-card-body">
+            <h3>Stormheilm</h3>
+            <span onclick="showPage('clase-stormheilm')" class="btn-ghost">Ver más</span>
+          </div>
+        </div>
+    
+        <div class="raza-card">
+          <div class="raza-card-img-wrap">
+            <img class="raza-card-img" src="sources/Clases/7.%20Velum%20Caedis/fotos/avatar.png" alt="Velum Caedis" loading="lazy" />
+          </div>
+          <div class="raza-card-body">
+            <h3>Velum Caedis</h3>
+            <span onclick="showPage('clase-velum-caedis')" class="btn-ghost">Ver más</span>
+          </div>
+        </div>
+    
+        <div class="raza-card">
+          <div class="raza-card-img-wrap">
+            <img class="raza-card-img" src="sources/Clases/7.%20Velum%20Cantoris/fotos/avatar.png" alt="Velum Cantoris" loading="lazy" />
+          </div>
+          <div class="raza-card-body">
+            <h3>Velum Cantoris</h3>
+            <span onclick="showPage('clase-velum-cantoris')" class="btn-ghost">Ver más</span>
+          </div>
+        </div>
+    
+        <div class="raza-card">
+          <div class="raza-card-img-wrap">
+            <img class="raza-card-img" src="sources/Clases/8.%20Zereth-Mor/fotos/avatar.png" alt="Zereth-Mor" loading="lazy" />
+          </div>
+          <div class="raza-card-body">
+            <h3>Zereth-Mor</h3>
+            <span onclick="showPage('clase-zereth-mor')" class="btn-ghost">Ver más</span>
+          </div>
+        </div>
+    
+        <div class="raza-card">
+          <div class="raza-card-img-wrap">
+            <img class="raza-card-img" src="sources/Clases/9.%20Magharyn/fotos/avatar.png" alt="Magharyn" loading="lazy" />
+          </div>
+          <div class="raza-card-body">
+            <h3>Magharyn</h3>
+            <span onclick="showPage('clase-magharyn')" class="btn-ghost">Ver más</span>
+          </div>
+        </div>
+    
+        <div class="raza-card">
+          <div class="raza-card-img-wrap">
+            <img class="raza-card-img" src="sources/Clases/Desconocido/fotos/avatar.png" alt="Desconocido" loading="lazy" />
+          </div>
+          <div class="raza-card-body">
+            <h3>Desconocido</h3>
+            <span onclick="showPage('clase-desconocido')" class="btn-ghost">Ver más</span>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+      <img class="footer-banner" src="images/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png" alt="" loading="lazy" />
+      <div class="footer-content">
+        <div class="footer-logo">Cicatrices de Primus</div>
+        <ul class="footer-links">
+          <li><span onclick="showPage('inicio')">Inicio</span></li>
+          <li><span onclick="showPage('lore')">Lore</span></li>
+          <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
+          <li><span onclick="showPage('oficios')">Oficios</span></li>
+          <li><span onclick="showPage('normativa')">Normativa</span></li>
+        </ul>
+        <div class="footer-divider"></div>
+        <p class="footer-copy">© 2026 Creado por Cicatrices de Primus</p>
+      </div>
+    </footer>
+  </div><!-- /page-clases -->
+
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASE CIUDADANO -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clase-ciudadano">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('sources/Clases/1.%20Ciudadano/fotos/avatar.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Ciudadano</span></div>
+        <h1>Ciudadano</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('clases')">Volver a Clases</span>
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p>El Ciudadano no es solo un campesino, un recolector o un simple trabajador. En Primus, el plebeyo representa el corazón de la sociedad. Es quien forja las espadas, cultiva las tierras, cura las enfermedades, y mantiene en pie los cimientos del mundo conocido. Mientras casas nobles juegan a la política y soldados alzan armas, el ciudadano comun crea, construye y sobrevive.</p>
+
+<img src="sources/Clases/1.%20Ciudadano/fotos/foto1.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto1">
+<p>Aunque históricamente relegados a las clases bajas, los Ciudadano que sobrevivieron a las guerras y los reinos fracturados adquirieron una sabiduría práctica invaluable. En la Quinta Era, muchos formaron gremios y aprendieron a negociar su trabajo como un recurso esencial.</p>
+<p>El Ciudadano  ha vivido la vida sin grandes lujos o con muchos lujos depende de su posicion social, pero con una fuerte conexión con la realidad del mundo normalmente. Sabe que todo lo que sube puede caer, y que sin sus manos, ningún imperio puede sostenerse. Algunos Ciudadanos son idealistas, otros más cínicos; pero todos comparten una cosa: conocimiento del valor del esfuerzo y la repetición.</p>
+
+<img src="sources/Clases/1.%20Ciudadano/fotos/foto2.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto2">
+<p>Donde una casa noble piensa en estrategia, el Ciudadano común ve el estado de la cosecha. Donde un Magharyn habla del equilibrio del Thae, el ciudadano aplicado en salud conoce qué planta puede sanar o envenenar en segundos..</p>
+<p>Los Ciudadanos Suelen Optar en un punto de su vida a un camino distinto..</p>
+<p>Optando por estudiar artes en combate  o , seguir haciéndose  en negocios !</p>
+
+<img src="sources/Clases/1.%20Ciudadano/fotos/foto3.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto3">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASE VHARK'HUL -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clase-vhark-hul">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('sources/Clases/10.%20Vhark'Hul/fotos/avatar.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Vhark'Hul</span></div>
+        <h1>Vhark'Hul</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('clases')">Volver a Clases</span>
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p>No fueron creados por capricho, ni por necesidad inmediata.</p>
+<p>Los Vhark’hul nacen de una obsesión.</p>
+<p>Fue Erick quien, en su búsqueda por trascender los límites del Thae conocido, comenzó a experimentar con una combinación que muchos consideraban imposible… o prohibida: el Thae del Poder y el Thae de la Muerte. No se trataba de dominar ambos, sino de fundirlos, de crear una fuerza que no solo destruyera, sino que perdurara más allá del final.</p>
+<p>El resultado no fue una criatura, sino un propósito encarnado.</p>
+<p>Los Vhark’hul no nacen: son forjados.</p>
+<p>Cada uno es el producto de rituales donde la vida es moldeada, quebrada y reconstruida bajo una voluntad superior. No poseen la inestabilidad de los Magharyn ni la dependencia de los Nigromantes. Son algo distinto. Algo más… definitivo..</p>
+
+<img src="sources/Clases/10.%20Vhark'Hul/fotos/foto1.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto1">
+<p>Sus armas no son simples herramientas de guerra.</p>
+<p>Las hojas que empuñan están ligadas a su esencia, y con cada enemigo caído, reclaman algo más que la victoria: recolectan su alma. No como trofeo, sino como combustible. Cada alma absorbida fortalece su existencia, refuerza su vínculo con el Thae y los acerca más a aquello que Erick buscaba crear… una entidad autosostenida, imposible de extinguir por medios convencionales.</p>
+<p>Por ello, muchos los llaman desalmados.</p>
+<p>No por carecer de alma, sino porque han trascendido la necesidad de una propia. Sus emociones son ecos lejanos, su humanidad una sombra que apenas recuerdan. Se mueven con precisión, con frialdad, como si cada acción estuviera ya decidida desde antes de ejecutarse.</p>
+<p>Otros los llaman guardianes.</p>
+
+<img src="sources/Clases/10.%20Vhark'Hul/fotos/foto2.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto2">
+<p>En lo alto de la Torre del Último Juramento, los Vhark’hul permanecen. No como vigilantes pasivos, sino como centinelas de algo que pocos comprenden. Allí donde los votos no pueden romperse, donde las promesas tienen peso real, ellos existen como recordatorio viviente de que algunos compromisos… no admiten traición.</p>
+<p>Responden al reino.</p>
+<p>No responden a órdenes comunes.</p>
+<p>Y no luchan por gloria.</p>
+<p>Cada Vhark’hul sigue un propósito propio, grabado en su ser durante su creación. Un objetivo que puede tomar años, décadas… o siglos en cumplirse.</p>
+<p>Y cuando finalmente lo logran, no celebran.</p>
+<p>Solo continúan.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASE ARGENT PRAETOR -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clase-argent-praetor">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('sources/Clases/2.%20Argent%20Praetor/fotos/foto1.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Argent Praetor</span></div>
+        <h1>Argent Praetor</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('clases')">Volver a Clases</span>
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p>Tras la caída de Raventree Hall y los años del Aislamiento Luminar, la antigua orden de los Thrones fue reformada. De aquella fuerza indivisible nacieron dos caminos distintos, pero complementarios. Así surgieron los Praetor: la manifestación más pura del brazo militar de Thronus.</p>
+<p>Si en otros tiempos fueron llamados custodios de la fe, hoy son algo más preciso y necesario: el muro que sostiene el mundo cuando la oscuridad presiona sus cimientos.</p>
+<p>No fueron creados para gobernar ni instruir. No fueron llamados para debatir doctrina. Fueron consagrados para resistir.</p>
+<p>Allí donde la Llama Eterna es desafiada, el Praetor avanza.</p>
+<p>La fuerza de los Praetor no reside únicamente en su armadura ni en el filo de sus armas, sino en la convicción que los sostiene. Viven bajo los Preceptos con disciplina absoluta, respirando la doctrina como si fuese aire. Para ellos, la fe no es consuelo ni refugio: es ley irrevocable.</p>
+
+<img src="sources/Clases/2.%20Argent%20Praetor/fotos/foto1.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="Foto1">
+<p>Tras la caída de Raventree Hall y los años del Aislamiento Luminar, la antigua orden de los Thrones fue reformada. De aquella fuerza indivisible nacieron dos caminos distintos, pero complementarios. Así surgieron los Praetor: la manifestación más pura del brazo militar de Thronus.</p>
+<p>Si en otros tiempos fueron llamados custodios de la fe, hoy son algo más preciso y necesario: el muro que sostiene el mundo cuando la oscuridad presiona sus cimientos.</p>
+<p>No fueron creados para gobernar ni instruir. No fueron llamados para debatir doctrina. Fueron consagrados para resistir.</p>
+<p>Allí donde la Llama Eterna es desafiada, el Praetor avanza.</p>
+<p>La fuerza de los Praetor no reside únicamente en su armadura ni en el filo de sus armas, sino en la convicción que los sostiene. Viven bajo los Preceptos con disciplina absoluta, respirando la doctrina como si fuese aire. Para ellos, la fe no es consuelo ni refugio: es ley irrevocable.</p>
+
+<img src="sources/Clases/2.%20Argent%20Praetor/fotos/foto2.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="Foto2">
+<p>No buscan la guerra, pero tampoco la evitan cuando la herejía rehúsa inclinarse. Cuando la sombra se niega a extinguirse y la corrupción rechaza redención, entonces la espada habla y la llama consume. No por odio, ni por placer, sino por mandato del Orden. Dentro de la Lucis Aeternae, los Praetor conforman la primera línea de toda cruzada. Son la cabeza visible de la rama militar, ejemplo para todo aquellos que les siguen y piedra angular de la estrategia bélica de la Orden. Su disciplina refleja el orden celestial que veneran: jerarquía clara, responsabilidad absoluta y obediencia incuestionable al Lux Belator y al Primus Luxor.</p>
+<p>No son conquistadores.</p>
+<p>No son fanáticos sin dirección.</p>
+<p>Son la muralla viva de Thronus.</p>
+<p>Y mientras arda la Llama Eterna, un Praetor permanecerá en pie.</p>
+<p>[Foto 3 ]</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASE DUALHAR -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clase-dualhar">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('sources/Clases/3.%20Dualhar/fotos/foto1.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Dualhar</span></div>
+        <h1>Dualhar</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('clases')">Volver a Clases</span>
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p>Debajo del Dualhar</p>
+<p>ROL: DPS DISTANCIA/DPS FISICO</p>
+<p>Los Dualhar no son un mito… pero tampoco son una presencia común.</p>
+<p>Su existencia es conocida en distintos rincones del mundo, mencionados en relatos de viajeros, informes militares y susurros en las cortes. No se ocultan como un secreto prohibido, pero tampoco se muestran abiertamente. Se sabe que existen, que operan… y que es mejor no interferir con sus asuntos.</p>
+<p>Su origen se vincula a unas antiguas ruinas al este de la capital de Azimra, lugar que muchos reconocen como su base o refugio principal. Aunque no es un territorio declarado, pocos dudan que quienes se acercan demasiado sin invitación están siendo observados mucho antes de darse cuenta.</p>
+<p>[foto 1]</p>
+<p>Los Dualhar están presentes en ciudades, caminos y territorios clave.</p>
+<p>No dominan… pero vigilan.</p>
+<p>Actúan como espías, exploradores y ejecutores cuando es necesario. Su capacidad para moverse sin ser detectados los convierte en una fuerza difícil de rastrear, pero no invisible. Algunos han visto sus marcas, otros han sobrevivido a sus intervenciones, y unos pocos incluso han logrado negociar con ellos.</p>
+<p>[foto 2]</p>
+<p>En combate, su eficiencia es incuestionable.</p>
+<p>Son expertos arqueros, capaces de abatir objetivos a distancia con precisión implacable, y espadachines que dominan enfrentamientos rápidos y decisivos. No prolongan las batallas: las resuelven.</p>
+<p>El sigilo es su lenguaje, pero no su única herramienta.</p>
+<p>Saben cuándo observar… y cuándo actuar.</p>
+<p>Para algunos reinos, los Dualhar son aliados incómodos.</p>
+<p>Para otros, una amenaza latente.</p>
+<p>Pero para todos, representan una certeza:</p>
+<p>No están ocultos…</p>
+<p>solo eligen cuándo ser vistos.</p>
+<p>[foto 3]</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASE LUMINARI VOX -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clase-luminari-vox">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('sources/Clases/4.%20Luminari%20Vox/fotos/avatar.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Luminari Vox</span></div>
+        <h1>Luminari Vox</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('clases')">Volver a Clases</span>
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p>Tras la disolución de los antiguos Thrones y la reforma de la orden luego de los acontecimientos de Raventree Hall, no toda la fuerza de la iglesia tomó la armadura ni el escudo. De la misma raíz nació una segunda vocación. Así surgieron los Luminarii: aquellos destinados no a resistir el embate, sino a revelar la verdad que lo precede. Si los Praetor son el muro que contiene la oscuridad, los Luminarii son la luz que la descubre. No marchan primero para destruir; marchan para revelar.</p>
+<p>Dentro de la Lucis Aeternae, los Luminarii encarnan la dimensión doctrinal y espiritual del mandato de Thronus. Son custodios de la palabra, guardianes del dogma y vigilantes de la pureza interna de la fe. Viven consagrados al estudio de los Preceptos, examinando cada verso, preservando cada enseñanza como si se tratase de una chispa desprendida de la Llama Eterna. Para ellos, la fe no solo se defiende. Se comprende; se examina y se prueba.</p>
+
+<img src="sources/Clases/4.%20Luminari%20Vox/fotos/foto1.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="Foto1">
+<p>Su labor no siempre es visible en los campos de batalla, pero sin ella ninguna cruzada sería justa. La corrupción rara vez se manifiesta con estruendo; se infiltra en susurros, se disfraza de duda, se oculta en medias verdades. Los Luminarii escuchan esos susurros. Observan donde otros apartan la mirada. Investigan lo que muchos prefieren ignorar. Son eruditos y jueces. Curiosos y severos. Compasivos, pero nunca ingenuos. Cuando descubren la sombra, no la enfrentan con furia ciega, sino con revelación. Obligan a lo impuro a exponerse bajo la claridad de la Lucis Aeterna, pues entienden que nada corrupto puede resistir una luz que arde sin titubeos.</p>
+<p>Mas su deber no termina en el juicio. Allí donde la guerra deja cicatrices y el miedo amenaza con quebrar la esperanza, los Luminarii restauran lo que puede ser salvado. Curan la carne herida, fortalecen el espíritu debilitado y purifican aquello que aún no ha sido consumido por completo. Saben que la fe no solo se impone mediante la espada: también se sostiene mediante la guía y el entendimiento.</p>
+
+<img src="sources/Clases/4.%20Luminari%20Vox/fotos/foto2.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="Foto2">
+<p>Dentro de la jerarquía de la Orden, los Luminarii representan el equilibrio del fuego sagrado. Si los Praetor ejecutan el mandato visible, ellos garantizan que dicho mandato permanezca alineado con la verdad doctrinal. Responden al Lux Purificare y al Primus Luxor con la misma obediencia que sus hermanos armados, pero su campo de batalla es el pensamiento, la herejía latente y la corrupción encubierta.</p>
+<p>No buscan protagonismo; Buscan claridad. No desean condenar por impulso; desean purificar con precisión.</p>
+<p>No son meros inquisidores ni simples sanadores; son el Ojo de la Llama Eterna.</p>
+<p>Y mientras exista una sombra en Primus, un Luminarii estará observando.</p>
+
+<img src="sources/Clases/4.%20Luminari%20Vox/fotos/foto3.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="Foto3">
+<p>ROL: HEALER/BUFFER</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASE NOC'THAR -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clase-noc-thar">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('sources/Clases/5.%20Noc'thar/fotos/avatar.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Noc'thar</span></div>
+        <h1>Noc'thar</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('clases')">Volver a Clases</span>
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p>Adentrarse en sus dominios ya no es solo cruzar el umbral de un bosque antiguo. Es internarse en una tierra que recuerda. Una tierra que fue herida… y que no ha olvidado.</p>
+<p>Durante eras, la Naturaleza en Primus fue paciente. Toleró el hierro, el fuego y la ambición de las civilizaciones. Susurró advertencias en hojas agitadas y raíces que crujían bajo pasos imprudentes. Los Custos Saltus escuchaban esos susurros y respondían con equilibrio, actuando como puentes entre el mundo físico y los ecos espirituales del cambio eterno representado por Zhenra.</p>
+<p>Pero en las tierras del Este, la arboleda de Narthilnor cayó; El corazón verde desapareció… Y con ello, algo más despertó.</p>
+<p>En el vacío dejado por su madre espiritual, los antiguos guardianes comprendieron una verdad que siempre había estado latente: la naturaleza no es solo equilibrio. También es instinto. Es tormenta. Es supervivencia.</p>
+
+<img src="sources/Clases/5.%20Noc'thar/fotos/foto1.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto1">
+<p>Así nacieron los Noc’thar.</p>
+<p>No como una orden fundada.</p>
+<p>No como una tradición transmitida.</p>
+<p>Sino como la venganza de la propia naturaleza.</p>
+<p>Si los Custos fueron Guardianes del Cambio y el Equilibrio, los Noc’thar son guardianes de la Respuesta y la Reparación. No buscan dominar la naturaleza, pero tampoco limitarla a la paciencia eterna. Han aceptado que cuando la corrupción desgarra el mundo, el bosque no susurra: ruge.</p>
+<p>Su vínculo espiritual no fue destruido con la caída de Narthilnor; fue transformado. Allí donde antes encontraban guía en la serenidad perpetua, ahora han aprendido a canalizar también la fuerza primordial del caos, representada en la figura de Vorgrimm, no como amo, sino como herramienta. Entienden que la vida no florece sin violencia natural: el incendio limpia, la helada endurece, y la tormenta purifica</p>
+
+<img src="sources/Clases/5.%20Noc'thar/fotos/foto2.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto2">
+<p>Algunos entre ellos aún sanan tierras heridas, pero sus manos ya no son solo suaves. Otros marchan como guerreros inclementes, arrancando la corrupción desde la raíz antes de que pueda extenderse. No actúan desde la compasión ingenua, sino desde una justicia antigua que precede a reyes y credos.</p>
+<p>Habitan ahora los lugares donde el bosque es más áspero, donde el viento corta y la nieve cubre cicatrices que aún laten bajo el suelo. Allí, los Noc’thar velan por el mundo no como mediadores pasivos, sino como su ultimátum viviente.</p>
+<p>No han abandonado su misión.</p>
+<p>La han endurecido.</p>
+<p>No son meros druidas heridos.</p>
+<p>Son la herida que aprendió a caminar.</p>
+<p>Y cuando la tierra vuelva a gritar, no responderán con un susurro.</p>
+<p>Responderán con un rugido..</p>
+
+<img src="sources/Clases/5.%20Noc'thar/fotos/foto3.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto3">
+<p>ROL: DEBUFFER/HEALER</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASE STORMHEILM -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clase-stormheilm">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('sources/Clases/6.%20Stormheilm/fotos/avatar.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Stormheilm</span></div>
+        <h1>Stormheilm</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('clases')">Volver a Clases</span>
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p>Allí donde las cumbres desgarran el cielo y el viento azota como un juicio antiguo, los Stormheilm no esperan. El norte no es herencia. No es derecho. Es conquista constante.</p>
+<p>Hubo un tiempo en que fueron guerreros ritualistas dedicados a la resistencia, templados por la supervivencia extrema y el vínculo espiritual con la montaña. Enfrentaban pruebas imposibles y renacían de ellas con la fuerza de la piedra y el trueno en las venas. Buscaban equilibrio con los elementos, honrando la montaña que nunca se inclina. Pero el norte fue manchado por la traición, y la ambición. Por ello, alianzas se quebraron, y la montaña respondió. No dialogó, ni tampoco dudó. Sino que dejó al trueno proclamar su voluntad.</p>
+<p>Desde aquella purga, los Stormheilm ya no se definen únicamente por resistencia, sino por determinación absoluta. Son la manada que no retrocede. No portan estandartes pulcros ni proclaman juramentos de corte caballeresco. Son el rugido de la montaña cuando esta decide expulsar el peso muerto que la debilita. Cada Stormheilm sigue siendo un renacido, marcado por ritos que separan al mortal del digno. Pero ahora esas pruebas no solo fortalecen el cuerpo y el espíritu: seleccionan. El débil cae. El desleal se quiebra. El que permanece se convierte en relámpago encarnado.</p>
+
+<img src="sources/Clases/6.%20Stormheilm/fotos/foto1.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto1">
+<p>No conocen la retirada.</p>
+<p>No conocen el temor.</p>
+<p>La única dirección que aceptan es hacia adelante.</p>
+<p>La purga de Ravensvik redujo su número, pero templó su esencia. Comprendieron que el enemigo no siempre se alza más allá del horizonte helado; a veces se oculta en la ambición interna, en el orgullo sin honor. Desde entonces, la manada es más pequeña, más unida y más letal.</p>
+<p>Su vínculo con los elementos también se transformó. La piedra, el hielo y el trueno ya no son solo maestros: son armas vivientes en sus manos. Y en la tormenta reconocen el eco de Vorgrimm, no como divinidad distante, sino como principio de prueba y selección. Para ellos, el caos no es destrucción sin sentido; es supervivencia. Es el derecho del fuerte a mantenerse en pie cuando todo lo demás cae.</p>
+
+<img src="sources/Clases/6.%20Stormheilm/fotos/foto2.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto2">
+<p>Luchan por dominio del norte. Por legado, y por la manada.</p>
+<p>Defenderán Yrsafell hasta que el hielo reclame sus huesos y el trueno pronuncie su nombre por última vez. Porque si la montaña no retrocede ante la tormenta, tampoco lo harán sus hijos.</p>
+<p>No son meros bárbaros.</p>
+<p>No son simples exploradores del norte.</p>
+<p>Son la tormenta que avanza.</p>
+<p>Y cuando el viento aúlle en las cumbres, no será advertencia.</p>
+<p>Será un anuncio.</p>
+
+<img src="sources/Clases/6.%20Stormheilm/fotos/foto3.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto3">
+<p>ROL:LUCHADOR/TANQUE</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASE VELUM CAEDIS -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clase-velum-caedis">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('sources/Clases/7.%20Velum%20Caedis/fotos/avatar.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Velum Caedis</span></div>
+        <h1>Velum Caedis</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('clases')">Volver a Clases</span>
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p>Antes de ser vistos… ya han pasado.</p>
+<p>Los Velum Caedis no luchan. No en el sentido que los vivos entienden. Ellos se desplazan entre instantes, guiados por una música que nadie más puede oír. Un susurro constante que marca el ritmo de su existencia.</p>
+<p>Cada movimiento es una respuesta.</p>
+<p>Cada paso, una sentencia.</p>
+<p>No dominan a los muertos. No los esclavizan. Caminan junto a ellos… o quizás son arrastrados por ellos. Voces sin descanso murmuran en su mente, señalando objetivos, exigiendo actos, reclamando finales.</p>
+<p>[foto 1]</p>
+<p>Algunos obedecen por deber.</p>
+<p>Otros, por culpa.</p>
+<p>Y algunos… porque han olvidado cómo dejar de escuchar.</p>
+<p>En combate, son irreales. Apariciones fugaces que cortan el tejido de la realidad y desaparecen antes de que la sangre toque el suelo. No buscan destrucción. Buscan precisión.</p>
+<p>Un nombre.</p>
+<p>Un acto.</p>
+<p>Un final.</p>
+<p>Y luego, nada.</p>
+<p>Pero el precio es inevitable.</p>
+<p>Cuanto más tiempo permanecen entre el mundo de los vivos y el eco de los muertos, más difusa se vuelve su existencia. Sus cuerpos siguen moviéndose… pero algo en ellos ya no regresa.</p>
+<p>Y llega un momento en que el susurro deja de guiar.</p>
+<p>Y empieza a reclamar.</p>
+<p>[foto 2]</p>
+<p>ROL: BURST DPS</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASE VELUM CANTORIS -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clase-velum-cantoris">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('sources/Clases/7.%20Velum%20Cantoris/fotos/avatar.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Velum Cantoris</span></div>
+        <h1>Velum Cantoris</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('clases')">Volver a Clases</span>
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p>Donde otros retroceden ante el silencio de la muerte, los Azharn avanzan. No lo desafían… lo aceptan. En ese vacío donde todo termina, ellos encuentran propósito.</p>
+<p>Son seres marcados por un destino irrevocable, ligados a lo invisible, a lo olvidado, a aquello que se niega a desaparecer. No escuchan a los muertos como un don, sino como una condena que late en su sangre. Susurros sin descanso, voces que no conocen reposo. A través del viento y la música, los ecos de los caídos se aferran a ellos, guiando sus pasos… o arrastrándolos.</p>
+<p>Nunca están solos.</p>
+<p>El aire a su alrededor vibra con presencias: melodías que nacen de recuerdos marchitos, lamentos que desgarran la cordura, armonías que no pertenecen al mundo de los vivos. Para un Azharn, la música no es arte. Es un umbral. Un lenguaje antiguo con el más allá.</p>
+<p>Son los intérpretes de lo inconcluso. Ejecutores de voluntades que la muerte no logró apagar. Sanadores de penas que jamás encontraron descanso. Vengadores de agravios enterrados en el olvido… o marionetas de voces que susurran mentiras con la forma de promesas.</p>
+<p>El origen de su poder es un secreto que ni siquiera ellos comprenden del todo. Su sangre no los corrompe… los transforma. Los convierte en entidades suspendidas entre dos mundos, capaces de mirar donde otros enloquecerían al instante.</p>
+<p>Pero ningún mortal puede sostener esa mirada eternamente.</p>
+<p>A veces, el umbral devuelve la mirada.</p>
+<p>Y cuando eso ocurre, no todos logran resistir.</p>
+<p>Los Azharn no buscan gloria. La gloria es para los vivos. Lo suyo es algo más antiguo, más frío. Su existencia es un equilibrio imposible, una danza al filo de lo inevitable. Donde otros apartan la vista del final, ellos lo contemplan… y responden.</p>
+<p>Cuando el silencio se alza para devorarlo todo, los Azharn no huyen.</p>
+<p>Ellos cantan.</p>
+<p>Ellos danzan.</p>
+<p>Y el mundo se rompe con ellos.</p>
+
+<img src="sources/Clases/7.%20Velum%20Cantoris/fotos/foto1.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto1">
+<p>Velum Cantoris — La Voz que Descompone el Mundo</p>
+<p>No toda música está destinada a ser escuchada.</p>
+<p>Los Velum Cantoris no se limitan a cantar… serían más soportables si así fuera. Son canales, conductos a través de los cuales lo que yace más allá encuentra forma y sonido. Sus voces son solo el inicio.</p>
+<p>Instrumentos antiguos cuelgan de sus manos o reposan a su alrededor: cuerdas que vibran sin ser tocadas, tambores que laten como corazones olvidados, flautas que exhalan alientos que no pertenecen a ningún pulmón vivo. A veces son ellos quienes interpretan.</p>
+<p>A veces… no.</p>
+<p>Hay momentos en los que sus manos se detienen…</p>
+<p>y la música continúa.</p>
+<p>Los muertos tocan a través de ellos.</p>
+<p>O en lugar de ellos.</p>
+
+<img src="sources/Clases/7.%20Velum%20Cantoris/fotos/foto2.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto2">
+<p>Donde su arte resuena, la realidad se agrieta. Las certezas se pudren. La voluntad se deshace como ceniza entre los dedos. No invocan el Thae de Muerte y Caos… porque ya habita en cada nota, en cada vibración que se arrastra entre mundos.</p>
+<p>Cada sonido arrastra un eco antiguo. Cada pausa es una grieta por donde algo observa de vuelta.</p>
+<p>Algunos creen que provocan la desesperación.</p>
+<p>Se equivocan.</p>
+<p>La desesperación siempre estuvo ahí.</p>
+<p>Ellos solo le dan forma.</p>
+<p>Le dan voz.</p>
+<p>Le dan ritmo.</p>
+<p>Y cuando la última nota muere… la música no desaparece. Permanece, aferrada a la mente, repitiéndose en silencio, erosionando lentamente lo que encuentra.</p>
+<p>Nadie que haya presenciado a un Velum Cantoris vuelve intacto.</p>
+<p>Porque no importa quién tocó realmente…</p>
+<p>la canción siempre encuentra a quien escucharla.</p>
+
+<img src="sources/Clases/7.%20Velum%20Cantoris/fotos/foto3.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto3">
+<p>ROL: BUFFER/DEBUFFER</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASE ZERETH-MOR -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clase-zereth-mor">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('sources/Clases/8.%20Zereth-Mor/fotos/avatar.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Zereth-Mor</span></div>
+        <h1>Zereth-Mor</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('clases')">Volver a Clases</span>
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p>No todos los que estudian la muerte lo hacen desde las sombras.</p>
+<p>Algunos fueron autorizados a mirarla de frente… y a utilizarla.</p>
+<p>Los Zereth’mor no surgieron como una orden clandestina ni como un culto prohibido. Su existencia fue legitimada en un momento donde el mundo necesitaba respuestas que la vida no podía ofrecer. Fue Meiga, en un acto que muchos consideraron impensable, quien presentó la nigromancia no como una aberración, sino como una herramienta. Y contra todo pronóstico, tanto el rey como Caelis concedieron su aprobación.</p>
+<p>No por confianza.</p>
+<p>Sino por necesidad.</p>
+<p>Desde entonces, los Zereth’mor caminan una línea peligrosa: son practicantes de un arte prohibido… permitido bajo vigilancia. Enseñan a quienes pueden soportarlo, formando discípulos capaces de manipular lo que otros temen incluso nombrar.</p>
+<p>Para ellos, los muertos no son sagrados.</p>
+<p>Son útiles.</p>
+<p>No ven almas en descanso ni cuerpos dignos de duelo. Ven estructuras vacías, listas para ser reclamadas. En sus manos, los caídos se convierten en marionetas, obedientes, silenciosas, eternamente funcionales. Cada cadáver reanimado es un hilo más en una red invisible que solo ellos saben manejar.</p>
+<p>Por eso se les teme.</p>
+<p>Porque los Zereth’mor no desafían la muerte.</p>
+<p>La reorganizan.</p>
+<p>Aun así, su existencia sigue siendo cuestionada. Para muchos, son una traición al orden natural. Para otros, una herramienta necesaria en tiempos de guerra. Pero para quienes entienden su verdadera naturaleza, representan algo más inquietante:</p>
+<p>La prueba de que la muerte… puede perder su significado.</p>
+<p>Y cuando eso ocurre, no hay límite claro entre lo que debe permanecer en reposo… y lo que puede volver a levantarse.</p>
+<p>ROL: DPS MAGICO/DEBUFF</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASE MAGHARYN -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clase-magharyn">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('sources/Clases/9.%20Magharyn/fotos/avatar.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Magharyn</span></div>
+        <h1>Magharyn</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('clases')">Volver a Clases</span>
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p>Aquí no estamos ante simples magos o hechiceros. Los Magharyn son los guardianes del Thae, una energía primordial que fluye a través de toda forma de vida y materia: desde el aire que respiramos hasta las rocas más antiguas del mundo. No se limitan a canalizar esta fuerza; la transforman, le dan forma y, lo más importante, la interpretan. Entienden el Thae como una corriente viva, en constante diálogo con el entorno, y a través de ese diálogo es como nace su poder.</p>
+
+<img src="sources/Clases/9.%20Magharyn/fotos/foto1.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto1">
+<p>Su poder no es caótico ni impulsivo. Es estructurado, preciso, guiado por una filosofía ancestral que combina el estudio riguroso con una espiritualidad introspectiva. Para un Magharyn, lanzar un hechizo es tanto una acción práctica como un acto de fe, de conexión con el universo.</p>
+
+<img src="sources/Clases/9.%20Magharyn/fotos/foto2.png" style="width: 100%; max-width: 800px; border-radius: 8px; margin: 2rem auto; display: block;" alt="foto2">
+<p>Antiguamente reconocidos oficialmente por la Academia Nidharrow, los Magharyn actúan bajo permiso real y operan en todo el territorio como fuerza de orden, investigadores. En los actuales tiempos de conflictos, son la fuerza principal al servicio del reino. Pero en la calma, florecen como eruditos, compartiendo su conocimiento con comunidades, nobles y otros estudiosos.</p>
+<p>ROL: BURST DPS</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PAGE: CLASE DESCONOCIDO -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="page" id="page-clase-desconocido">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" style="background-image:url('sources/Clases/Desconocido/fotos/avatar.png')"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Desconocido</span></div>
+        <h1>Desconocido</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('clases')">Volver a Clases</span>
+      <div class="detail-text" style="margin-top: 2rem;">
+        <p>¿?</p>
+
+      </div>
+    </div>
+  </div>
+
+
   <!--  PAGE: HISTORIA                                             -->
   <!-- ═══════════════════════════════════════════════════════════ -->
   <div class="page" id="page-historia">
@@ -900,6 +1660,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1032,6 +1793,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1101,6 +1863,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1165,6 +1928,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1223,6 +1987,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1280,6 +2045,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1338,6 +2104,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1396,6 +2163,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1458,6 +2226,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1518,6 +2287,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1625,6 +2395,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1728,6 +2499,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1818,6 +2590,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1907,6 +2680,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -1996,6 +2770,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -2086,6 +2861,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -2176,6 +2952,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -2268,6 +3045,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -2355,6 +3133,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -2442,6 +3221,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -2532,6 +3312,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -2594,6 +3375,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -2648,6 +3430,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -2723,6 +3506,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -2834,6 +3618,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -2902,6 +3687,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -3020,6 +3806,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -3108,6 +3895,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -3179,6 +3967,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -3278,6 +4067,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>
@@ -3370,6 +4160,7 @@
           <li><span onclick="showPage('inicio')">Inicio</span></li>
           <li><span onclick="showPage('lore')">Lore</span></li>
           <li><span onclick="showPage('razas')">Razas</span></li>
+          <li><span onclick="showPage('clases')">Clases</span></li>
           <li><span onclick="showPage('oficios')">Oficios</span></li>
           <li><span onclick="showPage('normativa')">Normativa</span></li>
         </ul>

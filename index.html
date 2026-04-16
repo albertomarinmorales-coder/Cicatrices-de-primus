@@ -3380,20 +3380,21 @@
   </div>
 
 
-  <script src="scripts.js"></script>
-
   <!-- ─── MODERN AUDIO PLAYER ───────────────────────────────────── -->
   <div class="audio-player" id="audioPlayer">
     <audio id="bgMusic" loop>
       <source src="audio/audio.mp3" type="audio/mpeg">
     </audio>
-    <button class="audio-toggle" id="audioToggle" aria-label="Reproducir/Pausar Música">
+    <button class="audio-toggle attention-pulse" id="audioToggle" aria-label="Reproducir/Pausar Música">
+      <span class="audio-label" id="audioLabel">Música</span>
       <i class="fa-solid fa-music"></i>
       <div class="audio-waves" id="audioWaves">
         <span></span><span></span><span></span>
       </div>
     </button>
   </div>
+
+  <script src="scripts.js"></script>
 
 </body>
 

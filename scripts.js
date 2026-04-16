@@ -55,23 +55,43 @@ const pages = ['inicio', 'lore', 'razas', 'oficios', 'normativa', 'historia', 'd
     const audioToggle = document.getElementById('audioToggle');
     const audioWaves = document.getElementById('audioWaves');
     const audioIcon = audioToggle.querySelector('i');
+    const audioLabel = document.getElementById('audioLabel');
     let isPlaying = false;
 
-    bgMusic.volume = 0.5; // Ajusta el volumen a gusto
+    bgMusic.volume = 0.4;
 
-    audioToggle.addEventListener('click', () => {
+    function playAudio() {
+      bgMusic.play().then(() => {
+        isPlaying = true;
+        audioWaves.classList.add('playing');
+        audioToggle.classList.add('playing');
+        audioToggle.classList.remove('attention-pulse');
+        audioIcon.className = 'fa-solid fa-pause';
+        if(audioLabel) audioLabel.style.display = 'none';
+        audioToggle.style.borderColor = 'var(--gold)';
+      }).catch(e => {
+        console.log('Autoplay blocked, waiting for interaction');
+      });
+    }
+
+    // Intenta sonar al cargar (casi siempre bloqueado por navegador)
+    window.addEventListener('load', playAudio);
+    // También intenta al primer clic en cualquier sitio por si acaso
+    document.addEventListener('click', () => {
+      if(!isPlaying) playAudio();
+    }, { once: true });
+
+    audioToggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // Evita el listener global de arriba
       if (isPlaying) {
         bgMusic.pause();
         audioWaves.classList.remove('playing');
         audioToggle.classList.remove('playing');
         audioIcon.className = 'fa-solid fa-music';
         audioToggle.style.borderColor = 'var(--accent)';
+        if(audioLabel) audioLabel.style.display = 'inline';
       } else {
-        bgMusic.play().catch(e => console.log('Autoplay blocked:', e));
-        audioWaves.classList.add('playing');
-        audioToggle.classList.add('playing');
-        audioIcon.className = 'fa-solid fa-pause';
-        audioToggle.style.borderColor = 'var(--gold)';
+        playAudio();
       }
       isPlaying = !isPlaying;
     });

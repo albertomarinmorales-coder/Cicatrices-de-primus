@@ -1,3 +1,4 @@
+ROL: DPS Magico/Debuff
 Aquí no estamos ante simples magos o hechiceros. Los Magharyn son los guardianes del Thae, una energía primordial que fluye a través de toda forma de vida y materia: desde el aire que respiramos hasta las rocas más antiguas del mundo. No se limitan a canalizar esta fuerza; la transforman, le dan forma y, lo más importante, la interpretan. Entienden el Thae como una corriente viva, en constante diálogo con el entorno, y a través de ese diálogo es como nace su poder.
 [foto1]
 
@@ -7,4 +8,3 @@ Su poder no es caótico ni impulsivo. Es estructurado, preciso, guiado por una f
 Antiguamente reconocidos oficialmente por la Academia Nidharrow, los Magharyn actúan bajo permiso real y operan en todo el territorio como fuerza de orden, investigadores. En los actuales tiempos de conflictos, son la fuerza principal al servicio del reino. Pero en la calma, florecen como eruditos, compartiendo su conocimiento con comunidades, nobles y otros estudiosos.
 [foto3]
 
-ROL: BURST DPS

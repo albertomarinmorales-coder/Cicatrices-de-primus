@@ -1,3 +1,4 @@
+ROL: Buffer/Debuffer
 Donde otros retroceden ante el silencio de la muerte, los Azharn avanzan. No lo desafían… lo aceptan. En ese vacío donde todo termina, ellos encuentran propósito.
 
 Son seres marcados por un destino irrevocable, ligados a lo invisible, a lo olvidado, a aquello que se niega a desaparecer. No escuchan a los muertos como un don, sino como una condena que late en su sangre. Susurros sin descanso, voces que no conocen reposo. A través del viento y la música, los ecos de los caídos se aferran a ellos, guiando sus pasos… o arrastrándolos.
@@ -63,4 +64,3 @@ la canción siempre encuentra a quien escucharla.
 [foto3]
 
 
-ROL: BUFFER/DEBUFFER

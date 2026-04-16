@@ -1,3 +1,4 @@
+ROL: Healer/Buffer
 Tras la disolución de los antiguos Thrones y la reforma de la orden luego de los acontecimientos de Raventree Hall, no toda la fuerza de la iglesia tomó la armadura ni el escudo. De la misma raíz nació una segunda vocación. Así surgieron los Luminarii: aquellos destinados no a resistir el embate, sino a revelar la verdad que lo precede. Si los Praetor son el muro que contiene la oscuridad, los Luminarii son la luz que la descubre. No marchan primero para destruir; marchan para revelar.
 
 Dentro de la Lucis Aeternae, los Luminarii encarnan la dimensión doctrinal y espiritual del mandato de Thronus. Son custodios de la palabra, guardianes del dogma y vigilantes de la pureza interna de la fe. Viven consagrados al estudio de los Preceptos, examinando cada verso, preservando cada enseñanza como si se tratase de una chispa desprendida de la Llama Eterna. Para ellos, la fe no solo se defiende. Se comprende; se examina y se prueba.
@@ -19,4 +20,3 @@ Y mientras exista una sombra en Primus, un Luminarii estará observando.
 [Foto3]
 
 
-ROL: HEALER/BUFFER

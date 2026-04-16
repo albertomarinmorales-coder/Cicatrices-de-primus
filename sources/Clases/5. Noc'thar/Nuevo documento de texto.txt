@@ -1,3 +1,4 @@
+ROL: Debuffer/Healer
 Adentrarse en sus dominios ya no es solo cruzar el umbral de un bosque antiguo. Es internarse en una tierra que recuerda. Una tierra que fue herida… y que no ha olvidado.
 
 Durante eras, la Naturaleza en Primus fue paciente. Toleró el hierro, el fuego y la ambición de las civilizaciones. Susurró advertencias en hojas agitadas y raíces que crujían bajo pasos imprudentes. Los Custos Saltus escuchaban esos susurros y respondían con equilibrio, actuando como puentes entre el mundo físico y los ecos espirituales del cambio eterno representado por Zhenra. 
@@ -38,4 +39,3 @@ Responderán con un rugido..
 [foto3]
 
 
-ROL: DEBUFFER/HEALER

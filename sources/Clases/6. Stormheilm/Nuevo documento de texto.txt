@@ -1,3 +1,4 @@
+ROL: Luchador/Tanque
 Allí donde las cumbres desgarran el cielo y el viento azota como un juicio antiguo, los Stormheilm no esperan. El norte no es herencia. No es derecho. Es conquista constante.
 
 Hubo un tiempo en que fueron guerreros ritualistas dedicados a la resistencia, templados por la supervivencia extrema y el vínculo espiritual con la montaña. Enfrentaban pruebas imposibles y renacían de ellas con la fuerza de la piedra y el trueno en las venas. Buscaban equilibrio con los elementos, honrando la montaña que nunca se inclina. Pero el norte fue manchado por la traición, y la ambición. Por ello, alianzas se quebraron, y la montaña respondió. No dialogó, ni tampoco dudó. Sino que dejó al trueno proclamar su voluntad.
@@ -35,4 +36,3 @@ Será un anuncio.
 
 
 
-ROL:LUCHADOR/TANQUE

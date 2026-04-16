@@ -1,3 +1,4 @@
+ROL: Magico/Debuff
 No todos los que estudian la muerte lo hacen desde las sombras.
 Algunos fueron autorizados a mirarla de frente… y a utilizarla.
 
@@ -28,4 +29,3 @@ Y cuando eso ocurre, no hay límite claro entre lo que debe permanecer en reposo
 [foto3]
 
 
-ROL: DPS MAGICO/DEBUFF

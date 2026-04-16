@@ -4019,29 +4019,52 @@
           src="https://static.wixstatic.com/media/c41305_b3fd63c5e124474db9690e54fcaa5ea1~mv2.png" alt="Alquimia"
           loading="lazy" />
       </div>
-      <div class="tier-grid">
-        <div class="tier-card">
-          <h4>Tier 1</h4>
-          <h5>Alquimista Aprendiz</h5>
-          <ul>
+      <div class="oficio-tiers">
+        <div class="tier-tabs">
+          <button class="tier-tab active" onclick="showTier(this,'alquimia-t1')">
+            <span class="tier-num">I</span>
+            <span class="tier-tab-name">Aprendiz</span>
+          </button>
+          <button class="tier-tab" onclick="showTier(this,'alquimia-t2')">
+            <span class="tier-num">II</span>
+            <span class="tier-tab-name">Experto</span>
+          </button>
+          <button class="tier-tab" onclick="showTier(this,'alquimia-t3')">
+            <span class="tier-num">III</span>
+            <span class="tier-tab-name">Maestro</span>
+          </button>
+        </div>
+        <div class="tier-panel active" id="alquimia-t1">
+          <div class="tier-panel-top">
+            <span class="tier-badge t1">Tier I</span>
+            <h3>Alquimista Aprendiz</h3>
+          </div>
+          <p class="tier-desc">Comienza su camino experimentando con hierbas y minerales básicos. Aunque a veces sus mezclas pueden ser inestables, sus pociones simples ya son útiles para la vida diaria y pequeñas contiendas en Primus.</p>
+          <ul class="tier-perks">
             <li>Pociones simples</li>
-            <li>+3 Alquimia</li>
+            <li>Beneficios dados: +3 Alquimia</li>
           </ul>
         </div>
-        <div class="tier-card">
-          <h4>Tier 2</h4>
-          <h5>Alquimista Experto</h5>
-          <ul>
+        <div class="tier-panel" id="alquimia-t2">
+          <div class="tier-panel-top">
+            <span class="tier-badge t2">Tier II</span>
+            <h3>Alquimista Experto</h3>
+          </div>
+          <p class="tier-desc">Domina técnicas avanzadas de destilación y mezcla, lo que le permite crear pociones con efectos más potentes y venenos capaces de alterar el curso de una batalla.</p>
+          <ul class="tier-perks">
             <li>Pociones avanzadas y venenos</li>
-            <li>+5 Alquimia</li>
+            <li>Beneficios dados: +5 Alquimia</li>
           </ul>
         </div>
-        <div class="tier-card">
-          <h4>Tier 3</h4>
-          <h5>Maestro Alquimista</h5>
-          <ul>
+        <div class="tier-panel" id="alquimia-t3">
+          <div class="tier-panel-top">
+            <span class="tier-badge t3">Tier III</span>
+            <h3>Maestro Alquimista</h3>
+          </div>
+          <p class="tier-desc">Sus conocimientos trascienden lo ordinario, rozando lo mágico y lo prohibido. Es capaz de elaborar elixires legendarios y transmutaciones de incalculable valor.</p>
+          <ul class="tier-perks">
             <li>Transmutaciones y elixires legendarios</li>
-            <li>+8 Alquimia</li>
+            <li>Beneficios dados: +8 Alquimia</li>
           </ul>
         </div>
       </div>
@@ -4083,29 +4106,52 @@
           src="https://static.wixstatic.com/media/c41305_a0e74e81ea0f4adf9fb93f7aa0e66efd~mv2.png" alt="Sastre"
           loading="lazy" />
       </div>
-      <div class="tier-grid">
-        <div class="tier-card">
-          <h4>Tier 1</h4>
-          <h5>Sastre Aprendiz</h5>
-          <ul>
+      <div class="oficio-tiers">
+        <div class="tier-tabs">
+          <button class="tier-tab active" onclick="showTier(this,'sastre-t1')">
+            <span class="tier-num">I</span>
+            <span class="tier-tab-name">Aprendiz</span>
+          </button>
+          <button class="tier-tab" onclick="showTier(this,'sastre-t2')">
+            <span class="tier-num">II</span>
+            <span class="tier-tab-name">Experto</span>
+          </button>
+          <button class="tier-tab" onclick="showTier(this,'sastre-t3')">
+            <span class="tier-num">III</span>
+            <span class="tier-tab-name">Maestro</span>
+          </button>
+        </div>
+        <div class="tier-panel active" id="sastre-t1">
+          <div class="tier-panel-top">
+            <span class="tier-badge t1">Tier I</span>
+            <h3>Sastre Aprendiz</h3>
+          </div>
+          <p class="tier-desc">Comienza aprendiendo a medir, cortar y coser telas comunes. Sus creaciones, aunque sencillas, son esenciales para vestir a quienes inician su aventura en este arduo continente.</p>
+          <ul class="tier-perks">
             <li>Ropa básica</li>
-            <li>+3 Sastrería</li>
+            <li>Beneficios dados: +3 Sastrería</li>
           </ul>
         </div>
-        <div class="tier-card">
-          <h4>Tier 2</h4>
-          <h5>Sastre Experto</h5>
-          <ul>
+        <div class="tier-panel" id="sastre-t2">
+          <div class="tier-panel-top">
+            <span class="tier-badge t2">Tier II</span>
+            <h3>Sastre Experto</h3>
+          </div>
+          <p class="tier-desc">Sus manos trabajan ahora curtidos y telas resistentes, confeccionando armaduras ligeras de cuero que protegen a exploradores y pícaros sin sacrificar su movilidad.</p>
+          <ul class="tier-perks">
             <li>Armaduras de cuero</li>
-            <li>+5 Sastrería</li>
+            <li>Beneficios dados: +5 Sastrería</li>
           </ul>
         </div>
-        <div class="tier-card">
-          <h4>Tier 3</h4>
-          <h5>Maestro Sastre</h5>
-          <ul>
+        <div class="tier-panel" id="sastre-t3">
+          <div class="tier-panel-top">
+            <span class="tier-badge t3">Tier III</span>
+            <h3>Maestro Sastre</h3>
+          </div>
+          <p class="tier-desc">Sus creaciones son demandadas no solo por su resistencia, sino por su exquisitez. Trabaja hilos de inmensurable valor, entretejiendo protecciones encantadas y armaduras de leyenda.</p>
+          <ul class="tier-perks">
             <li>Vestimentas encantadas</li>
-            <li>+8 Sastrería</li>
+            <li>Beneficios dados: +8 Sastrería</li>
           </ul>
         </div>
       </div>

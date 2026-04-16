@@ -1870,3 +1870,90 @@
         font-size: 1.5rem;
       }
     }
+    /* --- NORM GRID (NORMATIVA) ----------------------------------- */
+    .norm-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 3rem auto;
+      max-width: 1200px;
+    }
+
+    .norm-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 32px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+      border-radius: 12px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .norm-item:hover {
+      transform: translateY(-5px);
+      border-color: rgba(176, 16, 16, 0.4);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      background: rgba(176, 16, 16, 0.03);
+    }
+
+    .norm-icon {
+      font-size: 1.8rem;
+      color: var(--gold);
+      opacity: 0.7;
+      min-width: 40px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .norm-item:hover .norm-icon {
+      opacity: 1;
+      color: var(--gold-50);
+      text-shadow: 0 0 15px rgba(201, 168, 76, 0.3);
+    }
+
+    .norm-item h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin: 0;
+      transition: color 0.3s ease;
+    }
+
+    .norm-item:hover h3 {
+      color: var(--gold);
+    }
+
+    .norm-arrow {
+      margin-left: auto;
+      color: var(--accent);
+      font-size: 1.1rem;
+      opacity: 0.2;
+      transition: all 0.3s ease;
+    }
+
+    .norm-item:hover .norm-arrow {
+      opacity: 1;
+      transform: translateX(5px);
+    }
+
+    @media (max-width: 1000px) {
+      .norm-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .norm-grid {
+        grid-template-columns: 1fr;
+      }
+      .norm-item {
+        padding: 24px 20px;
+      }
+    }

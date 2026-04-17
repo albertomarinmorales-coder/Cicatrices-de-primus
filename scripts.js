@@ -158,41 +158,37 @@ const themeMap = {
   'inicio': { color: '#c9a84c', accent: '#b01010', palette: ['#c9a84c', '#e8c96a', '#fdfbf0'] },
   'lore': { color: '#c9a84c', accent: '#1c3a63', palette: ['#c9a84c', '#3a66a8', '#ffffff'] },
   'historia': { color: '#b87333', accent: '#4e3416', palette: ['#b87333', '#cd7f32', '#fdfbf0'] },
-  'deidades': { color: '#914eff', accent: '#250d30', palette: ['#914eff', '#c196ff', '#ffffff'] },
-  'razas': { color: '#2d5a27', accent: '#1a2e1a', palette: ['#2d5a27', '#4e6b45', '#fdfbf0'] },
-  'oficios': { color: '#4682b4', accent: '#1a2b3c', palette: ['#4682b4', '#5f9ea0', '#ffffff'] },
-  'clases': { color: '#b01010', accent: '#440000', palette: ['#b01010', '#d4220f', '#ffffff'] },
-  'normativa': { color: '#696969', accent: '#222222', palette: ['#696969', '#a9a9a9', '#ffffff'] },
-  'gremios': { color: '#008080', accent: '#004040', palette: ['#008080', '#20b2aa', '#ffffff'] },
-  'gremio-aventuras': { color: '#e97451', accent: '#8b4513', palette: ['#e97451', '#f4a460', '#ffffff'] }
+  'inicio': { color: '#c9a84c', accent: '#b01010', palette: ['#c9a84c', '#e8c96a', '#fdfbf0', '#b01010', '#a87f32'] },
+  'lore': { color: '#c9a84c', accent: '#1c3a63', palette: ['#c9a84c', '#3a66a8', '#ffffff', '#1c3a63', '#162b4d'] },
+  'historia': { color: '#b87333', accent: '#4e3416', palette: ['#b87333', '#cd7f32', '#4e3416', '#8b4513', '#fdfbf0'] },
+  'deidades': { color: '#914eff', accent: '#250d30', palette: ['#914eff', '#c196ff', '#5c2da8', '#250d30', '#00ffff', '#ffffff'] },
+  'razas': { color: '#2d5a27', accent: '#1a2e1a', palette: ['#2d5a27', '#4e6b45', '#1a2e1a', '#d4af37', '#8a722e', '#fdfbf0'] },
+  'oficios': { color: '#4682b4', accent: '#1a2b3c', palette: ['#4682b4', '#5f9ea0', '#1a2b3c', '#c0c0c0', '#b8cddc', '#ffffff'] },
+  'clases': { color: '#b01010', accent: '#440000', palette: ['#b01010', '#d4220f', '#660000', '#440000', '#ffffff'] },
+  'normativa': { color: '#696969', accent: '#222222', palette: ['#696969', '#a9a9a9', '#333333', '#222222', '#ffffff'] },
+  'gremios': { color: '#008080', accent: '#004040', palette: ['#008080', '#20b2aa', '#004040', '#e97451', '#ffffff'] },
+  'gremio-aventuras': { color: '#e97451', accent: '#8b4513', palette: ['#e97451', '#f4a460', '#8b4513', '#d2691e', '#ffffff'] }
 };
 
+let activeTheme = 'inicio';
+
 function updateTheme(pageId) {
-  let theme = themeMap[pageId];
+  let themeId = pageId;
 
-  // Refined Sub-pages logic to diversify even more
-  if (pageId.startsWith('norm-')) {
-    theme = JSON.parse(JSON.stringify(themeMap['normativa']));
-    if (pageId === 'norm-combate') theme.palette[0] = '#ff4444'; // Redder for combat
-    if (pageId === 'norm-esclavitud') theme.palette[0] = '#333333'; // Darker for slavery
-    if (pageId === 'norm-heridas') theme.palette[0] = '#8b0000'; // Blood for wounds
-  }
-  
-  if (pageId.startsWith('raza-gen-')) {
-    theme = JSON.parse(JSON.stringify(themeMap['razas']));
-    // Subtle variations based on race type if desired
-  }
-  
-  if (pageId.startsWith('oficio-gen-')) theme = themeMap['oficios'];
-  if (pageId.startsWith('clase-')) theme = themeMap['clases'];
+  // Refined Sub-pages logic
+  if (pageId.startsWith('norm-')) themeId = 'normativa';
+  if (pageId.startsWith('raza-gen-')) themeId = 'razas';
+  if (pageId.startsWith('oficio-gen-')) themeId = 'oficios';
+  if (pageId.startsWith('clase-')) themeId = 'clases';
 
-  if (!theme) theme = themeMap['inicio'];
+  activeTheme = themeId;
+  let theme = themeMap[themeId] || themeMap['inicio'];
 
   const root = document.documentElement;
   root.style.setProperty('--theme-color', theme.color);
   root.style.setProperty('--theme-accent', theme.accent);
   
-  // Set Palette Colors
+  // Set Initial Palette Colors
   root.style.setProperty('--theme-c1', theme.palette[0]);
   root.style.setProperty('--theme-c2', theme.palette[1]);
   root.style.setProperty('--theme-c3', theme.palette[2]);
@@ -203,7 +199,23 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initCardGlow();
   initTooltips();
+  startAuroraEffect();
 });
+
+function startAuroraEffect() {
+  setInterval(() => {
+    const theme = themeMap[activeTheme] || themeMap['inicio'];
+    const p = theme.palette;
+    const root = document.documentElement;
+    
+    // Pick two random colors from the current palette for variety
+    const c2 = p[Math.floor(Math.random() * p.length)];
+    const c3 = p[Math.floor(Math.random() * p.length)];
+    
+    root.style.setProperty('--theme-c2', c2);
+    root.style.setProperty('--theme-c3', c3);
+  }, 7000);
+}
 
 function initTooltips() {
   const tooltip = document.createElement('div');

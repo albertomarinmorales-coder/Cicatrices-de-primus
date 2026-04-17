@@ -85,8 +85,8 @@
       opacity: 0;
       filter: blur(1px);
       pointer-events: none;
-      box-shadow: 0 0 10px var(--theme-c1);
-      transition: background 1.5s ease, box-shadow 1.5s ease;
+      box-shadow: 0 0 10px var(--theme-c3);
+      transition: background 3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .particle:nth-child(3n+1) { background: var(--theme-c1); box-shadow: 0 0 10px var(--theme-c1); }
@@ -1571,11 +1571,11 @@
     .deity-card {
       display: grid;
       grid-template-areas: "portrait info";
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: start;
-      margin-bottom: 72px;
-      padding-bottom: 72px;
+      grid-template-columns: 350px 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-bottom: 80px;
+      padding-bottom: 80px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -1587,7 +1587,7 @@
 
     .deidades-list .deity-card:nth-child(even) {
       grid-template-areas: "info portrait";
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 350px;
     }
 
     .deity-portrait {
@@ -1623,6 +1623,7 @@
       margin-bottom: 16px;
       border-left: 2px solid var(--accent);
       padding-left: 14px;
+      transition: color 8s ease;
     }
 
     .deity-domains {

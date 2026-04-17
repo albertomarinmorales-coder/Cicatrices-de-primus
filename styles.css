@@ -2317,7 +2317,7 @@ footer::before {
 /* ── BENTO GRID (INICIO) ───────────────────────────────────────── */
 .bento-container {
   max-width: 1200px;
-  margin: 3rem auto 6rem;
+  margin: 6rem auto 6rem;
   padding: 0 1.5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2340,10 +2340,19 @@ footer::before {
   text-decoration: none;
 }
 
-.bento-item:hover {
-  transform: translateY(-8px);
-  border-color: var(--gold-50);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+/* Efecto de Enfoque: Oscurecer los demás al hacer hover */
+.bento-container:hover .bento-item {
+  opacity: 0.4;
+  filter: grayscale(0.4) brightness(0.6);
+}
+
+.bento-container .bento-item:hover {
+  opacity: 1;
+  filter: grayscale(0) brightness(1);
+  transform: translateY(-12px);
+  border-color: var(--gold);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+  z-index: 10;
 }
 
 .bento-bg {

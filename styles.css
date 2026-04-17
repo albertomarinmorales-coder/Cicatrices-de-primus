@@ -259,9 +259,62 @@
     }
 
     /* Mobile: hide dropdowns in hamburger mode */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+      nav {
+        padding: 0 24px;
+      }
+
+      .nav-toggle {
+        display: flex;
+        z-index: 1002;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: rgba(10, 9, 7, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        transition: right 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        border-left: 1px solid rgba(176, 16, 16, 0.3);
+        z-index: 1001;
+      }
+
+      .nav-links.open {
+        right: 0;
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links li a,
+      .nav-links li span {
+        font-size: 1.1rem;
+        display: inline-block;
+        padding: 10px 0;
+      }
+
       .nav-dropdown {
         display: none !important;
+      }
+
+      /* Hamburguer animation when open */
+      .nav-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
       }
     }
 

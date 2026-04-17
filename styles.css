@@ -1819,6 +1819,37 @@
       background: rgba(176, 16, 16, 0.03);
     }
 
+    /* ─── LORE TOOLTIPS ────────────────────────────────────────── */
+    .lore-term {
+      cursor: help;
+      position: relative;
+    }
+
+    span.lore-term {
+      color: var(--gold);
+      border-bottom: 1px dotted var(--gold);
+    }
+
+    .tooltip-box {
+      position: fixed;
+      padding: 12px 16px;
+      background: rgba(12, 11, 9, 0.95);
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-family: 'EB Garamond', serif;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      max-width: 280px;
+      z-index: 10000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    }
+
+
     /* ─── RESPONSIVE REFINEMENTS ─────────────────────────────────── */
     @media (max-width: 900px) {
       .raza-intro-row {

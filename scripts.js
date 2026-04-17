@@ -47,7 +47,14 @@ function showTier(btn, tierId) {
   container.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
   container.querySelectorAll('.tier-panel').forEach(p => p.classList.remove('active'));
-  document.getElementById(tierId).classList.add('active');
+  const activePanel = document.getElementById(tierId);
+  if (activePanel) {
+    activePanel.classList.add('active');
+    // Trigger reveal animations for content inside the panel
+    activePanel.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+  }
+
+  // Close mobile menu after selection
   if (tabs) tabs.classList.remove('open');
 }
 
@@ -128,7 +135,7 @@ function initScrollReveal() {
       if (entry.isIntersecting) entry.target.classList.add('active');
     });
   }, observerOptions);
-  document.querySelectorAll('.section, .bento-item, .raza-card, .lore-card, .home-section, .clase-feature-row, .norm-item, .norm-card').forEach(el => {
+  document.querySelectorAll('.section, .bento-item, .raza-card, .lore-card, .home-section, .clase-feature-row, .norm-item, .norm-card, .raza-stats-grid').forEach(el => {
     el.classList.add('reveal');
     observer.observe(el);
   });
@@ -150,4 +157,27 @@ document.addEventListener('DOMContentLoaded', () => {
   initParticles();
   initScrollReveal();
   initCardGlow();
+  initTooltips();
 });
+
+function initTooltips() {
+  const tooltip = document.createElement('div');
+  tooltip.className = 'tooltip-box';
+  document.body.appendChild(tooltip);
+
+  document.querySelectorAll('.lore-term').forEach(term => {
+    term.addEventListener('mouseenter', (e) => {
+      tooltip.innerText = term.dataset.tooltip;
+      tooltip.style.opacity = '1';
+    });
+    term.addEventListener('mousemove', (e) => {
+      const x = e.clientX + 20;
+      const y = e.clientY + 20;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top = y + 'px';
+    });
+    term.addEventListener('mouseleave', () => {
+      tooltip.style.opacity = '0';
+    });
+  });
+}

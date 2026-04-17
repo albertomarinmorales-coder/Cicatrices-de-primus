@@ -154,6 +154,20 @@ function initCardGlow() {
   });
 }
 
+function initBentoScroll() {
+  const bentoItems = document.querySelectorAll('.bento-item');
+  bentoItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      // Pequeño retardo para asegurar que el usuario quiere centrar la vista
+      setTimeout(() => {
+        if (item.matches(':hover')) {
+          item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 100);
+    });
+  });
+}
+
 const themeMap = {
   'inicio': { color: '#c9a84c', accent: '#b01010', palette: ['#c9a84c', '#e8c96a', '#fdfbf0'] },
   'lore': { color: '#c9a84c', accent: '#1c3a63', palette: ['#c9a84c', '#3a66a8', '#ffffff'] },
@@ -200,6 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardGlow();
   initTooltips();
   startAuroraEffect();
+  initBentoScroll();
 });
 
 function startAuroraEffect() {

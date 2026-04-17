@@ -154,16 +154,33 @@ function initCardGlow() {
   });
 }
 
+let isAutoScrolling = false;
+let lastMouseTime = 0;
+
+// Registramos el último momento en que el ratón se movió físicamente
+document.addEventListener('mousemove', () => {
+  lastMouseTime = Date.now();
+}, { passive: true });
+
 function initBentoScroll() {
   const bentoItems = document.querySelectorAll('.bento-item');
   bentoItems.forEach(item => {
     item.addEventListener('mouseenter', () => {
-      // Pequeño retardo para asegurar que el usuario quiere centrar la vista
+      // Si ya estamos haciendo scroll, o si el ratón no se ha movido en los últimos 50ms 
+      // (lo que significa que la tarjeta ha entrado bajo el ratón porque la página se movía), ignoramos.
+      if (isAutoScrolling || (Date.now() - lastMouseTime > 50)) return;
+
       setTimeout(() => {
-        if (item.matches(':hover')) {
+        if (item.matches(':hover') && !isAutoScrolling) {
+          isAutoScrolling = true;
           item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          // Desbloqueamos después de que la animación de scroll termine (media de 800ms)
+          setTimeout(() => {
+            isAutoScrolling = false;
+          }, 800);
         }
-      }, 100);
+      }, 150);
     });
   });
 }

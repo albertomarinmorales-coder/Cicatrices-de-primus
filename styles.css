@@ -2070,6 +2070,10 @@ footer::before {
 
 .footer-brand {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
 
 .footer-logo {
@@ -2081,8 +2085,9 @@ footer::before {
   background: linear-gradient(to bottom, var(--gold2) 0%, var(--gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 2px;
+  margin: 0;
   display: block;
+  line-height: 1;
 }
 
 .footer-tagline {
@@ -2092,6 +2097,8 @@ footer::before {
   text-transform: uppercase;
   color: var(--text-muted);
   opacity: 0.5;
+  margin-top: -10px; /* Pegado extremo */
+  line-height: 1;
 }
 
 .footer-links-container {

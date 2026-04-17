@@ -17,6 +17,11 @@
 
 <body>
 
+  <!-- Particles Overlay -->
+  <div id="particles-container"></div>
+
+
+
   <!-- ─── NAV ──────────────────────────────────────────────────── -->
   <nav>
     <div class="nav-logo" onclick="showPage('inicio')">Cicatrices de Primus</div>
@@ -514,7 +519,7 @@
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-elfos-descripcion')">
             <span class="tier-tab-name">Descripción General</span>
           </button>
@@ -644,7 +649,7 @@
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-enanos-origen')">
             <span class="tier-tab-name">Origen e Historia</span>
           </button>
@@ -773,7 +778,7 @@
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-humanos-origen')">
             <span class="tier-tab-name">Origen e Historia</span>
           </button>
@@ -895,7 +900,7 @@
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-malvakari-origen')">
             <span class="tier-tab-name">Origen e Historia</span>
           </button>
@@ -1032,7 +1037,7 @@
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-mestizos-origen')">
             <span class="tier-tab-name">Origen e Historia</span>
           </button>
@@ -1169,7 +1174,7 @@
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-nhek-thal-origen')">
             <span class="tier-tab-name">Origen e Historia</span>
           </button>
@@ -1352,7 +1357,7 @@
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-ossalyth-mentalidad')">
             <span class="tier-tab-name">Mentalidad y Cultura</span>
           </button>
@@ -1483,7 +1488,7 @@
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-rosaveld-origen')">
             <span class="tier-tab-name">Origen e Historia</span>
           </button>
@@ -1675,7 +1680,7 @@
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-shazari-origen')">
             <span class="tier-tab-name">Origen e Historia</span>
           </button>
@@ -1815,7 +1820,7 @@
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-thae-tir-origen')">
             <span class="tier-tab-name">Origen e Historia</span>
           </button>
@@ -5103,7 +5108,7 @@
       <div class="oficio-tiers" style="margin-top: 2.5rem;">
         <h2 class="section-title">Rangos y Progresión</h2>
         <div class="section-underline"></div>
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'oficio-alquimista-aprendiz')">
             <span class="tier-tab-name">Aprendiz</span>
           </button>
@@ -5210,7 +5215,7 @@
       <div class="oficio-tiers" style="margin-top: 2.5rem;">
         <h2 class="section-title">Rangos y Progresión</h2>
         <div class="section-underline"></div>
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'oficio-artifices-del-velo-y-del-brillo-aprendiz')">
             <span class="tier-tab-name">Aprendiz</span>
           </button>
@@ -5314,7 +5319,7 @@
       <div class="oficio-tiers" style="margin-top: 2.5rem;">
         <h2 class="section-title">Rangos y Progresión</h2>
         <div class="section-underline"></div>
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'oficio-cazador-aprendiz')">
             <span class="tier-tab-name">Aprendiz</span>
           </button>
@@ -5417,7 +5422,7 @@
       <div class="oficio-tiers" style="margin-top: 2.5rem;">
         <h2 class="section-title">Rangos y Progresión</h2>
         <div class="section-underline"></div>
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'oficio-forjador-aprendiz')">
             <span class="tier-tab-name">Aprendiz</span>
           </button>
@@ -5521,7 +5526,7 @@
       <div class="oficio-tiers" style="margin-top: 2.5rem;">
         <h2 class="section-title">Rangos y Progresión</h2>
         <div class="section-underline"></div>
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'oficio-galeno-aprendiz')">
             <span class="tier-tab-name">Aprendiz</span>
           </button>
@@ -5625,7 +5630,7 @@
       <div class="oficio-tiers" style="margin-top: 2.5rem;">
         <h2 class="section-title">Rangos y Progresión</h2>
         <div class="section-underline"></div>
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'oficio-granjero-aprendiz')">
             <span class="tier-tab-name">Aprendiz</span>
           </button>
@@ -5730,7 +5735,7 @@
       <div class="oficio-tiers" style="margin-top: 2.5rem;">
         <h2 class="section-title">Rangos y Progresión</h2>
         <div class="section-underline"></div>
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'oficio-guardia-aprendiz')">
             <span class="tier-tab-name">Aprendiz</span>
           </button>
@@ -5834,7 +5839,7 @@
       <div class="oficio-tiers" style="margin-top: 2.5rem;">
         <h2 class="section-title">Rangos y Progresión</h2>
         <div class="section-underline"></div>
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'oficio-minero-aprendiz')">
             <span class="tier-tab-name">Aprendiz</span>
           </button>
@@ -5938,7 +5943,7 @@
       <div class="oficio-tiers" style="margin-top: 2.5rem;">
         <h2 class="section-title">Rangos y Progresión</h2>
         <div class="section-underline"></div>
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'oficio-seeker-aprendiz')">
             <span class="tier-tab-name">Aprendiz</span>
           </button>
@@ -6042,7 +6047,7 @@
       <div class="oficio-tiers" style="margin-top: 2.5rem;">
         <h2 class="section-title">Rangos y Progresión</h2>
         <div class="section-underline"></div>
-        <div class="tier-tabs">
+        <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'oficio-tabernero-aprendiz')">
             <span class="tier-tab-name">Aprendiz</span>
           </button>

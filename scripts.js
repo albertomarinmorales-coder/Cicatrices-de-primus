@@ -142,8 +142,6 @@ function initScrollReveal() {
   });
 }
 
-
-
 function initCardGlow() {
   document.querySelectorAll('.raza-card, .bento-item, .lore-card, .oficio-card, .norm-item').forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -154,41 +152,7 @@ function initCardGlow() {
   });
 }
 
-let isAutoScrolling = false;
-let lastMouseTime = 0;
-
-// Registramos el último momento en que el ratón se movió físicamente
-document.addEventListener('mousemove', () => {
-  lastMouseTime = Date.now();
-}, { passive: true });
-
-function initBentoScroll() {
-  const bentoItems = document.querySelectorAll('.bento-item');
-  bentoItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      // Si ya estamos haciendo scroll, o si el ratón no se ha movido en los últimos 50ms 
-      // (lo que significa que la tarjeta ha entrado bajo el ratón porque la página se movía), ignoramos.
-      if (isAutoScrolling || (Date.now() - lastMouseTime > 50)) return;
-
-      setTimeout(() => {
-        if (item.matches(':hover') && !isAutoScrolling) {
-          isAutoScrolling = true;
-          item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-          // Desbloqueamos después de que la animación de scroll termine (media de 800ms)
-          setTimeout(() => {
-            isAutoScrolling = false;
-          }, 800);
-        }
-      }, 150);
-    });
-  });
-}
-
 const themeMap = {
-  'inicio': { color: '#c9a84c', accent: '#b01010', palette: ['#c9a84c', '#e8c96a', '#fdfbf0'] },
-  'lore': { color: '#c9a84c', accent: '#1c3a63', palette: ['#c9a84c', '#3a66a8', '#ffffff'] },
-  'historia': { color: '#b87333', accent: '#4e3416', palette: ['#b87333', '#cd7f32', '#fdfbf0'] },
   'inicio': { color: '#c9a84c', accent: '#b01010', palette: ['#c9a84c', '#e8c96a', '#fdfbf0', '#b01010', '#a87f32'] },
   'lore': { color: '#c9a84c', accent: '#1c3a63', palette: ['#c9a84c', '#3a66a8', '#ffffff', '#1c3a63', '#162b4d'] },
   'historia': { color: '#b87333', accent: '#4e3416', palette: ['#b87333', '#cd7f32', '#4e3416', '#8b4513', '#fdfbf0'] },
@@ -231,7 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardGlow();
   initTooltips();
   startAuroraEffect();
-  initBentoScroll();
 });
 
 function startAuroraEffect() {

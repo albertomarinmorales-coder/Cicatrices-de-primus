@@ -4009,7 +4009,18 @@
     <div class="detail-body">
       <span class="back-btn" onclick="showPage('lore')">Volver al Lore</span>
 
-      <div class="historia-eras">
+      <div class="lore-tabs">
+        <div class="lore-tab active" onclick="showLoreTab(this, 'lore-antiguedad')">Crónicas de Antaño</div>
+        <div class="lore-tab" onclick="showLoreTab(this, 'lore-caida')">La Caída del Cuervo</div>
+        <div class="lore-tab" onclick="showLoreTab(this, 'lore-ciudades')">Geografía del Reino</div>
+      </div>
+
+      <!-- PANEL 1: ANTIGÜEDAD -->
+      <div id="lore-antiguedad" class="lore-panel active">
+        <div class="historia-container">
+          <div class="timeline-thread"></div>
+          <div class="historia-eras">
+            <!-- Bloques de Eras I-V aquí -->
 
         <div class="era-block">
           <div class="era-text">
@@ -4092,14 +4103,16 @@
           </div>
         </div>
 
-      </div><!-- /historia-eras -->
+          </div><!-- /historia-eras -->
+        </div><!-- /historia-container -->
+      </div><!-- /lore-antiguedad -->
 
-      <div class="large-separator"><i class="fa-solid fa-feather-pointed"></i></div>
-
-      <h2 class="section-title" style="text-align:center;margin-bottom:8px;">La Caída de Raventree Hall</h2>
-      <div class="section-underline" style="margin:0 auto 48px; width: 100%; max-width: 1000px;"></div>
-
-      <div class="historia-eras">
+      <!-- PANEL 2: LA CAÍDA -->
+      <div id="lore-caida" class="lore-panel">
+        <div class="historia-container">
+          <div class="timeline-thread"></div>
+          <div class="historia-eras">
+            <!-- Bloques de Años 1-5 aquí -->
 
         <div class="era-block">
           <div class="era-text">
@@ -4175,14 +4188,13 @@
           </div>
         </div>
 
-      </div><!-- /historia-caida -->
+          </div><!-- /historia-eras -->
+        </div><!-- /historia-container -->
+      </div><!-- /lore-caida -->
 
-
-      <div class="large-separator"><i class="fa-solid fa-compass"></i></div>
-
-      <h2 class="section-title" style="text-align:center;margin-bottom:8px;">Explora las Ciudades</h2>
-      <div class="section-underline" style="margin:0 auto 48px; width: 100%; max-width: 1000px;"></div>
-      <div class="ciudad-grid">
+      <!-- PANEL 3: CIUDADES -->
+      <div id="lore-ciudades" class="lore-panel">
+        <div class="ciudad-grid">
         <div class="ciudad-card">
           <div class="ciudad-card-img"
             style="background-image:url('images/938f05_82528c51b3f4476799987dbd0f2003a9~mv2.png')">
@@ -4231,7 +4243,8 @@
               contra las maldiciones que acechan en la noche.</p>
           </div>
         </div>
-      </div>
+        </div><!-- /ciudad-grid -->
+      </div><!-- /lore-ciudades -->
     </div>
     <footer>
       <div class="footer-content">

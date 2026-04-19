@@ -500,7 +500,7 @@ nav {
   }
 }
 
-/* â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* HERO */
 .hero {
   position: relative;
   height: 65vh;
@@ -525,10 +525,6 @@ nav {
   filter: brightness(0.28) saturate(0.7);
   transform: scale(1.04);
   transition: transform 8s ease;
-}
-
-.hero:hover .hero-bg {
-  /* No scale on hover as requested */
 }
 
 .hero-overlay {
@@ -1661,6 +1657,95 @@ nav {
   font-weight: 700;
   color: var(--gold);
   margin-bottom: 20px;
+}
+
+/* --- LORE CODEX TABS --- */
+.lore-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 80px;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.lore-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 18px 32px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  min-width: 220px;
+}
+
+.lore-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.lore-tab:hover, .lore-tab.active {
+  color: var(--gold);
+  background: rgba(176, 16, 16, 0.05);
+  border-color: var(--accent);
+}
+
+.lore-tab.active::after {
+  width: 100%;
+}
+
+.lore-panel {
+  display: none;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.lore-panel.active {
+  display: block;
+}
+
+/* --- TIMELINE THREAD --- */
+.historia-container {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline-thread {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, 
+      transparent 0%, 
+      var(--border) 10%, 
+      var(--gold) 50%, 
+      var(--border) 90%, 
+      transparent 100%);
+  transform: translateX(-50%);
+  opacity: 0.35;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .timeline-thread {
+    left: 48px;
+    transform: none;
+  }
 }
 
 /* Ciudad cards */

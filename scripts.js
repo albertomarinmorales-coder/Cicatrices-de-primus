@@ -78,6 +78,35 @@ function showTier(btn, tierId) {
   if (tabs) tabs.classList.remove('open');
 }
 
+function showLoreTab(btn, panelId) {
+  // Desactivar todas las pestañas
+  const container = btn.closest('#page-historia');
+  container.querySelectorAll('.lore-tab').forEach(t => t.classList.remove('active'));
+  
+  // Activar la seleccionada
+  btn.classList.add('active');
+  
+  // Ocultar todos los paneles
+  container.querySelectorAll('.lore-panel').forEach(p => p.classList.remove('active'));
+  
+  // Mostrar el panel seleccionado
+  const activePanel = document.getElementById(panelId);
+  if (activePanel) {
+    activePanel.classList.add('active');
+    // Reiniciar animaciones reveal
+    activePanel.querySelectorAll('.reveal').forEach(el => el.classList.remove('active'));
+    setTimeout(() => {
+      activePanel.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+    }, 50);
+  }
+  
+  // Scrollear al inicio del contenido
+  window.scrollTo({
+    top: container.offsetTop + 100,
+    behavior: 'smooth'
+  });
+}
+
 function toggleTabs(container) {
   if (window.innerWidth <= 900) {
     container.classList.toggle('open');

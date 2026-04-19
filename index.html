@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css?v=3">
+  <!-- Markdown Renderer for CMS -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     .footer-nav {
       display: flex !important;
@@ -509,6 +511,8 @@
             <span class="btn-ghost">Ver más</span>
           </div>
         </div>
+        <!-- CONTENEDOR DE RAZAS DINÁMICAS (CMS) -->
+        <div id="dynamic-razas-container" style="display: contents;"></div>
 
 
 
@@ -2756,7 +2760,7 @@
   <!-- ═══════════════════════════════════════════════════════════ -->
   <div class="page" id="page-clase-vhark-hul">
     <div class="detail-hero">
-      <div class="detail-hero-bg" style="background-image:url('sources/Clases/10.%20Vhark'Hul/fotos/avatar.png')"></div>
+      <div class="detail-hero-bg" style='background-image:url("sources/Clases/10.%20Vhark&apos;Hul/fotos/avatar.png")'></div>
       <div class="detail-hero-overlay"></div>
       <div class="detail-hero-content">
         <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Vhark'Hul</span></div>
@@ -3167,7 +3171,7 @@
   <!-- ═══════════════════════════════════════════════════════════ -->
   <div class="page" id="page-clase-noc-thar">
     <div class="detail-hero">
-      <div class="detail-hero-bg" style="background-image:url('sources/Clases/5.%20Noc'thar/fotos/avatar.png')"></div>
+      <div class="detail-hero-bg" style='background-image:url("sources/Clases/5.%20Noc&apos;thar/fotos/avatar.png")'></div>
       <div class="detail-hero-overlay"></div>
       <div class="detail-hero-content">
         <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Noc'thar</span></div>
@@ -6610,6 +6614,76 @@
   <!-- ═══ PAGE: OFICIOS-GEN SECTION END ═══ -->
 
 
+
+  <!-- ─── PAGE: DINAMIC RACE TEMPLATE ────────────────────────── -->
+  <div class="page dynamic-race-page" id="page-raza-dynamic">
+    <div class="detail-hero">
+      <div class="detail-hero-bg" id="dynamic-raza-hero-bg"></div>
+      <div class="detail-hero-overlay"></div>
+      <div class="detail-hero-content">
+        <div class="breadcrumb" onclick="showPage('razas')">Razas <span id="dynamic-raza-breadcrumb">/ Nombre</span></div>
+        <h1 id="dynamic-raza-title">Nombre de la Raza</h1>
+      </div>
+    </div>
+    <div class="detail-body">
+      <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
+      <div class="raza-intro-row">
+        <div class="raza-intro-img">
+          <img src="" id="dynamic-raza-img" alt="Raza" class="raza-detail-img">
+        </div>
+        <div class="raza-intro-text">
+          <div class="detail-text" id="dynamic-raza-summary">
+            <!-- Resumen dinámico -->
+          </div>
+        </div>
+      </div>
+
+      <div class="oficio-tiers" style="margin-top: 2rem;">
+        <div class="tier-tabs">
+          <button class="tier-tab active">
+            <span class="tier-tab-name">Historia y Detalles</span>
+          </button>
+        </div>
+        <div class="tier-panel active">
+          <div class="tier-panel-top">
+            <h3>Crónicas y Biología</h3>
+          </div>
+          <div class="tier-panel-content">
+            <div id="dynamic-raza-body" class="markdown-content">
+              <!-- Contenido Markdown dinámico -->
+            </div>
+            
+            <div class="raza-stats-grid" style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+               <div class="stat-item">
+                  <span class="stat-label">Atributo Clave</span>
+                  <span class="stat-value" id="dynamic-raza-attr">Fuerza</span>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="footer-logo">Cicatrices de Primus</span>
+          <p class="footer-tagline">Crónicas del Continente Olvidado</p>
+        </div>
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 Cicatrices de Primus</p>
+        </div>
+      </div>
+    </footer>
+  </div>
 
 </body>
 

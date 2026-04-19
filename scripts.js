@@ -3,7 +3,10 @@ history.scrollRestoration = 'manual';
 
 const pages = ['inicio', 'lore', 'razas', 'oficios', 'gremios', 'gremio-aventuras', 'normativa', 'historia', 'deidades', 'norm-general', 'norm-concepto', 'norm-ic', 'norm-construccion', 'norm-heridas', 'norm-combate', 'norm-esclavitud', 'norm-robo', 'norm-mazmorra', 'norm-housing', 'clases', 'raza-gen-elfos', 'raza-gen-enanos', 'raza-gen-humanos', 'raza-gen-malvakari', 'raza-gen-mestizos', 'raza-gen-nhek-thal', 'raza-gen-ossalyth', 'raza-gen-rosaveld', 'raza-gen-shazari', 'raza-gen-thae-tir', 'oficio-gen-alquimista', 'oficio-gen-artifices-del-velo-y-del-brillo', 'oficio-gen-cazador', 'oficio-gen-forjador', 'oficio-gen-galeno', 'oficio-gen-granjero', 'oficio-gen-guardia', 'oficio-gen-minero', 'oficio-gen-seeker', 'oficio-gen-tabernero', 'clase-ciudadano', 'clase-vhark-hul', 'clase-argent-praetor', 'clase-dualhar', 'clase-luminari-vox', 'clase-noc-thar', 'clase-stormheilm', 'clase-velum-caedis', 'clase-velum-cantoris', 'clase-zereth-mor', 'clase-magharyn', 'clase-desconocido'];
 
-function showPage(id) {
+function showPage(id, updateHash = true) {
+  const target = document.getElementById('page-' + id);
+  if (!target) return;
+
   pages.forEach(p => {
     const el = document.getElementById('page-' + p);
     if (el) el.classList.remove('active');
@@ -11,23 +14,39 @@ function showPage(id) {
     if (navEl) navEl.classList.remove('active-nav');
   });
 
-  const target = document.getElementById('page-' + id);
-  if (target) {
-    target.classList.add('active');
-    window.scrollTo(0, 0);
-    updateTheme(id);
-  }
+  target.classList.add('active');
+  window.scrollTo(0, 0);
+  updateTheme(id);
 
   const navTarget = document.getElementById('nav-' + id);
   if (navTarget) navTarget.classList.add('active-nav');
 
+  // Actualizar la URL sin recargar
+  if (updateHash) {
+    window.location.hash = id;
+  }
+
   const navLinks = document.getElementById('navLinks');
   const navToggle = document.getElementById('navToggle');
-  if (navLinks.classList.contains('open')) {
+  if (navLinks && navLinks.classList.contains('open')) {
     navLinks.classList.remove('open');
     navToggle.classList.remove('active');
   }
 }
+
+// ─── SISTEMA DE RUTAS (HASH) ────────────────────────────────
+
+function handleRouting() {
+  const hash = window.location.hash.replace('#', '');
+  if (hash && pages.includes(hash)) {
+    showPage(hash, false);
+  } else {
+    showPage('inicio', false);
+  }
+}
+
+window.addEventListener('hashchange', handleRouting);
+
 
 function toggleMenu() {
   const navLinks = document.getElementById('navLinks');
@@ -250,6 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardGlow();
   initTooltips();
   startAuroraEffect();
+  handleRouting(); // Cargar la página correcta según la URL
 });
 
 function startAuroraEffect() {

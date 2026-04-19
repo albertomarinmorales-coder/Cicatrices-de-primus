@@ -928,7 +928,7 @@ nav {
   color: var(--white);
 }
 
-/* â”€â”€â”€ RAZAS GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* RAZAS GRID */
 .razas-quote {
   text-align: center;
   font-family: 'Cinzel', serif;
@@ -940,14 +940,20 @@ nav {
 }
 
 .razas-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
+}
+.raza-card {
+  flex: 0 1 calc(25% - 12px);
+  min-width: 250px;
 }
 
 @media (max-width: 900px) {
-  .razas-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .raza-card {
+    flex: 0 1 calc(50% - 16px);
+    min-width: 160px;
   }
 }
 
@@ -1017,14 +1023,19 @@ nav {
 
 /* â”€â”€â”€ OFICIOS GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .oficios-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
 }
+.oficio-card {
+  flex: 0 1 calc(33.333% - 16px);
+  min-width: 300px;
+}
 
-@media (max-width: 900px) {
-  .oficios-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1000px) {
+  .oficio-card {
+    flex: 0 1 calc(50% - 12px);
   }
 }
 
@@ -2924,7 +2935,8 @@ body.modal-active .audio-toggle {
   background: #c9a84c !important;
   color: #000000 !important;
   box-shadow: 0 0 40px rgba(201, 168, 76, 0.5) !important;
-  transform: none !important;`n  letter-spacing: normal !important;
+  transform: none !important;
+  letter-spacing: normal !important;
 }
 #btn-discord-ticket:hover svg {
   fill: #000000 !important;
@@ -2955,7 +2967,8 @@ body.modal-active .audio-toggle {
   color: #c9a84c !important;
   border-color: #b01010 !important;
   box-shadow: 0 0 40px rgba(201, 168, 76, 0.6) !important;
-  transform: none !important;`n  letter-spacing: normal !important;
+  transform: none !important;
+    letter-spacing: normal !important;
 }
 #btn-discord-ticket:hover svg {
   fill: #c9a84c !important;

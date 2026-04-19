@@ -53,7 +53,7 @@
       position: relative;
       z-index: 2;
     }
-    /* Estilos del Modal inicial para evitar CLS y mejorar LCP */
+    /* Estilos del Modal inicial */
     #welcomeModal {
       position: fixed;
       inset: 0;
@@ -63,18 +63,17 @@
       align-items: center;
       justify-content: center;
       backdrop-filter: blur(10px);
-      opacity: 0;
-      transition: opacity 0.5s ease;
     }
-    #welcomeModal.show { opacity: 1; }
     .welcome-modal-box {
-      background: var(--surface, #181510);
-      border: 1px solid var(--gold, #c9a84c);
+      background: #181510;
+      border: 1px solid #c9a84c;
       padding: 2.5rem;
       max-width: 500px;
       width: 90%;
       text-align: center;
       box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+      position: relative;
+      z-index: 10001;
     }
     /* Footer Nav */
     .footer-nav { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center !important; margin: 0 auto 24px !important; }

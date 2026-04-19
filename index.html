@@ -7,8 +7,10 @@
   <title>Cicatrices de Primus</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+
   <!-- Preload de la imagen pesada del Hero (2.9MB) para mejorar LCP -->
   <link rel="preload" as="image" href="images/938f05_21021a0aa69c4a3d8b01cf06a38b12c5~mv2.png" fetchpriority="high">
 
@@ -17,7 +19,7 @@
   <link rel="stylesheet" href="styles.css?v=3">
   <!-- Markdown Renderer for CMS -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
-  
+
   <style>
     /* Estilos Críticos (Carga instantánea) */
     .hero {
@@ -30,6 +32,7 @@
       overflow: hidden;
       background: #080705;
     }
+
     .hero-bg-img {
       position: absolute;
       inset: 0;
@@ -42,6 +45,7 @@
       transform: scale(1.04);
       pointer-events: none;
     }
+
     .hero-overlay {
       position: absolute;
       inset: 0;
@@ -49,26 +53,31 @@
       z-index: 1;
       pointer-events: none;
     }
+
     .hero-content {
       position: relative;
       z-index: 2;
     }
+
     /* --- ESTILO PREMIUM: WELCOME MODAL --- */
     #welcomeModal {
       position: fixed;
       inset: 0;
       z-index: 999999;
-      background: rgba(8, 7, 5, 0.3); /* Mucho menos opaco */
+      background: rgba(8, 7, 5, 0.3);
+      /* Mucho menos opaco */
       display: flex;
       align-items: center;
       justify-content: center;
       backdrop-filter: blur(8px);
       padding: 20px;
     }
+
     /* Bloqueo de scroll cuando el modal está activo */
     body.modal-active {
       overflow-y: hidden !important;
     }
+
     .welcome-modal-box {
       background: #0f0d0a;
       border: 1px solid rgba(201, 168, 76, 0.3);
@@ -77,8 +86,9 @@
       width: 100%;
       text-align: center;
       position: relative;
-      box-shadow: 0 20px 80px rgba(0,0,0,0.8);
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8);
     }
+
     .welcome-modal-box h2 {
       font-family: 'Cinzel', serif !important;
       color: #c9a84c;
@@ -87,29 +97,42 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
     }
+
     .welcome-modal-box p {
-      font-family: 'Inter', sans-serif !important; /* Fuente elegante */
-      color: rgba(255, 255, 255, 0.95);
+      font-family: 'EB Garamond', serif !important;
+      color: #dfd8c8;
       line-height: 1.8;
-      font-size: 0.95rem;
+      font-size: 1.15rem;
       margin-bottom: 2rem;
-      font-weight: 300; /* Peso ligero = Elegancia */
+      font-weight: 400;
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .welcome-modal-box p span {
+      font-family: 'Cinzel', serif !important;
+      color: #c9a84c;
+      font-weight: 700;
       letter-spacing: 0.05em;
     }
+
     .welcome-modal-note {
-      font-family: 'Inter', sans-serif !important;
+      font-family: 'EB Garamond', serif !important;
       color: #c9a84c !important;
-      font-size: 0.75rem !important;
+      font-size: 0.95rem !important;
       margin-top: 2rem;
-      opacity: 0.7;
-      font-weight: 400;
+      opacity: 0.8;
+      font-style: italic;
     }
+
     .welcome-modal-buttons {
       display: flex;
       gap: 20px;
       justify-content: center;
       margin-top: 1rem;
     }
+
     .welcome-modal-buttons button {
       background: transparent;
       border: 1px solid rgba(201, 168, 76, 0.5);
@@ -121,18 +144,38 @@
       cursor: pointer;
       transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
     }
+
     .welcome-modal-buttons button:hover {
       background: #b01010 !important;
       color: #ffffff !important;
       border-color: #b01010;
     }
+
     /* El botón de música flotando por encima */
     #audioPlayer {
-        z-index: 1000000 !important;
+      z-index: 1000000 !important;
     }
+
     /* Footer Nav */
-    .footer-nav { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center !important; margin: 0 auto 24px !important; }
-    .footer-nav span { font-family: 'Cinzel', serif !important; font-size: 0.68rem !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; color: #c9a84c !important; cursor: pointer !important; padding: 4px 18px !important; position: relative !important; transition: color 0.25s ease !important; }
+    .footer-nav {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin: 0 auto 24px !important;
+    }
+
+    .footer-nav span {
+      font-family: 'Cinzel', serif !important;
+      font-size: 0.68rem !important;
+      letter-spacing: 0.15em !important;
+      text-transform: uppercase !important;
+      color: #c9a84c !important;
+      cursor: pointer !important;
+      padding: 4px 18px !important;
+      position: relative !important;
+      transition: color 0.25s ease !important;
+    }
   </style>
 </head>
 
@@ -257,11 +300,8 @@
 
     <!-- Hero -->
     <section class="hero">
-      <img src="images/938f05_21021a0aa69c4a3d8b01cf06a38b12c5~mv2.png" 
-           alt="Cicatrices de Primus Hero" 
-           class="hero-bg-img" 
-           fetchpriority="high" 
-           role="presentation">
+      <img src="images/938f05_21021a0aa69c4a3d8b01cf06a38b12c5~mv2.png" alt="Cicatrices de Primus Hero"
+        class="hero-bg-img" fetchpriority="high" role="presentation">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <p class="hero-eyebrow">Roleplay Server</p>
@@ -371,7 +411,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -457,7 +497,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -510,7 +550,8 @@
 
         <div class="raza-card" onclick="showPage('raza-gen-elfos')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Elfos/images/cover.png" alt="Elfos" class="raza-card-img" loading="lazy" decoding="async">
+            <img src="sources/Razas/Elfos/images/cover.png" alt="Elfos" class="raza-card-img" loading="lazy"
+              decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Elfos</h3>
@@ -519,7 +560,8 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-enanos')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Enanos/images/cover.png" alt="Enanos" class="raza-card-img" loading="lazy" decoding="async">
+            <img src="sources/Razas/Enanos/images/cover.png" alt="Enanos" class="raza-card-img" loading="lazy"
+              decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Enanos</h3>
@@ -528,7 +570,8 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-humanos')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Humanos/images/cover.png" alt="Humanos" class="raza-card-img" loading="lazy" decoding="async">
+            <img src="sources/Razas/Humanos/images/cover.png" alt="Humanos" class="raza-card-img" loading="lazy"
+              decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Humanos</h3>
@@ -537,7 +580,8 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-malvakari')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Malvakari/images/cover.png" alt="Malvakari" class="raza-card-img" loading="lazy" decoding="async">
+            <img src="sources/Razas/Malvakari/images/cover.png" alt="Malvakari" class="raza-card-img" loading="lazy"
+              decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Malvakari</h3>
@@ -546,7 +590,8 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-mestizos')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Mestizos/images/cover.png" alt="Mestizos" class="raza-card-img" loading="lazy" decoding="async">
+            <img src="sources/Razas/Mestizos/images/cover.png" alt="Mestizos" class="raza-card-img" loading="lazy"
+              decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Mestizos</h3>
@@ -555,7 +600,8 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-nhek-thal')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Nhek’thal/images/cover.png" alt="Nhek’thal" class="raza-card-img" loading="lazy" decoding="async">
+            <img src="sources/Razas/Nhek’thal/images/cover.png" alt="Nhek’thal" class="raza-card-img" loading="lazy"
+              decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Nhek’thal</h3>
@@ -564,7 +610,8 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-ossalyth')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Ossalyth/images/cover.png" alt="Ossalyth" class="raza-card-img" loading="lazy" decoding="async">
+            <img src="sources/Razas/Ossalyth/images/cover.png" alt="Ossalyth" class="raza-card-img" loading="lazy"
+              decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Ossalyth</h3>
@@ -573,7 +620,8 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-rosaveld')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Rosaveld/images/cover.png" alt="Rosaveld" class="raza-card-img" loading="lazy" decoding="async">
+            <img src="sources/Razas/Rosaveld/images/cover.png" alt="Rosaveld" class="raza-card-img" loading="lazy"
+              decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Rosaveld</h3>
@@ -582,7 +630,8 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-shazari')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Shazari/images/cover.png" alt="Shazari" class="raza-card-img" loading="lazy" decoding="async">
+            <img src="sources/Razas/Shazari/images/cover.png" alt="Shazari" class="raza-card-img" loading="lazy"
+              decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Shazari</h3>
@@ -591,7 +640,8 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-thae-tir')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Thaetir/images/cover.png" alt="Thae'tir" class="raza-card-img" loading="lazy" decoding="async">
+            <img src="sources/Razas/Thaetir/images/cover.png" alt="Thae'tir" class="raza-card-img" loading="lazy"
+              decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Thae'tir</h3>
@@ -617,7 +667,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -650,7 +700,8 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Elfos/images/cover.png" alt="Elfos" class="raza-detail-img" loading="lazy" decoding="async">
+          <img src="sources/Razas/Elfos/images/cover.png" alt="Elfos" class="raza-detail-img" loading="lazy"
+            decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -769,7 +820,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -800,7 +851,8 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Enanos/images/cover.png" alt="Enanos" class="raza-detail-img" loading="lazy" decoding="async">
+          <img src="sources/Razas/Enanos/images/cover.png" alt="Enanos" class="raza-detail-img" loading="lazy"
+            decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -909,7 +961,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -940,7 +992,8 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img lore-term" data-tooltip="El pecho mas solicitado de Primus">
-          <img src="sources/Razas/Humanos/images/cover.png" alt="Humanos" class="raza-detail-img" loading="lazy" decoding="async">
+          <img src="sources/Razas/Humanos/images/cover.png" alt="Humanos" class="raza-detail-img" loading="lazy"
+            decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -1042,7 +1095,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -1073,7 +1126,8 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Malvakari/images/cover.png" alt="Malvakari" class="raza-detail-img" loading="lazy" decoding="async">
+          <img src="sources/Razas/Malvakari/images/cover.png" alt="Malvakari" class="raza-detail-img" loading="lazy"
+            decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -1191,7 +1245,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -1222,7 +1276,8 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Mestizos/images/cover.png" alt="Mestizos" class="raza-detail-img" loading="lazy" decoding="async">
+          <img src="sources/Razas/Mestizos/images/cover.png" alt="Mestizos" class="raza-detail-img" loading="lazy"
+            decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -1339,7 +1394,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -1370,7 +1425,8 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Nhek’thal/images/cover.png" alt="Nhek’thal" class="raza-detail-img" loading="lazy" decoding="async">
+          <img src="sources/Razas/Nhek’thal/images/cover.png" alt="Nhek’thal" class="raza-detail-img" loading="lazy"
+            decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -1531,7 +1587,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -1562,7 +1618,8 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Ossalyth/images/cover.png" alt="Ossalyth" class="raza-detail-img" loading="lazy" decoding="async">
+          <img src="sources/Razas/Ossalyth/images/cover.png" alt="Ossalyth" class="raza-detail-img" loading="lazy"
+            decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -1673,7 +1730,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -1704,7 +1761,8 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Rosaveld/images/cover.png" alt="Rosaveld" class="raza-detail-img" loading="lazy" decoding="async">
+          <img src="sources/Razas/Rosaveld/images/cover.png" alt="Rosaveld" class="raza-detail-img" loading="lazy"
+            decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -1878,7 +1936,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -1909,7 +1967,8 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Shazari/images/cover.png" alt="Shazari" class="raza-detail-img" loading="lazy" decoding="async">
+          <img src="sources/Razas/Shazari/images/cover.png" alt="Shazari" class="raza-detail-img" loading="lazy"
+            decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -2028,7 +2087,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -2059,7 +2118,8 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Thaetir/images/cover.png" alt="Thae'tir" class="raza-detail-img" loading="lazy" decoding="async">
+          <img src="sources/Razas/Thaetir/images/cover.png" alt="Thae'tir" class="raza-detail-img" loading="lazy"
+            decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -2188,7 +2248,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -2311,7 +2371,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -2423,7 +2483,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -2468,8 +2528,8 @@
 
         <div class="oficio-card" onclick="showPage('gremio-aventuras')">
           <div class="oficio-card-img-wrap" style="background: #111;">
-            <img class="oficio-card-img" src="sources/Gremios/Emblema.webp" alt="Gremio de Aventuras" loading="lazy" decoding="async"
-              style="object-fit: contain; padding: 2rem; box-sizing: border-box;" />
+            <img class="oficio-card-img" src="sources/Gremios/Emblema.webp" alt="Gremio de Aventuras" loading="lazy"
+              decoding="async" style="object-fit: contain; padding: 2rem; box-sizing: border-box;" />
           </div>
           <div class="oficio-card-label">Gremio de Aventuras</div>
         </div>
@@ -2485,7 +2545,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -2622,8 +2682,8 @@
         </div>
         <div class="raza-card">
           <div class="raza-card-img-wrap">
-            <img class="raza-card-img" src="sources/Clases/3.%20Dualhar/Fotos/avatar.png" alt="Dualhar"
-              loading="lazy" decoding="async" />
+            <img class="raza-card-img" src="sources/Clases/3.%20Dualhar/Fotos/avatar.png" alt="Dualhar" loading="lazy"
+              decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Dualhar</h3>
@@ -2646,8 +2706,8 @@
         </div>
         <div class="raza-card">
           <div class="raza-card-img-wrap">
-            <img class="raza-card-img" src="sources/Clases/5.%20Noc'thar/fotos/avatar.png" alt="Noc'thar"
-              loading="lazy" decoding="async" />
+            <img class="raza-card-img" src="sources/Clases/5.%20Noc'thar/fotos/avatar.png" alt="Noc'thar" loading="lazy"
+              decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Noc'thar</h3>
@@ -2706,8 +2766,8 @@
         </div>
         <div class="raza-card">
           <div class="raza-card-img-wrap">
-            <img class="raza-card-img" src="sources/Clases/9.%20Magharyn/fotos/avatar.png" alt="Magharyn"
-              loading="lazy" decoding="async" />
+            <img class="raza-card-img" src="sources/Clases/9.%20Magharyn/fotos/avatar.png" alt="Magharyn" loading="lazy"
+              decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Magharyn</h3>
@@ -2737,7 +2797,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -2824,7 +2884,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -2847,7 +2907,8 @@
   <!-- ═══════════════════════════════════════════════════════════ -->
   <div class="page" id="page-clase-vhark-hul">
     <div class="detail-hero">
-      <div class="detail-hero-bg" style='background-image:url("sources/Clases/10.%20Vhark&apos;Hul/fotos/avatar.png")'></div>
+      <div class="detail-hero-bg" style='background-image:url("sources/Clases/10.%20Vhark&apos;Hul/fotos/avatar.png")'>
+      </div>
       <div class="detail-hero-overlay"></div>
       <div class="detail-hero-content">
         <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Vhark'Hul</span></div>
@@ -2929,7 +2990,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -3038,7 +3099,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -3133,7 +3194,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -3235,7 +3296,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -3258,7 +3319,8 @@
   <!-- ═══════════════════════════════════════════════════════════ -->
   <div class="page" id="page-clase-noc-thar">
     <div class="detail-hero">
-      <div class="detail-hero-bg" style='background-image:url("sources/Clases/5.%20Noc&apos;thar/fotos/avatar.png")'></div>
+      <div class="detail-hero-bg" style='background-image:url("sources/Clases/5.%20Noc&apos;thar/fotos/avatar.png")'>
+      </div>
       <div class="detail-hero-overlay"></div>
       <div class="detail-hero-content">
         <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Noc'thar</span></div>
@@ -3340,7 +3402,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -3442,7 +3504,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -3526,7 +3588,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -3652,7 +3714,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -3749,7 +3811,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -3831,7 +3893,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -3883,7 +3945,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -4086,7 +4148,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -4127,7 +4189,8 @@
 
         <div class="deity-card">
           <div class="deity-portrait">
-            <img src="images/938f05_729c6d8a00ca48549257b2c08439f9f4~mv2.png" alt="Eselia" loading="lazy" decoding="async" />
+            <img src="images/938f05_729c6d8a00ca48549257b2c08439f9f4~mv2.png" alt="Eselia" loading="lazy"
+              decoding="async" />
           </div>
           <div class="deity-info">
             <div class="deity-name">ESELIA, LA LLAMA QUE GUÍA</div>
@@ -4149,7 +4212,8 @@
 
         <div class="deity-card">
           <div class="deity-portrait">
-            <img src="images/938f05_efb15aea444a4f94939937a6185e6d37~mv2.png" alt="Nazhur" loading="lazy" decoding="async" />
+            <img src="images/938f05_efb15aea444a4f94939937a6185e6d37~mv2.png" alt="Nazhur" loading="lazy"
+              decoding="async" />
           </div>
           <div class="deity-info">
             <div class="deity-name">NAZHUR, EL QUE DESPIERTA EN LAS MAREAS</div>
@@ -4170,7 +4234,8 @@
 
         <div class="deity-card">
           <div class="deity-portrait">
-            <img src="images/938f05_92a7cc5c5d0c453ca20e9a5449b24d2f~mv2.png" alt="Vorgrimm" loading="lazy" decoding="async" />
+            <img src="images/938f05_92a7cc5c5d0c453ca20e9a5449b24d2f~mv2.png" alt="Vorgrimm" loading="lazy"
+              decoding="async" />
           </div>
           <div class="deity-info">
             <div class="deity-name">VORGRIMM, EL HERMANO DE LA TORMENTA</div>
@@ -4192,7 +4257,8 @@
 
         <div class="deity-card">
           <div class="deity-portrait">
-            <img src="images/938f05_82528c51b3f4476799987dbd0f2003a9~mv2.png" alt="Zenhra" loading="lazy" decoding="async" />
+            <img src="images/938f05_82528c51b3f4476799987dbd0f2003a9~mv2.png" alt="Zenhra" loading="lazy"
+              decoding="async" />
           </div>
           <div class="deity-info">
             <div class="deity-name">ZENHRA, LA SEMILLA DEL MUNDO</div>
@@ -4220,7 +4286,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -4318,7 +4384,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -4401,7 +4467,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -4513,7 +4579,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -4620,7 +4686,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -4722,7 +4788,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -4946,7 +5012,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -5083,7 +5149,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -5183,7 +5249,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -5358,7 +5424,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -5515,7 +5581,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -5538,8 +5604,10 @@
   <div class="welcome-modal-overlay" id="welcomeModal">
     <div class="welcome-modal-box">
       <h2>Adéntrate en Primus</h2>
-      <p>Cicatrices de Primus cuenta con ambientación sonora para mejorar la inmersión del rol.<br>¿Deseas activar la música de fondo ahora?</p>
-      <p class="welcome-modal-note">Puedes activarla o silenciarla en cualquier momento pulsando el icono musical abajo a la derecha.</p>
+      <p><span>"Cicatrices de Primus"</span> cuenta con ambientación sonora para mejorar la inmersión de esta página. ¿Deseas
+        activar la música de fondo ahora?</p>
+      <p class="welcome-modal-note">Puedes activarla o silenciarla en cualquier momento pulsando el icono musical abajo
+        a la derecha.</p>
       <div class="welcome-modal-buttons">
         <button class="btn-primary" id="welcomeBtnAccept">Aceptar</button>
         <button class="btn-primary" id="welcomeBtnCancel">Cancelar</button>
@@ -5669,7 +5737,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -5784,7 +5852,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -5896,7 +5964,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -6007,7 +6075,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -6119,7 +6187,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -6231,7 +6299,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -6344,7 +6412,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -6456,7 +6524,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -6568,7 +6636,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -6680,7 +6748,7 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        
+
         <div class="footer-nav">
           <span onclick="showPage('inicio')">Inicio</span>
           <span onclick="showPage('lore')">Lore</span>
@@ -6708,7 +6776,8 @@
       <div class="detail-hero-bg" id="dynamic-raza-hero-bg"></div>
       <div class="detail-hero-overlay"></div>
       <div class="detail-hero-content">
-        <div class="breadcrumb" onclick="showPage('razas')">Razas <span id="dynamic-raza-breadcrumb">/ Nombre</span></div>
+        <div class="breadcrumb" onclick="showPage('razas')">Razas <span id="dynamic-raza-breadcrumb">/ Nombre</span>
+        </div>
         <h1 id="dynamic-raza-title">Nombre de la Raza</h1>
       </div>
     </div>
@@ -6739,12 +6808,13 @@
             <div id="dynamic-raza-body" class="markdown-content">
               <!-- Contenido Markdown dinámico -->
             </div>
-            
-            <div class="raza-stats-grid" style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 2rem;">
-               <div class="stat-item">
-                  <span class="stat-label">Atributo Clave</span>
-                  <span class="stat-value" id="dynamic-raza-attr">Fuerza</span>
-               </div>
+
+            <div class="raza-stats-grid"
+              style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+              <div class="stat-item">
+                <span class="stat-label">Atributo Clave</span>
+                <span class="stat-value" id="dynamic-raza-attr">Fuerza</span>
+              </div>
             </div>
           </div>
         </div>

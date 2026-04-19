@@ -38,8 +38,16 @@
       object-fit: cover;
       object-position: center;
       z-index: 0;
-      filter: brightness(0.28) saturate(0.7);
+      filter: brightness(0.18) saturate(0.7);
       transform: scale(1.04);
+      pointer-events: none;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+      pointer-events: none;
     }
     .hero-content {
       position: relative;

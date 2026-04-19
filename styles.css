@@ -1,4 +1,4 @@
-/* ─── RESET & BASE ─────────────────────────────────────────── */
+/* â”€â”€â”€ RESET & BASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *,
 *::before,
 *::after {
@@ -52,7 +52,7 @@ a {
   text-decoration: none;
 }
 
-/* ─── CUSTOM CURSOR ────────────────────────────────────────── */
+/* â”€â”€â”€ CUSTOM CURSOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 body {
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 2L19 10.5L11.5 12.5L7 21L3 2Z" fill="%23c9a84c" stroke="%23181510" stroke-width="1.5"/></svg>') 2 2, auto;
 }
@@ -61,7 +61,7 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 2L20 11.5L12.5 13L9 22L3 2Z" fill="%23b01010" stroke="%23c9a84c" stroke-width="1.5"/></svg>') 2 2, pointer !important;
 }
 
-/* ─── SCROLLBAR ────────────────────────────────────────────── */
+/* â”€â”€â”€ SCROLLBAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -75,7 +75,7 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
   border-radius: 4px;
 }
 
-/* ─── PARTICLES ────────────────────────────────────────────── */
+/* â”€â”€â”€ PARTICLES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 #particles-container {
   position: fixed;
   top: 0;
@@ -151,7 +151,7 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
   }
 }
 
-/* ─── PAGE SYSTEM ──────────────────────────────────────────── */
+/* â”€â”€â”€ PAGE SYSTEM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .page {
   display: none;
   animation: fadeIn 0.8s ease forwards;
@@ -164,7 +164,7 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
   display: block;
 }
 
-/* ─── REVEAL ANIMATIONS ────────────────────────────────────── */
+/* â”€â”€â”€ REVEAL ANIMATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -176,7 +176,7 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
   transform: translateY(0);
 }
 
-/* ─── METALLIC SHINE EFFECT ────────────────────────────────── */
+/* â”€â”€â”€ METALLIC SHINE EFFECT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .shine-effect {
   position: relative;
   overflow: hidden;
@@ -213,7 +213,7 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
   }
 }
 
-/* ─── CARD GLOW FOLLOW ───────────────────────────────────────────── */
+/* â”€â”€â”€ CARD GLOW FOLLOW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .raza-card,
 .bento-item,
 .lore-card,
@@ -252,7 +252,7 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
 
 
 
-/* ─── NAV ──────────────────────────────────────────────────── */
+/* â”€â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 nav {
   position: fixed;
   top: 0;
@@ -331,14 +331,14 @@ nav {
   transition: 0.3s;
 }
 
-/* ─── NAV DROPDOWN ──────────────────────────────────────────── */
+/* â”€â”€â”€ NAV DROPDOWN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nav-links>li {
   position: relative;
 }
 
 .nav-dropdown {
   position: absolute;
-  /* starts flush with bottom of li — transparent padding bridges the gap */
+  /* starts flush with bottom of li â€” transparent padding bridges the gap */
   top: 100%;
   left: 0;
   padding-top: 14px;
@@ -354,7 +354,7 @@ nav {
   z-index: 1001;
 }
 
-/* The visible panel is this inner pseudo-wrapper via the ::after trick —
+/* The visible panel is this inner pseudo-wrapper via the ::after trick â€”
        instead we use a real wrapper approach: wrap items in a styled inner box */
 .nav-dropdown-inner {
   background: rgba(10, 9, 7, 0.97);
@@ -500,7 +500,7 @@ nav {
   }
 }
 
-/* ─── HERO ──────────────────────────────────────────────────── */
+/* â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero {
   position: relative;
   height: 65vh;
@@ -636,7 +636,7 @@ nav {
 }
 
 
-/* ─── PAGE HEADER ───────────────────────────────────────────── */
+/* â”€â”€â”€ PAGE HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .page-header {
   position: relative;
   padding-top: var(--nav-h);
@@ -690,7 +690,7 @@ nav {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
-/* ─── SECTIONS ──────────────────────────────────────────────── */
+/* â”€â”€â”€ SECTIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section {
   padding: 72px 48px;
   max-width: 1180px;
@@ -716,7 +716,7 @@ nav {
 }
 
 .section-underline::after {
-  content: '✧';
+  content: 'âœ§';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -727,7 +727,7 @@ nav {
   font-size: 0.85rem;
 }
 
-/* ─── HOME - INTRO CARDS ────────────────────────────────────── */
+/* â”€â”€â”€ HOME - INTRO CARDS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .home-intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -770,7 +770,7 @@ nav {
   pointer-events: none;
 }
 
-/* ─── HOME SECTIONS (main page nav) ──────────────────────────── */
+/* â”€â”€â”€ HOME SECTIONS (main page nav) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .home-sections {
   display: flex;
   flex-direction: column;
@@ -855,7 +855,7 @@ nav {
   filter: brightness(0.55) saturate(0.75);
 }
 
-/* ─── LORE CARDS ────────────────────────────────────────────── */
+/* â”€â”€â”€ LORE CARDS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .lore-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -928,7 +928,7 @@ nav {
   color: var(--white);
 }
 
-/* ─── RAZAS GRID ────────────────────────────────────────────── */
+/* â”€â”€â”€ RAZAS GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .razas-quote {
   text-align: center;
   font-family: 'Cinzel', serif;
@@ -1015,7 +1015,7 @@ nav {
   margin-top: auto;
 }
 
-/* ─── OFICIOS GRID ──────────────────────────────────────────── */
+/* â”€â”€â”€ OFICIOS GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .oficios-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1034,7 +1034,7 @@ nav {
   }
 }
 
-/* Centrar cards en la página de Gremios si hay pocas */
+/* Centrar cards en la pÃ¡gina de Gremios si hay pocas */
 #page-gremios .oficios-grid {
   grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
   justify-content: center;
@@ -1089,7 +1089,7 @@ nav {
   color: var(--gold2);
 }
 
-/* ─── NORMATIVA ─────────────────────────────────────────────── */
+/* â”€â”€â”€ NORMATIVA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .normativa-intro {
   max-width: 780px;
   margin: 0 auto 56px;
@@ -1126,7 +1126,7 @@ nav {
   background: var(--accent);
 }
 
-/* ─── NORM QUOTE ─────────────────────────────────────────────── */
+/* â”€â”€â”€ NORM QUOTE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .norm-quote {
   position: relative;
   margin: 28px 0;
@@ -1153,7 +1153,7 @@ nav {
   font-style: normal;
 }
 
-/* ─── DETAIL PAGES (Classes/Races Common) ───────────────────── */
+/* â”€â”€â”€ DETAIL PAGES (Classes/Races Common) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .detail-hero {
   position: relative;
   height: 480px;
@@ -1271,7 +1271,7 @@ nav {
   color: var(--gold);
 }
 
-/* ─── Oficio Portrait Layout ─────────────────────────────────── */
+/* â”€â”€â”€ Oficio Portrait Layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .oficio-intro {
   display: grid;
   grid-template-columns: 1fr 260px;
@@ -1308,7 +1308,7 @@ nav {
   }
 }
 
-/* ─── Tier Tab System ─────────────────────────────────────────── */
+/* â”€â”€â”€ Tier Tab System â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .oficio-tiers {
   margin: 40px 0;
 }
@@ -1472,7 +1472,7 @@ nav {
 }
 
 .tier-perks li::before {
-  content: '►';
+  content: 'â–º';
   color: var(--gold);
   font-size: 0.5rem;
   margin-top: 5px;
@@ -1571,7 +1571,7 @@ nav {
   color: var(--gold);
 }
 
-/* Historia eras — alternating two-column layout */
+/* Historia eras â€” alternating two-column layout */
 .historia-eras .era-block:not(:last-child) {
   padding-bottom: 72px;
   margin-bottom: 72px;
@@ -1678,7 +1678,7 @@ nav {
   line-height: 1.75;
 }
 
-/* Deidades — alternating two-column layout */
+/* Deidades â€” alternating two-column layout */
 .deity-card {
   display: grid;
   grid-template-areas: "portrait info";
@@ -1770,7 +1770,7 @@ nav {
   line-height: 1.85;
 }
 
-/* ─── MODERN AUDIO PLAYER ───────────────────────────────────── */
+/* â”€â”€â”€ MODERN AUDIO PLAYER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .audio-player {
   position: fixed;
   bottom: 32px;
@@ -1842,7 +1842,7 @@ nav {
   }
 }
 
-/* ─── RAZAS — DYNAMIC SYSTEM ─── */
+/* â”€â”€â”€ RAZAS â€” DYNAMIC SYSTEM â”€â”€â”€ */
 .raza-img-placeholder {
   height: 180px;
   background: linear-gradient(135deg, #151210 0%, #1e1a13 50%, #151210 100%);
@@ -1949,7 +1949,7 @@ nav {
   background: rgba(176, 16, 16, 0.03);
 }
 
-/* ─── LORE TOOLTIPS ────────────────────────────────────────── */
+/* â”€â”€â”€ LORE TOOLTIPS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .lore-term {
   cursor: help;
   position: relative;
@@ -1980,7 +1980,7 @@ span.lore-term {
 }
 
 
-/* ─── RESPONSIVE REFINEMENTS ─────────────────────────────────── */
+/* â”€â”€â”€ RESPONSIVE REFINEMENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 900px) {
   .raza-intro-row {
     grid-template-columns: 1fr;
@@ -2054,7 +2054,7 @@ span.lore-term {
   }
 
   .tier-tab.active::after {
-    content: '▼';
+    content: 'â–¼';
     position: absolute;
     right: 20px;
     top: 50%;
@@ -2095,7 +2095,7 @@ span.lore-term {
   }
 }
 
-/* ─── PREMIUM MONOLITHIC FOOTER ────────────────────────────── */
+/* â”€â”€â”€ PREMIUM MONOLITHIC FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 footer {
   background: #050505;
   padding: 30px 48px 20px;
@@ -2158,7 +2158,7 @@ footer::before {
   color: var(--white);
   opacity: 0.65;
   margin-top: -18px;
-  /* Pegado nivel: Fusión */
+  /* Pegado nivel: FusiÃ³n */
   line-height: 1;
 }
 
@@ -2188,7 +2188,7 @@ footer::before {
 }
 
 .footer-nav span:not(:last-child)::after {
-  content: '·';
+  content: 'Â·';
   position: absolute;
   right: -2px;
   color: rgba(201, 168, 76, 0.3);
@@ -2258,7 +2258,7 @@ footer::before {
   opacity: 0.9;
 }
 
-/* ─── GLOW DIVIDER ───────────────────────────────────────────── */
+/* â”€â”€â”€ GLOW DIVIDER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .glow-divider {
   width: 100%;
   height: 1px;
@@ -2269,7 +2269,7 @@ footer::before {
 }
 
 .glow-divider::after {
-  content: '✻';
+  content: 'âœ»';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2282,7 +2282,7 @@ footer::before {
   font-family: 'Cinzel', serif;
 }
 
-/* ─── MODERN AUDIO PLAYER (Vercel Style) ────────────────────── */
+/* â”€â”€â”€ MODERN AUDIO PLAYER (Vercel Style) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .audio-player {
   position: fixed;
   bottom: 32px;
@@ -2312,7 +2312,7 @@ footer::before {
   transform: scale(1.05);
 }
 
-/* ─── WELCOME MODAL ─────────────────────────────────────────── */
+/* â”€â”€â”€ WELCOME MODAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .welcome-modal-overlay {
   position: fixed;
   top: 0;
@@ -2393,7 +2393,7 @@ footer::before {
   }
 }
 
-/* ─── AUDIO AURA (MODAL ACTIVE) ─────────────────────────────── */
+/* â”€â”€â”€ AUDIO AURA (MODAL ACTIVE) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 body.modal-active .audio-toggle {
   animation: goldAuraPulse 1.5s infinite alternate;
   border-color: var(--gold);
@@ -2419,7 +2419,7 @@ body.modal-active .audio-toggle {
   border-color: var(--gold);
   box-shadow: 0 0 20px rgba(201, 168, 76, 0.6);
   animation: none;
-  /* Quitamos el pulso de 'atención' cuando ya está sonando */
+  /* Quitamos el pulso de 'atenciÃ³n' cuando ya estÃ¡ sonando */
 }
 
 .audio-label {
@@ -2466,7 +2466,7 @@ body.modal-active .audio-toggle {
   opacity: 0.9;
 }
 
-/* ── BENTO GRID (INICIO) ───────────────────────────────────────── */
+/* â”€â”€ BENTO GRID (INICIO) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .bento-container {
   max-width: 1200px;
   margin: 6rem auto 6rem;
@@ -2492,7 +2492,7 @@ body.modal-active .audio-toggle {
   text-decoration: none;
 }
 
-/* Efecto de Enfoque: Oscurecer los demás al hacer hover */
+/* Efecto de Enfoque: Oscurecer los demÃ¡s al hacer hover */
 .bento-container:has(.bento-item:hover) .bento-item:not(:hover) {
   opacity: 0.4;
   filter: grayscale(0.4) brightness(0.6);
@@ -2501,7 +2501,7 @@ body.modal-active .audio-toggle {
 .bento-container .bento-item:hover {
   opacity: 1;
   filter: grayscale(0) brightness(1.1);
-  /* Un poco más de brillo */
+  /* Un poco mÃ¡s de brillo */
   transform: translateY(-12px) scale(1.05);
   /* Se eleva y crece */
   border-color: var(--gold);
@@ -2600,7 +2600,7 @@ body.modal-active .audio-toggle {
   }
 }
 
-/* ─── NORM GRID (NORMATIVA BENTO) ─────────────────────────── */
+/* â”€â”€â”€ NORM GRID (NORMATIVA BENTO) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .norm-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2718,7 +2718,7 @@ body.modal-active .audio-toggle {
   }
 }
 
-/* ─── NORM CONTENT CARDS ───────────────────────────────────── */
+/* â”€â”€â”€ NORM CONTENT CARDS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .norm-content-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -2735,7 +2735,7 @@ body.modal-active .audio-toggle {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  /* Sin animaciones por petición del usuario */
+  /* Sin animaciones por peticiÃ³n del usuario */
 }
 
 .norm-card h4 {
@@ -2806,7 +2806,7 @@ body.modal-active .audio-toggle {
   }
 }
 
-/* ─── ROSTER GRID HEADER ───────────────────────────────────── */
+/* â”€â”€â”€ ROSTER GRID HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .roster-grid-header {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -2888,7 +2888,7 @@ body.modal-active .audio-toggle {
   transition: color 0.25s ease !important;
 }
 .footer-nav span:not(:last-child)::after {
-  content: '�';
+  content: '·';
   position: absolute;
   right: -2px;
   color: rgba(201, 168, 76, 0.35);
@@ -2985,7 +2985,7 @@ body.modal-active .audio-toggle {
 }
 #btn-discord-ticket:hover {
   background: #b01010 !important;
-  color: #c9a84c !important;
+  color: #ffffff !important;
   border-color: #b01010 !important;
   box-shadow: 0 0 40px rgba(201, 168, 76, 0.6) !important;
   transform: none !important;
@@ -2993,7 +2993,7 @@ body.modal-active .audio-toggle {
   translate: none !important;
 }
 #btn-discord-ticket:hover svg {
-  fill: #c9a84c !important;
+  fill: #ffffff !important;
 }
 
 /* --- ANIMACION PULSO AUDIO --- */

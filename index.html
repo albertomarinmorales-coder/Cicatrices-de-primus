@@ -58,35 +58,38 @@
       position: fixed;
       inset: 0;
       z-index: 99999;
-      background: rgba(8, 7, 5, 0.95);
+      background: rgba(5, 5, 3, 0.98); /* Casi negro puro */
       display: flex;
       align-items: center;
       justify-content: center;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(15px);
       font-family: 'Inter', sans-serif;
     }
     .welcome-modal-box {
-      background: #1a1612;
+      background: #110e0b;
       border: 1px solid #c9a84c;
-      padding: 3rem 2.5rem;
+      padding: 3.5rem 2.5rem;
       max-width: 550px;
-      width: 90%;
+      width: 95%;
       text-align: center;
-      box-shadow: 0 0 60px rgba(0,0,0,0.9), inset 0 0 30px rgba(201, 168, 76, 0.05);
+      box-shadow: 0 0 80px rgba(0,0,0,1);
       position: relative;
     }
     .welcome-modal-box h2 {
-      font-family: 'Cinzel', serif;
+      font-family: 'Cinzel', serif !important;
       color: #c9a84c;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      letter-spacing: 0.1em;
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
     }
     .welcome-modal-box p {
-      color: rgba(255,255,255,0.8);
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif !important;
+      color: #e0d5c0;
+      line-height: 1.8;
+      font-size: 1.05rem;
     }
-    /* El botón de música debe estar por encima si lo queremos ver */
+    /* El botón de música flotando por encima */
     #audioPlayer {
       z-index: 100000 !important;
     }

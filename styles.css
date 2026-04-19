@@ -945,6 +945,12 @@ nav {
   gap: 16px;
 }
 
+@media (max-width: 900px) {
+  .razas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .raza-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1987,15 +1993,18 @@ span.lore-term {
 
 @media (max-width: 768px) {
   .audio-player {
-    bottom: 24px;
-    right: 24px;
+    bottom: 30px; /* Slight bump up to save native phone UI bars */
+    right: 0;
   }
 
   .audio-toggle {
-    font-size: 1rem;
-    padding: 0 16px;
+    width: 48px;
     height: 48px;
-    border-radius: 24px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 12px 0 0 12px; /* Curves exclusively on the left side */
+    border-right: none;
+    font-size: 1rem;
   }
 
   .audio-label {
@@ -2078,7 +2087,7 @@ span.lore-term {
 
 @media (max-width: 600px) {
   .razas-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .raza-photos-row {
@@ -2516,7 +2525,7 @@ body.modal-active .audio-toggle {
 .bento-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(13, 13, 15, 0.9) 0%, rgba(13, 13, 15, 0.4) 50%, rgba(13, 13, 15, 0.1) 100%);
+  background: linear-gradient(to top, rgba(8, 7, 5, 1) 0%, rgba(8, 7, 5, 0.7) 40%, rgba(8, 7, 5, 0.1) 100%);
   z-index: 1;
 }
 
@@ -2527,15 +2536,17 @@ body.modal-active .audio-toggle {
 
 .bento-content h2 {
   font-family: 'Cinzel', serif;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: var(--gold);
   margin-bottom: 0.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 
 .bento-content p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+  font-weight: 400;
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 3;

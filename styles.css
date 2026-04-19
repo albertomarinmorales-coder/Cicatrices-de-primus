@@ -52,6 +52,15 @@ a {
   text-decoration: none;
 }
 
+/* ─── CUSTOM CURSOR ────────────────────────────────────────── */
+body {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 2L19 10.5L11.5 12.5L7 21L3 2Z" fill="%23c9a84c" stroke="%23181510" stroke-width="1.5"/></svg>') 2 2, auto;
+}
+
+a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-card, .btn-primary, .btn-ghost, .footer-nav span, .nav-logo, .nav-links li span, .faq-header, .tier-tab, .discord-btn {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 2L20 11.5L12.5 13L9 22L3 2Z" fill="%23b01010" stroke="%23c9a84c" stroke-width="1.5"/></svg>') 2 2, pointer !important;
+}
+
 /* ─── SCROLLBAR ────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 8px;
@@ -503,6 +512,7 @@ nav {
   text-align: center;
   overflow: hidden;
   padding-top: var(--nav-h);
+  border-bottom: 1px solid rgba(176, 16, 16, 0.3);
   /* Empuja el contenido debajo de la nav fija */
 }
 
@@ -698,10 +708,23 @@ nav {
 }
 
 .section-underline {
-  width: 80px;
+  width: 140px;
   height: 2px;
-  background: linear-gradient(to right, transparent, var(--accent), transparent);
-  margin: 0 auto 48px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 0 auto 50px;
+  position: relative;
+}
+
+.section-underline::after {
+  content: '✧';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg);
+  color: var(--gold);
+  padding: 0 10px;
+  font-size: 0.85rem;
 }
 
 /* ─── HOME - INTRO CARDS ────────────────────────────────────── */
@@ -1773,21 +1796,6 @@ nav {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-50% {
-  transform: scaleY(1);
-}
-}
-
 .audio-label {
   font-family: 'Cinzel', serif;
   font-size: 0.8rem;
@@ -2233,12 +2241,24 @@ footer::before {
 .glow-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  box-shadow: 0 0 15px var(--accent);
-  margin: 0;
-  opacity: 0.8;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.6), transparent);
+  margin: 60px 0;
   position: relative;
   z-index: 5;
+}
+
+.glow-divider::after {
+  content: '✻';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg);
+  padding: 0 15px;
+  color: var(--gold);
+  font-size: 1.3rem;
+  text-shadow: 0 0 10px rgba(201, 168, 76, 0.5);
+  font-family: 'Cinzel', serif;
 }
 
 /* ─── MODERN AUDIO PLAYER (Vercel Style) ────────────────────── */

@@ -57,23 +57,38 @@
     #welcomeModal {
       position: fixed;
       inset: 0;
-      z-index: 10000;
-      background: rgba(0,0,0,0.9);
+      z-index: 99999;
+      background: rgba(8, 7, 5, 0.95);
       display: flex;
       align-items: center;
       justify-content: center;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      font-family: 'Inter', sans-serif;
     }
     .welcome-modal-box {
-      background: #181510;
+      background: #1a1612;
       border: 1px solid #c9a84c;
-      padding: 2.5rem;
-      max-width: 500px;
+      padding: 3rem 2.5rem;
+      max-width: 550px;
       width: 90%;
       text-align: center;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+      box-shadow: 0 0 60px rgba(0,0,0,0.9), inset 0 0 30px rgba(201, 168, 76, 0.05);
       position: relative;
-      z-index: 10001;
+    }
+    .welcome-modal-box h2 {
+      font-family: 'Cinzel', serif;
+      color: #c9a84c;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+    }
+    .welcome-modal-box p {
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+    }
+    /* El botón de música debe estar por encima si lo queremos ver */
+    #audioPlayer {
+      z-index: 100000 !important;
     }
     /* Footer Nav */
     .footer-nav { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center !important; margin: 0 auto 24px !important; }

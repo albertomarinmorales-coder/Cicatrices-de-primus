@@ -2493,7 +2493,7 @@ body.modal-active .audio-toggle {
 }
 
 /* Efecto de Enfoque: Oscurecer los demás al hacer hover */
-.bento-container:hover .bento-item {
+.bento-container:has(.bento-item:hover) .bento-item:not(:hover) {
   opacity: 0.4;
   filter: grayscale(0.4) brightness(0.6);
 }

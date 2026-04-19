@@ -112,27 +112,52 @@ const btnAccept = document.getElementById('welcomeBtnAccept');
 const btnCancel = document.getElementById('welcomeBtnCancel');
 
 if (welcomeModal && btnAccept && btnCancel) {
-  // Only show if not answered in this session
-  if (!sessionStorage.getItem('musicPromptAnswered')) {
-    document.body.classList.add('modal-active');
+  const STORAGE_KEY = 'musicPromptData';
+  const EXPIRY_DAYS = 7;
+  
+  function hasValidPromptDecision() {
+    const dataStr = localStorage.getItem(STORAGE_KEY);
+    if (!dataStr) return false;
+    try {
+      const data = JSON.parse(dataStr);
+      if (new Date().getTime() > data.expiry) {
+        localStorage.removeItem(STORAGE_KEY);
+        return false;
+      }
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  function savePromptDecision() {
+    const expiry = new Date().getTime() + (EXPIRY_DAYS * 24 * 60 * 60 * 1000);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ answered: true, expiry }));
+  }
+
+  // Only show if not answered within the last 7 days
+  if (!hasValidPromptDecision()) {
+    setTimeout(() => {
+      welcomeModal.classList.add('show');
+      document.body.classList.add('modal-active');
+    }, 50);
   } else {
-    // Hide it instantly if already answered
     welcomeModal.style.display = 'none';
   }
 
   btnAccept.addEventListener('click', () => {
     playAudio();
-    welcomeModal.classList.add('hidden');
+    welcomeModal.classList.remove('show');
     document.body.classList.remove('modal-active');
-    setTimeout(() => welcomeModal.style.display = 'none', 500); // Wait for transition
-    sessionStorage.setItem('musicPromptAnswered', 'true');
+    setTimeout(() => welcomeModal.style.display = 'none', 500);
+    savePromptDecision();
   });
 
   btnCancel.addEventListener('click', () => {
-    welcomeModal.classList.add('hidden');
+    welcomeModal.classList.remove('show');
     document.body.classList.remove('modal-active');
     setTimeout(() => welcomeModal.style.display = 'none', 500);
-    sessionStorage.setItem('musicPromptAnswered', 'true');
+    savePromptDecision();
   });
 }
 

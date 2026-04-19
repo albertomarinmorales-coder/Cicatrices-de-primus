@@ -104,7 +104,7 @@ function playAudio() {
   if (!bgMusic) return;
   bgMusic.play().then(() => {
     isPlaying = true;
-    audioToggle.classList.add('playing');
+    audioToggle.classList.add('playing'); audioToggle.classList.add('pulse-active');
     if (audioIcon) audioIcon.className = 'fa-solid fa-pause';
   }).catch(e => console.log('Autoplay blocked'));
 }
@@ -113,7 +113,7 @@ function pauseAudio() {
   if (!bgMusic) return;
   bgMusic.pause();
   isPlaying = false;
-  audioToggle.classList.remove('playing');
+  audioToggle.classList.remove('playing'); audioToggle.classList.remove('pulse-active');
   if (audioIcon) audioIcon.className = 'fa-solid fa-music';
 }
 

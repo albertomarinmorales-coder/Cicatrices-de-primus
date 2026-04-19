@@ -1,4 +1,4 @@
-/* â”€â”€â”€ RESET & BASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+﻿/* â”€â”€â”€ RESET & BASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *,
 *::before,
 *::after {
@@ -218,7 +218,8 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
 .bento-item,
 .lore-card,
 .oficio-card,
-.norm-item {
+.norm-item,
+.norm-card {
   position: relative;
 }
 
@@ -226,7 +227,8 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
 .bento-item::before,
 .lore-card::before,
 .oficio-card::before,
-.norm-item::before {
+.norm-item::before,
+.norm-card::before {
   content: "";
   height: 100%;
   width: 100%;
@@ -246,7 +248,8 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
 .bento-item:hover::before,
 .lore-card:hover::before,
 .oficio-card:hover::before,
-.norm-item:hover::before {
+.norm-item:hover::before,
+.norm-card:hover::before {
   opacity: 1;
 }
 
@@ -2852,48 +2855,126 @@ body.modal-active .audio-toggle {
 }
 
 /* â”€â”€â”€ NORM CONTENT CARDS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.norm-content-grid {
+.norm-content-grid,
+.norm-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
   margin: 2.5rem 0;
 }
 
 .norm-card {
-  background: rgba(20, 18, 15, 0.4);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  padding: 1.8rem;
-  border-radius: 4px;
+  background: rgba(12, 10, 8, 0.55);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  padding: 1.75rem 1.8rem;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  /* Sin animaciones por peticiÃ³n del usuario */
+  gap: 0;
+  overflow: hidden;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.norm-card:hover {
+  border-color: rgba(201, 168, 76, 0.32);
+  box-shadow: 0 0 22px rgba(201, 168, 76, 0.09), inset 0 0 0 1px rgba(201, 168, 76, 0.06);
+}
+
+.norm-card-num {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: rgba(201, 168, 76, 0.28);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+  display: block;
 }
 
 .norm-card h4 {
   font-family: 'Cinzel', serif;
-  font-size: 0.95rem;
+  font-size: 0.84rem;
   font-weight: 700;
   color: var(--gold);
-  margin: 0;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.45;
 }
 
 .norm-card p {
-  font-size: 0.88rem;
+  font-size: 0.87rem;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.78;
   margin: 0;
 }
 
-@media (max-width: 600px) {
-  .norm-content-grid {
-    grid-template-columns: 1fr;
-  }
+.norm-card strong {
+  color: rgba(201, 168, 76, 0.75);
+  font-weight: 600;
 }
 
+.norm-card--warning {
+  grid-column: 1 / -1;
+  border-color: rgba(192, 57, 43, 0.25);
+  border-top: 2px solid rgba(192, 57, 43, 0.55);
+  background: rgba(140, 15, 15, 0.06);
+}
+
+.norm-card--warning:hover {
+  border-color: rgba(192, 57, 43, 0.45);
+  box-shadow: 0 0 22px rgba(192, 57, 43, 0.07), inset 0 0 0 1px rgba(192, 57, 43, 0.05);
+}
+
+.norm-card--warning h4 {
+  color: #d95555;
+  letter-spacing: 0.12em;
+}
+
+.norm-card--full {
+  grid-column: 1 / -1;
+}
+
+.norm-pills {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.norm-pills li {
+  background: rgba(201, 168, 76, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  padding: 0.3rem 0.85rem;
+  font-size: 0.8rem;
+  color: rgba(201, 168, 76, 0.65);
+  letter-spacing: 0.03em;
+}
+
+.norm-section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(201, 168, 76, 0.4);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 2.8rem 0 0 0;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+}
+
+@media (max-width: 640px) {
+  .norm-content-grid,
+  .norm-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .norm-card--warning,
+  .norm-card--full {
+    grid-column: 1;
+  }
+}
 
 /* CLASES ALTERNATE LAYOUT */
 .clase-feature-row {

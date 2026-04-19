@@ -246,7 +246,7 @@ function initScrollReveal() {
 }
 
 function initCardGlow() {
-  document.querySelectorAll('.raza-card, .bento-item, .lore-card, .oficio-card, .norm-item').forEach(card => {
+  document.querySelectorAll('.raza-card, .bento-item, .lore-card, .oficio-card, .norm-item, .norm-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);

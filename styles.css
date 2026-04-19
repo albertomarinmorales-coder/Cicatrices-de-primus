@@ -715,19 +715,19 @@ nav {
   position: relative;
 }
 
-.section-underline::after {
-  content: 'âœ§';
+.section-underline i {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: var(--bg);
   color: var(--gold);
-  padding: 0 10px;
-  font-size: 0.85rem;
+  padding: 0 15px;
+  font-size: 1.1rem;
+  z-index: 2;
 }
 
-/* â”€â”€â”€ HOME - INTRO CARDS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .home-intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -770,7 +770,7 @@ nav {
   pointer-events: none;
 }
 
-/* â”€â”€â”€ HOME SECTIONS (main page nav) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .home-sections {
   display: flex;
   flex-direction: column;
@@ -855,7 +855,7 @@ nav {
   filter: brightness(0.55) saturate(0.75);
 }
 
-/* â”€â”€â”€ LORE CARDS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .lore-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1021,7 +1021,7 @@ nav {
   margin-top: auto;
 }
 
-/* â”€â”€â”€ OFICIOS GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .oficios-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1045,7 +1045,7 @@ nav {
   }
 }
 
-/* Centrar cards en la pÃ¡gina de Gremios si hay pocas */
+/* Centrar cards en la página de Gremios si hay pocas */
 #page-gremios .oficios-grid {
   grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
   justify-content: center;
@@ -1100,7 +1100,7 @@ nav {
   color: var(--gold2);
 }
 
-/* â”€â”€â”€ NORMATIVA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .normativa-intro {
   max-width: 780px;
   margin: 0 auto 56px;
@@ -1137,7 +1137,7 @@ nav {
   background: var(--accent);
 }
 
-/* â”€â”€â”€ NORM QUOTE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .norm-quote {
   position: relative;
   margin: 28px 0;
@@ -1164,7 +1164,7 @@ nav {
   font-style: normal;
 }
 
-/* â”€â”€â”€ DETAIL PAGES (Classes/Races Common) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .detail-hero {
   position: relative;
   height: 480px;
@@ -1282,7 +1282,7 @@ nav {
   color: var(--gold);
 }
 
-/* â”€â”€â”€ Oficio Portrait Layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .oficio-intro {
   display: grid;
   grid-template-columns: 1fr 260px;
@@ -1319,7 +1319,7 @@ nav {
   }
 }
 
-/* â”€â”€â”€ Tier Tab System â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .oficio-tiers {
   margin: 40px 0;
 }
@@ -1483,7 +1483,7 @@ nav {
 }
 
 .tier-perks li::before {
-  content: 'â–º';
+  content: '►';
   color: var(--gold);
   font-size: 0.5rem;
   margin-top: 5px;
@@ -1582,7 +1582,7 @@ nav {
   color: var(--gold);
 }
 
-/* Historia eras â€” alternating two-column layout */
+/* Historia eras — alternating two-column layout */
 .historia-eras .era-block:not(:last-child) {
   padding-bottom: 72px;
   margin-bottom: 72px;
@@ -1689,7 +1689,7 @@ nav {
   line-height: 1.75;
 }
 
-/* Deidades â€” alternating two-column layout */
+/* Deidades — alternating two-column layout */
 .deity-card {
   display: grid;
   grid-template-areas: "portrait info";
@@ -1781,7 +1781,7 @@ nav {
   line-height: 1.85;
 }
 
-/* â”€â”€â”€ MODERN AUDIO PLAYER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .audio-player {
   position: fixed;
   bottom: 32px;
@@ -1853,7 +1853,7 @@ nav {
   }
 }
 
-/* â”€â”€â”€ RAZAS â€” DYNAMIC SYSTEM â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .raza-img-placeholder {
   height: 180px;
   background: linear-gradient(135deg, #151210 0%, #1e1a13 50%, #151210 100%);
@@ -1960,7 +1960,7 @@ nav {
   background: rgba(176, 16, 16, 0.03);
 }
 
-/* â”€â”€â”€ LORE TOOLTIPS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .lore-term {
   cursor: help;
   position: relative;
@@ -1991,7 +1991,7 @@ span.lore-term {
 }
 
 
-/* â”€â”€â”€ RESPONSIVE REFINEMENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .raza-intro-row {
     grid-template-columns: 1fr;
@@ -2065,7 +2065,7 @@ span.lore-term {
   }
 
   .tier-tab.active::after {
-    content: 'â–¼';
+    content: '▼';
     position: absolute;
     right: 20px;
     top: 50%;
@@ -2106,7 +2106,7 @@ span.lore-term {
   }
 }
 
-/* â”€â”€â”€ PREMIUM MONOLITHIC FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 footer {
   background: #050505;
   padding: 30px 48px 20px;
@@ -2169,7 +2169,7 @@ footer::before {
   color: var(--white);
   opacity: 0.65;
   margin-top: -18px;
-  /* Pegado nivel: FusiÃ³n */
+  /* Pegado nivel: Fusión */
   line-height: 1;
 }
 
@@ -2199,7 +2199,7 @@ footer::before {
 }
 
 .footer-nav span:not(:last-child)::after {
-  content: 'Â·';
+  content: '·';
   position: absolute;
   right: -2px;
   color: rgba(201, 168, 76, 0.3);
@@ -2269,7 +2269,7 @@ footer::before {
   opacity: 0.9;
 }
 
-/* â”€â”€â”€ GLOW DIVIDER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .glow-divider {
   width: 100%;
   height: 1px;
@@ -2280,7 +2280,7 @@ footer::before {
 }
 
 .glow-divider::after {
-  content: 'âœ»';
+  content: '❃';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2293,7 +2293,7 @@ footer::before {
   font-family: 'Cinzel', serif;
 }
 
-/* â”€â”€â”€ MODERN AUDIO PLAYER (Vercel Style) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .audio-player {
   position: fixed;
   bottom: 32px;
@@ -2323,7 +2323,7 @@ footer::before {
   transform: scale(1.05);
 }
 
-/* â”€â”€â”€ WELCOME MODAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 .welcome-modal-overlay {
   position: fixed;
   top: 0;
@@ -2404,7 +2404,7 @@ footer::before {
   }
 }
 
-/* â”€â”€â”€ AUDIO AURA (MODAL ACTIVE) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────────────────── */
 body.modal-active .audio-toggle {
   animation: goldAuraPulse 1.5s infinite alternate;
   border-color: var(--gold);
@@ -2430,7 +2430,7 @@ body.modal-active .audio-toggle {
   border-color: var(--gold);
   box-shadow: 0 0 20px rgba(201, 168, 76, 0.6);
   animation: none;
-  /* Quitamos el pulso de 'atenciÃ³n' cuando ya estÃ¡ sonando */
+  /* Quitamos el pulso de 'atención' cuando ya está sonando */
 }
 
 .audio-label {
@@ -2477,7 +2477,7 @@ body.modal-active .audio-toggle {
   opacity: 0.9;
 }
 
-/* â”€â”€ BENTO GRID (INICIO) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── BENTO GRID (INICIO) ── */
 .bento-container {
   max-width: 1200px;
   margin: 6rem auto 6rem;
@@ -2503,7 +2503,7 @@ body.modal-active .audio-toggle {
   text-decoration: none;
 }
 
-/* Efecto de Enfoque: Oscurecer los demÃ¡s al hacer hover */
+/* Efecto de Enfoque: Oscurecer los demás al hacer hover */
 .bento-container:has(.bento-item:hover) .bento-item:not(:hover) {
   opacity: 0.4;
   filter: grayscale(0.4) brightness(0.6);
@@ -2512,7 +2512,7 @@ body.modal-active .audio-toggle {
 .bento-container .bento-item:hover {
   opacity: 1;
   filter: grayscale(0) brightness(1.1);
-  /* Un poco mÃ¡s de brillo */
+  /* Un poco más de brillo */
   transform: translateY(-12px) scale(1.05);
   /* Se eleva y crece */
   border-color: var(--gold);
@@ -2611,17 +2611,18 @@ body.modal-active .audio-toggle {
   }
 }
 
-/* â”€â”€â”€ NORM GRID (NORMATIVA BENTO) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── NORM GRID (NORMATIVA BENTO) ── */
 .norm-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 140px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 150px;
   gap: 1.5rem;
   margin: 3rem auto;
   max-width: 1200px;
 }
 
 .norm-item {
+  grid-column: span 2;
   background: var(--card-bg);
   border: 1px solid var(--border);
   padding: 1.5rem;
@@ -2640,14 +2641,19 @@ body.modal-active .audio-toggle {
 
 /* Bento Spans */
 .norm-2x2 {
-  grid-column: span 2;
+  grid-column: span 4;
   grid-row: span 2;
   padding: 2.2rem;
 }
 
 .norm-tall {
+  grid-column: span 2;
   grid-row: span 2;
   padding: 2.2rem;
+}
+
+.norm-half {
+  grid-column: span 3 !important;
 }
 
 .norm-item:hover {
@@ -2697,13 +2703,22 @@ body.modal-active .audio-toggle {
   display: none;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 992px) {
   .norm-grid {
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 130px;
   }
-
-  .norm-tall {
+  .norm-item, .norm-2x2, .norm-tall, .norm-half {
+    grid-column: span 1;
     grid-row: span 1;
+    padding: 1.5rem;
+  }
+  .norm-half {
+    grid-column: span 1 !important;
+  }
+  .norm-2x2 {
+    grid-column: span 2;
+    grid-row: span 2;
   }
 }
 
@@ -2718,8 +2733,9 @@ body.modal-active .audio-toggle {
   }
 
   .norm-2x2,
-  .norm-tall {
-    grid-column: span 1;
+  .norm-tall,
+  .norm-half {
+    grid-column: span 1 !important;
     grid-row: span 1;
   }
 

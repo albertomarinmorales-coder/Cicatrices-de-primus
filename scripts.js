@@ -106,6 +106,36 @@ if (audioToggle) {
   });
 }
 
+// ─── WELCOME MODAL LOGIC ──────────────────────────────────────
+const welcomeModal = document.getElementById('welcomeModal');
+const btnAccept = document.getElementById('welcomeBtnAccept');
+const btnCancel = document.getElementById('welcomeBtnCancel');
+
+if (welcomeModal && btnAccept && btnCancel) {
+  // Only show if not answered in this session
+  if (!sessionStorage.getItem('musicPromptAnswered')) {
+    document.body.classList.add('modal-active');
+  } else {
+    // Hide it instantly if already answered
+    welcomeModal.style.display = 'none';
+  }
+
+  btnAccept.addEventListener('click', () => {
+    playAudio();
+    welcomeModal.classList.add('hidden');
+    document.body.classList.remove('modal-active');
+    setTimeout(() => welcomeModal.style.display = 'none', 500); // Wait for transition
+    sessionStorage.setItem('musicPromptAnswered', 'true');
+  });
+
+  btnCancel.addEventListener('click', () => {
+    welcomeModal.classList.add('hidden');
+    document.body.classList.remove('modal-active');
+    setTimeout(() => welcomeModal.style.display = 'none', 500);
+    sessionStorage.setItem('musicPromptAnswered', 'true');
+  });
+}
+
 function initParticles() {
   const container = document.getElementById('particles-container');
   if (!container) return;

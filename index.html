@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -5443,8 +5443,25 @@
   </div>
 
 
+  <!-- ─── WELCOME MODAL ────────────────────────────────────── -->
+  <div class="welcome-modal-overlay" id="welcomeModal">
+    <div class="welcome-modal-box">
+      <h2>Adéntrate en Primus</h2>
+      <p>Cicatrices de Primus cuenta con ambientación sonora para mejorar la inmersión del rol.<br>¿Deseas activar la música de fondo ahora?</p>
+      <p class="welcome-modal-note">Puedes activarla o silenciarla en cualquier momento pulsando el icono musical abajo a la derecha.</p>
+      <div class="welcome-modal-buttons">
+        <button class="btn-primary" id="welcomeBtnAccept">Aceptar</button>
+        <button class="btn-primary" id="welcomeBtnCancel">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ─── MODERN AUDIO PLAYER ───────────────────────────────────── -->
   <div class="audio-player" id="audioPlayer">
+    <div class="audio-pointer" id="audioPointer">
+      Activar Música<br>
+      <i class="fa-solid fa-arrow-down"></i>
+    </div>
     <audio id="bgMusic" loop>
       <source src="audio/audio.mp3" type="audio/mpeg">
     </audio>

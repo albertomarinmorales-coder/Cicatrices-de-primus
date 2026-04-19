@@ -2266,7 +2266,7 @@ footer::before {
   position: fixed;
   bottom: 32px;
   right: 32px;
-  z-index: 2000;
+  z-index: 3010;
 }
 
 .audio-toggle {
@@ -2285,6 +2285,122 @@ footer::before {
   position: relative;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), 0 0 15px rgba(176, 16, 16, 0.3);
+}
+
+.audio-player:hover {
+  transform: scale(1.05);
+}
+
+/* ─── WELCOME MODAL ─────────────────────────────────────────── */
+.welcome-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(8, 7, 5, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.welcome-modal-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.welcome-modal-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
+  padding: 40px 48px;
+  max-width: 550px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 15px rgba(201, 168, 76, 0.1);
+  transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.welcome-modal-overlay.hidden .welcome-modal-box {
+  transform: translateY(30px) scale(0.95);
+}
+
+.welcome-modal-box h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.welcome-modal-box p {
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.welcome-modal-note {
+  font-size: 0.85rem !important;
+  color: var(--text-muted) !important;
+  font-style: italic;
+  margin-bottom: 32px !important;
+}
+
+.welcome-modal-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-modal-buttons button {
+  flex: 1;
+  max-width: 220px;
+}
+
+@media (max-width: 600px) {
+  .welcome-modal-buttons {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* ─── AUDIO POINTER ARROW ───────────────────────────────────── */
+.audio-pointer {
+  position: absolute;
+  bottom: 85px;
+  right: -5px;
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+body.modal-active .audio-pointer {
+  opacity: 1;
+  visibility: visible;
+  animation: pointerBounce 1.5s infinite;
+}
+
+@keyframes pointerBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .audio-toggle:hover {

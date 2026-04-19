@@ -5,52 +5,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cicatrices de Primus</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
-    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Preload de la imagen pesada del Hero (2.9MB) para mejorar LCP -->
+  <link rel="preload" as="image" href="images/938f05_21021a0aa69c4a3d8b01cf06a38b12c5~mv2.png" fetchpriority="high">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css?v=3">
   <!-- Markdown Renderer for CMS -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <style>
-    .footer-nav {
-      display: flex !important;
-      flex-wrap: wrap !important;
-      justify-content: center !important;
-      align-items: center !important;
-      margin: 0 auto 24px !important;
-    }
-    .footer-nav span {
-      font-family: 'Cinzel', serif !important;
-      font-size: 0.68rem !important;
-      letter-spacing: 0.15em !important;
-      text-transform: uppercase !important;
-      color: #c9a84c !important;
-      cursor: pointer !important;
-      padding: 4px 18px !important;
-      position: relative !important;
-      transition: color 0.25s ease !important;
-    }
-    .footer-nav span:not(:last-child)::after {
-      content: '·';
-      position: absolute;
-      right: -2px;
-      color: rgba(201, 168, 76, 0.35);
-      font-size: 1rem;
-      line-height: 1;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .footer-nav span:hover {
-      color: #c0392b !important;
-      text-decoration: underline !important;
-      text-decoration-color: #c0392b !important;
-      text-underline-offset: 4px !important;
-    }
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
 </head>
 
 <body>
@@ -329,7 +295,7 @@
         <div class="lore-card">
           <div class="lore-card-img-wrap">
             <img class="lore-card-img" src="images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png"
-              alt="Historia y Geografía" loading="lazy" />
+              alt="Historia y Geografía" loading="lazy" decoding="async" />
           </div>
           <div class="lore-card-body">
             <h3>Historia y Geografía</h3>
@@ -346,7 +312,7 @@
         <div class="lore-card">
           <div class="lore-card-img-wrap">
             <img class="lore-card-img" src="images/938f05_21021a0aa69c4a3d8b01cf06a38b12c5~mv2.png" alt="Deidades"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="lore-card-body">
             <h3>Deidades</h3>
@@ -423,7 +389,7 @@
 
         <div class="raza-card" onclick="showPage('raza-gen-elfos')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Elfos/images/cover.png" alt="Elfos" class="raza-card-img" loading="lazy">
+            <img src="sources/Razas/Elfos/images/cover.png" alt="Elfos" class="raza-card-img" loading="lazy" decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Elfos</h3>
@@ -432,7 +398,7 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-enanos')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Enanos/images/cover.png" alt="Enanos" class="raza-card-img" loading="lazy">
+            <img src="sources/Razas/Enanos/images/cover.png" alt="Enanos" class="raza-card-img" loading="lazy" decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Enanos</h3>
@@ -441,7 +407,7 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-humanos')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Humanos/images/cover.png" alt="Humanos" class="raza-card-img" loading="lazy">
+            <img src="sources/Razas/Humanos/images/cover.png" alt="Humanos" class="raza-card-img" loading="lazy" decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Humanos</h3>
@@ -450,7 +416,7 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-malvakari')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Malvakari/images/cover.png" alt="Malvakari" class="raza-card-img" loading="lazy">
+            <img src="sources/Razas/Malvakari/images/cover.png" alt="Malvakari" class="raza-card-img" loading="lazy" decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Malvakari</h3>
@@ -459,7 +425,7 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-mestizos')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Mestizos/images/cover.png" alt="Mestizos" class="raza-card-img" loading="lazy">
+            <img src="sources/Razas/Mestizos/images/cover.png" alt="Mestizos" class="raza-card-img" loading="lazy" decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Mestizos</h3>
@@ -468,7 +434,7 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-nhek-thal')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Nhek’thal/images/cover.png" alt="Nhek’thal" class="raza-card-img" loading="lazy">
+            <img src="sources/Razas/Nhek’thal/images/cover.png" alt="Nhek’thal" class="raza-card-img" loading="lazy" decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Nhek’thal</h3>
@@ -477,7 +443,7 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-ossalyth')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Ossalyth/images/cover.png" alt="Ossalyth" class="raza-card-img" loading="lazy">
+            <img src="sources/Razas/Ossalyth/images/cover.png" alt="Ossalyth" class="raza-card-img" loading="lazy" decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Ossalyth</h3>
@@ -486,7 +452,7 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-rosaveld')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Rosaveld/images/cover.png" alt="Rosaveld" class="raza-card-img" loading="lazy">
+            <img src="sources/Razas/Rosaveld/images/cover.png" alt="Rosaveld" class="raza-card-img" loading="lazy" decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Rosaveld</h3>
@@ -495,7 +461,7 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-shazari')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Shazari/images/cover.png" alt="Shazari" class="raza-card-img" loading="lazy">
+            <img src="sources/Razas/Shazari/images/cover.png" alt="Shazari" class="raza-card-img" loading="lazy" decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Shazari</h3>
@@ -504,7 +470,7 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-thae-tir')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Thaetir/images/cover.png" alt="Thae'tir" class="raza-card-img" loading="lazy">
+            <img src="sources/Razas/Thaetir/images/cover.png" alt="Thae'tir" class="raza-card-img" loading="lazy" decoding="async">
           </div>
           <div class="raza-card-body">
             <h3>Thae'tir</h3>
@@ -563,7 +529,7 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Elfos/images/cover.png" alt="Elfos" class="raza-detail-img" loading="lazy">
+          <img src="sources/Razas/Elfos/images/cover.png" alt="Elfos" class="raza-detail-img" loading="lazy" decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -580,15 +546,15 @@
       <div class="raza-photos-row">
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Elfos/images/1.png"
-              alt="Elfos 1" loading="lazy"></div>
+              alt="Elfos 1" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Elfos/images/2.png"
-              alt="Elfos 2" loading="lazy"></div>
+              alt="Elfos 2" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Elfos/images/3.png"
-              alt="Elfos 3" loading="lazy"></div>
+              alt="Elfos 3" loading="lazy" decoding="async"></div>
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
@@ -713,7 +679,7 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Enanos/images/cover.png" alt="Enanos" class="raza-detail-img" loading="lazy">
+          <img src="sources/Razas/Enanos/images/cover.png" alt="Enanos" class="raza-detail-img" loading="lazy" decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -725,15 +691,15 @@
       <div class="raza-photos-row">
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Enanos/images/1.png"
-              alt="Enanos 1" loading="lazy"></div>
+              alt="Enanos 1" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Enanos/images/2.png"
-              alt="Enanos 2" loading="lazy"></div>
+              alt="Enanos 2" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Enanos/images/3.png"
-              alt="Enanos 3" loading="lazy"></div>
+              alt="Enanos 3" loading="lazy" decoding="async"></div>
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
@@ -853,7 +819,7 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img lore-term" data-tooltip="El pecho mas solicitado de Primus">
-          <img src="sources/Razas/Humanos/images/cover.png" alt="Humanos" class="raza-detail-img" loading="lazy">
+          <img src="sources/Razas/Humanos/images/cover.png" alt="Humanos" class="raza-detail-img" loading="lazy" decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -865,15 +831,15 @@
       <div class="raza-photos-row">
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Humanos/images/1.png"
-              alt="Humanos 1" loading="lazy"></div>
+              alt="Humanos 1" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Humanos/images/2.png"
-              alt="Humanos 2" loading="lazy"></div>
+              alt="Humanos 2" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Humanos/images/3.png"
-              alt="Humanos 3" loading="lazy"></div>
+              alt="Humanos 3" loading="lazy" decoding="async"></div>
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
@@ -986,7 +952,7 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Malvakari/images/cover.png" alt="Malvakari" class="raza-detail-img" loading="lazy">
+          <img src="sources/Razas/Malvakari/images/cover.png" alt="Malvakari" class="raza-detail-img" loading="lazy" decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -998,15 +964,15 @@
       <div class="raza-photos-row">
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Malvakari/images/1.png"
-              alt="Malvakari 1" loading="lazy"></div>
+              alt="Malvakari 1" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Malvakari/images/2.png"
-              alt="Malvakari 2" loading="lazy"></div>
+              alt="Malvakari 2" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Malvakari/images/3.png"
-              alt="Malvakari 3" loading="lazy"></div>
+              alt="Malvakari 3" loading="lazy" decoding="async"></div>
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
@@ -1135,7 +1101,7 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Mestizos/images/cover.png" alt="Mestizos" class="raza-detail-img" loading="lazy">
+          <img src="sources/Razas/Mestizos/images/cover.png" alt="Mestizos" class="raza-detail-img" loading="lazy" decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -1146,15 +1112,15 @@
       <div class="raza-photos-row">
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Mestizos/images/1.png"
-              alt="Mestizos 1" loading="lazy"></div>
+              alt="Mestizos 1" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Mestizos/images/2.png"
-              alt="Mestizos 2" loading="lazy"></div>
+              alt="Mestizos 2" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Mestizos/images/3.png"
-              alt="Mestizos 3" loading="lazy"></div>
+              alt="Mestizos 3" loading="lazy" decoding="async"></div>
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
@@ -1283,7 +1249,7 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Nhek’thal/images/cover.png" alt="Nhek’thal" class="raza-detail-img" loading="lazy">
+          <img src="sources/Razas/Nhek’thal/images/cover.png" alt="Nhek’thal" class="raza-detail-img" loading="lazy" decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -1294,15 +1260,15 @@
       <div class="raza-photos-row">
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Nhekthal/images/1.png"
-              alt="Nhek'thal 1" loading="lazy"></div>
+              alt="Nhek'thal 1" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Nhekthal/images/2.png"
-              alt="Nhek'thal 2" loading="lazy"></div>
+              alt="Nhek'thal 2" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Nhekthal/images/3.png"
-              alt="Nhek'thal 3" loading="lazy"></div>
+              alt="Nhek'thal 3" loading="lazy" decoding="async"></div>
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
@@ -1475,7 +1441,7 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Ossalyth/images/cover.png" alt="Ossalyth" class="raza-detail-img" loading="lazy">
+          <img src="sources/Razas/Ossalyth/images/cover.png" alt="Ossalyth" class="raza-detail-img" loading="lazy" decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -1488,15 +1454,15 @@
       <div class="raza-photos-row">
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Ossalyth/images/1.png"
-              alt="Ossalyth 1" loading="lazy"></div>
+              alt="Ossalyth 1" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Ossalyth/images/2.png"
-              alt="Ossalyth 2" loading="lazy"></div>
+              alt="Ossalyth 2" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Ossalyth/images/3.png"
-              alt="Ossalyth 3" loading="lazy"></div>
+              alt="Ossalyth 3" loading="lazy" decoding="async"></div>
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
@@ -1617,7 +1583,7 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Rosaveld/images/cover.png" alt="Rosaveld" class="raza-detail-img" loading="lazy">
+          <img src="sources/Razas/Rosaveld/images/cover.png" alt="Rosaveld" class="raza-detail-img" loading="lazy" decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -1630,15 +1596,15 @@
       <div class="raza-photos-row">
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Rosaveld/images/1.png"
-              alt="Rosaveld 1" loading="lazy"></div>
+              alt="Rosaveld 1" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Rosaveld/images/2.png"
-              alt="Rosaveld 2" loading="lazy"></div>
+              alt="Rosaveld 2" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Rosaveld/images/image.png"
-              alt="Rosaveld 3" loading="lazy"></div>
+              alt="Rosaveld 3" loading="lazy" decoding="async"></div>
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
@@ -1822,7 +1788,7 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Shazari/images/cover.png" alt="Shazari" class="raza-detail-img" loading="lazy">
+          <img src="sources/Razas/Shazari/images/cover.png" alt="Shazari" class="raza-detail-img" loading="lazy" decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -1833,15 +1799,15 @@
       <div class="raza-photos-row">
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Shazari/images/1.png"
-              alt="Shazari 1" loading="lazy"></div>
+              alt="Shazari 1" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Shazari/images/2.png"
-              alt="Shazari 2" loading="lazy"></div>
+              alt="Shazari 2" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Shazari/images/3.png"
-              alt="Shazari 3" loading="lazy"></div>
+              alt="Shazari 3" loading="lazy" decoding="async"></div>
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
@@ -1972,7 +1938,7 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Thaetir/images/cover.png" alt="Thae'tir" class="raza-detail-img" loading="lazy">
+          <img src="sources/Razas/Thaetir/images/cover.png" alt="Thae'tir" class="raza-detail-img" loading="lazy" decoding="async">
         </div>
         <div class="raza-intro-text">
           <div class="detail-text">
@@ -1984,15 +1950,15 @@
       <div class="raza-photos-row">
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Thaetir/images/1.png"
-              alt="Thae'tir 1" loading="lazy"></div>
+              alt="Thae'tir 1" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Thaetir/images/2.png"
-              alt="Thae'tir 2" loading="lazy"></div>
+              alt="Thae'tir 2" loading="lazy" decoding="async"></div>
         </div>
         <div class="raza-photo-item">
           <div class="raza-card-img-wrap"><img class="raza-card-img" src="sources/Razas/Thaetir/images/3.png"
-              alt="Thae'tir 3" loading="lazy"></div>
+              alt="Thae'tir 3" loading="lazy" decoding="async"></div>
         </div>
       </div>
       <div class="oficio-tiers" style="margin-top: 2rem;">
@@ -2381,7 +2347,7 @@
 
         <div class="oficio-card" onclick="showPage('gremio-aventuras')">
           <div class="oficio-card-img-wrap" style="background: #111;">
-            <img class="oficio-card-img" src="sources/Gremios/Emblema.webp" alt="Gremio de Aventuras" loading="lazy"
+            <img class="oficio-card-img" src="sources/Gremios/Emblema.webp" alt="Gremio de Aventuras" loading="lazy" decoding="async"
               style="object-fit: contain; padding: 2rem; box-sizing: border-box;" />
           </div>
           <div class="oficio-card-label">Gremio de Aventuras</div>
@@ -2501,7 +2467,7 @@
         <div class="raza-card">
           <div class="raza-card-img-wrap">
             <img class="raza-card-img" src="sources/Clases/1.%20Ciudadano/fotos/avatar.png" alt="Ciudadano"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Ciudadano</h3>
@@ -2512,7 +2478,7 @@
         <div class="raza-card">
           <div class="raza-card-img-wrap">
             <img class="raza-card-img" src="sources/Clases/10.%20Vhark'Hul/fotos/avatar.png" alt="Vhark'Hul"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Vhark'Hul</h3>
@@ -2524,7 +2490,7 @@
         <div class="raza-card">
           <div class="raza-card-img-wrap">
             <img class="raza-card-img" src="sources/Clases/2.%20Argent%20Praetor/Fotos/avatar.png" alt="Argent Praetor"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Argent Praetor</h3>
@@ -2536,7 +2502,7 @@
         <div class="raza-card">
           <div class="raza-card-img-wrap">
             <img class="raza-card-img" src="sources/Clases/3.%20Dualhar/Fotos/avatar.png" alt="Dualhar"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Dualhar</h3>
@@ -2548,7 +2514,7 @@
         <div class="raza-card">
           <div class="raza-card-img-wrap">
             <img class="raza-card-img" src="sources/Clases/4.%20Luminari%20Vox/fotos/avatar.png" alt="Luminari Vox"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Luminari Vox</h3>
@@ -2560,7 +2526,7 @@
         <div class="raza-card">
           <div class="raza-card-img-wrap">
             <img class="raza-card-img" src="sources/Clases/5.%20Noc'thar/fotos/avatar.png" alt="Noc'thar"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Noc'thar</h3>
@@ -2572,7 +2538,7 @@
         <div class="raza-card">
           <div class="raza-card-img-wrap">
             <img class="raza-card-img" src="sources/Clases/6.%20Stormheilm/fotos/avatar.png" alt="Stormheilm"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Stormheilm</h3>
@@ -2584,7 +2550,7 @@
         <div class="raza-card">
           <div class="raza-card-img-wrap">
             <img class="raza-card-img" src="sources/Clases/7.%20Velum%20Caedis/fotos/avatar.png" alt="Velum Caedis"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Velum Caedis</h3>
@@ -2596,7 +2562,7 @@
         <div class="raza-card">
           <div class="raza-card-img-wrap">
             <img class="raza-card-img" src="sources/Clases/7.%20Velum%20Cantoris/fotos/avatar.png" alt="Velum Cantoris"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Velum Cantoris</h3>
@@ -2608,7 +2574,7 @@
         <div class="raza-card">
           <div class="raza-card-img-wrap">
             <img class="raza-card-img" src="sources/Clases/8.%20Zereth-Mor/Fotos/avatar.png" alt="Zereth-Mor"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Zereth-Mor</h3>
@@ -2620,7 +2586,7 @@
         <div class="raza-card">
           <div class="raza-card-img-wrap">
             <img class="raza-card-img" src="sources/Clases/9.%20Magharyn/fotos/avatar.png" alt="Magharyn"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Magharyn</h3>
@@ -2632,7 +2598,7 @@
         <div class="raza-card">
           <div class="raza-card-img-wrap">
             <img class="raza-card-img" src="sources/Clases/Desconocido/fotos/avatar.png" alt="Desconocido"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
           <div class="raza-card-body">
             <h3>Desconocido</h3>
@@ -3861,7 +3827,7 @@
           </div>
           <div class="era-visual">
             <img src="images/938f05_82528c51b3f4476799987dbd0f2003a9~mv2.png"
-              alt="I Era — El Nacimiento de las Civilizaciones" loading="lazy" />
+              alt="I Era — El Nacimiento de las Civilizaciones" loading="lazy" decoding="async" />
           </div>
         </div>
 
@@ -3884,7 +3850,7 @@
           </div>
           <div class="era-visual">
             <img src="images/938f05_d8a4840d292e405a9412b588b94968d4~mv2.png" alt="II Era — Las Primeras Guerras"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
         </div>
 
@@ -3905,7 +3871,7 @@
           </div>
           <div class="era-visual">
             <img src="images/938f05_4c965443699c48d7879df5e0f2c047f4~mv2.png"
-              alt="III Era — La Gran Guerra de Civilizaciones" loading="lazy" />
+              alt="III Era — La Gran Guerra de Civilizaciones" loading="lazy" decoding="async" />
           </div>
         </div>
 
@@ -3924,7 +3890,7 @@
           </div>
           <div class="era-visual">
             <img src="images/938f05_6fcb70fda3f4406c9bacac8b2e6d8048~mv2.png"
-              alt="IV Era — La Era de los Reinos Fracturados" loading="lazy" />
+              alt="IV Era — La Era de los Reinos Fracturados" loading="lazy" decoding="async" />
           </div>
         </div>
 
@@ -3945,7 +3911,7 @@
           </div>
           <div class="era-visual">
             <img src="images/938f05_156a74c1aa9a4b06b6a5da69a955e632~mv2.png" alt="V Era — La Era de las Unificaciones"
-              loading="lazy" />
+              loading="lazy" decoding="async" />
           </div>
         </div>
 
@@ -4040,7 +4006,7 @@
 
         <div class="deity-card">
           <div class="deity-portrait">
-            <img src="images/938f05_729c6d8a00ca48549257b2c08439f9f4~mv2.png" alt="Eselia" loading="lazy" />
+            <img src="images/938f05_729c6d8a00ca48549257b2c08439f9f4~mv2.png" alt="Eselia" loading="lazy" decoding="async" />
           </div>
           <div class="deity-info">
             <div class="deity-name">ESELIA, LA LLAMA QUE GUÍA</div>
@@ -4062,7 +4028,7 @@
 
         <div class="deity-card">
           <div class="deity-portrait">
-            <img src="images/938f05_efb15aea444a4f94939937a6185e6d37~mv2.png" alt="Nazhur" loading="lazy" />
+            <img src="images/938f05_efb15aea444a4f94939937a6185e6d37~mv2.png" alt="Nazhur" loading="lazy" decoding="async" />
           </div>
           <div class="deity-info">
             <div class="deity-name">NAZHUR, EL QUE DESPIERTA EN LAS MAREAS</div>
@@ -4083,7 +4049,7 @@
 
         <div class="deity-card">
           <div class="deity-portrait">
-            <img src="images/938f05_92a7cc5c5d0c453ca20e9a5449b24d2f~mv2.png" alt="Vorgrimm" loading="lazy" />
+            <img src="images/938f05_92a7cc5c5d0c453ca20e9a5449b24d2f~mv2.png" alt="Vorgrimm" loading="lazy" decoding="async" />
           </div>
           <div class="deity-info">
             <div class="deity-name">VORGRIMM, EL HERMANO DE LA TORMENTA</div>
@@ -4105,7 +4071,7 @@
 
         <div class="deity-card">
           <div class="deity-portrait">
-            <img src="images/938f05_82528c51b3f4476799987dbd0f2003a9~mv2.png" alt="Zenhra" loading="lazy" />
+            <img src="images/938f05_82528c51b3f4476799987dbd0f2003a9~mv2.png" alt="Zenhra" loading="lazy" decoding="async" />
           </div>
           <div class="deity-info">
             <div class="deity-name">ZENHRA, LA SEMILLA DEL MUNDO</div>

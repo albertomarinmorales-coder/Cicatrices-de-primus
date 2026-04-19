@@ -2868,3 +2868,38 @@ body.modal-active .audio-toggle {
     height: 70vh;
   }
 }
+/* --- FOOTER NAV --- */
+.footer-nav {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto 24px !important;
+}
+.footer-nav span {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: #c9a84c !important;
+  cursor: pointer !important;
+  padding: 4px 18px !important;
+  position: relative !important;
+  transition: color 0.25s ease !important;
+}
+.footer-nav span:not(:last-child)::after {
+  content: '·';
+  position: absolute;
+  right: -2px;
+  color: rgba(201, 168, 76, 0.35);
+  font-size: 1rem;
+  line-height: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.footer-nav span:hover {
+  color: #c0392b !important;
+  text-decoration: underline !important;
+  text-decoration-color: #c0392b !important;
+  text-underline-offset: 4px !important;
+}

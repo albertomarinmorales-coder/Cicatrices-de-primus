@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -12,7 +12,43 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3">
+  <style>
+    .footer-nav {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin: 0 auto 24px !important;
+    }
+    .footer-nav span {
+      font-family: 'Cinzel', serif !important;
+      font-size: 0.68rem !important;
+      letter-spacing: 0.15em !important;
+      text-transform: uppercase !important;
+      color: #c9a84c !important;
+      cursor: pointer !important;
+      padding: 4px 18px !important;
+      position: relative !important;
+      transition: color 0.25s ease !important;
+    }
+    .footer-nav span:not(:last-child)::after {
+      content: '·';
+      position: absolute;
+      right: -2px;
+      color: rgba(201, 168, 76, 0.35);
+      font-size: 1rem;
+      line-height: 1;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .footer-nav span:hover {
+      color: #c0392b !important;
+      text-decoration: underline !important;
+      text-decoration-color: #c0392b !important;
+      text-underline-offset: 4px !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -246,29 +282,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -345,29 +368,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -516,29 +526,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -681,29 +678,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -834,29 +818,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -980,29 +951,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -1142,29 +1100,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -1303,29 +1248,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -1508,29 +1440,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -1663,29 +1582,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -1881,29 +1787,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -2044,29 +1937,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -2217,29 +2097,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -2353,29 +2220,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -2478,29 +2332,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -2553,29 +2394,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -2818,29 +2646,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -2918,29 +2733,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -3036,29 +2838,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -3158,29 +2947,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -3266,29 +3042,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -3381,29 +3144,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -3499,29 +3249,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -3614,29 +3351,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -3711,29 +3435,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -3850,29 +3561,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -3960,29 +3658,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -4055,29 +3740,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -4120,29 +3792,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -4336,29 +3995,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -4483,29 +4129,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -4594,29 +4227,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -4690,29 +4310,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -4815,29 +4422,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -4935,29 +4529,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -5050,29 +4631,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -5287,29 +4855,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -5437,29 +4992,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -5550,29 +5092,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -5738,29 +5267,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -5908,29 +5424,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -6062,29 +5565,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -6190,29 +5680,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -6315,29 +5792,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -6439,29 +5903,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -6564,29 +6015,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -6689,29 +6127,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -6815,29 +6240,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -6940,29 +6352,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -7065,29 +6464,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
@@ -7190,29 +6576,16 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-        <div class="footer-links-container">
-          <div class="footer-column">
-            <h4>Navegación</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('inicio')">Inicio</span></li>
-              <li><span onclick="showPage('lore')">Lore</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Mundo</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('razas')">Razas</span></li>
-              <li><span onclick="showPage('clases')">Clases</span></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Reglas</h4>
-            <ul class="footer-links">
-              <li><span onclick="showPage('oficios')">Oficios</span></li>
-              <li><span onclick="showPage('normativa')">Normativa</span></li>
-            </ul>
-          </div>
+        
+        <div class="footer-nav">
+          <span onclick="showPage('inicio')">Inicio</span>
+          <span onclick="showPage('lore')">Lore</span>
+          <span onclick="showPage('razas')">Razas</span>
+          <span onclick="showPage('clases')">Clases</span>
+          <span onclick="showPage('oficios')">Oficios</span>
+          <span onclick="showPage('normativa')">Gremios y Normativas</span>
         </div>
+
 
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>

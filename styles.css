@@ -2113,57 +2113,45 @@ footer::before {
   line-height: 1;
 }
 
-.footer-links-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 800px;
-  margin: 0 auto 25px;
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin: 0 auto 24px;
 }
 
-.footer-column h4 {
+.footer-nav span {
   font-family: 'Cinzel', serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--white);
-  margin-bottom: 10px;
-  position: relative;
-  display: inline-block;
-}
-
-.footer-column h4::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 15px;
-  height: 1px;
-  background: var(--accent);
-}
-
-.footer-links {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 4px !important;
-  list-style: none !important;
-  margin-bottom: 0 !important;
-  align-items: center !important;
-}
-
-.footer-links li span {
-  font-family: 'Cinzel', serif;
-  font-size: 0.65rem !important;
-  letter-spacing: 0.1em !important;
-  text-transform: uppercase !important;
-  color: var(--text-muted) !important;
+  color: var(--gold);
   cursor: pointer;
-  transition: all 0.3s ease !important;
+  padding: 4px 18px;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
+  position: relative;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
 }
 
-.footer-links li span:hover {
-  color: var(--gold) !important;
+.footer-nav span:not(:last-child)::after {
+  content: '·';
+  position: absolute;
+  right: -2px;
+  color: rgba(201, 168, 76, 0.3);
+  font-size: 1rem;
+  line-height: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.footer-nav span:hover {
+  color: #c0392b;
+  text-decoration-color: #c0392b;
 }
 
 .footer-bottom {
@@ -2174,25 +2162,15 @@ footer::before {
 .footer-copy {
   font-family: 'Cinzel', serif;
   font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  opacity: 0.3;
-}
-
-.footer-copy {
-  font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--text-muted);
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
 @media (max-width: 768px) {
-  .footer-links-container {
-    grid-template-columns: 1fr;
-    gap: 48px;
+  .footer-nav {
+    gap: 0;
   }
 
   .footer-logo {

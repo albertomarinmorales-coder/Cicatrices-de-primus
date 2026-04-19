@@ -17,6 +17,59 @@
   <link rel="stylesheet" href="styles.css?v=3">
   <!-- Markdown Renderer for CMS -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  
+  <style>
+    /* Estilos Críticos (Carga instantánea) */
+    .hero {
+      position: relative;
+      height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: #080705;
+    }
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    /* Estilos del Modal inicial para evitar CLS y mejorar LCP */
+    #welcomeModal {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    #welcomeModal.show { opacity: 1; }
+    .welcome-modal-box {
+      background: var(--surface, #181510);
+      border: 1px solid var(--gold, #c9a84c);
+      padding: 2.5rem;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    }
+    /* Footer Nav */
+    .footer-nav { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center !important; margin: 0 auto 24px !important; }
+    .footer-nav span { font-family: 'Cinzel', serif !important; font-size: 0.68rem !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; color: #c9a84c !important; cursor: pointer !important; padding: 4px 18px !important; position: relative !important; transition: color 0.25s ease !important; }
+  </style>
 </head>
 
 <body>
@@ -140,7 +193,11 @@
 
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-bg"></div>
+      <img src="images/938f05_21021a0aa69c4a3d8b01cf06a38b12c5~mv2.png" 
+           alt="Cicatrices de Primus Hero" 
+           class="hero-bg-img" 
+           fetchpriority="high" 
+           role="presentation">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <p class="hero-eyebrow">Roleplay Server</p>

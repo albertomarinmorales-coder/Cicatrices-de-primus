@@ -1,4 +1,4 @@
-﻿/* â”€â”€â”€ RESET & BASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* â”€â”€â”€ RESET & BASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *,
 *::before,
 *::after {
@@ -1025,7 +1025,7 @@ nav {
 }
 
 /* ────────────────────────────────────────────────────────────────────────── */
-.oficios-grid {
+.profesiones-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1044,7 +1044,7 @@ nav {
 }
 
 @media (max-width: 600px) {
-  .oficios-grid {
+  .profesiones-grid {
     gap: 18px;
   }
 
@@ -1055,7 +1055,7 @@ nav {
 }
 
 /* Centrar cards en la página de Gremios si hay pocas */
-#page-gremios .oficios-grid {
+#page-gremios .profesiones-grid {
   grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
   justify-content: center;
 }

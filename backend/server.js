@@ -10,6 +10,7 @@ const authRouter   = require('./routes/auth');
 const photosRouter = require('./routes/photos');
 
 const app = express();
+app.set('trust proxy', 1); // Render corre detrás de un proxy HTTPS
 
 // ── CORS ─────────────────────────────────────────────────────────
 const allowedOrigins = (process.env.FRONTEND_URL || '').split(',').map(s => s.trim()).filter(Boolean);

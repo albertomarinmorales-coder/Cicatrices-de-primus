@@ -414,8 +414,20 @@ function _galeriaUpdateAuthUI() {
 async function galeriaLogout() {
   await fetch(`${BACKEND}/auth/logout`, { method: 'POST', credentials: 'include' });
   _galeriaUser = null;
+  document.getElementById('galeriaAvatarDropdown')?.classList.remove('open');
   _galeriaUpdateAuthUI();
 }
+
+function galeriaToggleAvatarMenu() {
+  document.getElementById('galeriaAvatarDropdown')?.classList.toggle('open');
+}
+
+document.addEventListener('click', function(e) {
+  const wrap = document.getElementById('galeriaAvatarDropdown');
+  if (wrap && !e.target.closest('.galeria-avatar-wrap')) {
+    wrap.classList.remove('open');
+  }
+});
 
 // Login secreto admin (triple-click en "Galería" del título activa el modal)
 function galeriaOpenAdminLogin() {

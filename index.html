@@ -7175,15 +7175,19 @@
         <div class="galeria-auth-center">
           <div class="galeria-user-info" id="galeriaUserInfo" style="display:none;">
             <div class="galeria-user-identity">
-              <img class="galeria-user-avatar" id="galeriaUserAvatar" src="" alt="">
+              <div class="galeria-avatar-wrap" onclick="galeriaToggleAvatarMenu()">
+                <img class="galeria-user-avatar" id="galeriaUserAvatar" src="" alt="">
+                <div class="galeria-avatar-dropdown" id="galeriaAvatarDropdown">
+                  <button class="galeria-avatar-menu-item" onclick="event.stopPropagation(); galeriaLogout()">
+                    <i class="fa-solid fa-right-from-bracket"></i> Salir
+                  </button>
+                </div>
+              </div>
               <span id="galeriaUserName"></span>
             </div>
             <div class="galeria-user-actions">
               <button class="galeria-btn-upload" onclick="galeriaOpenUpload()" id="galeriaBtnUpload" style="display:none;">
                 <i class="fa-solid fa-cloud-arrow-up"></i> Subir foto
-              </button>
-              <button class="galeria-btn-ghost" onclick="galeriaLogout()">
-                <i class="fa-solid fa-right-from-bracket"></i> Salir
               </button>
             </div>
           </div>

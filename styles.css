@@ -3587,12 +3587,56 @@ body.modal-active .audio-toggle {
   align-items: center;
   gap: 6px;
 }
+.galeria-avatar-wrap {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
 .galeria-user-avatar {
   width: 52px;
   height: 52px;
   border-radius: 50%;
   border: 2px solid var(--gold);
   object-fit: cover;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.galeria-avatar-wrap:hover .galeria-user-avatar {
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.35);
+}
+.galeria-avatar-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1408;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  min-width: 130px;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+.galeria-avatar-dropdown.open { display: block; }
+.galeria-avatar-menu-item {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 10px 16px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+.galeria-avatar-menu-item:hover {
+  background: rgba(212,175,55,0.12);
+  color: var(--gold);
 }
 #galeriaUserName {
   font-family: 'Cinzel', serif;

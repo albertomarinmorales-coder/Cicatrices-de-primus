@@ -7174,14 +7174,18 @@
       <div class="galeria-actions-bar">
         <div class="galeria-auth-center">
           <div class="galeria-user-info" id="galeriaUserInfo" style="display:none;">
-            <img class="galeria-user-avatar" id="galeriaUserAvatar" src="" alt="">
-            <span id="galeriaUserName"></span>
-            <button class="galeria-btn-upload" onclick="galeriaOpenUpload()" id="galeriaBtnUpload" style="display:none;">
-              <i class="fa-solid fa-cloud-arrow-up"></i> Subir foto
-            </button>
-            <button class="galeria-btn-ghost" onclick="galeriaLogout()">
-              <i class="fa-solid fa-right-from-bracket"></i> Salir
-            </button>
+            <div class="galeria-user-identity">
+              <img class="galeria-user-avatar" id="galeriaUserAvatar" src="" alt="">
+              <span id="galeriaUserName"></span>
+            </div>
+            <div class="galeria-user-actions">
+              <button class="galeria-btn-upload" onclick="galeriaOpenUpload()" id="galeriaBtnUpload" style="display:none;">
+                <i class="fa-solid fa-cloud-arrow-up"></i> Subir foto
+              </button>
+              <button class="galeria-btn-ghost" onclick="galeriaLogout()">
+                <i class="fa-solid fa-right-from-bracket"></i> Salir
+              </button>
+            </div>
           </div>
           <div class="galeria-auth-btns" id="galeriaAuthBtns">
             <p class="galeria-auth-label">Para subir fotos, accede con:</p>

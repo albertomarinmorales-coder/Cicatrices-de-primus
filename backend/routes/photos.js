@@ -1,7 +1,7 @@
 const router    = require('express').Router();
 const multer    = require('multer');
 const cloudinary = require('cloudinary').v2;
-const db        = require('../db');
+const pool      = require('../db');
 
 // ── Cloudinary config ────────────────────────────────────────────
 cloudinary.config({
@@ -22,40 +22,46 @@ const upload = multer({
 
 // ── Middlewares ───────────────────────────────────────────────────
 function requireLogin(req, res, next) {
-  // Acepta login Discord normal o login secreto de admin
   if (!req.user && !req.session.adminSecret) {
     return res.status(401).json({ error: 'Inicia sesión con Discord primero' });
   }
-  // Normaliza req.user para el resto del código
   if (!req.user && req.session.adminSecret) {
     req.user = req.session.adminUser;
   }
   next();
 }
 
-function requireOwnerOrAdmin(req, res, next) {
-  const photo = db.prepare('SELECT * FROM photos WHERE id = ?').get(req.params.id);
-  if (!photo) return res.status(404).json({ error: 'Foto no encontrada' });
-  if (!req.user.is_admin && photo.uploader_id !== req.user.id) {
-    return res.status(403).json({ error: 'No tienes permiso para borrar esta foto' });
+async function requireOwnerOrAdmin(req, res, next) {
+  try {
+    const { rows } = await pool.query('SELECT * FROM photos WHERE id = $1', [req.params.id]);
+    if (!rows[0]) return res.status(404).json({ error: 'Foto no encontrada' });
+    if (!req.user.is_admin && rows[0].uploader_id !== req.user.id) {
+      return res.status(403).json({ error: 'No tienes permiso para borrar esta foto' });
+    }
+    req.photo = rows[0];
+    next();
+  } catch (err) {
+    next(err);
   }
-  req.photo = photo;
-  next();
 }
 
 // ── GET /api/photos ── lista pública ─────────────────────────────
-router.get('/', (req, res) => {
-  const { cat } = req.query;
-  const photos = cat && cat !== 'all'
-    ? db.prepare('SELECT * FROM photos WHERE category = ? ORDER BY created_at DESC').all(cat)
-    : db.prepare('SELECT * FROM photos ORDER BY created_at DESC').all();
+router.get('/', async (req, res) => {
+  try {
+    const { cat } = req.query;
+    const { rows } = cat && cat !== 'all'
+      ? await pool.query('SELECT p.*, u.username, u.avatar FROM photos p LEFT JOIN users u ON p.uploader_id = u.id WHERE p.category = $1 ORDER BY p.created_at DESC', [cat])
+      : await pool.query('SELECT p.*, u.username, u.avatar FROM photos p LEFT JOIN users u ON p.uploader_id = u.id ORDER BY p.created_at DESC');
 
-  // Adjuntar info del uploader
-  const result = photos.map(p => {
-    const uploader = db.prepare('SELECT username, avatar FROM users WHERE id = ?').get(p.uploader_id);
-    return { ...p, uploader };
-  });
-  res.json(result);
+    const result = rows.map(r => ({
+      ...r,
+      uploader: { username: r.username, avatar: r.avatar }
+    }));
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error al obtener fotos' });
+  }
 });
 
 // ── POST /api/photos ── subir foto ───────────────────────────────
@@ -69,20 +75,19 @@ router.post('/', requireLogin, upload.single('photo'), async (req, res) => {
   }
 
   try {
-    // Subir a Cloudinary desde buffer
-    const result = await new Promise((resolve, reject) => {
+    const cloudResult = await new Promise((resolve, reject) => {
       cloudinary.uploader.upload_stream(
         { folder: 'cicatrices-primus', resource_type: 'image' },
         (err, result) => err ? reject(err) : resolve(result)
       ).end(req.file.buffer);
     });
 
-    const photo = db.prepare(`
-      INSERT INTO photos (uploader_id, cloudinary_id, url, category, title)
-      VALUES (?, ?, ?, ?, ?)
-    `).run(req.user.id, result.public_id, result.secure_url, category, title.trim());
+    const { rows } = await pool.query(
+      'INSERT INTO photos (uploader_id, cloudinary_id, url, category, title) VALUES ($1, $2, $3, $4, $5) RETURNING id',
+      [req.user.id, cloudResult.public_id, cloudResult.secure_url, category, title.trim()]
+    );
 
-    res.status(201).json({ id: photo.lastInsertRowid, url: result.secure_url });
+    res.status(201).json({ id: rows[0].id, url: cloudResult.secure_url });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Error al subir la imagen' });
@@ -93,7 +98,7 @@ router.post('/', requireLogin, upload.single('photo'), async (req, res) => {
 router.delete('/:id', requireLogin, requireOwnerOrAdmin, async (req, res) => {
   try {
     await cloudinary.uploader.destroy(req.photo.cloudinary_id);
-    db.prepare('DELETE FROM photos WHERE id = ?').run(req.photo.id);
+    await pool.query('DELETE FROM photos WHERE id = $1', [req.photo.id]);
     res.json({ ok: true });
   } catch (err) {
     console.error(err);

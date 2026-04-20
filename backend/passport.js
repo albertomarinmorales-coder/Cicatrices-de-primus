@@ -1,12 +1,16 @@
 const passport = require('passport');
 const DiscordStrategy = require('passport-discord').Strategy;
-const db = require('./db');
+const pool = require('./db');
 
 passport.serializeUser((user, done) => done(null, user.id));
 
-passport.deserializeUser((id, done) => {
-  const user = db.prepare('SELECT * FROM users WHERE id = ?').get(id);
-  done(null, user || false);
+passport.deserializeUser(async (id, done) => {
+  try {
+    const { rows } = await pool.query('SELECT * FROM users WHERE id = $1', [id]);
+    done(null, rows[0] || false);
+  } catch (err) {
+    done(err);
+  }
 });
 
 passport.use(new DiscordStrategy(
@@ -16,20 +20,21 @@ passport.use(new DiscordStrategy(
     callbackURL:  'https://cicatrices-de-primus.onrender.com/auth/discord/callback',
     scope: ['identify']
   },
-  (_accessToken, _refreshToken, profile, done) => {
-    const isAdmin = profile.id === process.env.ADMIN_DISCORD_ID;
-
-    // Upsert: crea o actualiza el usuario
-    db.prepare(`
-      INSERT INTO users (id, username, avatar, is_admin)
-      VALUES (?, ?, ?, ?)
-      ON CONFLICT(id) DO UPDATE SET
-        username = excluded.username,
-        avatar   = excluded.avatar,
-        is_admin = excluded.is_admin
-    `).run(profile.id, profile.global_name || profile.username, profile.avatar ?? null, isAdmin ? 1 : 0);
-
-    const user = db.prepare('SELECT * FROM users WHERE id = ?').get(profile.id);
-    return done(null, user);
+  async (_accessToken, _refreshToken, profile, done) => {
+    try {
+      const isAdmin = profile.id === process.env.ADMIN_DISCORD_ID;
+      await pool.query(`
+        INSERT INTO users (id, username, avatar, is_admin)
+        VALUES ($1, $2, $3, $4)
+        ON CONFLICT (id) DO UPDATE SET
+          username = EXCLUDED.username,
+          avatar   = EXCLUDED.avatar,
+          is_admin = EXCLUDED.is_admin
+      `, [profile.id, profile.global_name || profile.username, profile.avatar ?? null, isAdmin ? 1 : 0]);
+      const { rows } = await pool.query('SELECT * FROM users WHERE id = $1', [profile.id]);
+      return done(null, rows[0]);
+    } catch (err) {
+      return done(err);
+    }
   }
 ));

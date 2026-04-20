@@ -1,10 +1,10 @@
 require('dotenv').config();
 const express    = require('express');
 const session    = require('express-session');
-const SQLiteStore = require('connect-sqlite3')(session);
+const pgSession  = require('connect-pg-simple')(session);
+const { Pool }   = require('pg');
 const passport   = require('passport');
 const cors       = require('cors');
-const path       = require('path');
 
 const authRouter   = require('./routes/auth');
 const photosRouter = require('./routes/photos');
@@ -22,9 +22,14 @@ app.use(cors({
   credentials: true
 }));
 
-// ── Sesiones con SQLite ──────────────────────────────────────────
+// ── Sesiones con PostgreSQL ──────────────────────────────────────
+const sessionPool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
+});
+
 app.use(session({
-  store: new SQLiteStore({ db: 'sessions.db', dir: path.join(__dirname, 'data') }),
+  store: new pgSession({ pool: sessionPool, createTableIfMissing: true }),
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,

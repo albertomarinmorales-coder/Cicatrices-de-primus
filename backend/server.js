@@ -25,7 +25,8 @@ app.use(cors({
 // ── Sesiones con PostgreSQL ──────────────────────────────────────
 const sessionPool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+  ssl: { rejectUnauthorized: false },
+  family: 4
 });
 
 app.use(session({

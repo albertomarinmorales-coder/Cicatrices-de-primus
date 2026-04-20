@@ -3441,9 +3441,6 @@ body.modal-active .audio-toggle {
   aspect-ratio: 4/3;
   cursor: pointer;
   background: var(--surface);
-  isolation: isolate;
-  transform: translateZ(0);
-  contain: layout paint style;
 }
 
 .galeria-item::after {
@@ -3452,10 +3449,8 @@ body.modal-active .audio-toggle {
   inset: 0;
   border: 2px solid var(--gold);
   opacity: 0;
-  transition: opacity 0.3s ease;
   pointer-events: none;
   z-index: 2;
-  will-change: opacity;
 }
 
 .galeria-item:hover::after {
@@ -3467,15 +3462,7 @@ body.modal-active .audio-toggle {
   height: 100%;
   object-fit: cover;
   display: block;
-  transform: scale(1);
-  transition: transform 0.4s ease;
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.galeria-item:hover img {
-  transform: scale(1.04);
+  pointer-events: none;
 }
 
 .galeria-item-overlay {
@@ -3483,14 +3470,12 @@ body.modal-active .audio-toggle {
   inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
   opacity: 0;
-  transition: opacity 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 12px 14px;
   gap: 3px;
   pointer-events: none;
-  will-change: opacity;
 }
 
 .galeria-item:hover .galeria-item-overlay {
@@ -3732,7 +3717,6 @@ body.modal-active .audio-toggle {
 .galeria-btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
 /* Botón borrar sobre foto */
-.galeria-item { position: relative; }
 .galeria-item-delete {
   position: absolute;
   top: 8px;
@@ -3748,11 +3732,9 @@ body.modal-active .audio-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease, opacity 0.25s ease;
   z-index: 10;
   opacity: 0;
   pointer-events: none;
-  will-change: opacity;
 }
 .galeria-item:hover .galeria-item-delete {
   opacity: 1;

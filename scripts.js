@@ -522,8 +522,7 @@ async function galeriaLoadPhotos() {
     empty.style.display = 'none';
 
     photos.forEach(photo => {
-      const canDelete = _galeriaUser &&
-        (_galeriaUser.is_admin || _galeriaUser.id === photo.uploader_id);
+      const canDelete = _galeriaUser && _galeriaUser.is_admin;
 
       const item = document.createElement('div');
       item.className = 'galeria-item';

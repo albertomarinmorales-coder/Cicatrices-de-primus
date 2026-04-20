@@ -366,7 +366,7 @@ let _galMediaActual = 'fotos';
 let _galCatActual   = 'all';
 let _galeriaUser    = null;
 
-const BACKEND = 'http://localhost:3001';
+const BACKEND = 'https://cicatrices-de-primus.onrender.com';
 
 // ── Auth ──────────────────────────────────────────────────────────
 async function galeriaCheckAuth() {

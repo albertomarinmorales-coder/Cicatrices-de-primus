@@ -658,20 +658,25 @@ function _galeriaFiltrar() {
 
 // Inicializar galería cuando se navega a ella
 document.addEventListener('DOMContentLoaded', () => {
-  const observer = new MutationObserver(() => {
-    const page = document.getElementById('page-galeria');
-    if (page && page.classList.contains('active')) {
+  let _galeriaLoaded = false;
+  const page = document.getElementById('page-galeria');
+  if (!page) return;
+
+  function tryInit() {
+    if (page.classList.contains('active') && !_galeriaLoaded) {
+      _galeriaLoaded = true;
       galeriaCheckAuth();
       galeriaLoadPhotos();
+    } else if (!page.classList.contains('active')) {
+      _galeriaLoaded = false;
     }
-  });
-  observer.observe(document.body, { subtree: true, childList: false, attributeFilter: ['class'], attributes: true });
-  // Si ya está activa al cargar
-  const page = document.getElementById('page-galeria');
-  if (page && page.classList.contains('active')) {
-    galeriaCheckAuth();
-    galeriaLoadPhotos();
   }
+
+  const observer = new MutationObserver(tryInit);
+  observer.observe(page, { attributes: true, attributeFilter: ['class'] });
+
+  // Si ya está activa al cargar
+  tryInit();
 });
 
 // ── GALERÍA CARRUSEL ─────────────────────────────────────────────

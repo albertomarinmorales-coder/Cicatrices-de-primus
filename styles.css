@@ -3443,13 +3443,22 @@ body.modal-active .audio-toggle {
   background: var(--surface);
   isolation: isolate;
   transform: translateZ(0);
-  outline: 2px solid transparent;
-  outline-offset: -2px;
-  transition: outline-color 0.3s ease;
 }
 
-.galeria-item:hover {
-  outline-color: var(--gold);
+.galeria-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--gold);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+  will-change: opacity;
+}
+
+.galeria-item:hover::after {
+  opacity: 1;
 }
 
 .galeria-item img {
@@ -3457,8 +3466,15 @@ body.modal-active .audio-toggle {
   height: 100%;
   object-fit: cover;
   display: block;
+  transform: scale(1);
+  transition: transform 0.4s ease;
+  will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.04);
 }
 
 .galeria-item-overlay {

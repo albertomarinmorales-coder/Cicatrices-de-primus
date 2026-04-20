@@ -364,6 +364,217 @@ function initTooltips() {
 // ── GALERÍA ──────────────────────────────────────────────────────
 let _galMediaActual = 'fotos';
 let _galCatActual   = 'all';
+let _galeriaUser    = null;
+
+const BACKEND = 'http://localhost:3001';
+
+// ── Auth ──────────────────────────────────────────────────────────
+async function galeriaCheckAuth() {
+  try {
+    const res = await fetch(`${BACKEND}/auth/me`, { credentials: 'include' });
+    const data = await res.json();
+    _galeriaUser = data.user;
+  } catch { _galeriaUser = null; }
+  _galeriaUpdateAuthUI();
+}
+
+function _galeriaUpdateAuthUI() {
+  const userInfo   = document.getElementById('galeriaUserInfo');
+  const authBtns   = document.getElementById('galeriaAuthBtns');
+  const btnUpload  = document.getElementById('galeriaBtnUpload');
+  const avatarEl   = document.getElementById('galeriaUserAvatar');
+  const nameEl     = document.getElementById('galeriaUserName');
+
+  if (_galeriaUser) {
+    userInfo.style.display  = 'flex';
+    authBtns.style.display  = 'none';
+    btnUpload.style.display = 'inline-flex';
+    nameEl.textContent = _galeriaUser.username;
+    if (_galeriaUser.avatar) {
+      avatarEl.src = `https://cdn.discordapp.com/avatars/${_galeriaUser.id}/${_galeriaUser.avatar}.png?size=64`;
+      avatarEl.style.display = 'inline-block';
+    } else {
+      avatarEl.style.display = 'none';
+    }
+  } else {
+    userInfo.style.display  = 'none';
+    authBtns.style.display  = 'flex';
+    btnUpload.style.display = 'none';
+  }
+}
+
+async function galeriaLogout() {
+  await fetch(`${BACKEND}/auth/logout`, { method: 'POST', credentials: 'include' });
+  _galeriaUser = null;
+  _galeriaUpdateAuthUI();
+}
+
+// Login secreto admin (triple-click en "Galería" del título activa el modal)
+function galeriaOpenAdminLogin() {
+  document.getElementById('adminPasswordInput').value = '';
+  document.getElementById('adminLoginError').style.display = 'none';
+  document.getElementById('modalAdminLogin').style.display = 'flex';
+}
+
+async function galeriaAdminLogin(e) {
+  e.preventDefault();
+  const btn = document.getElementById('adminLoginBtn');
+  const errEl = document.getElementById('adminLoginError');
+  const password = document.getElementById('adminPasswordInput').value;
+
+  btn.disabled = true;
+  btn.textContent = 'Verificando…';
+  errEl.style.display = 'none';
+
+  try {
+    const res = await fetch(`${BACKEND}/auth/admin-login`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Error');
+    _galeriaUser = data.user;
+    _galeriaUpdateAuthUI();
+    galeriaCloseModal('modalAdminLogin');
+  } catch (err) {
+    errEl.textContent = err.message;
+    errEl.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Entrar';
+  }
+}
+
+// ── Upload ────────────────────────────────────────────────────────
+function galeriaOpenUpload() {
+  document.getElementById('uploadFileInput').value = '';
+  document.getElementById('uploadPreview').style.display = 'none';
+  document.getElementById('uploadFileName').textContent = 'Haz clic o arrastra una imagen aquí';
+  document.getElementById('uploadTitle').value = '';
+  document.getElementById('uploadError').style.display = 'none';
+  document.getElementById('modalUpload').style.display = 'flex';
+}
+
+function galeriaPreviewFile(input) {
+  const file = input.files[0];
+  if (!file) return;
+  document.getElementById('uploadFileName').textContent = file.name;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const preview = document.getElementById('uploadPreview');
+    preview.src = e.target.result;
+    preview.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+}
+
+async function galeriaUploadPhoto(e) {
+  e.preventDefault();
+  const btn    = document.getElementById('uploadBtn');
+  const errEl  = document.getElementById('uploadError');
+  const file   = document.getElementById('uploadFileInput').files[0];
+
+  if (!file) { errEl.textContent = 'Selecciona una imagen primero'; errEl.style.display = 'block'; return; }
+
+  const formData = new FormData();
+  formData.append('photo',    file);
+  formData.append('title',    document.getElementById('uploadTitle').value);
+  formData.append('category', document.getElementById('uploadCategory').value);
+
+  btn.disabled = true;
+  btn.textContent = 'Subiendo…';
+  errEl.style.display = 'none';
+
+  try {
+    const res = await fetch(`${BACKEND}/api/photos`, {
+      method: 'POST',
+      credentials: 'include',
+      body: formData
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Error al subir');
+    galeriaCloseModal('modalUpload');
+    galeriaLoadPhotos();
+  } catch (err) {
+    errEl.textContent = err.message;
+    errEl.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Subir';
+  }
+}
+
+// ── Load photos ───────────────────────────────────────────────────
+async function galeriaLoadPhotos() {
+  const grid  = document.getElementById('galeria-fotos');
+  const empty = document.getElementById('galeriaEmptyFotos');
+
+  try {
+    const res    = await fetch(`${BACKEND}/api/photos`, { credentials: 'include' });
+    const photos = await res.json();
+
+    // Limpiar ítems previos (mantener el empty)
+    grid.querySelectorAll('.galeria-item').forEach(el => el.remove());
+
+    if (!photos.length) { empty.style.display = 'flex'; return; }
+    empty.style.display = 'none';
+
+    photos.forEach(photo => {
+      const canDelete = _galeriaUser &&
+        (_galeriaUser.is_admin || _galeriaUser.id === photo.uploader_id);
+
+      const item = document.createElement('div');
+      item.className = 'galeria-item';
+      item.dataset.cat = photo.category;
+      item.innerHTML = `
+        <img src="${photo.url}" alt="${photo.title || ''}" loading="lazy">
+        <div class="galeria-item-overlay">
+          <span>${photo.title || ''}</span>
+          <small class="galeria-item-author">
+            ${photo.uploader ? photo.uploader.username : ''}
+          </small>
+        </div>
+        ${canDelete ? `<button class="galeria-item-delete" onclick="galeriaDeletePhoto(${photo.id}, this)" title="Borrar foto"><i class="fa-solid fa-trash"></i></button>` : ''}
+      `;
+      grid.insertBefore(item, empty);
+    });
+
+    _galeriaFiltrar();
+  } catch {
+    empty.style.display = 'flex';
+  }
+}
+
+async function galeriaDeletePhoto(id, btn) {
+  if (!confirm('¿Seguro que quieres borrar esta foto?')) return;
+  btn.disabled = true;
+  try {
+    const res = await fetch(`${BACKEND}/api/photos/${id}`, {
+      method: 'DELETE', credentials: 'include'
+    });
+    if (res.ok) galeriaLoadPhotos();
+  } catch { btn.disabled = false; }
+}
+
+// ── Modal helpers ─────────────────────────────────────────────────
+function galeriaCloseModal(id) {
+  document.getElementById(id).style.display = 'none';
+}
+
+// Triple-click en el título de galería para abrir modal admin
+(function() {
+  let _clicks = 0, _timer;
+  document.addEventListener('click', e => {
+    if (e.target.closest('.galeria-title')) {
+      _clicks++;
+      clearTimeout(_timer);
+      _timer = setTimeout(() => _clicks = 0, 600);
+      if (_clicks >= 3) { _clicks = 0; galeriaOpenAdminLogin(); }
+    }
+  });
+})();
 
 function galeriaSetMedia(media) {
   _galMediaActual = media;
@@ -397,6 +608,25 @@ function _galeriaFiltrar() {
     item.classList.toggle('hidden', !match);
   });
 }
+
+// Inicializar galería cuando se navega a ella
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new MutationObserver(() => {
+    const page = document.getElementById('page-galeria');
+    if (page && page.classList.contains('active')) {
+      galeriaCheckAuth();
+      galeriaLoadPhotos();
+    }
+  });
+  observer.observe(document.body, { subtree: false, childList: false, attributeFilter: ['class'], attributes: true });
+  // Si ya está activa al cargar
+  const page = document.getElementById('page-galeria');
+  if (page && page.classList.contains('active')) {
+    galeriaCheckAuth();
+    galeriaLoadPhotos();
+  }
+});
+
 // ── GALERÍA CARRUSEL ─────────────────────────────────────────────
 (function () {
   let _carIdx = 0;

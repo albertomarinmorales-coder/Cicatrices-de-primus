@@ -745,10 +745,10 @@ document.addEventListener('DOMContentLoaded', () => {
     wrap.addEventListener('transitionend', () => {
       if (_carIdx === 0) {
         _carIdx = total;
-        setPos(false);
+        requestAnimationFrame(() => setPos(false));
       } else if (_carIdx === total + 1) {
         _carIdx = 1;
-        setPos(false);
+        requestAnimationFrame(() => setPos(false));
       }
       updateDots();
       _locked = false;

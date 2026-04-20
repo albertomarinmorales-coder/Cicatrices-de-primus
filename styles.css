@@ -3443,6 +3443,7 @@ body.modal-active .audio-toggle {
   background: var(--surface);
   isolation: isolate;
   transform: translateZ(0);
+  contain: layout paint style;
 }
 
 .galeria-item::after {
@@ -3934,11 +3935,11 @@ select.gmodal-input option {
   user-select: none;
   isolation: isolate;
   transform: translateZ(0);
+  contain: layout paint;
 }
 
 .galeria-carousel {
   display: flex;
-  will-change: transform;
   transform: translateZ(0);
 }
 

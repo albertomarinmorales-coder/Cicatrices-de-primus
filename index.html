@@ -7172,22 +7172,25 @@
 
       <!-- Barra de acciones: login + subir foto -->
       <div class="galeria-actions-bar">
-        <div class="galeria-user-info" id="galeriaUserInfo" style="display:none;">
-          <img class="galeria-user-avatar" id="galeriaUserAvatar" src="" alt="">
-          <span id="galeriaUserName"></span>
-          <button class="galeria-btn-ghost" onclick="galeriaLogout()">
-            <i class="fa-solid fa-right-from-bracket"></i> Salir
-          </button>
+        <div class="galeria-auth-center">
+          <div class="galeria-user-info" id="galeriaUserInfo" style="display:none;">
+            <img class="galeria-user-avatar" id="galeriaUserAvatar" src="" alt="">
+            <span id="galeriaUserName"></span>
+            <button class="galeria-btn-upload" onclick="galeriaOpenUpload()" id="galeriaBtnUpload" style="display:none;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Subir foto
+            </button>
+            <button class="galeria-btn-ghost" onclick="galeriaLogout()">
+              <i class="fa-solid fa-right-from-bracket"></i> Salir
+            </button>
+          </div>
+          <div class="galeria-auth-btns" id="galeriaAuthBtns">
+            <p class="galeria-auth-label">Para subir fotos, accede con:</p>
+            <a class="galeria-btn-discord" href="https://cicatrices-de-primus.onrender.com/auth/discord" id="galeriaDiscordLogin">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.5868 0-.1637-.3847-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0773-.0102c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0773.0102c.1201.099.246.1971.3718.2914a.077.077 0 01-.0066.1277c-.5979.3428-1.2192.6447-1.8722.8923a.0762.0762 0 00-.0416.1057c.3528.699.7644 1.3638 1.226 1.9942a.0775.0775 0 00.0842.0276c1.9516-.6066 3.9401-1.5218 5.9929-3.0294a.077.077 0 00.0312-.0561c.5004-5.177-.8707-9.6719-3.5955-13.6603a.0668.0668 0 00-.0312-.0278z"/></svg>
+              Entrar con Discord
+            </a>
+          </div>
         </div>
-        <div class="galeria-auth-btns" id="galeriaAuthBtns">
-          <a class="galeria-btn-discord" href="http://localhost:3001/auth/discord" id="galeriaDiscordLogin">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.5868 0-.1637-.3847-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0773-.0102c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0773.0102c.1201.099.246.1971.3718.2914a.077.077 0 01-.0066.1277c-.5979.3428-1.2192.6447-1.8722.8923a.0762.0762 0 00-.0416.1057c.3528.699.7644 1.3638 1.226 1.9942a.0775.0775 0 00.0842.0276c1.9516-.6066 3.9401-1.5218 5.9929-3.0294a.077.077 0 00.0312-.0561c.5004-5.177-.8707-9.6719-3.5955-13.6603a.0668.0668 0 00-.0312-.0278z"/></svg>
-            Entrar con Discord
-          </a>
-        </div>
-        <button class="galeria-btn-upload" id="galeriaBtnUpload" style="display:none;" onclick="galeriaOpenUpload()">
-          <i class="fa-solid fa-cloud-arrow-up"></i> Subir foto
-        </button>
       </div>
 
       <!-- Toggle principal Fotos / Vídeos -->

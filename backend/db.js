@@ -1,5 +1,10 @@
 const { Pool } = require('pg');
 
+// Debug: log masked connection URL to verify env var
+const dbUrl = process.env.DATABASE_URL || '';
+const maskedUrl = dbUrl.replace(/:([^:@]+)@/, ':***@');
+console.log('DATABASE_URL (masked):', maskedUrl);
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false },

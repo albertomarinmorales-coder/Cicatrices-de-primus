@@ -32,11 +32,13 @@ router.post('/admin-login', (req, res) => {
 router.get('/discord', passport.authenticate('discord'));
 
 // Callback tras login en Discord
+const FRONTEND_ORIGIN = (process.env.FRONTEND_URL || '').split(',')[0].trim();
+
 router.get('/discord/callback',
-  passport.authenticate('discord', { failureRedirect: `${process.env.FRONTEND_URL}?login=error` }),
+  passport.authenticate('discord', { failureRedirect: `${FRONTEND_ORIGIN}?login=error` }),
   (req, res) => {
     // Redirige al frontend con éxito
-    res.redirect(`${process.env.FRONTEND_URL}?login=ok`);
+    res.redirect(`${FRONTEND_ORIGIN}?login=ok`);
   }
 );
 

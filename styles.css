@@ -1007,9 +1007,10 @@ nav {
 }
 
 .raza-card-body .raza-card-role {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
-  margin-bottom: 0.8rem;
+  font-style: italic;
+  margin: 0;
 }
 
 .raza-card-body .btn-ghost {
@@ -1214,16 +1215,6 @@ nav {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   color: var(--white);
   text-shadow: 0 0 30px rgba(176, 16, 16, 0.4);
-}
-
-.detail-hero-content .detail-tag {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 1.1rem;
-  color: var(--accent);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .detail-body {
@@ -2992,13 +2983,31 @@ body.modal-active .audio-toggle {
   align-items: center;
   gap: 3rem;
   padding: 4rem 0;
+  position: relative;
+  counter-increment: clase-sec;
 }
 
 .clase-feature-row:not(:last-child) {
-  border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+  border-bottom: none;
 }
 
-/* Fino separador dorado */
+.clase-feature-row:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(201, 168, 76, 0.45) 25%,
+    rgba(201, 168, 76, 0.45) 75%,
+    transparent
+  );
+}
+
+/* Separador degradado */
 .clase-feature-row.reverse {
   flex-direction: row-reverse;
 }
@@ -3021,7 +3030,42 @@ body.modal-active .audio-toggle {
   height: auto;
   border-radius: 12px;
   border: 1px solid var(--border);
-  box-shadow: 0 12px 48px rgba(0,0,0,0.5);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.clase-feature-img img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 64px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Counter reset por página de clase */
+.page[id^="page-clase-"] .detail-text {
+  counter-reset: clase-sec;
+}
+
+/* Roman numeral label encima de cada bloque de texto */
+.page[id^="page-clase-"] .clase-feature-text::before {
+  content: counter(clase-sec, upper-roman);
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: rgba(201, 168, 76, 0.45);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.13);
+  width: fit-content;
+  min-width: 2.5rem;
+}
+
+/* Párrafo de entrada destacado */
+.clase-feature-text > p.tier-desc:first-child {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.9;
 }
 
 @media (max-width: 900px) {

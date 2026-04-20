@@ -154,7 +154,6 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
 /* â”€â”€â”€ PAGE SYSTEM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .page {
   display: none;
-  animation: fadeIn 0.8s ease forwards;
   position: relative;
   z-index: 10;
   background: transparent;
@@ -162,6 +161,7 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
 
 .page.active {
   display: block;
+  animation: fadeIn 0.22s ease forwards;
 }
 
 /* â”€â”€â”€ REVEAL ANIMATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -2871,12 +2871,13 @@ body.modal-active .audio-toggle {
   flex-direction: column;
   gap: 0;
   overflow: hidden;
-  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.3s ease;
 }
 
 .norm-card:hover {
   border-color: rgba(201, 168, 76, 0.32);
   box-shadow: 0 0 22px rgba(201, 168, 76, 0.09), inset 0 0 0 1px rgba(201, 168, 76, 0.06);
+  transform: translateY(-4px);
 }
 
 .norm-card-num {

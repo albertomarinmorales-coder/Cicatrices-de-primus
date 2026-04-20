@@ -522,7 +522,8 @@ async function galeriaLoadPhotos() {
     empty.style.display = 'none';
 
     photos.forEach(photo => {
-      const canDelete = _galeriaUser && _galeriaUser.is_admin;
+      const canDelete = _galeriaUser &&
+        (_galeriaUser.is_admin || _galeriaUser.id === photo.uploader_id);
 
       const item = document.createElement('div');
       item.className = 'galeria-item';
@@ -617,7 +618,7 @@ document.addEventListener('DOMContentLoaded', () => {
       galeriaLoadPhotos();
     }
   });
-  observer.observe(document.body, { subtree: true, childList: false, attributeFilter: ['class'], attributes: true });
+  observer.observe(document.body, { subtree: false, childList: false, attributeFilter: ['class'], attributes: true });
   // Si ya está activa al cargar
   const page = document.getElementById('page-galeria');
   if (page && page.classList.contains('active')) {

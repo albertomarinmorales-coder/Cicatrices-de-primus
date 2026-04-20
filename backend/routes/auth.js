@@ -35,10 +35,10 @@ router.get('/discord', passport.authenticate('discord'));
 const FRONTEND_ORIGIN = (process.env.FRONTEND_URL || '').split(',')[0].trim();
 
 router.get('/discord/callback',
-  passport.authenticate('discord', { failureRedirect: `${FRONTEND_ORIGIN}?login=error` }),
+  passport.authenticate('discord', { failureRedirect: `${FRONTEND_ORIGIN}/#galeria?login=error` }),
   (req, res) => {
     // Redirige al frontend con éxito
-    res.redirect(`${FRONTEND_ORIGIN}?login=ok`);
+    res.redirect(`${FRONTEND_ORIGIN}/#galeria?login=ok`);
   }
 );
 

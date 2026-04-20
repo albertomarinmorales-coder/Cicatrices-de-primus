@@ -301,6 +301,14 @@ document.addEventListener('DOMContentLoaded', () => {
   injectFooterFaccionesLink();
   startAuroraEffect();
   handleRouting(); // Cargar la página correcta según la URL
+
+  // Si venimos de un login de Discord, re-comprobar auth
+  if (window.location.search.includes('login=ok')) {
+    galeriaCheckAuth();
+    // Limpiar el parámetro de la URL sin recargar
+    const cleanUrl = window.location.origin + window.location.pathname + window.location.hash.replace(/[?&]login=ok/, '');
+    history.replaceState(null, '', cleanUrl);
+  }
 });
 
 function injectFooterFaccionesLink() {

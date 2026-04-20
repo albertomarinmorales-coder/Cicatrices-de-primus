@@ -3443,6 +3443,13 @@ body.modal-active .audio-toggle {
   background: var(--surface);
   isolation: isolate;
   transform: translateZ(0);
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  transition: outline-color 0.3s ease;
+}
+
+.galeria-item:hover {
+  outline-color: var(--gold);
 }
 
 .galeria-item img {
@@ -3459,6 +3466,7 @@ body.modal-active .audio-toggle {
   inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
   opacity: 0;
+  transition: opacity 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -3466,7 +3474,9 @@ body.modal-active .audio-toggle {
   gap: 3px;
 }
 
-/* hover overlay desactivado temporalmente para debug blink */
+.galeria-item:hover .galeria-item-overlay {
+  opacity: 1;
+}
 
 .galeria-item-overlay span {
   font-family: 'Cinzel', serif;

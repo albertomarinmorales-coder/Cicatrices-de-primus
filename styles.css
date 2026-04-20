@@ -1779,50 +1779,140 @@ nav {
 }
 
 /* Ciudad cards */
-.ciudad-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: 40px;
+/* ── CIUDADES ──────────────────────────────────────────────────── */
+.ciudades-list {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  margin-top: 48px;
 }
 
-.ciudad-card {
-  background: var(--surface);
+.ciudad-block {
   border: 1px solid var(--border);
-  overflow: hidden;
+  background: var(--surface);
+  padding: 36px 40px 40px;
 }
 
-.ciudad-card-img {
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  filter: saturate(0.6) brightness(0.7);
+.ciudad-block-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 28px;
 }
 
-.ciudad-card-body {
-  padding: 24px;
-}
-
-.ciudad-card-body h3 {
-  font-family: 'Cinzel', serif;
-  font-size: 1rem;
+.ciudad-block-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
   font-weight: 700;
   color: var(--gold);
-  margin-bottom: 4px;
+  white-space: nowrap;
+  margin: 0;
+  letter-spacing: 0.04em;
 }
 
-.ciudad-card-body .ciudad-tag {
-  font-size: 0.75rem;
-  color: var(--accent);
-  font-style: italic;
-  margin-bottom: 12px;
+.ciudad-block-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+.ciudad-block-layout {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 14px;
+  align-items: start;
+}
+
+.ciudad-fotos-col {
+  display: grid;
+  gap: 10px;
+}
+
+.ciudad-foto-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 7;
+}
+
+.ciudad-foto-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+  pointer-events: none;
+  filter: saturate(0.75) brightness(0.82);
 }
 
-.ciudad-card-body p {
-  font-size: 0.9rem;
+.ciudad-foto-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--gold);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.ciudad-foto-wrap:hover::after { opacity: 1; }
+
+.ciudad-texto {
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--gold);
+}
+
+.ciudad-texto p {
+  font-size: 0.88rem;
   color: var(--text-muted);
-  line-height: 1.75;
+  line-height: 1.85;
+  margin: 0;
+}
+
+.ciudad-mapa-col {
+  position: sticky;
+  top: calc(var(--nav-h) + 16px);
+}
+
+.ciudad-mapa-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.ciudad-mapa-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  filter: saturate(0.55) brightness(0.8);
+}
+
+.ciudad-mapa-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--gold);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.ciudad-mapa-wrap:hover::after { opacity: 1; }
+
+.ciudad-mapa-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .ciudad-block { padding: 24px 20px; }
+  .ciudad-block-layout { grid-template-columns: 1fr; }
+  .ciudad-mapa-col { position: static; }
 }
 
 /* Deidades — alternating two-column layout */

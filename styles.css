@@ -3442,22 +3442,20 @@ body.modal-active .audio-toggle {
   cursor: pointer;
   background: var(--surface);
   isolation: isolate;
-  transform: translateZ(0);
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-item:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 14px rgba(201, 168, 76, 0.45);
 }
 
 .galeria-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
   display: block;
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.galeria-item:hover img {
-  transform: scale(1.06);
 }
 
 .galeria-item-overlay {

@@ -3441,6 +3441,8 @@ body.modal-active .audio-toggle {
   aspect-ratio: 4/3;
   cursor: pointer;
   background: var(--surface);
+  isolation: isolate;
+  transform: translateZ(0);
 }
 
 .galeria-item img {
@@ -3905,11 +3907,14 @@ select.gmodal-input option {
   margin-top: 0;
   margin-bottom: 56px;
   user-select: none;
+  isolation: isolate;
+  transform: translateZ(0);
 }
 
 .galeria-carousel {
   display: flex;
   will-change: transform;
+  transform: translateZ(0);
 }
 
 .galeria-slide,

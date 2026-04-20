@@ -3472,6 +3472,8 @@ body.modal-active .audio-toggle {
   justify-content: flex-end;
   padding: 12px 14px;
   gap: 3px;
+  pointer-events: none;
+  will-change: opacity;
 }
 
 .galeria-item:hover .galeria-item-overlay {
@@ -3726,13 +3728,19 @@ body.modal-active .audio-toggle {
   height: 30px;
   font-size: 0.75rem;
   cursor: pointer;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  transition: background 0.2s ease, opacity 0.25s ease;
   z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
 }
-.galeria-item:hover .galeria-item-delete { display: flex; }
+.galeria-item:hover .galeria-item-delete {
+  opacity: 1;
+  pointer-events: auto;
+}
 .galeria-item-delete:hover { background: rgba(220,20,20,1); }
 
 .galeria-item-author {

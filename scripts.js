@@ -37,7 +37,7 @@ function showPage(id, updateHash = true) {
 // ─── SISTEMA DE RUTAS (HASH) ────────────────────────────────
 
 function handleRouting() {
-  const hash = window.location.hash.replace('#', '');
+  const hash = window.location.hash.replace('#', '').split('?')[0];
   if (hash && pages.includes(hash)) {
     showPage(hash, false);
   } else {
@@ -303,11 +303,11 @@ document.addEventListener('DOMContentLoaded', () => {
   handleRouting(); // Cargar la página correcta según la URL
 
   // Si venimos de un login de Discord, re-comprobar auth
-  if (window.location.search.includes('login=ok')) {
+  if (window.location.hash.includes('login=ok') || window.location.search.includes('login=ok')) {
     galeriaCheckAuth();
     // Limpiar el parámetro de la URL sin recargar
-    const cleanUrl = window.location.origin + window.location.pathname + window.location.hash.replace(/[?&]login=ok/, '');
-    history.replaceState(null, '', cleanUrl);
+    const cleanHash = window.location.hash.replace(/[?&]login=ok/, '');
+    history.replaceState(null, '', window.location.pathname + cleanHash);
   }
 });
 

@@ -1007,10 +1007,9 @@ nav {
 }
 
 .raza-card-body .raza-card-role {
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
-  font-style: italic;
-  margin: 0;
+  margin-bottom: 0.8rem;
 }
 
 .raza-card-body .btn-ghost {
@@ -1215,6 +1214,16 @@ nav {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   color: var(--white);
   text-shadow: 0 0 30px rgba(176, 16, 16, 0.4);
+}
+
+.detail-hero-content .detail-tag {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .detail-body {
@@ -3005,6 +3014,14 @@ body.modal-active .audio-toggle {
   flex: 1;
   max-width: 500px;
   margin: 0 auto;
+}
+
+.clase-feature-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.5);
 }
 
 @media (max-width: 900px) {

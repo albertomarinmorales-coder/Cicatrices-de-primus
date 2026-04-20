@@ -3441,6 +3441,11 @@ body.modal-active .audio-toggle {
   aspect-ratio: 4/3;
   cursor: pointer;
   background: var(--surface);
+  transition: transform 0.35s ease;
+}
+
+.galeria-item:hover {
+  transform: scale(1.03);
 }
 
 .galeria-item::after {

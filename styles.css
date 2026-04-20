@@ -3461,12 +3461,14 @@ body.modal-active .audio-toggle {
 .galeria-item-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.3s ease;
   display: flex;
-  align-items: flex-end;
-  padding: 14px;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px 14px;
+  gap: 3px;
 }
 
 .galeria-item:hover .galeria-item-overlay {
@@ -3479,6 +3481,14 @@ body.modal-active .audio-toggle {
   letter-spacing: 0.12em;
   color: #fff;
   text-transform: uppercase;
+}
+
+.galeria-item-author {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  opacity: 0.85;
 }
 
 .galeria-video-item {
@@ -3606,7 +3616,7 @@ body.modal-active .audio-toggle {
 .galeria-avatar-dropdown {
   display: none;
   position: absolute;
-  top: calc(100% + 8px);
+  bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
   background: #1a1408;

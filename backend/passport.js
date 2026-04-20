@@ -27,7 +27,7 @@ passport.use(new DiscordStrategy(
         username = excluded.username,
         avatar   = excluded.avatar,
         is_admin = excluded.is_admin
-    `).run(profile.id, profile.username, profile.avatar ?? null, isAdmin ? 1 : 0);
+    `).run(profile.id, profile.global_name || profile.username, profile.avatar ?? null, isAdmin ? 1 : 0);
 
     const user = db.prepare('SELECT * FROM users WHERE id = ?').get(profile.id);
     return done(null, user);

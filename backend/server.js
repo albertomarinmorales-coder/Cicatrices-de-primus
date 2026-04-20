@@ -23,11 +23,18 @@ app.use(cors({
 }));
 
 // ── Sesiones con PostgreSQL ──────────────────────────────────────
-const sessionPool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
-  family: 4
-});
+function parseDbUrl(url) {
+  const u = new URL(url);
+  return {
+    user:     decodeURIComponent(u.username),
+    password: decodeURIComponent(u.password),
+    host:     u.hostname,
+    port:     parseInt(u.port, 10) || 5432,
+    database: u.pathname.replace(/^\//, ''),
+    ssl:      { rejectUnauthorized: false }
+  };
+}
+const sessionPool = new Pool(parseDbUrl(process.env.DATABASE_URL || ''));
 
 app.use(session({
   store: new pgSession({ pool: sessionPool, createTableIfMissing: true }),

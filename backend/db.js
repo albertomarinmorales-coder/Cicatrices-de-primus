@@ -1,15 +1,22 @@
 const { Pool } = require('pg');
 
-// Debug: log masked connection URL to verify env var
-const dbUrl = process.env.DATABASE_URL || '';
-const maskedUrl = dbUrl.replace(/:([^:@]+)@/, ':***@');
-console.log('DATABASE_URL (masked):', maskedUrl);
+// Parse DATABASE_URL manually to avoid pg mishandling usernames with dots
+function parseDbUrl(url) {
+  const u = new URL(url);
+  return {
+    user:     decodeURIComponent(u.username),
+    password: decodeURIComponent(u.password),
+    host:     u.hostname,
+    port:     parseInt(u.port, 10) || 5432,
+    database: u.pathname.replace(/^\//, ''),
+    ssl:      { rejectUnauthorized: false }
+  };
+}
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
-  family: 4
-});
+const dbUrl = process.env.DATABASE_URL || '';
+console.log('DB host:', new URL(dbUrl).hostname, '| user:', new URL(dbUrl).username);
+
+const pool = new Pool(parseDbUrl(dbUrl));
 
 // Inicializar tablas al arrancar
 pool.query(`

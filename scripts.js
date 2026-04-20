@@ -1,4 +1,4 @@
-// Prevent browser from restoring scroll position on refresh
+﻿// Prevent browser from restoring scroll position on refresh
 history.scrollRestoration = 'manual';
 
 const pages = ['inicio', 'lore', 'razas', 'oficios', 'facciones', 'gremios', 'gremio-aventuras', 'normativa', 'historia', 'deidades', 'norm-general', 'norm-concepto', 'norm-ic', 'norm-construccion', 'norm-heridas', 'norm-combate', 'norm-esclavitud', 'norm-robo', 'norm-mazmorra', 'norm-housing', 'clases', 'raza-gen-elfos', 'raza-gen-enanos', 'raza-gen-humanos', 'raza-gen-malvakari', 'raza-gen-mestizos', 'raza-gen-nhek-thal', 'raza-gen-ossalyth', 'raza-gen-rosaveld', 'raza-gen-shazari', 'raza-gen-thae-tir', 'oficio-gen-alquimista', 'oficio-gen-artifices-del-velo-y-del-brillo', 'oficio-gen-cazador', 'oficio-gen-forjador', 'oficio-gen-galeno', 'oficio-gen-granjero', 'oficio-gen-guardia', 'oficio-gen-minero', 'oficio-gen-seeker', 'oficio-gen-tabernero', 'clase-ciudadano', 'clase-vhark-hul', 'clase-argent-praetor', 'clase-dualhar', 'clase-luminari-vox', 'clase-noc-thar', 'clase-stormheilm', 'clase-velum-caedis', 'clase-velum-cantoris', 'clase-zereth-mor', 'clase-magharyn', 'clase-desconocido', 'galeria'];
@@ -360,3 +360,143 @@ function initTooltips() {
     });
   });
 }
+
+// ── GALERÍA ──────────────────────────────────────────────────────
+let _galMediaActual = 'fotos';
+let _galCatActual   = 'all';
+
+function galeriaSetMedia(media) {
+  _galMediaActual = media;
+
+  document.querySelectorAll('.galeria-toggle-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.media === media);
+  });
+
+  document.getElementById('galeria-fotos').style.display  = media === 'fotos'  ? 'grid' : 'none';
+  document.getElementById('galeria-videos').style.display = media === 'videos' ? 'grid' : 'none';
+
+  _galeriaFiltrar();
+}
+
+function galeriaSetCat(cat) {
+  _galCatActual = cat;
+
+  document.querySelectorAll('.galeria-filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.cat === cat);
+  });
+
+  _galeriaFiltrar();
+}
+
+function _galeriaFiltrar() {
+  const gridId = _galMediaActual === 'fotos' ? 'galeria-fotos' : 'galeria-videos';
+  const itemClass = _galMediaActual === 'fotos' ? '.galeria-item' : '.galeria-video-item';
+
+  document.querySelectorAll('#' + gridId + ' ' + itemClass).forEach(item => {
+    const match = _galCatActual === 'all' || item.dataset.cat === _galCatActual;
+    item.classList.toggle('hidden', !match);
+  });
+}
+// ── GALERÍA CARRUSEL ─────────────────────────────────────────────
+(function () {
+  let _carIdx = 0;
+  let _carTimer = null;
+  let _locked = false;
+  const INTERVAL = 4500;
+
+  function init() {
+    const wrap = document.getElementById('galeriaCarousel');
+    if (!wrap) return;
+
+    // Eliminar clones previos
+    wrap.querySelectorAll('.galeria-slide-clone').forEach(c => c.remove());
+    wrap.style.transition = 'none';
+    wrap.style.transform = 'translateX(0)';
+
+    const origSlides = Array.from(wrap.querySelectorAll('.galeria-slide'));
+    const total = origSlides.length;
+    const dotsWrap = document.getElementById('galeriaCarouselDots');
+
+    // Añadir clon del último al principio y del primero al final
+    const cloneFirst = origSlides[0].cloneNode(true);
+    const cloneLast  = origSlides[total - 1].cloneNode(true);
+    cloneFirst.classList.add('galeria-slide-clone');
+    cloneLast.classList.add('galeria-slide-clone');
+    wrap.insertBefore(cloneLast, origSlides[0]);
+    wrap.appendChild(cloneFirst);
+
+    // Asegurar que el wrapper tenga el ancho correcto
+    wrap.style.width = ((total + 2) * 100) + '%';
+    wrap.querySelectorAll('.galeria-slide, .galeria-slide-clone').forEach(s => {
+      s.style.width = (100 / (total + 2)) + '%';
+    });
+
+    _carIdx = 1;
+    setPos(false);
+
+    // Dots
+    dotsWrap.innerHTML = '';
+    origSlides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.className = 'galeria-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => { if (!_locked) goTo(i + 1); };
+      dotsWrap.appendChild(dot);
+    });
+
+    function setPos(animate) {
+      wrap.style.transition = animate
+        ? 'transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)'
+        : 'none';
+      wrap.style.transform = `translateX(-${(_carIdx / (total + 2)) * 100}%)`;
+    }
+
+    function updateDots() {
+      const real = _carIdx - 1; // 0-based real index
+      dotsWrap.querySelectorAll('.galeria-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === real));
+    }
+
+    function goTo(idx) {
+      if (_locked) return;
+      _locked = true;
+      _carIdx = idx;
+      setPos(true);
+      updateDots();
+      resetTimer();
+    }
+
+    wrap.addEventListener('transitionend', () => {
+      if (_carIdx === 0) {
+        _carIdx = total;
+        setPos(false);
+      } else if (_carIdx === total + 1) {
+        _carIdx = 1;
+        setPos(false);
+      }
+      updateDots();
+      _locked = false;
+    });
+
+    function resetTimer() {
+      clearInterval(_carTimer);
+      _carTimer = setInterval(() => goTo(_carIdx + 1), INTERVAL);
+    }
+
+    window.galeriaCarouselMove = (dir) => goTo(_carIdx + dir);
+
+    resetTimer();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    let _wasActive = false;
+    const observer = new MutationObserver(() => {
+      const page = document.getElementById('page-galeria');
+      const isActive = page && page.classList.contains('active');
+      if (isActive && !_wasActive) { _wasActive = true; init(); }
+      if (!isActive) _wasActive = false;
+    });
+    observer.observe(document.body, { subtree: true, attributeFilter: ['class'] });
+    const page = document.getElementById('page-galeria');
+    if (page && page.classList.contains('active')) init();
+  });
+})();

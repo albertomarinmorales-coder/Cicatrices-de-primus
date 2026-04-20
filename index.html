@@ -7109,14 +7109,122 @@
       <div class="page-header-overlay"></div>
       <div class="page-header-content">
         <h1>Galería</h1>
-        <p>Imágenes del Continente de Primus</p>
+        <p>Imágenes y vídeos del Continente de Primus</p>
       </div>
     </div>
 
-    <div class="section">
-      <h2 class="section-title">Galería</h2>
-      <div class="section-underline"><i class="fa-solid fa-image"></i></div>
-      <p style="text-align:center;color:var(--text-muted);">Próximamente...</p>
+    <!-- Carrusel de presentación -->
+    <div class="galeria-carousel-wrap">
+      <div class="galeria-carousel" id="galeriaCarousel">
+
+        <div class="galeria-slide active" style="--stripe-a:#1a1208;--stripe-b:#c9a84c;">
+          <div class="galeria-slide-ph"></div>
+          <div class="galeria-slide-caption">
+            <span class="galeria-slide-label">Cicatrices de Primus</span>
+            <p>El continente que lleva las marcas del tiempo</p>
+          </div>
+        </div>
+
+        <div class="galeria-slide" style="--stripe-a:#120a0a;--stripe-b:#b01010;">
+          <div class="galeria-slide-ph"></div>
+          <div class="galeria-slide-caption">
+            <span class="galeria-slide-label">Las Razas</span>
+            <p>Cada pueblo, una historia forjada en cicatrices</p>
+          </div>
+        </div>
+
+        <div class="galeria-slide" style="--stripe-a:#0a0f18;--stripe-b:#4a7ab5;">
+          <div class="galeria-slide-ph"></div>
+          <div class="galeria-slide-caption">
+            <span class="galeria-slide-label">El Mundo</span>
+            <p>Territorios vastos, ruinas y misterios sin nombre</p>
+          </div>
+        </div>
+
+        <div class="galeria-slide" style="--stripe-a:#0d1209;--stripe-b:#4a8c3f;">
+          <div class="galeria-slide-ph"></div>
+          <div class="galeria-slide-caption">
+            <span class="galeria-slide-label">Los Gremios</span>
+            <p>Alianzas que mueven los hilos del poder</p>
+          </div>
+        </div>
+
+        <div class="galeria-slide" style="--stripe-a:#110a14;--stripe-b:#7c4ba8;">
+          <div class="galeria-slide-ph"></div>
+          <div class="galeria-slide-caption">
+            <span class="galeria-slide-label">Las Clases</span>
+            <p>Caminos de poder marcados por la sangre</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controles -->
+      <button class="galeria-carousel-prev" onclick="galeriaCarouselMove(-1)">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="galeria-carousel-next" onclick="galeriaCarouselMove(1)">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <!-- Dots -->
+      <div class="galeria-carousel-dots" id="galeriaCarouselDots"></div>
+    </div>
+
+    <div class="section galeria-section">
+
+      <!-- Toggle principal Fotos / Vídeos -->
+      <div class="galeria-toggle">
+        <button class="galeria-toggle-btn active" data-media="fotos" onclick="galeriaSetMedia('fotos')">
+          <i class="fa-solid fa-image"></i> Fotos
+        </button>
+        <button class="galeria-toggle-btn" data-media="videos" onclick="galeriaSetMedia('videos')">
+          <i class="fa-solid fa-film"></i> Vídeos
+        </button>
+      </div>
+
+      <!-- Filtros de categoría -->
+      <div class="galeria-filters">
+        <button class="galeria-filter-btn active" data-cat="all" onclick="galeriaSetCat('all')">Todas</button>
+        <button class="galeria-filter-btn" data-cat="razas" onclick="galeriaSetCat('razas')">Razas</button>
+        <button class="galeria-filter-btn" data-cat="clases" onclick="galeriaSetCat('clases')">Clases</button>
+        <button class="galeria-filter-btn" data-cat="oficios" onclick="galeriaSetCat('oficios')">Oficios</button>
+        <button class="galeria-filter-btn" data-cat="mundo" onclick="galeriaSetCat('mundo')">Mundo</button>
+        <button class="galeria-filter-btn" data-cat="eventos" onclick="galeriaSetCat('eventos')">Eventos</button>
+      </div>
+
+      <!-- Grid de FOTOS -->
+      <div class="galeria-grid" id="galeria-fotos">
+        <!-- Ejemplo de ítem — duplicar esta estructura para añadir fotos -->
+        <!--
+        <div class="galeria-item" data-cat="razas">
+          <img src="images/ejemplo.jpg" alt="Descripción" loading="lazy">
+          <div class="galeria-item-overlay"><span>Título</span></div>
+        </div>
+        -->
+        <div class="galeria-empty">
+          <i class="fa-solid fa-camera"></i>
+          <p>Las fotos se irán añadiendo próximamente.</p>
+        </div>
+      </div>
+
+      <!-- Grid de VÍDEOS (oculto por defecto) -->
+      <div class="galeria-grid" id="galeria-videos" style="display:none;">
+        <!-- Ejemplo de ítem de vídeo
+        <div class="galeria-video-item" data-cat="eventos">
+          <div class="galeria-video-wrap">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID" loading="lazy"
+              allowfullscreen title="Título del vídeo"></iframe>
+          </div>
+          <p class="galeria-video-title">Título del vídeo</p>
+        </div>
+        -->
+        <div class="galeria-empty">
+          <i class="fa-solid fa-clapperboard"></i>
+          <p>Los vídeos se irán añadiendo próximamente.</p>
+        </div>
+      </div>
+
     </div>
 
   </div><!-- /page-galeria -->

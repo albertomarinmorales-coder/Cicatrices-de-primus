@@ -3357,3 +3357,321 @@ body.modal-active .audio-toggle {
   animation: audio-pulse 2s infinite;
   border-color: rgba(201, 168, 76, 0.8) !important;
 }
+
+/* ── GALERÍA ─────────────────────────────────────────────────── */
+.galeria-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+.galeria-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 32px;
+}
+
+.galeria-toggle-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  padding: 10px 36px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.galeria-toggle-btn:first-child {
+  border-right: none;
+}
+
+.galeria-toggle-btn.active {
+  background: var(--gold);
+  color: #0a0906;
+  border-color: var(--gold);
+  font-weight: 700;
+}
+
+.galeria-toggle-btn:not(.active):hover {
+  color: var(--gold);
+  border-color: rgba(201, 168, 76, 0.6);
+}
+
+.galeria-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.galeria-filter-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  padding: 5px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.galeria-filter-btn.active,
+.galeria-filter-btn:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.06);
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.galeria-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  background: var(--surface);
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.06);
+}
+
+.galeria-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+}
+
+.galeria-item:hover .galeria-item-overlay {
+  opacity: 1;
+}
+
+.galeria-item-overlay span {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.galeria-video-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.galeria-video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.galeria-video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.galeria-video-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.galeria-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 80px 0;
+  color: var(--text-muted);
+  opacity: 0.45;
+}
+
+.galeria-empty i {
+  font-size: 2.5rem;
+  color: var(--gold);
+  opacity: 0.4;
+}
+
+.galeria-empty p {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.galeria-item.hidden,
+.galeria-video-item.hidden {
+  display: none;
+}
+/* ── GALERÍA CARRUSEL ─────────────────────────────────────────── */
+.galeria-carousel-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #050505;
+  margin-bottom: 56px;
+  user-select: none;
+}
+
+.galeria-carousel {
+  display: flex;
+  will-change: transform;
+}
+
+.galeria-slide,
+.galeria-slide-clone {
+  flex-shrink: 0;
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+}
+
+/* Placeholder con rayas horizontales usando las variables CSS del slide */
+.galeria-slide-ph {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(135deg, var(--stripe-a) 0%, #1a1610 50%, var(--stripe-a) 100%);
+}
+
+.galeria-slide-ph::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 14px,
+    var(--stripe-b) 14px,
+    var(--stripe-b) 15px
+  );
+  opacity: 0.09;
+}
+
+.galeria-slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px 48px;
+  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.galeria-slide-label {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stripe-b);
+  text-shadow: 0 0 24px rgba(0,0,0,0.9);
+  line-height: 1;
+}
+
+.galeria-slide-caption p {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  margin: 0;
+}
+
+/* Prev / Next */
+.galeria-carousel-prev,
+.galeria-carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.55);
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.3);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  z-index: 10;
+  font-size: 1rem;
+}
+
+.galeria-carousel-prev { left: 16px; }
+.galeria-carousel-next { right: 16px; }
+
+.galeria-carousel-prev:hover,
+.galeria-carousel-next:hover {
+  background: rgba(201,168,76,0.15);
+  border-color: var(--gold);
+}
+
+/* Dots */
+.galeria-carousel-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.galeria-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: 1px solid rgba(201,168,76,0.3);
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.galeria-dot.active {
+  background: var(--gold);
+  transform: scale(1.3);
+  border-color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .galeria-slide { height: 240px; }
+  .galeria-slide-label { font-size: 1rem; }
+  .galeria-slide-caption { padding: 20px 24px; }
+}

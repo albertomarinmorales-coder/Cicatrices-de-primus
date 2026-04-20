@@ -456,12 +456,35 @@ async function galeriaAdminLogin(e) {
 }
 
 // ── Upload ────────────────────────────────────────────────────────
+const _SUBCATS = {
+  razas:   ['Elfos','Enanos','Humanos','Malvakari','Mestizos','Nhek\'thal','Ossalyth','Rosaveld','Shazari','Thae\'tir'],
+  clases:  ['Ciudadano','Argent Praetor','Dualhar','Luminari Vox','Noc\'thar','Stormheilm','Velum Caedis','Velum Cantoris','Zereth-Mor','Magharyn','Vhark\'Hul','Desconocido'],
+  oficios: ['Alquimista','Artífices del Velo y del Brillo','Cazador','Forjador','Galeno','Granjero','Guardia','Minero','Seeker','Tabernero']
+};
+
+function galeriaOnCategoryChange() {
+  const cat = document.getElementById('uploadCategory').value;
+  const wrap = document.getElementById('uploadSubcategoryWrap');
+  const sub  = document.getElementById('uploadSubcategory');
+  const lbl  = document.getElementById('uploadSubcategoryLabel');
+  const opts = _SUBCATS[cat];
+  if (opts) {
+    lbl.textContent = cat.charAt(0).toUpperCase() + cat.slice(1, -1) + ' específica';
+    sub.innerHTML = opts.map(o => `<option value="${o.toLowerCase().replace(/[' ]/g, '-')}">${o}</option>`).join('');
+    wrap.style.display = 'block';
+  } else {
+    wrap.style.display = 'none';
+  }
+}
+
 function galeriaOpenUpload() {
   document.getElementById('uploadFileInput').value = '';
   document.getElementById('uploadPreview').style.display = 'none';
   document.getElementById('uploadFileName').textContent = 'Haz clic o arrastra una imagen aquí';
   document.getElementById('uploadTitle').value = '';
   document.getElementById('uploadError').style.display = 'none';
+  document.getElementById('uploadCategory').value = 'general';
+  document.getElementById('uploadSubcategoryWrap').style.display = 'none';
   document.getElementById('modalUpload').style.display = 'flex';
 }
 
@@ -489,7 +512,11 @@ async function galeriaUploadPhoto(e) {
   const formData = new FormData();
   formData.append('photo',    file);
   formData.append('title',    document.getElementById('uploadTitle').value);
-  formData.append('category', document.getElementById('uploadCategory').value);
+  const cat = document.getElementById('uploadCategory').value;
+  const subWrap = document.getElementById('uploadSubcategoryWrap');
+  const subVal  = subWrap.style.display !== 'none' ? document.getElementById('uploadSubcategory').value : '';
+  formData.append('category', cat);
+  if (subVal) formData.append('subcategory', subVal);
 
   btn.disabled = true;
   btn.textContent = 'Subiendo…';

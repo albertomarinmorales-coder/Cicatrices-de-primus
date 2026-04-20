@@ -7294,7 +7294,7 @@
         <label class="gmodal-label">Título <span>(opcional)</span></label>
         <input class="gmodal-input" type="text" id="uploadTitle" placeholder="Ej: Batalla en las Ruinas" maxlength="80">
         <label class="gmodal-label">Categoría</label>
-        <select class="gmodal-input" id="uploadCategory">
+        <select class="gmodal-input" id="uploadCategory" onchange="galeriaOnCategoryChange()">
           <option value="general">General</option>
           <option value="razas">Razas</option>
           <option value="clases">Clases</option>
@@ -7302,6 +7302,10 @@
           <option value="mundo">Mundo</option>
           <option value="eventos">Eventos</option>
         </select>
+        <div id="uploadSubcategoryWrap" style="display:none; margin-top:10px;">
+          <label class="gmodal-label" id="uploadSubcategoryLabel">Subtipo</label>
+          <select class="gmodal-input" id="uploadSubcategory"></select>
+        </div>
         <div class="gmodal-error" id="uploadError" style="display:none;"></div>
         <button class="gmodal-submit" type="submit" id="uploadBtn">Subir</button>
       </form>

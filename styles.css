@@ -3449,6 +3449,9 @@ body.modal-active .audio-toggle {
   object-fit: cover;
   transition: transform 0.4s ease;
   display: block;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .galeria-item:hover img {
@@ -3545,6 +3548,7 @@ body.modal-active .audio-toggle {
   justify-content: center;
   gap: 12px;
   padding: 0 0 24px;
+  margin-top: -75px;
   flex-wrap: wrap;
 }
 .galeria-auth-center {
@@ -3750,7 +3754,19 @@ body.modal-active .audio-toggle {
   transition: border-color 0.2s;
 }
 .gmodal-input:focus { outline: none; border-color: var(--gold); }
-select.gmodal-input { cursor: pointer; }
+select.gmodal-input {
+  cursor: pointer;
+  background: var(--gold);
+  color: #0a0804;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  border-color: var(--gold);
+}
+select.gmodal-input option {
+  background: #1a1408;
+  color: var(--white);
+  font-weight: 400;
+}
 .gmodal-dropzone {
   border: 2px dashed var(--border);
   border-radius: 8px;

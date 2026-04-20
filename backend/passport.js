@@ -13,7 +13,7 @@ passport.use(new DiscordStrategy(
   {
     clientID:     process.env.DISCORD_CLIENT_ID,
     clientSecret: process.env.DISCORD_CLIENT_SECRET,
-    callbackURL:  process.env.DISCORD_CALLBACK_URL,
+    callbackURL:  process.env.DISCORD_CALLBACK_URL || 'https://cicatrices-de-primus.onrender.com/auth/discord/callback',
     scope: ['identify']
   },
   (_accessToken, _refreshToken, profile, done) => {

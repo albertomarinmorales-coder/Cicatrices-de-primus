@@ -3923,7 +3923,6 @@ select.gmodal-input option {
   user-select: none;
   isolation: isolate;
   transform: translateZ(0);
-  contain: layout paint;
 }
 
 .galeria-carousel {

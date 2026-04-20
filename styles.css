@@ -2277,19 +2277,17 @@ footer::before {
 .footer-content::before {
   content: '';
   position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: url('images/avatar.png') center/cover no-repeat;
-  border: 1px solid rgba(201, 168, 76, 0.65);
-  box-shadow:
-    0 0 0 2px rgba(8, 7, 5, 0.92),
-    0 0 20px rgba(201, 168, 76, 0.38),
-    0 10px 28px rgba(0, 0, 0, 0.5);
-  opacity: 0.95;
+  left: 0;
+  top: 0;
+  width: 22%;
+  max-width: 220px;
+  min-width: 96px;
+  height: 100%;
+  background: url('images/avatar.png') left center / contain no-repeat;
+  opacity: 0.72;
+  filter: brightness(1.55) contrast(1.2) saturate(1.05)
+    drop-shadow(0 0 16px rgba(201, 168, 76, 0.18));
+  pointer-events: none;
 }
 
 .footer-brand {
@@ -2332,7 +2330,7 @@ footer::before {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 0;
+  max-width: 600px;
   margin: 0 auto 24px;
 }
 
@@ -2343,13 +2341,20 @@ footer::before {
   text-transform: uppercase;
   color: var(--gold);
   cursor: pointer;
-  padding: 4px 18px;
+  padding: 0px 0px;
   transition: color 0.25s ease, text-decoration-color 0.25s ease;
   position: relative;
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 4px;
   text-decoration-thickness: 1.5px;
+  flex: 0 0 25%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.footer-nav span:nth-child(n+5) {
+  flex: 0 0 20%;
 }
 
 .footer-nav span:not(:last-child)::after {
@@ -2392,11 +2397,12 @@ footer::before {
   }
 
   .footer-content::before {
-    width: 72px;
-    height: 72px;
-    left: 4px;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 18%;
+    min-width: 64px;
+    max-width: 96px;
+    background-position: left center;
+    background-size: contain;
+    opacity: 0.18;
   }
 }
 
@@ -3203,7 +3209,8 @@ body.modal-active .audio-toggle {
   flex-wrap: wrap !important;
   justify-content: center !important;
   align-items: center !important;
-  margin: 0 auto 24px !important;
+  max-width: 600px !important;
+ 
 }
 .footer-nav span {
   font-family: 'Cinzel', serif !important;
@@ -3212,9 +3219,15 @@ body.modal-active .audio-toggle {
   text-transform: uppercase !important;
   color: #c9a84c !important;
   cursor: pointer !important;
-  padding: 4px 18px !important;
+  padding: 0px 0px !important;
   position: relative !important;
   transition: color 0.25s ease !important;
+  flex: 0 0 25% !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+.footer-nav span:nth-child(n+5) {
+  flex: 0 0 20% !important;
 }
 .footer-nav span:not(:last-child)::after {
   content: '·';

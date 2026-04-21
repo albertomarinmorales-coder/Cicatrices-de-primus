@@ -2402,7 +2402,7 @@ nav {
 
 [id^="page-oficio-gen-"] .raza-detail-img-wrap img,
 [id^="page-oficio-gen-"] .raza-card-img-wrap img {
-  border: 2px solid var(--gold);
+  border: 1px solid var(--gold);
   border-radius: 0;
   box-sizing: border-box;
 }

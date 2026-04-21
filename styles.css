@@ -1,4 +1,4 @@
-/* â”€â”€â”€ RESET & BASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* â”€â”€â”€ RESET & BASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *,
 *::before,
 *::after {
@@ -151,7 +151,7 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
   }
 }
 
-/* â”€â”€â”€ PAGE SYSTEM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* â”€â”€â”€ PAGE SYSTEM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .page {
   display: none;
   position: relative;
@@ -164,7 +164,7 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
   animation: fadeIn 0.22s ease forwards;
 }
 
-/* â”€â”€â”€ REVEAL ANIMATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* â”€â”€â”€ REVEAL ANIMATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -176,7 +176,7 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
   transform: translateY(0);
 }
 
-/* â”€â”€â”€ METALLIC SHINE EFFECT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* â”€â”€â”€ METALLIC SHINE EFFECT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .shine-effect {
   position: relative;
   overflow: hidden;
@@ -252,7 +252,7 @@ a, span[onclick], button, .bento-item, .lore-card, .raza-card, .raza-variant-car
 
 
 
-/* â”€â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* â”€â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 nav {
   position: fixed;
   top: 0;
@@ -334,7 +334,7 @@ nav {
   transition: 0.3s;
 }
 
-/* â”€â”€â”€ NAV DROPDOWN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* â”€â”€â”€ NAV DROPDOWN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nav-links>li {
   position: relative;
 }
@@ -693,7 +693,7 @@ nav {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
-/* â”€â”€â”€ SECTIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* â”€â”€â”€ SECTIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section {
   padding: 72px 48px;
   max-width: 1180px;
@@ -2257,86 +2257,146 @@ nav {
 }
 
 .raza-intro-row {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 48px;
-  align-items: flex-start;
-  margin: 2.5rem 0;
+  display: flex;
+  align-items: center; /* Centra imagen y texto al eje Y */
+  gap: 2.5rem;
 }
 
-.raza-intro-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-muted);
+/* El contenedor de la imagen ocupa solo lo necesario y está centrado */
+.raza-intro-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
+/* Las 3 imágenes de abajo rellenan su contenedor padre */
 .raza-photos-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin: 2rem 0;
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .raza-photo-item {
-  border: 1px solid var(--border);
-  background: var(--surface);
-  transition: border-color 0.3s, transform 0.3s;
-}
-
-.raza-photo-item:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
-}
-
-.raza-detail-img-placeholder {
-  width: 100%;
-  aspect-ratio: 1/1;
-  background: linear-gradient(160deg, #151210 0%, #1e1a13 60%, #0f0c08 100%);
-  border: 1px solid var(--border);
+  flex: 1 1 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  color: var(--border);
-  position: relative;
-  overflow: hidden;
+  align-items: stretch;
+  justify-content: stretch;
 }
 
-.raza-detail-img {
+.raza-card-img-wrap {
   width: 100%;
-  aspect-ratio: 1/1;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.raza-card-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Ajustes para todas las fichas de profesiones */
+[id^="page-oficio-gen-"] .raza-intro-row {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+  gap: 30px;
+  align-items: start;
+  background: var(--bg);
   border: 1px solid var(--border);
-  filter: saturate(0.8) brightness(0.9);
-  transition: filter 0.3s;
+  padding: 28px 30px;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.4);
 }
 
-.raza-detail-img:hover {
-  filter: saturate(1) brightness(1);
+[id^="page-oficio-gen-"] .raza-intro-img {
+  align-self: stretch;
+  display: flex;
+  align-items: stretch;
 }
 
-.raza-detail-img-placeholder i {
-  font-size: 2rem;
-  opacity: 0.15;
+[id^="page-oficio-gen-"] .raza-photos-row {
+  align-items: stretch;
 }
 
-.raza-detail-img-placeholder span {
-  font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0.2;
+[id^="page-oficio-gen-"] .raza-photo-item {
+  min-height: 240px;
 }
 
-.raza-stat {
-  font-family: 'Cinzel', serif;
-  font-size: 0.85rem;
+[id^="page-oficio-gen-"] .raza-photo-item .raza-card-img-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+/* Enfoque visual alternativo para el texto de profesiones (panel narrativo) */
+[id^="page-oficio-gen-"] .raza-intro-text .detail-text {
+  max-width: none;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  background: linear-gradient(90deg, rgba(201, 168, 76, 0.1) 0%, rgba(201, 168, 76, 0.03) 35%, rgba(201, 168, 76, 0) 100%);
+  box-shadow: inset 0 0 0 1px rgba(201, 168, 76, 0.12);
+}
+
+[id^="page-oficio-gen-"] .raza-intro-text .detail-text p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  opacity: 1;
+  font-size: 1.06rem;
+  line-height: 1.92;
+  letter-spacing: 0.012em;
+  text-wrap: pretty;
+}
+
+[id^="page-oficio-gen-"] .raza-intro-text .detail-text p::first-line {
   color: var(--gold);
-  border-left: 2px solid var(--accent);
-  padding-left: 14px;
-  margin: 1rem 0;
-  background: rgba(176, 16, 16, 0.03);
+}
+
+[id^="page-oficio-gen-"] .raza-intro-text .detail-text p::first-letter {
+  font-family: inherit;
+  font-size: 1em;
+  color: inherit;
+  padding-right: 0;
+}
+
+/* Bordes dorados para TODAS las fotos de profesiones */
+.oficio-card-img {
+  border: none;
+}
+
+[id^="page-oficio-gen-"] .raza-detail-img-wrap img,
+[id^="page-oficio-gen-"] .raza-card-img-wrap img {
+  border: 2px solid var(--gold);
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+[id^="page-oficio-gen-"] .raza-intro-img .raza-detail-img-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+[id^="page-oficio-gen-"] .raza-intro-img .raza-detail-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  [id^="page-oficio-gen-"] .raza-intro-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  [id^="page-oficio-gen-"] .raza-intro-text .detail-text {
+    padding: 1rem 1rem 1rem 1.1rem;
+  }
 }
 
 /* ────────────────────────────────────────────────────────────────────────── */
@@ -2582,38 +2642,33 @@ footer::before {
   font-size: 0.68rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gold);
-  cursor: pointer;
-  padding: 0px 0px;
-  transition: color 0.25s ease, text-decoration-color 0.25s ease;
-  position: relative;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1.5px;
-  flex: 0 0 25%;
-  text-align: center;
-  box-sizing: border-box;
+  color: #c9a84c !important;
+  cursor: pointer !important;
+  padding: 0px 0px !important;
+  position: relative !important;
+  transition: color 0.25s ease !important;
+  flex: 0 0 25% !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
 }
-
 .footer-nav span:nth-child(n+5) {
-  flex: 0 0 20%;
+  flex: 0 0 20% !important;
 }
-
 .footer-nav span:not(:last-child)::after {
   content: '·';
   position: absolute;
   right: -2px;
-  color: rgba(201, 168, 76, 0.3);
+  color: rgba(201, 168, 76, 0.35);
   font-size: 1rem;
   line-height: 1;
   top: 50%;
   transform: translateY(-50%);
 }
-
 .footer-nav span:hover {
-  color: #c0392b;
-  text-decoration-color: #c0392b;
+  color: #c0392b !important;
+  text-decoration: underline !important;
+  text-decoration-color: #c0392b !important;
+  text-underline-offset: 4px !important;
 }
 
 .footer-bottom {
@@ -3936,7 +3991,6 @@ body.modal-active .audio-toggle {
   min-width: 130px;
   z-index: 999;
   box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-  overflow: hidden;
 }
 .galeria-avatar-dropdown.open { display: block; }
 .galeria-avatar-menu-item {

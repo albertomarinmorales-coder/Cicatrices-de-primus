@@ -1213,6 +1213,18 @@ nav {
   background: linear-gradient(to bottom, transparent, var(--bg));
 }
 
+#page-deidades .detail-hero-overlay {
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.94) 0%,
+      rgba(0, 0, 0, 0.8) 35%,
+      rgba(0, 0, 0, 0.42) 50%,
+      rgba(0, 0, 0, 0) 68%);
+}
+
+#page-deidades .detail-hero-bg {
+  background-position: center 12%;
+}
+
 .detail-hero-content {
   position: relative;
   z-index: 2;

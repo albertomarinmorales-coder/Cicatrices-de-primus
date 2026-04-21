@@ -688,67 +688,67 @@ const CIUDADES_DATA = {
   'aldea-akanthal': {
     nombre: "Aldea Akan'thal",
     subtitulo: "El Refugio de los Olvidados",
-    desc: "Descripción pendiente.",
+    desc: "Primer asentamiento de los Nhek’thal en Primus, provenientes de la tierra de los mil ecos. Su conocimiento de la agricultura hace estas tierras propicias para el cultivo de todo tipo de alimentos.",
     fotos: ["sources/Ciudades/Aldea Akan'thal/1.png", "sources/Ciudades/Aldea Akan'thal/2.png", "sources/Ciudades/Aldea Akan'thal/3.png"]
   },
   'ashtorin': {
     nombre: "Ash'Torin",
     subtitulo: "El Enclave del Silencio Ardiente",
-    desc: "Descripción pendiente.",
+    desc: "Ciudad fundada por la familia Thalcharion y fiel a la corona de Cyprian. Puerto donde reside la fuerza naval del reino. Allí se ha fundado el nuevo Gremio de aventuras. El culto a Drashet es observado entre sus habitantes.",
     fotos: ["sources/Ciudades/Ash'Torin/1.png", "sources/Ciudades/Ash'Torin/2.png", "sources/Ciudades/Ash'Torin/3.png"]
   },
   'ashbourne': {
     nombre: "Ashbourne",
     subtitulo: "La Ciudad de las Cenizas",
-    desc: "Descripción pendiente.",
+    desc: "Actual sede de la Orden de la Luz y donde se encuentra su monasterio. Pueblo portuario que conecta el norte con el resto del continente. Centro de estudio y combate de las corrupciones que asolan el reino.",
     fotos: ["sources/Ciudades/Ashbourne/1.png", "sources/Ciudades/Ashbourne/2.png", "sources/Ciudades/Ashbourne/3.png"]
   },
   'azimra': {
     nombre: "Azimra",
     subtitulo: "El Nuevo Comienzo",
-    desc: "Descripción pendiente.",
+    desc: "Lo que antiguamente era un poblado, hoy en día se erige como la capital del reino de Cyprian, desde donde actualmente intenta subsanar el conflicto que asola el continente. Es el centro comercial y político del reino, donde multitud de razas y culturas se entremezclan. El dios patrón de la ciudad es Drashet, ya que allí se encuentra la Pirámide, considerada su templo. También es el centro de estudio del thae en La Torre del Último Juramento.",
     fotos: ["sources/Ciudades/Azimra/1.png", "sources/Ciudades/Azimra/2.png", "sources/Ciudades/Azimra/3.png"]
   },
   'harrowfield': {
     nombre: "Harrowfield",
     subtitulo: "Los Campos que Nunca Descansan",
-    desc: "Descripción pendiente.",
+    desc: "Ciudad maldita al sur de la antigua capital. En la actualidad está gobernada por la familia Valpyre, que se ha alzado contra la corona, regando el caos y el terror y aliándose con criaturas como orcos y goblins, que recorren sus calles. Allí se encuentra en funcionamiento el mercado de esclavos, con subastas ocasionales y beneficios del comercio de sangre.",
     fotos: ["sources/Ciudades/Harrowfield/1.png", "sources/Ciudades/Harrowfield/2.png", "sources/Ciudades/Harrowfield/3.png"]
   },
   'jorvik': {
     nombre: "Jörvik",
     subtitulo: "La Fortaleza del Norte",
-    desc: "Descripción pendiente.",
+    desc: "Antiguamente un pueblo que custodiaba el pasaje al norte, hoy día Jörvik es el punto de consolidación de la Rebelión, desde donde el Jarl Bjorn lidera su lucha en contra de la corona.",
     fotos: ["sources/Ciudades/Jörvik/1.png", "sources/Ciudades/Jörvik/2.png", "sources/Ciudades/Jörvik/3.png"]
   },
   'murun': {
     nombre: "Murun",
     subtitulo: "La Ciudad del Este Silencioso",
-    desc: "Descripción pendiente.",
+    desc: "Aldea dentro de las tierras de la corona. Habitada por aquellos que no encontraron lugar y resguardo dentro de las murallas de Azimra. Su población es de dudosa reputación y se escuchan rumores de habitantes que han desaparecido dentro de la pirámide.",
     fotos: ["sources/Ciudades/Murun/1.png", "sources/Ciudades/Murun/2.png", "sources/Ciudades/Murun/3.png"]
   },
   'ruinas-dolgaran': {
     nombre: "Ruinas Dol-Garan",
     subtitulo: "Lo Que Quedó Tras la Caída",
-    desc: "Descripción pendiente.",
+    desc: "Antiguo bastión de los enanos. Ciudad que estuvo atrapada en el tiempo por la influencia del fragmento de Kheos. Fue liberada del poder del fragmento tras ser recuperado por valientes guerreros. En la actualidad se encuentra abandonada y en ruinas.",
     fotos: ["sources/Ciudades/Ruinas Dol-Garan/1.png", "sources/Ciudades/Ruinas Dol-Garan/2.png", "sources/Ciudades/Ruinas Dol-Garan/3.png"]
   },
   'ruinas-ravensvik': {
     nombre: "Ruinas Ravensvik",
     subtitulo: "La Última Frontera Olvidada",
-    desc: "Descripción pendiente.",
+    desc: "Antiguo asiento de la casa Greycliff y bastión del norte. Destruida después de la rebelión de sus líderes contra la corona. En la actualidad se encuentra en ruinas.",
     fotos: ["sources/Ciudades/Ruinas Ravensvik/1.png", "sources/Ciudades/Ruinas Ravensvik/2.png", "sources/Ciudades/Ruinas Ravensvik/3.png"]
   },
   'raventree-hill': {
     nombre: "Ruinas de Raventree Hall",
     subtitulo: "La Capital que el Mundo Olvidó",
-    desc: "Descripción pendiente.",
+    desc: "Antigua capital del reino de Jon Blackwood. En la actualidad se encuentra en ruinas y parece estar ocupada por fuerzas oscuras. Catalogada como Tierra Santa por la Orden de la Luz y localización de la antigua Catedral de Thronus.",
     fotos: ["sources/Ciudades/Ruinas de Raventree Hall/1.png", "sources/Ciudades/Ruinas de Raventree Hall/2.png", "sources/Ciudades/Ruinas de Raventree Hall/3.png"]
   },
   'skalford': {
     nombre: "Skalford",
     subtitulo: "Donde la Justicia Tiene Precio",
-    desc: "Descripción pendiente.",
+    desc: "Precaria aldea aferrada a un islote en el río congelado del profundo Norte. Refugio de los antiguos habitantes de la ciudad de Ravensvik. Asechada constantemente por los peligros del norte, sus pobladores se niegan a abandonar el territorio.",
     fotos: ["sources/Ciudades/Skalford/1.png", "sources/Ciudades/Skalford/2.png", "sources/Ciudades/Skalford/3.png"]
   }
 };
@@ -760,10 +760,13 @@ function openCiudadModal(id) {
   content.innerHTML = `
     <div class="ciudad-modal-layout">
       <div class="ciudad-modal-copy">
-        <div class="ciudad-modal-era-num">${data.nombre}</div>
-        <h2>${data.nombre}</h2>
-        <p class="ciudad-modal-subtitle">${data.subtitulo}</p>
-        <p class="ciudad-modal-desc">${data.desc}</p>
+        <div class="ciudad-modal-copy-bg" style="background-image: url('${data.fotos[0]}');"></div>
+        <div class="ciudad-modal-copy-content">
+          <div class="ciudad-modal-era-num">${data.nombre}</div>
+          <h2>${data.nombre}</h2>
+          <p class="ciudad-modal-subtitle">${data.subtitulo}</p>
+          <p class="ciudad-modal-desc">${data.desc}</p>
+        </div>
       </div>
       <div class="ciudad-modal-fotos">
         <img src="${data.fotos[0]}" alt="${data.nombre}" loading="lazy" />

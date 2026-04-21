@@ -31,6 +31,7 @@
 
 html {
   scroll-behavior: smooth;
+  user-select: none;
 }
 
 body {
@@ -1927,30 +1928,57 @@ nav {
   border: 1px solid var(--border);
   width: min(1160px, 100%);
   max-width: 1160px;
+  max-height: calc(100vh - 28px);
   overflow: visible;
   position: relative;
-  padding: 36px 40px 32px;
+  padding: 30px 36px 26px;
   animation: tierIn 0.25s ease forwards;
 }
 
 .ciudad-modal-scroll {
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
-  max-height: calc(100vh - 116px);
+  max-height: calc(100vh - 106px);
+  padding-bottom: 6px;
+  box-sizing: border-box;
 }
 
 .ciudad-modal-layout {
   display: grid;
   grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
   gap: 30px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .ciudad-modal-copy {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100%;
+  border: 1px solid rgba(201, 168, 76, 0.22);
+}
+
+.ciudad-modal-copy-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;   
+  filter: saturate(0.6) brightness(1);
+  transform: scale(1.04);
+}
+
+.ciudad-modal-copy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 7, 5, 0.68) 0%, rgba(8, 7, 5, 0.84) 100%);
+}
+
+.ciudad-modal-copy-content {
+  position: relative;
+  z-index: 1;
+  padding: 18px 18px 20px;
 }
 
 .ciudad-modal-close {
@@ -2001,19 +2029,20 @@ nav {
   font-family: 'EB Garamond', serif;
   font-size: 1.05rem;
   font-style: italic;
-  color: var(--text-muted);
+  color: var(--gold);
   margin-bottom: 18px;
 }
 
 .ciudad-modal-fotos {
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-rows: 1fr 1fr;
   gap: 8px;
+  height: 100%;
 }
 
 .ciudad-modal-fotos img:first-child {
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 100%;
   object-fit: cover;
   border: 1px solid var(--border);
   filter: saturate(0.72) brightness(0.85);
@@ -2030,7 +2059,7 @@ nav {
   flex: 1 1 0;
   min-width: 0;
   width: 0;
-  aspect-ratio: 4/3;
+  height: 100%;
   object-fit: cover;
   border: 1px solid var(--border);
   filter: saturate(0.72) brightness(0.85);
@@ -2041,9 +2070,12 @@ nav {
 .ciudad-modal-desc {
   font-family: 'EB Garamond', serif;
   font-size: 1rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.78);
   line-height: 1.8;
   margin: 0;
+  padding: 14px 0;
+  border-top: 1px solid rgba(201, 168, 76, 0.28);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.28);
 }
 
 @media (max-width: 900px) {

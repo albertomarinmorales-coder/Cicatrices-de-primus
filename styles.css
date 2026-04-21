@@ -2625,6 +2625,22 @@ footer::before {
   pointer-events: none;
 }
 
+/* Resplandor dorado detrás del cuervo */
+.footer-content::after {
+  content: '';
+  position: absolute;
+  left: -2%;
+  top: 0;
+  width: 26%;
+  min-width: 98px;
+  max-width: 168px;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(201, 168, 76, 0.26) 0%, rgba(201, 168, 76, 0.11) 36%, rgba(201, 168, 76, 0) 74%);
+  filter: blur(8px);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .footer-brand {
   margin-bottom: 20px;
   display: flex;

@@ -585,6 +585,10 @@ async function galeriaLoadPhotos() {
         </div>
         ${canDelete ? `<button class="galeria-item-delete" onclick="galeriaDeletePhoto(${photo.id}, this)" title="Borrar foto"><i class="fa-solid fa-trash"></i></button>` : ''}
       `;
+      item.addEventListener('click', e => {
+        if (e.target.closest('.galeria-item-delete')) return;
+        openLightbox(photo.url, photo.title || '');
+      });
       grid.insertBefore(item, empty);
     });
 
@@ -775,8 +779,25 @@ function closeCiudadModal() {
 
 // Cerrar con Escape
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeCiudadModal();
+  if (e.key === 'Escape') {
+    closeCiudadModal();
+    closeLightbox();
+  }
 });
+
+// ── Lightbox galería ──────────────────────────────────────────────
+function openLightbox(url, title) {
+  document.getElementById('lightboxImg').src = url;
+  document.getElementById('lightboxImg').alt = title;
+  document.getElementById('lightboxCaption').textContent = title;
+  document.getElementById('lightboxOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightboxOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 // ── GALERÍA CARRUSEL ─────────────────────────────────────────────
 (function () {

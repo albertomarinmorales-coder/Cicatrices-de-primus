@@ -7388,6 +7388,13 @@
     </div>
   </div>
 
+  <!-- Lightbox galería: hijo directo de body -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="event.stopPropagation(); closeLightbox()">&#x2715;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" onclick="event.stopPropagation()" />
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+
 </body>
 
 </html>

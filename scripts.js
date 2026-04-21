@@ -739,6 +739,12 @@ const CIUDADES_DATA = {
     desc: "Descripción pendiente.",
     fotos: ["sources/Ciudades/Ruinas Ravensvik/1.png", "sources/Ciudades/Ruinas Ravensvik/2.png", "sources/Ciudades/Ruinas Ravensvik/3.png"]
   },
+  'raventree-hill': {
+    nombre: "Ruinas de Raventree Hall",
+    subtitulo: "La Capital que el Mundo Olvidó",
+    desc: "Descripción pendiente.",
+    fotos: ["sources/Ciudades/Ruinas de Raventree Hall/1.png", "sources/Ciudades/Ruinas de Raventree Hall/2.png", "sources/Ciudades/Ruinas de Raventree Hall/3.png"]
+  },
   'skalford': {
     nombre: "Skalford",
     subtitulo: "Donde la Justicia Tiene Precio",

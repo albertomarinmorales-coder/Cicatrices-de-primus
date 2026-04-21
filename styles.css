@@ -2197,6 +2197,11 @@ nav {
 
 .deity-info {
   grid-area: info;
+  text-align: left;
+}
+
+.deidades-list .deity-card:nth-child(even) .deity-info {
+  text-align: right;
 }
 
 .deity-card img {
@@ -2224,14 +2229,22 @@ nav {
 
 .deity-quote {
   font-style: italic;
-  color: transparent;
+  color: var(--deity-color);
   font-size: 1rem;
   margin-bottom: 16px;
   border-left: 2px solid var(--deity-color);
   padding-left: 14px;
-  transition: color 8s ease;
+  transition: color 0.3s ease;
   min-height: 1.4em;
-  user-select: none;
+  user-select: text;
+  text-align: justify;
+}
+
+.deidades-list .deity-card:nth-child(even) .deity-quote {
+  border-left: none;
+  border-right: 2px solid var(--deity-color);
+  padding-left: 0;
+  padding-right: 14px;
 }
 
 .deity-domains {
@@ -2263,6 +2276,7 @@ nav {
   font-size: 0.98rem;
   color: var(--text-muted);
   line-height: 1.85;
+  text-align: justify;
 }
 
 .deity-drashet {

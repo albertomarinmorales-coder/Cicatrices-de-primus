@@ -739,11 +739,11 @@ const CIUDADES_DATA = {
     desc: "Descripción pendiente.",
     fotos: ["sources/Ciudades/Ruinas Ravensvik/1.png", "sources/Ciudades/Ruinas Ravensvik/2.png", "sources/Ciudades/Ruinas Ravensvik/3.png"]
   },
-  'skafold': {
-    nombre: "Skafold",
+  'skalford': {
+    nombre: "Skalford",
     subtitulo: "Donde la Justicia Tiene Precio",
     desc: "Descripción pendiente.",
-    fotos: ["sources/Ciudades/Skafold/1.png", "sources/Ciudades/Skafold/2.png", "sources/Ciudades/Skafold/3.png"]
+    fotos: ["sources/Ciudades/Skalford/1.png", "sources/Ciudades/Skalford/2.png", "sources/Ciudades/Skalford/3.png"]
   }
 };
 

@@ -1,4 +1,4 @@
-// Prevent browser from restoring scroll position on refresh
+﻿// Prevent browser from restoring scroll position on refresh
 history.scrollRestoration = 'manual';
 
 const pages = ['inicio', 'lore', 'razas', 'profesiones', 'facciones', 'gremios', 'gremio-aventuras', 'normativa', 'historia', 'deidades', 'norm-general', 'norm-concepto', 'norm-ic', 'norm-construccion', 'norm-heridas', 'norm-combate', 'norm-esclavitud', 'norm-robo', 'norm-mazmorra', 'norm-housing', 'clases', 'raza-gen-elfos', 'raza-gen-enanos', 'raza-gen-humanos', 'raza-gen-malvakari', 'raza-gen-mestizos', 'raza-gen-nhek-thal', 'raza-gen-ossalyth', 'raza-gen-rosaveld', 'raza-gen-shazari', 'raza-gen-thae-tir', 'oficio-gen-alquimista', 'oficio-gen-artifices-del-velo-y-del-brillo', 'oficio-gen-cazador', 'oficio-gen-forjador', 'oficio-gen-galeno', 'oficio-gen-granjero', 'oficio-gen-guardia', 'oficio-gen-minero', 'oficio-gen-seeker', 'oficio-gen-tabernero', 'clase-ciudadano', 'clase-vhark-hul', 'clase-argent-praetor', 'clase-dualhar', 'clase-luminari-vox', 'clase-noc-thar', 'clase-stormheilm', 'clase-velum-caedis', 'clase-velum-cantoris', 'clase-zereth-mor', 'clase-magharyn', 'clase-desconocido', 'galeria'];
@@ -679,16 +679,120 @@ document.addEventListener('DOMContentLoaded', () => {
   tryInit();
 });
 
+// ── MAPA INTERACTIVO DE CIUDADES ─────────────────────────────────
+const CIUDADES_DATA = {
+  'aldea-akanthal': {
+    nombre: "Aldea Akan'thal",
+    subtitulo: "El Refugio de los Olvidados",
+    desc: "Descripción pendiente.",
+    fotos: ["sources/Ciudades/Aldea Akan'thal/1.png", "sources/Ciudades/Aldea Akan'thal/2.png", "sources/Ciudades/Aldea Akan'thal/3.png"]
+  },
+  'ashtorin': {
+    nombre: "Ash'Torin",
+    subtitulo: "El Enclave del Silencio Ardiente",
+    desc: "Descripción pendiente.",
+    fotos: ["sources/Ciudades/Ash'Torin/1.png", "sources/Ciudades/Ash'Torin/2.png", "sources/Ciudades/Ash'Torin/3.png"]
+  },
+  'ashbourne': {
+    nombre: "Ashbourne",
+    subtitulo: "La Ciudad de las Cenizas",
+    desc: "Descripción pendiente.",
+    fotos: ["sources/Ciudades/Ashbourne/1.png", "sources/Ciudades/Ashbourne/2.png", "sources/Ciudades/Ashbourne/3.png"]
+  },
+  'azimra': {
+    nombre: "Azimra",
+    subtitulo: "El Nuevo Comienzo",
+    desc: "Descripción pendiente.",
+    fotos: ["sources/Ciudades/Azimra/1.png", "sources/Ciudades/Azimra/2.png", "sources/Ciudades/Azimra/3.png"]
+  },
+  'harrowfield': {
+    nombre: "Harrowfield",
+    subtitulo: "Los Campos que Nunca Descansan",
+    desc: "Descripción pendiente.",
+    fotos: ["sources/Ciudades/Harrowfield/1.png", "sources/Ciudades/Harrowfield/2.png", "sources/Ciudades/Harrowfield/3.png"]
+  },
+  'jorvik': {
+    nombre: "Jörvik",
+    subtitulo: "La Fortaleza del Norte",
+    desc: "Descripción pendiente.",
+    fotos: ["sources/Ciudades/Jörvik/1.png", "sources/Ciudades/Jörvik/2.png", "sources/Ciudades/Jörvik/3.png"]
+  },
+  'murun': {
+    nombre: "Murun",
+    subtitulo: "La Ciudad del Este Silencioso",
+    desc: "Descripción pendiente.",
+    fotos: ["sources/Ciudades/Murun/1.png", "sources/Ciudades/Murun/2.png", "sources/Ciudades/Murun/3.png"]
+  },
+  'ruinas-dolgaran': {
+    nombre: "Ruinas Dol-Garan",
+    subtitulo: "Lo Que Quedó Tras la Caída",
+    desc: "Descripción pendiente.",
+    fotos: ["sources/Ciudades/Ruinas Dol-Garan/1.png", "sources/Ciudades/Ruinas Dol-Garan/2.png", "sources/Ciudades/Ruinas Dol-Garan/3.png"]
+  },
+  'ruinas-ravensvik': {
+    nombre: "Ruinas Ravensvik",
+    subtitulo: "La Última Frontera Olvidada",
+    desc: "Descripción pendiente.",
+    fotos: ["sources/Ciudades/Ruinas Ravensvik/1.png", "sources/Ciudades/Ruinas Ravensvik/2.png", "sources/Ciudades/Ruinas Ravensvik/3.png"]
+  },
+  'skafold': {
+    nombre: "Skafold",
+    subtitulo: "Donde la Justicia Tiene Precio",
+    desc: "Descripción pendiente.",
+    fotos: ["sources/Ciudades/Skafold/1.png", "sources/Ciudades/Skafold/2.png", "sources/Ciudades/Skafold/3.png"]
+  }
+};
+
+function openCiudadModal(id) {
+  const data = CIUDADES_DATA[id];
+  if (!data) return;
+  const content = document.getElementById('ciudadModalContent');
+  content.innerHTML = `
+    <div class="ciudad-modal-layout">
+      <div class="ciudad-modal-copy">
+        <div class="ciudad-modal-era-num">${data.nombre}</div>
+        <h2>${data.nombre}</h2>
+        <p class="ciudad-modal-subtitle">${data.subtitulo}</p>
+        <p class="ciudad-modal-desc">${data.desc}</p>
+      </div>
+      <div class="ciudad-modal-fotos">
+        <img src="${data.fotos[0]}" alt="${data.nombre}" loading="lazy" />
+        <div class="ciudad-modal-fotos-row">
+          <img src="${data.fotos[1]}" alt="${data.nombre}" loading="lazy" />
+          <img src="${data.fotos[2]}" alt="${data.nombre}" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  `;
+  document.getElementById('ciudadModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCiudadModal() {
+  document.getElementById('ciudadModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Cerrar con Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeCiudadModal();
+});
+
 // ── GALERÍA CARRUSEL ─────────────────────────────────────────────
 (function () {
   let _carIdx = 0;
   let _carTimer = null;
   let _locked = false;
+  let _transitionHandler = null;
   const INTERVAL = 4500;
 
   function init() {
     const wrap = document.getElementById('galeriaCarousel');
     if (!wrap) return;
+
+    // Reset estado para visitas repetidas
+    clearInterval(_carTimer);
+    _locked = false;
 
     // Eliminar clones previos
     wrap.querySelectorAll('.galeria-slide-clone').forEach(c => c.remove());
@@ -733,7 +837,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateDots() {
-      const real = _carIdx - 1; // 0-based real index
+      const real = _carIdx - 1;
       dotsWrap.querySelectorAll('.galeria-dot').forEach((d, i) =>
         d.classList.toggle('active', i === real));
     }
@@ -747,7 +851,10 @@ document.addEventListener('DOMContentLoaded', () => {
       resetTimer();
     }
 
-    wrap.addEventListener('transitionend', () => {
+    // Eliminar listener anterior antes de añadir el nuevo
+    if (_transitionHandler) wrap.removeEventListener('transitionend', _transitionHandler);
+    _transitionHandler = (e) => {
+      if (e.target !== wrap || e.propertyName !== 'transform') return;
       if (_carIdx === 0) {
         _carIdx = total;
         requestAnimationFrame(() => setPos(false));
@@ -757,7 +864,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       updateDots();
       _locked = false;
-    });
+    };
+    wrap.addEventListener('transitionend', _transitionHandler);
 
     function resetTimer() {
       clearInterval(_carTimer);
@@ -775,9 +883,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const page = document.getElementById('page-galeria');
       const isActive = page && page.classList.contains('active');
       if (isActive && !_wasActive) { _wasActive = true; init(); }
-      if (!isActive) _wasActive = false;
+      if (!isActive) { _wasActive = false; clearInterval(_carTimer); }
     });
-    observer.observe(document.body, { subtree: true, attributeFilter: ['class'] });
+    observer.observe(document.getElementById('page-galeria'), { attributes: true, attributeFilter: ['class'] });
     const page = document.getElementById('page-galeria');
     if (page && page.classList.contains('active')) init();
   });

@@ -1061,7 +1061,7 @@ nav {
 }
 
 .oficio-card {
-  background: var(--surface);
+  background: #000;
   border: 1px solid var(--border);
   overflow: hidden;
   transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
@@ -1084,9 +1084,7 @@ nav {
   flex: 1 1 auto;
   min-height: 0;
   padding: 12px 12px 0;
-  background:
-    radial-gradient(circle at center, rgba(201, 168, 76, 0.08), transparent 58%),
-    #050505;
+
 }
 
 .oficio-card-img {
@@ -1814,51 +1812,253 @@ nav {
   }
 }
 
-/* Ciudad cards */
-.ciudad-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: 40px;
-}
-
-.ciudad-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  overflow: hidden;
-}
-
-.ciudad-card-img {
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  filter: saturate(0.6) brightness(0.7);
-}
-
-.ciudad-card-body {
-  padding: 24px;
-}
-
-.ciudad-card-body h3 {
-  font-family: 'Cinzel', serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--gold);
-  margin-bottom: 4px;
-}
-
-.ciudad-card-body .ciudad-tag {
-  font-size: 0.75rem;
-  color: var(--accent);
-  font-style: italic;
-  margin-bottom: 12px;
+/* ── MAPA INTERACTIVO DE CIUDADES ───────────────────────────── */
+.mapa-wrap {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
   display: block;
 }
 
-.ciudad-card-body p {
-  font-size: 0.9rem;
+.mapa-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: saturate(0.8) brightness(0.85);
+  border: 1px solid var(--border);
+}
+
+/* Pin */
+.ciudad-pin {
+  position: absolute;
+  left: var(--px);
+  top: var(--py);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.ciudad-pin-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: transparent;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ciudad-pin:hover .ciudad-pin-dot {
+  transform: scale(1.5);
+  box-shadow: 0 0 16px rgba(201,168,76,0.9);
+}
+
+/* Tooltip mini */
+.ciudad-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10,8,5,0.95);
+  border: 1px solid var(--gold);
+  padding: 8px 14px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 140px;
+  text-align: center;
+}
+
+.ciudad-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--gold);
+}
+
+.ciudad-tooltip strong {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+}
+
+.ciudad-tooltip span {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.72rem;
   color: var(--text-muted);
-  line-height: 1.75;
+  font-style: italic;
+}
+
+.ciudad-pin:hover .ciudad-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal grande */
+.ciudad-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+.ciudad-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ciudad-modal {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  width: min(1160px, 100%);
+  max-width: 1160px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  position: relative;
+  padding: 36px 40px 32px;
+  animation: tierIn 0.25s ease forwards;
+}
+
+.ciudad-modal-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+  gap: 30px;
+  align-items: start;
+}
+
+.ciudad-modal-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.ciudad-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.ciudad-modal-close:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.ciudad-modal-era-num {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-block;
+  border: 1px solid var(--accent);
+  padding: 4px 14px;
+  margin-bottom: 14px;
+}
+
+.ciudad-modal h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.ciudad-modal-subtitle {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.ciudad-modal-fotos {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 8px;
+}
+
+.ciudad-modal-fotos img:first-child {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  filter: saturate(0.72) brightness(0.85);
+  box-shadow: 0 0 14px rgba(201,168,76,0.15);
+  display: block;
+}
+
+.ciudad-modal-fotos-row {
+  display: flex;
+  gap: 8px;
+}
+
+.ciudad-modal-fotos-row img {
+  flex: 1 1 0;
+  min-width: 0;
+  width: 0;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  filter: saturate(0.72) brightness(0.85);
+  box-shadow: 0 0 14px rgba(201,168,76,0.15);
+  display: block;
+}
+
+.ciudad-modal-desc {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .ciudad-modal-overlay {
+    padding: 16px;
+  }
+
+  .ciudad-modal {
+    padding: 30px 20px 24px;
+    max-height: calc(100vh - 32px);
+  }
+
+  .ciudad-modal-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ciudad-modal {
+    padding: 32px 20px 28px;
+  }
 }
 
 /* Deidades — alternating two-column layout */

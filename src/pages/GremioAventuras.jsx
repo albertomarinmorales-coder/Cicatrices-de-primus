@@ -17,7 +17,7 @@ export default function GremioAventuras() {
       </div>
 
       <div className="detail-body">
-        <span className="back-btn" onClick={() => navigate('/gremios')} style={{ cursor: 'pointer' }}>Volver a Gremios</span>
+        <span className="back-btn" onClick={() => navigate('/gremios')} style={{ cursor: 'pointer' }}>&#8592; Volver a Gremios</span>
 
         <div className="detail-text" style={{ marginTop: '2rem' }}>
           <p style={{ fontStyle: 'italic', fontSize: '1.2rem', borderLeft: '4px solid var(--gold)', paddingLeft: '1rem', color: 'var(--gold)', marginBottom: '2rem' }}>

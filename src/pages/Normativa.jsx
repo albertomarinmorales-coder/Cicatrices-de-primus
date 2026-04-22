@@ -6,7 +6,7 @@ const NORM_ITEMS = [
   { path: '/norm-concepto', icon: 'fa-solid fa-masks-theater', label: 'Concepto de Rol', className: 'norm-item norm-tall' },
   { path: '/norm-ic', icon: 'fa-solid fa-list-check', label: 'Normativa IC', className: 'norm-item' },
   { path: '/norm-construccion', icon: 'fa-solid fa-hammer', label: 'Construcción', className: 'norm-item' },
-  { path: '/norm-combate', icon: null, label: 'Sistema de Combate', className: 'norm-item', customIcon: '?' },
+  { path: '/norm-combate', icon: 'fa-solid fa-khanda', label: 'Sistema de Combate', className: 'norm-item' },
   { path: '/norm-heridas', icon: 'fa-solid fa-heart-pulse', label: 'Heridas', className: 'norm-item' },
   { path: '/norm-esclavitud', icon: 'fa-solid fa-link-slash', label: 'Sistemas de Esclavitud', className: 'norm-item' },
   { path: '/norm-robo', icon: 'fa-solid fa-user-secret', label: 'Sistemas de Robo', className: 'norm-item' },

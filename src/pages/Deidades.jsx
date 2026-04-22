@@ -169,7 +169,7 @@ export default function Deidades() {
       </div>
 
       <div className="detail-body">
-        <span className="back-btn" onClick={() => navigate('/lore')} style={{ cursor: 'pointer' }}>Volver al Lore</span>
+        <span className="back-btn" onClick={() => navigate('/lore')} style={{ cursor: 'pointer' }}>&#8592; Volver al Lore</span>
 
         <div className="deidades-list">
           {DEIDADES.map((d) => (

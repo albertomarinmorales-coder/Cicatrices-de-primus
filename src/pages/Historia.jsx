@@ -317,7 +317,7 @@ export default function Historia() {
   return (
     <div className="page active">
       <div className="detail-hero">
-        <div className="detail-hero-bg" style={{ backgroundImage: "url('/sources/Mapa.png')", backgroundPosition: 'center center' }} />
+        <div className="detail-hero-bg" style={{ backgroundImage: "url('/sources/938f05_156a74c1aa9a4b06b6a5da69a955e632~mv2.png')", backgroundPosition: 'center center' }} />
         <div className="detail-hero-overlay" />
         <div className="detail-hero-content">
           <div className="breadcrumb" onClick={() => navigate('/lore')} style={{ cursor: 'pointer' }}>
@@ -329,7 +329,7 @@ export default function Historia() {
       </div>
 
       <div className="detail-body">
-        <span className="back-btn" onClick={() => navigate('/lore')} style={{ cursor: 'pointer' }}>Volver al Lore</span>
+        <span className="back-btn" onClick={() => navigate('/lore')} style={{ cursor: 'pointer' }}>&#8592; Volver al Lore</span>
 
         <div className="lore-tabs">
           {tabs.map((t) => (

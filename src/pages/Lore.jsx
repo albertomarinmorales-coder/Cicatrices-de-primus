@@ -1,4 +1,4 @@
-Ôªøimport { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 
 export default function Lore() {
@@ -9,7 +9,7 @@ export default function Lore() {
         <div className="page-header-bg" style={{ backgroundImage: "url('/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png')" }} />
         <div className="page-header-overlay" />
         <div className="page-header-content">
-          <h1>Historia y Geograf√≠a</h1>
+          <h1>Historia y GeografÌa</h1>
           <p>El continente de Primus</p>
         </div>
       </div>
@@ -21,24 +21,24 @@ export default function Lore() {
         <div className="lore-grid">
           <div className="lore-card">
             <div className="lore-card-img-wrap">
-              <img className="lore-card-img" src="/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png"
-                alt="Historia y Geograf√≠a" loading="lazy" decoding="async" />
+              <img className="lore-card-img" src="/sources/Mapa.png"
+                alt="Historia y GeografÌa" loading="lazy" decoding="async" />
             </div>
             <div className="lore-card-body">
-              <h3>Historia y Geograf√≠a</h3>
+              <h3>Historia y GeografÌa</h3>
               <p>
                 El continente de Primus es una tierra ancient forjada en conflictos
                 interminables. Sus terrenos vastos albergan civilizaciones olvidadas,
-                ruinas de guerras pasadas y una geograf√≠a que refleja las cicatrices
+                ruinas de guerras pasadas y una geografÌa que refleja las cicatrices
                 del tiempo.
               </p>
-              <span onClick={() => navigate('/historia')} className="btn-ghost" style={{ cursor: 'pointer' }}>Ver m√°s</span>
+              <span onClick={() => navigate('/historia')} className="btn-ghost" style={{ cursor: 'pointer' }}>Ver m·s</span>
             </div>
           </div>
 
           <div className="lore-card">
             <div className="lore-card-img-wrap">
-              <img className="lore-card-img" src="/images/938f05_21021a0aa69c4a3d8b01cf06a38b12c5~mv2.png" alt="Deidades"
+              <img className="lore-card-img" src="/sources/Deidades Nuevas/Deidades-banner.jpg" alt="Deidades"
                 loading="lazy" decoding="async" />
             </div>
             <div className="lore-card-body">
@@ -48,7 +48,7 @@ export default function Lore() {
                 cada aspecto de la vida. Sus cultos, templos y misterios siguen
                 dando forma a los destinos de mortales e inmortales por igual.
               </p>
-              <span onClick={() => navigate('/deidades')} className="btn-ghost" style={{ cursor: 'pointer' }}>Leer m√°s</span>
+              <span onClick={() => navigate('/deidades')} className="btn-ghost" style={{ cursor: 'pointer' }}>Leer m·s</span>
             </div>
           </div>
         </div>

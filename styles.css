@@ -111,7 +111,7 @@ button,
   filter: blur(1px);
   pointer-events: none;
   box-shadow: 0 0 10px var(--theme-c3);
-  transition: background 3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .particle:nth-child(3n+1) {

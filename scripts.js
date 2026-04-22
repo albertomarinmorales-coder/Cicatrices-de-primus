@@ -298,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initCardGlow();
   initTooltips();
+  initDeidadesParticlesSync();
   injectFooterFaccionesLink();
   startAuroraEffect();
   handleRouting(); // Cargar la página correcta según la URL
@@ -335,7 +336,7 @@ function injectFooterFaccionesLink() {
 function startAuroraEffect() {
   setInterval(() => {
     const theme = themeMap[activeTheme] || themeMap['inicio'];
-    const p = theme.palette;
+    const p = (_auroraLock && _auroraOverridePalette) ? _auroraOverridePalette : theme.palette;
     const root = document.documentElement;
 
     // Pick two random colors from the current palette for variety
@@ -367,6 +368,83 @@ function initTooltips() {
       tooltip.style.opacity = '0';
     });
   });
+}
+
+// ── Deidades → sincronizar partículas con deidad centrada ────────────────
+let _auroraLock = false;
+let _auroraOverridePalette = null;
+
+function _setThemePalette(palette) {
+  const root = document.documentElement;
+  root.style.setProperty('--theme-c1', palette[0]);
+  root.style.setProperty('--theme-c2', palette[1]);
+  root.style.setProperty('--theme-c3', palette[2]);
+}
+
+function _lockAuroraWithDeityColor(color) {
+  _auroraLock = true;
+  _auroraOverridePalette = [
+    color,
+    `color-mix(in srgb, ${color} 70%, #ffffff 30%)`,
+    `color-mix(in srgb, ${color} 70%, #000000 30%)`
+  ];
+  _setThemePalette(_auroraOverridePalette);
+}
+
+function _unlockAurora() {
+  _auroraLock = false;
+  _auroraOverridePalette = null;
+}
+
+function initDeidadesParticlesSync() {
+  const page = document.getElementById('page-deidades');
+  if (!page) return;
+
+  let io = null;
+  let lastColor = '';
+
+  function start() {
+    if (io) return;
+    const cards = Array.from(page.querySelectorAll('.deity-card'));
+    if (!cards.length) return;
+
+    io = new IntersectionObserver((entries) => {
+      let best = null;
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        if (!best || e.intersectionRatio > best.intersectionRatio) best = e;
+      }
+      if (!best) return;
+
+      const color = getComputedStyle(best.target).getPropertyValue('--deity-color').trim();
+      if (!color || color === lastColor) return;
+      lastColor = color;
+      _lockAuroraWithDeityColor(color);
+    }, {
+      threshold: [0.15, 0.25, 0.35, 0.5, 0.65],
+      rootMargin: '-40% 0px -40% 0px'
+    });
+
+    cards.forEach(c => io.observe(c));
+  }
+
+  function stop() {
+    if (io) { io.disconnect(); io = null; }
+    lastColor = '';
+    _unlockAurora();
+    const theme = themeMap[activeTheme] || themeMap['inicio'];
+    _setThemePalette([theme.palette[0], theme.palette[1], theme.palette[2]]);
+  }
+
+  function syncActiveState() {
+    const isActive = page.classList.contains('active');
+    if (isActive) start();
+    else stop();
+  }
+
+  const mo = new MutationObserver(syncActiveState);
+  mo.observe(page, { attributes: true, attributeFilter: ['class'] });
+  syncActiveState();
 }
 
 // ── GALERÍA ──────────────────────────────────────────────────────

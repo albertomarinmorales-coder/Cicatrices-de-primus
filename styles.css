@@ -1278,7 +1278,7 @@ nav {
 .detail-body {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 64px 48px 100px;
+  padding: 40px 48px 100px;
 }
 
 .detail-grid-intro {
@@ -1691,7 +1691,7 @@ nav {
   color: var(--text-muted);
   cursor: pointer;
   transition: color 0.2s;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .back-btn:hover {
@@ -2067,179 +2067,200 @@ nav {
 
 .ciudad-modal {
   background: var(--bg);
-  border: 1px solid var(--border);
-  width: min(1160px, 100%);
-  max-width: 1160px;
-  max-height: calc(100vh - 28px);
-  overflow: visible;
+  box-shadow: 0 0 100px rgba(201, 168, 76, 0.5);
+  width: min(1200px, 95%);
+  max-height: 90vh; 
   position: relative;
-  padding: 30px 36px 26px;
-  animation: tierIn 0.25s ease forwards;
+  padding: 0;
+  animation: cinematicFadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  overflow: hidden;
+}
+
+@keyframes cinematicFadeIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.98); filter: blur(10px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 }
 
 .ciudad-modal-scroll {
-  overflow-y: hidden;
+  max-height: 90vh;
+  overflow-y: auto;
   overflow-x: hidden;
-  max-height: calc(100vh - 106px);
-  padding-bottom: 6px;
-  box-sizing: border-box;
 }
 
-.ciudad-modal-layout {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
-  gap: 30px;
-  align-items: stretch;
+.ciudad-modal-scroll::-webkit-scrollbar {
+  width: 6px;
 }
 
-.ciudad-modal-copy {
-  position: relative;
-  overflow: hidden;
+.ciudad-modal-scroll::-webkit-scrollbar-thumb {
+  background: var(--gold);
+}
+
+.modern-ciudad-modal {
   display: flex;
   flex-direction: column;
+  gap: 0;
+  color: var(--text);
+  overflow: hidden;
+}
+
+.m-ciudad-hero {
+  position: relative;
+  height: 220px;
+  background: linear-gradient(180deg, #110f0c 0%, var(--bg) 100%);
+  display: flex;
+  align-items: center;
   justify-content: center;
-  min-height: 100%;
-  border: 1px solid rgba(201, 168, 76, 0.22);
+  text-align: center;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
 }
 
-.ciudad-modal-copy-bg {
+.m-ciudad-hero-overlay {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  filter: saturate(0.6) brightness(1);
-  transform: scale(1.04);
+  background: radial-gradient(circle at center, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
 }
 
-.ciudad-modal-copy::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(8, 7, 5, 0.68) 0%, rgba(8, 7, 5, 0.84) 100%);
-}
-
-.ciudad-modal-copy-content {
+.m-ciudad-hero-content {
   position: relative;
   z-index: 1;
-  padding: 18px 18px 20px;
-  height: 50%;
+}
+
+.m-ciudad-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem) !important;
+  color: var(--white) !important;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 2px 10px rgba(0, 0, 0, 0.9);
+  margin-bottom: 5px !important;
+  letter-spacing: 4px;
+}
+
+.m-ciudad-divider {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 15px auto;
+  box-shadow: 0 0 10px var(--gold);
+}
+
+.m-ciudad-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.9;
+}
+
+.m-ciudad-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px;
+  background: var(--bg);
+}
+
+.m-gallery-item {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.m-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.8) brightness(0.9);
+  transition: transform 0.6s ease;
+}
+
+.m-gallery-item:hover {
+  border-color: var(--gold);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.m-gallery-item:hover img {
+  transform: scale(1.1);
+  filter: saturate(1) brightness(1.1);
+}
+
+.m-ciudad-info {
+  padding: 0 40px 60px;
+  background: var(--bg);
+}
+
+.m-ciudad-desc {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.m-ciudad-desc p {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: justify;
+  margin: 0;
+}
+
+.m-ciudad-desc p::first-letter {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.8rem;
+  float: left;
+  line-height: 0.9;
+  margin-right: 10px;
+  margin-top: 4px;
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
 }
 
 .ciudad-modal-close {
   position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(50%, -50%);
+  top: 25px;
+  right: 25px;
   z-index: 10000;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--gold);
+  color: var(--white);
   font-size: 1.2rem;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.2s, color 0.2s;
+  transition: all 0.3s ease;
+  border-radius: 50%;
 }
 
 .ciudad-modal-close:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-}
-
-.ciudad-modal-era-num {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--accent);
-  display: inline-block;
-  border: 1px solid var(--accent);
-  padding: 4px 14px;
-  margin-bottom: 14px;
-}
-
-.ciudad-modal h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--gold);
-  margin-bottom: 8px;
-}
-
-.ciudad-modal-subtitle {
-  font-family: 'EB Garamond', serif;
-  font-size: 1.05rem;
-  font-style: italic;
-  color: var(--gold);
-  margin-bottom: 18px;
-}
-
-.ciudad-modal-fotos {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 8px;
-  height: 100%;
-}
-
-.ciudad-modal-fotos img:first-child {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 1px solid var(--border);
-  filter: saturate(0.72) brightness(0.85);
-  box-shadow: 0 0 14px rgba(201, 168, 76, 0.15);
-  display: block;
-}
-
-.ciudad-modal-fotos-row {
-  display: flex;
-  gap: 8px;
-}
-
-.ciudad-modal-fotos-row img {
-  flex: 1 1 0;
-  min-width: 0;
-  width: 0;
-  height: 100%;
-  object-fit: cover;
-  border: 1px solid var(--border);
-  filter: saturate(0.72) brightness(0.85);
-  box-shadow: 0 0 14px rgba(201, 168, 76, 0.15);
-  display: block;
-}
-
-.ciudad-modal-desc {
-  font-family: 'EB Garamond', serif;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.78);
-  line-height: 1.8;
-  margin: 0;
-  padding: 14px 0;
-  border-top: 1px solid rgba(201, 168, 76, 0.28);
-  border-bottom: 1px solid rgba(201, 168, 76, 0.28);
+  background: var(--accent);
+  border-color: var(--white);
+  transform: rotate(90deg);
 }
 
 @media (max-width: 900px) {
-  .ciudad-modal-overlay {
-    padding: 16px;
+  .m-ciudad-hero {
+    height: 200px;
   }
-
-  .ciudad-modal {
-    padding: 30px 20px 24px;
-    max-height: calc(100vh - 32px);
-  }
-
-  .ciudad-modal-layout {
+  
+  .m-ciudad-gallery {
     grid-template-columns: 1fr;
-    gap: 20px;
+    padding: 20px;
   }
-}
-
-@media (max-width: 600px) {
-  .ciudad-modal {
-    padding: 32px 20px 28px;
+  
+  .m-ciudad-info {
+    padding: 0 20px 40px;
+  }
+  
+  .m-ciudad-desc p {
+    font-size: 1.1rem;
   }
 }
 
@@ -3576,106 +3597,227 @@ body.modal-active .audio-toggle {
 }
 
 /* CLASES ALTERNATE LAYOUT */
+/* ────────────────── MODERN CLASES LAYOUT ────────────────── */
 .clase-feature-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4.5rem;
   align-items: center;
-  gap: 3rem;
-  padding: 4rem 0;
+  padding: 5rem 0;
   position: relative;
   counter-increment: clase-sec;
 }
 
 .clase-feature-row:not(:last-child) {
-  border-bottom: none;
+  border-bottom: 2px solid rgba(201, 168, 76, 0.25);
 }
 
 .clase-feature-row:not(:last-child)::after {
-  content: '';
+  content: '※';
   position: absolute;
-  bottom: 0;
-  left: 5%;
-  width: 90%;
-  height: 1px;
-  background: linear-gradient(to right,
-      transparent,
-      rgba(201, 168, 76, 0.45) 25%,
-      rgba(201, 168, 76, 0.45) 75%,
-      transparent);
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: 1.2rem;
+  background: var(--bg);
+  padding: 0 25px;
+  opacity: 0.9;
+  text-shadow: 0 0 20px var(--gold);
 }
 
-/* Separador degradado */
 .clase-feature-row.reverse {
-  flex-direction: row-reverse;
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.clase-feature-row.reverse .clase-feature-text {
+  order: 2;
+}
+
+.clase-feature-row.reverse .clase-feature-img {
+  order: 1;
 }
 
 .clase-feature-text {
-  flex: 1;
+  position: relative;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  border-radius: 24px;
+  backdrop-filter: blur(12px);
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+.clase-feature-text:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(201, 168, 76, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.clase-feature-text::before {
+  content: counter(clase-sec, upper-roman);
+  display: block;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0.6;
+}
+
+.clase-feature-text p.tier-desc {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+}
+
+/* Drop Cap: Capitular Moderno */
+.clase-feature-text p.tier-desc:first-of-type::first-letter {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 3.5rem;
+  float: left;
+  line-height: 0.8;
+  margin-right: 15px;
+  margin-top: 8px;
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+}
+
 .clase-feature-img {
-  flex: 1;
-  max-width: 500px;
-  margin: 0 auto;
+  position: relative;
+  perspective: 1000px;
 }
 
 .clase-feature-img img {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  border: 1px solid var(--border);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border: 1px solid var(--gold);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.clase-feature-img img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 20px 64px rgba(0, 0, 0, 0.7) !important;
+.clase-feature-row:hover .clase-feature-img img {
+  transform: rotateY(-5deg) rotateX(2deg) scale(1.05);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8) !important;
+  border-color: var(--white);
 }
 
-/* Counter reset por página de clase */
-.page[id^="page-clase-"] .detail-text {
-  counter-reset: clase-sec;
+.clase-feature-row.reverse:hover .clase-feature-img img {
+  transform: rotateY(5deg) rotateX(2deg) scale(1.05);
 }
 
-/* Roman numeral label encima de cada bloque de texto */
-.page[id^="page-clase-"] .clase-feature-text::before {
-  content: counter(clase-sec, upper-roman);
-  display: block;
-  font-family: 'Cinzel', serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: rgba(201, 168, 76, 0.45);
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  margin-bottom: 1.1rem;
-  padding-bottom: 0.55rem;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.13);
-  width: fit-content;
-  min-width: 2.5rem;
+/* ────────────────── CLASS METRICS & TAGS ────────────────── */
+.clase-stats-container {
+  display: none;
 }
 
-/* Párrafo de entrada destacado */
-.clase-feature-text>p.tier-desc:first-child {
+.clase-feature-text p.tier-desc {
+  font-family: 'EB Garamond', serif;
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.82);
-  line-height: 1.9;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.2rem;
 }
 
-@media (max-width: 900px) {
+/* Drop Cap: Capitular refined */
+.clase-feature-text p.tier-desc:first-of-type::first-letter {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.6rem;
+  float: left;
+  line-height: 0.8;
+  margin-right: 12px;
+  margin-top: 5px;
+  color: var(--gold);
+  text-shadow: 0 0 15px rgba(201, 168, 76, 0.4);
+}
 
-  .clase-feature-row,
+.clase-feature-img {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* DecoraciÃ³n para compensar el poco alto de las fotos horizontales */
+.clase-feature-img::before {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 20px;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(201, 168, 76, 0.05) 0%, transparent 100%);
+}
+
+.clase-feature-img::after {
+  content: 'ARCHIVE // 00' counter(clase-sec);
+  position: absolute;
+  bottom: -25px;
+  right: 0;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 3px;
+  opacity: 0.4;
+}
+
+.clase-feature-img img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 8px !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8) !important;
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  filter: saturate(0.85) brightness(0.95);
+}
+
+.clase-feature-row:hover .clase-feature-img img {
+  transform: scale(1.02) translateY(-5px);
+  filter: saturate(1) brightness(1.1);
+  border-color: var(--gold) !important;
+}
+
+@media (max-width: 1100px) {
+  .clase-feature-row {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
   .clase-feature-row.reverse {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
+    grid-template-columns: 1fr;
   }
+  
+  .clase-feature-row.reverse .clase-feature-text {
+    order: 1;
+  }
+  
+  .clase-feature-row.reverse .clase-feature-img {
+    order: 2;
+  }
+}
 
-  .clase-feature-img {
-    max-width: 100%;
-  }
+.detail-tag-modern {
+  display: inline-block;
+  padding: 8px 24px;
+  background: linear-gradient(90deg, rgba(176, 16, 16, 0.2), transparent);
+  border-left: 3px solid var(--accent);
+  color: var(--white);
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 1rem;
 }
 
 /* â”€â”€â”€ ROSTER GRID HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */

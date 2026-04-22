@@ -1,4 +1,4 @@
-﻿// Prevent browser from restoring scroll position on refresh
+// Prevent browser from restoring scroll position on refresh
 history.scrollRestoration = 'manual';
 
 const pages = ['inicio', 'lore', 'razas', 'profesiones', 'facciones', 'gremios', 'gremio-aventuras', 'normativa', 'historia', 'deidades', 'norm-general', 'norm-concepto', 'norm-ic', 'norm-construccion', 'norm-heridas', 'norm-combate', 'norm-esclavitud', 'norm-robo', 'norm-mazmorra', 'norm-housing', 'clases', 'raza-gen-elfos', 'raza-gen-enanos', 'raza-gen-humanos', 'raza-gen-malvakari', 'raza-gen-mestizos', 'raza-gen-nhek-thal', 'raza-gen-ossalyth', 'raza-gen-rosaveld', 'raza-gen-shazari', 'raza-gen-thae-tir', 'oficio-gen-alquimista', 'oficio-gen-artifices-del-velo-y-del-brillo', 'oficio-gen-cazador', 'oficio-gen-forjador', 'oficio-gen-galeno', 'oficio-gen-granjero', 'oficio-gen-guardia', 'oficio-gen-minero', 'oficio-gen-seeker', 'oficio-gen-tabernero', 'clase-ciudadano', 'clase-vhark-hul', 'clase-argent-praetor', 'clase-dualhar', 'clase-luminari-vox', 'clase-noc-thar', 'clase-stormheilm', 'clase-velum-caedis', 'clase-velum-cantoris', 'clase-zereth-mor', 'clase-magharyn', 'clase-desconocido', 'galeria'];
@@ -82,13 +82,13 @@ function showLoreTab(btn, panelId) {
   // Desactivar todas las pestañas
   const container = btn.closest('#page-historia');
   container.querySelectorAll('.lore-tab').forEach(t => t.classList.remove('active'));
-  
+
   // Activar la seleccionada
   btn.classList.add('active');
-  
+
   // Ocultar todos los paneles
   container.querySelectorAll('.lore-panel').forEach(p => p.classList.remove('active'));
-  
+
   // Mostrar el panel seleccionado
   const activePanel = document.getElementById(panelId);
   if (activePanel) {
@@ -99,7 +99,7 @@ function showLoreTab(btn, panelId) {
       activePanel.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
     }, 50);
   }
-  
+
   // Scrollear al inicio del contenido
   window.scrollTo({
     top: container.offsetTop + 100,
@@ -371,8 +371,8 @@ function initTooltips() {
 
 // ── GALERÍA ──────────────────────────────────────────────────────
 let _galMediaActual = 'fotos';
-let _galCatActual   = 'all';
-let _galeriaUser    = null;
+let _galCatActual = 'all';
+let _galeriaUser = null;
 
 const BACKEND = 'https://cicatrices-de-primus.onrender.com';
 
@@ -387,15 +387,15 @@ async function galeriaCheckAuth() {
 }
 
 function _galeriaUpdateAuthUI() {
-  const userInfo   = document.getElementById('galeriaUserInfo');
-  const authBtns   = document.getElementById('galeriaAuthBtns');
-  const btnUpload  = document.getElementById('galeriaBtnUpload');
-  const avatarEl   = document.getElementById('galeriaUserAvatar');
-  const nameEl     = document.getElementById('galeriaUserName');
+  const userInfo = document.getElementById('galeriaUserInfo');
+  const authBtns = document.getElementById('galeriaAuthBtns');
+  const btnUpload = document.getElementById('galeriaBtnUpload');
+  const avatarEl = document.getElementById('galeriaUserAvatar');
+  const nameEl = document.getElementById('galeriaUserName');
 
   if (_galeriaUser) {
-    userInfo.style.display  = 'flex';
-    authBtns.style.display  = 'none';
+    userInfo.style.display = 'flex';
+    authBtns.style.display = 'none';
     btnUpload.style.display = 'inline-flex';
     nameEl.textContent = _galeriaUser.username;
     if (_galeriaUser.avatar) {
@@ -405,8 +405,8 @@ function _galeriaUpdateAuthUI() {
       avatarEl.style.display = 'none';
     }
   } else {
-    userInfo.style.display  = 'none';
-    authBtns.style.display  = 'flex';
+    userInfo.style.display = 'none';
+    authBtns.style.display = 'flex';
     btnUpload.style.display = 'none';
   }
 }
@@ -422,7 +422,7 @@ function galeriaToggleAvatarMenu() {
   document.getElementById('galeriaAvatarDropdown')?.classList.toggle('open');
 }
 
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
   const wrap = document.getElementById('galeriaAvatarDropdown');
   if (wrap && !e.target.closest('.galeria-avatar-wrap')) {
     wrap.classList.remove('open');
@@ -469,16 +469,16 @@ async function galeriaAdminLogin(e) {
 
 // ── Upload ────────────────────────────────────────────────────────
 const _SUBCATS = {
-  razas:   ['Elfos','Enanos','Humanos','Malvakari','Mestizos','Nhek\'thal','Ossalyth','Rosaveld','Shazari','Thae\'tir'],
-  clases:  ['Ciudadano','Argent Praetor','Dualhar','Luminari Vox','Noc\'thar','Stormheilm','Velum Caedis','Velum Cantoris','Zereth-Mor','Magharyn','Vhark\'Hul','Desconocido'],
-  profesiones: ['Alquimista','Artífices del Velo y del Brillo','Cazador','Forjador','Galeno','Granjero','Guardia','Minero','Seeker','Tabernero']
+  razas: ['Elfos', 'Enanos', 'Humanos', 'Malvakari', 'Mestizos', 'Nhek\'thal', 'Ossalyth', 'Rosaveld', 'Shazari', 'Thae\'tir'],
+  clases: ['Ciudadano', 'Argent Praetor', 'Dualhar', 'Luminari Vox', 'Noc\'thar', 'Stormheilm', 'Velum Caedis', 'Velum Cantoris', 'Zereth-Mor', 'Magharyn', 'Vhark\'Hul', 'Desconocido'],
+  profesiones: ['Alquimista', 'Artífices del Velo y del Brillo', 'Cazador', 'Forjador', 'Galeno', 'Granjero', 'Guardia', 'Minero', 'Seeker', 'Tabernero']
 };
 
 function galeriaOnCategoryChange() {
   const cat = document.getElementById('uploadCategory').value;
   const wrap = document.getElementById('uploadSubcategoryWrap');
-  const sub  = document.getElementById('uploadSubcategory');
-  const lbl  = document.getElementById('uploadSubcategoryLabel');
+  const sub = document.getElementById('uploadSubcategory');
+  const lbl = document.getElementById('uploadSubcategoryLabel');
   const opts = _SUBCATS[cat];
   if (opts) {
     lbl.textContent = cat.charAt(0).toUpperCase() + cat.slice(1, -1) + ' específica';
@@ -515,18 +515,18 @@ function galeriaPreviewFile(input) {
 
 async function galeriaUploadPhoto(e) {
   e.preventDefault();
-  const btn    = document.getElementById('uploadBtn');
-  const errEl  = document.getElementById('uploadError');
-  const file   = document.getElementById('uploadFileInput').files[0];
+  const btn = document.getElementById('uploadBtn');
+  const errEl = document.getElementById('uploadError');
+  const file = document.getElementById('uploadFileInput').files[0];
 
   if (!file) { errEl.textContent = 'Selecciona una imagen primero'; errEl.style.display = 'block'; return; }
 
   const formData = new FormData();
-  formData.append('photo',    file);
-  formData.append('title',    document.getElementById('uploadTitle').value);
+  formData.append('photo', file);
+  formData.append('title', document.getElementById('uploadTitle').value);
   const cat = document.getElementById('uploadCategory').value;
   const subWrap = document.getElementById('uploadSubcategoryWrap');
-  const subVal  = subWrap.style.display !== 'none' ? document.getElementById('uploadSubcategory').value : '';
+  const subVal = subWrap.style.display !== 'none' ? document.getElementById('uploadSubcategory').value : '';
   formData.append('category', cat);
   if (subVal) formData.append('subcategory', subVal);
 
@@ -555,11 +555,11 @@ async function galeriaUploadPhoto(e) {
 
 // ── Load photos ───────────────────────────────────────────────────
 async function galeriaLoadPhotos() {
-  const grid  = document.getElementById('galeria-fotos');
+  const grid = document.getElementById('galeria-fotos');
   const empty = document.getElementById('galeriaEmptyFotos');
 
   try {
-    const res    = await fetch(`${BACKEND}/api/photos`, { credentials: 'include' });
+    const res = await fetch(`${BACKEND}/api/photos`, { credentials: 'include' });
     const photos = await res.json();
 
     // Limpiar ítems previos (mantener el empty)
@@ -615,7 +615,7 @@ function galeriaCloseModal(id) {
 }
 
 // Triple-click en el título de galería para abrir modal admin
-(function() {
+(function () {
   let _clicks = 0, _timer;
   document.addEventListener('click', e => {
     if (e.target.closest('.galeria-title')) {
@@ -634,7 +634,7 @@ function galeriaSetMedia(media) {
     btn.classList.toggle('active', btn.dataset.media === media);
   });
 
-  document.getElementById('galeria-fotos').style.display  = media === 'fotos'  ? 'grid' : 'none';
+  document.getElementById('galeria-fotos').style.display = media === 'fotos' ? 'grid' : 'none';
   document.getElementById('galeria-videos').style.display = media === 'videos' ? 'grid' : 'none';
 
   _galeriaFiltrar();
@@ -757,22 +757,25 @@ function openCiudadModal(id) {
   const data = CIUDADES_DATA[id];
   if (!data) return;
   const content = document.getElementById('ciudadModalContent');
+  const isHarrow = id === 'harrowfield';
   content.innerHTML = `
-    <div class="ciudad-modal-layout">
-      <div class="ciudad-modal-copy">
-        <div class="ciudad-modal-copy-bg" style="background-image: url('${data.fotos[0]}');"></div>
-        <div class="ciudad-modal-copy-content">
-          <div class="ciudad-modal-era-num">${data.nombre}</div>
-          <h2>${data.nombre}</h2>
-          <p class="ciudad-modal-subtitle">${data.subtitulo}</p>
-          <p class="ciudad-modal-desc">${data.desc}</p>
+    <div class="modern-ciudad-modal">
+      <div class="m-ciudad-hero">
+        <div class="m-ciudad-hero-overlay"></div>
+        <div class="m-ciudad-hero-content">
+          <h2 class="m-ciudad-title">${data.nombre}</h2>
+          <div class="m-ciudad-divider"></div>
+          <p class="m-ciudad-subtitle">${data.subtitulo}</p>
         </div>
       </div>
-      <div class="ciudad-modal-fotos">
-        <img src="${data.fotos[0]}" alt="${data.nombre}" loading="lazy" />
-        <div class="ciudad-modal-fotos-row">
-          <img src="${data.fotos[1]}" alt="${data.nombre}" loading="lazy" />
-          <img src="${data.fotos[2]}" alt="${data.nombre}" loading="lazy" />
+      <div class="m-ciudad-gallery">
+        <div class="m-gallery-item"><img src="${data.fotos[0]}" alt="${data.nombre}" loading="lazy" style="${isHarrow ? 'filter: brightness(1.25) contrast(1.1);' : ''}" /></div>
+        <div class="m-gallery-item"><img src="${data.fotos[1]}" alt="${data.nombre}" loading="lazy" style="${isHarrow ? 'filter: brightness(1.25) contrast(1.1);' : ''}" /></div>
+        <div class="m-gallery-item"><img src="${data.fotos[2]}" alt="${data.nombre}" loading="lazy" style="${isHarrow ? 'filter: brightness(1.6) contrast(1.1);' : ''}" /></div>
+      </div>
+      <div class="m-ciudad-info">
+        <div class="m-ciudad-desc">
+          <p>${data.desc}</p>
         </div>
       </div>
     </div>
@@ -835,7 +838,7 @@ function closeLightbox() {
 
     // Añadir clon del último al principio y del primero al final
     const cloneFirst = origSlides[0].cloneNode(true);
-    const cloneLast  = origSlides[total - 1].cloneNode(true);
+    const cloneLast = origSlides[total - 1].cloneNode(true);
     cloneFirst.classList.add('galeria-slide-clone');
     cloneLast.classList.add('galeria-slide-clone');
     wrap.insertBefore(cloneLast, origSlides[0]);

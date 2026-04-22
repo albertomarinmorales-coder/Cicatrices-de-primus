@@ -522,7 +522,7 @@
       <div class="roster-grid-item"><img src="sources/Razas/Humanos/images/cover.png" alt="Humanos"></div>
       <div class="roster-grid-item"><img src="sources/Razas/Malvakari/images/cover.png" alt="Malvakari"></div>
       <div class="roster-grid-item"><img src="sources/Razas/Mestizos/images/cover.png" alt="Mestizos"></div>
-      <div class="roster-grid-item"><img src="sources/Razas/Nhek’thal/images/cover.png" alt="Nhek-Thal"></div>
+      <div class="roster-grid-item"><img src="sources/Razas/Nhekthal/images/cover.png" alt="Nhek-Thal"></div>
       <div class="roster-grid-item"><img src="sources/Razas/Ossalyth/images/cover.png" alt="Ossalyth"></div>
       <div class="roster-grid-item"><img src="sources/Razas/Rosaveld/images/cover.png" alt="Rosaveld"></div>
       <div class="roster-grid-item"><img src="sources/Razas/Shazari/images/cover.png" alt="Shazari"></div>
@@ -594,7 +594,7 @@
         </div>
         <div class="raza-card" onclick="showPage('raza-gen-nhek-thal')">
           <div class="raza-card-img-wrap">
-            <img src="sources/Razas/Nhek’thal/images/cover.png" alt="Nhek’thal" class="raza-card-img" loading="lazy"
+            <img src="sources/Razas/Nhekthal/images/cover.png" alt="Nhek’thal" class="raza-card-img" loading="lazy"
               decoding="async">
           </div>
           <div class="raza-card-body">
@@ -1323,7 +1323,7 @@
       <span class="back-btn" onclick="showPage('razas')">← Volver a Razas</span>
       <div class="raza-intro-row">
         <div class="raza-intro-img">
-          <img src="sources/Razas/Nhek’thal/images/cover.png" alt="Nhek’thal" class="raza-detail-img" loading="lazy"
+          <img src="sources/Razas/Nhekthal/images/cover.png" alt="Nhek’thal" class="raza-detail-img" loading="lazy"
             decoding="async">
         </div>
         <div class="raza-intro-text">
@@ -2630,12 +2630,28 @@
       <div class="detail-hero-content">
         <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Ciudadano</span></div>
         <h1>Ciudadano</h1>
-
+        <div class="detail-tag-modern">Soporte / Utilidad</div>
       </div>
     </div>
     <div class="detail-body">
       <span class="back-btn" onclick="showPage('clases')">← Volver a Clases</span>
-      <div class="detail-text" style="margin-top:2rem;">
+
+      <!-- Class Metrics -->
+      <div class="clase-stats-container">
+        <div class="clase-stat">
+          <span class="stat-label">Utilidad</span>
+          <div class="stat-bar"><div class="stat-progress" style="width: 95%"></div></div>
+        </div>
+        <div class="clase-stat">
+          <span class="stat-label">Supervivencia</span>
+          <div class="stat-bar"><div class="stat-progress" style="width: 65%"></div></div>
+        </div>
+        <div class="clase-stat">
+          <span class="stat-label">Complejidad</span>
+          <div class="stat-bar"><div class="stat-progress" style="width: 40%"></div></div>
+        </div>
+      </div>
+      <div class="detail-text">
         <div class="clase-feature-row">
           <div class="clase-feature-text">
             <p class="tier-desc">El Ciudadano no es solo un campesino, un recolector o un simple trabajador. En Primus,
@@ -2710,14 +2726,28 @@
       <div class="detail-hero-content">
         <div class="breadcrumb" onclick="showPage('clases')">Clases <span>/ Vhark'Hul</span></div>
         <h1>Vhark'Hul</h1>
-        <div class="detail-tag"
-          style="margin-top:0.5rem; font-size:1.1rem; color:var(--accent); font-weight:500; text-shadow:0 2px 4px rgba(0,0,0,0.5);">
-          Tanque/Luchador</div>
+        <div class="detail-tag-modern">Tanque / Luchador</div>
       </div>
     </div>
     <div class="detail-body">
       <span class="back-btn" onclick="showPage('clases')">← Volver a Clases</span>
-      <div class="detail-text" style="margin-top:2rem;">
+
+      <!-- Class Metrics -->
+      <div class="clase-stats-container">
+        <div class="clase-stat">
+          <span class="stat-label">Daño</span>
+          <div class="stat-bar"><div class="stat-progress" style="width: 85%"></div></div>
+        </div>
+        <div class="clase-stat">
+          <span class="stat-label">Resistencia</span>
+          <div class="stat-bar"><div class="stat-progress" style="width: 90%"></div></div>
+        </div>
+        <div class="clase-stat">
+          <span class="stat-label">Dificultad</span>
+          <div class="stat-bar"><div class="stat-progress" style="width: 75%"></div></div>
+        </div>
+      </div>
+      <div class="detail-text">
         <div class="clase-feature-row">
           <div class="clase-feature-text">
             <p class="tier-desc">No fueron creados por capricho, ni por necesidad inmediata.</p>
@@ -2816,7 +2846,7 @@
     </div>
     <div class="detail-body">
       <span class="back-btn" onclick="showPage('clases')">← Volver a Clases</span>
-      <div class="detail-text" style="margin-top:2rem;">
+      <div class="detail-text">
         <div class="clase-feature-row">
           <div class="clase-feature-text">
             <p class="tier-desc">Tras la caída de Raventree Hall y los años del Aislamiento Luminar, la antigua orden de

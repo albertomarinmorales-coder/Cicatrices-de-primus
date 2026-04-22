@@ -12,7 +12,7 @@ const SLIDES = [
   { label: 'Razas',      desc: 'Cada pueblo, una historia forjada en cicatrices',       img: '/sources/Carrusel/razas-carrusel.png', imgPos: 'center 35%',  stripeA: '#120a0a', stripeB: '#b01010' },
   { label: 'Clases',     desc: 'Caminos de poder marcados por la sangre',               img: null,                                  imgPos: 'center',      stripeA: '#110a14', stripeB: '#7c4ba8' },
   { label: 'Profesiones',desc: 'Los que forjan, curan y sostienen el mundo',            img: '/sources/Carrusel/Artifice.png',       imgPos: 'center 35%',  stripeA: '#0f0e08', stripeB: '#a87c2a' },
-  { label: 'Gremios',    desc: 'Alianzas que mueven los hilos del poder',               img: null,                                  imgPos: 'center',      stripeA: '#0d1209', stripeB: '#4a8c3f' },
+  { label: 'Gremios',    desc: 'Alianzas que mueven los hilos del poder',               img: '/sources/Carrusel/gremios-carrusel.png',                                  imgPos: 'center',      stripeA: '#0d1209', stripeB: '#4a8c3f' },
   { label: 'Eventos',    desc: 'Momentos que cambiaron el curso de la historia',        img: null,                                  imgPos: 'center',      stripeA: '#140a0a', stripeB: '#8c2020' },
 ]
 

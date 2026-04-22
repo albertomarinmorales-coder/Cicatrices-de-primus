@@ -24,7 +24,7 @@ const CLASES = [
   { name: 'Stormheilm', path: '/clase-stormheilm', img: '/sources/Clases/6. Stormheilm/fotos/avatar.png', role: 'Luchador/Tanque' },
   { name: 'Velum Caedis', path: '/clase-velum-caedis', img: '/sources/Clases/7. Velum Caedis/fotos/avatar.png', role: 'Burst DPS' },
   { name: 'Velum Cantoris', path: '/clase-velum-cantoris', img: '/sources/Clases/7. Velum Cantoris/fotos/avatar.png', role: 'Buffer/Debuffer' },
-  { name: 'Zereth-Mor', path: '/clase-zereth-mor', img: '/sources/Clases/8. Zereth-Mor/Fotos/avatar.png', role: 'DPS MÃ¡gico' },
+  { name: 'Zereth-Mor', path: '/clase-zereth-mor', img: '/sources/Clases/8. Zereth-Mor/Fotos/avatar.png', role: 'DPS M&#225;gico' },
   { name: 'Magharyn', path: '/clase-magharyn', img: '/sources/Clases/9. Magharyn/fotos/avatar.png', role: 'Soporte/Luchador' },
 ]
 
@@ -57,10 +57,9 @@ export default function Clases() {
               </div>
               <div className="raza-card-body">
                 <h3>{c.name}</h3>
-                <p className="raza-card-role" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.8rem', minHeight: '1.4rem' }}>
+                <p className="raza-card-role" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', minHeight: '1.4rem' }}>
                   {c.role || ''}
                 </p>
-                <span className="btn-ghost">Ver más</span>
               </div>
             </div>
           ))}

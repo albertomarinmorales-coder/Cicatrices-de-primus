@@ -56,7 +56,6 @@ export default function Razas() {
               </div>
               <div className="raza-card-body">
                 <h3>{r.name}</h3>
-                <span className="btn-ghost">Ver más</span>
               </div>
             </div>
           ))}

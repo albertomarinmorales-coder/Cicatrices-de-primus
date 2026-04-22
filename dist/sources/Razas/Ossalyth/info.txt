@@ -1,0 +1,35 @@
+🌍 Ubicación común
+Habitan en zonas costeras, arrecifes ocultos o ruinas sumergidas, donde su presencia ha moldeado el paisaje cultural de las regiones. También se los puede encontrar como intermediarios diplomáticos en enclaves portuarios.
+
+🧠Mentalidad y cultura
+Los Ossalyth valoran la sabiduría, la armonía y la tradición. Su cultura está fuertemente conectada al agua: cada historia, rito o decisión fluye con la marea. Son alquimistas refinados, estudiosos del mar, y protectores del equilibrio natural.
+
+Aunque pacíficos, cuando las guerras se volvieron inevitables, defendieron con maestría las rutas marítimas, convirtiéndose en **potencias navales y comerciantes esenciales.
+
+🧝‍♂️ Apariencia física
+Humanoides de aspecto anfibio, con piel escamosa en tonos que evocan los colores de los mares de los que provienen, ojos de pez grandes y húmedos, y membranas en manos y pies. Algunos presentan aletas dorsales o branquias visibles. Caminan en tierra, pero bajo el agua se mueven con una fluidez casi sobrenatural, sintiéndose en su dominio bajo las aguas, gozando de una capacidad respiratoria submarina, color de pelo asociado a colores marinos.
+
+📏 - Estatura Promedio: entre 1.60 m y 1.80 m.
+🕰️- Longevidad: 100 a 120 años
+
+Requisitos de apariencia:
+Cuerpo escamoso o húmedo
+Ojos redondos y brillantes
+Aletas, branquias o adornos marinos (corales, perlas, algas)
+
+💬 Relaciones
+Fueron cercanos a los elfos costeros y a algunos clanes humanos del sur, pero mantuvieron una neutralidad diplomática durante siglos. Sin embargo, cuando las guerras afectaron el equilibrio del océano, tomaron partido: se unieron al dominio naval y facilitaron el comercio entre islas, actuando como guardianes de los mares.
+
+Hoy, los Ossalyth siguen siendo respetados por su sabiduría, su palabra ponderada y su inquebrantable vínculo con el océano.
+
+
+
+Requisitos de apariencia (Obligatorio)
+
+Right eye/ Left eye: Texture: Human/ Iris Size:0.0/Iris color:(Colores azulados,Verdes, blancos, amarillos)/Glow: 0.2/ Sectoral shape: Noisy2/ Sectoral Color: Blanco/ Sectoral Glow: 1.0/ Pupil size: -0.29/ Pupil Color: Negro/ Pupil Glow: 1.0/ Sclera Color: Negro o Blanca/ Sclera glow: 0.0 / Veins: 0.5
+
+Warpaint: Head,Body, Hands:220104002, Color: (Puede ser variado en tonos marinos), Gloss: 0.35, Metallic: 1.0, Glow:0.03, Details 1.0
+
+Skin Complexion: Head: (CS) Tropic fish, Body: (CS) Tropic fish, Hands:Tropic fish.
+
+Add-on: (C) Fin (Ubicacion espalda, brazos, piernas), Amphibia Ear C Glow (L), Amphibia Ear C Glow (R)

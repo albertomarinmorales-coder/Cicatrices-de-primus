@@ -1,0 +1,104 @@
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import Nav from './components/Nav'
+import AudioPlayer from './components/AudioPlayer'
+import WelcomeModal from './components/WelcomeModal'
+import Particles from './components/Particles'
+import Inicio from './pages/Inicio'
+import Lore from './pages/Lore'
+import Historia from './pages/Historia'
+import Deidades from './pages/Deidades'
+import Razas from './pages/Razas'
+import RazaPage from './pages/RazaPage'
+import Clases from './pages/Clases'
+import ClasePage from './pages/ClasePage'
+import Profesiones from './pages/Profesiones'
+import OficioPage from './pages/OficioPage'
+import Facciones from './pages/Facciones'
+import Gremios from './pages/Gremios'
+import GremioAventuras from './pages/GremioAventuras'
+import Normativa from './pages/Normativa'
+import NormPage from './pages/NormPage'
+import Galeria from './pages/Galeria'
+import { useTheme } from './hooks/useTheme'
+import { useLocation } from 'react-router-dom'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
+
+export default function App() {
+  useTheme()
+
+  return (
+    <>
+      <Particles />
+      <Nav />
+      <AudioPlayer />
+      <WelcomeModal />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Inicio />} />
+        <Route path="/inicio" element={<Navigate to="/" replace />} />
+        <Route path="/lore" element={<Lore />} />
+        <Route path="/historia" element={<Historia />} />
+        <Route path="/deidades" element={<Deidades />} />
+        <Route path="/razas" element={<Razas />} />
+        <Route path="/raza-gen-elfos" element={<RazaPage slug="elfos" />} />
+        <Route path="/raza-gen-enanos" element={<RazaPage slug="enanos" />} />
+        <Route path="/raza-gen-humanos" element={<RazaPage slug="humanos" />} />
+        <Route path="/raza-gen-malvakari" element={<RazaPage slug="malvakari" />} />
+        <Route path="/raza-gen-mestizos" element={<RazaPage slug="mestizos" />} />
+        <Route path="/raza-gen-nhek-thal" element={<RazaPage slug="nhek-thal" />} />
+        <Route path="/raza-gen-ossalyth" element={<RazaPage slug="ossalyth" />} />
+        <Route path="/raza-gen-rosaveld" element={<RazaPage slug="rosaveld" />} />
+        <Route path="/raza-gen-shazari" element={<RazaPage slug="shazari" />} />
+        <Route path="/raza-gen-thae-tir" element={<RazaPage slug="thae-tir" />} />
+        <Route path="/clases" element={<Clases />} />
+        <Route path="/clase-ciudadano" element={<ClasePage slug="ciudadano" />} />
+        <Route path="/clase-vhark-hul" element={<ClasePage slug="vhark-hul" />} />
+        <Route path="/clase-argent-praetor" element={<ClasePage slug="argent-praetor" />} />
+        <Route path="/clase-dualhar" element={<ClasePage slug="dualhar" />} />
+        <Route path="/clase-luminari-vox" element={<ClasePage slug="luminari-vox" />} />
+        <Route path="/clase-noc-thar" element={<ClasePage slug="noc-thar" />} />
+        <Route path="/clase-stormheilm" element={<ClasePage slug="stormheilm" />} />
+        <Route path="/clase-velum-caedis" element={<ClasePage slug="velum-caedis" />} />
+        <Route path="/clase-velum-cantoris" element={<ClasePage slug="velum-cantoris" />} />
+        <Route path="/clase-zereth-mor" element={<ClasePage slug="zereth-mor" />} />
+        <Route path="/clase-magharyn" element={<ClasePage slug="magharyn" />} />
+        <Route path="/clase-desconocido" element={<ClasePage slug="desconocido" />} />
+        <Route path="/profesiones" element={<Profesiones />} />
+        <Route path="/oficio-gen-alquimista" element={<OficioPage slug="alquimista" />} />
+        <Route path="/oficio-gen-artifices-del-velo-y-del-brillo" element={<OficioPage slug="artifices-del-velo-y-del-brillo" />} />
+        <Route path="/oficio-gen-cazador" element={<OficioPage slug="cazador" />} />
+        <Route path="/oficio-gen-forjador" element={<OficioPage slug="forjador" />} />
+        <Route path="/oficio-gen-galeno" element={<OficioPage slug="galeno" />} />
+        <Route path="/oficio-gen-granjero" element={<OficioPage slug="granjero" />} />
+        <Route path="/oficio-gen-guardia" element={<OficioPage slug="guardia" />} />
+        <Route path="/oficio-gen-minero" element={<OficioPage slug="minero" />} />
+        <Route path="/oficio-gen-seeker" element={<OficioPage slug="seeker" />} />
+        <Route path="/oficio-gen-tabernero" element={<OficioPage slug="tabernero" />} />
+        <Route path="/facciones" element={<Facciones />} />
+        <Route path="/gremios" element={<Gremios />} />
+        <Route path="/gremio-aventuras" element={<GremioAventuras />} />
+        <Route path="/normativa" element={<Normativa />} />
+        <Route path="/norm-general" element={<NormPage slug="general" />} />
+        <Route path="/norm-concepto" element={<NormPage slug="concepto" />} />
+        <Route path="/norm-ic" element={<NormPage slug="ic" />} />
+        <Route path="/norm-construccion" element={<NormPage slug="construccion" />} />
+        <Route path="/norm-heridas" element={<NormPage slug="heridas" />} />
+        <Route path="/norm-combate" element={<NormPage slug="combate" />} />
+        <Route path="/norm-esclavitud" element={<NormPage slug="esclavitud" />} />
+        <Route path="/norm-robo" element={<NormPage slug="robo" />} />
+        <Route path="/norm-mazmorra" element={<NormPage slug="mazmorra" />} />
+        <Route path="/norm-housing" element={<NormPage slug="housing" />} />
+        <Route path="/galeria" element={<Galeria />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </>
+  )
+}

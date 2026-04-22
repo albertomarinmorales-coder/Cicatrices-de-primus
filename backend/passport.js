@@ -17,7 +17,7 @@ passport.use(new DiscordStrategy(
   {
     clientID:     process.env.DISCORD_CLIENT_ID,
     clientSecret: process.env.DISCORD_CLIENT_SECRET,
-    callbackURL:  'https://cicatrices-de-primus.onrender.com/auth/discord/callback',
+    callbackURL:  process.env.DISCORD_CALLBACK_URL || 'https://cicatrices-de-primus.onrender.com/auth/discord/callback',
     scope: ['identify']
   },
   async (_accessToken, _refreshToken, profile, done) => {

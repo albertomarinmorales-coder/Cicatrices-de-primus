@@ -36,6 +36,7 @@ function parseDbUrl(url) {
 }
 const sessionPool = new Pool(parseDbUrl(process.env.DATABASE_URL || ''));
 
+const isProd = process.env.NODE_ENV === 'production'
 app.use(session({
   store: new pgSession({ pool: sessionPool, createTableIfMissing: true }),
   secret: process.env.SESSION_SECRET,
@@ -43,8 +44,8 @@ app.use(session({
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    sameSite: 'none',
-    secure: true,
+    sameSite: isProd ? 'none' : 'lax',
+    secure: isProd,
     maxAge: 7 * 24 * 60 * 60 * 1000 // 7 días
   }
 }));

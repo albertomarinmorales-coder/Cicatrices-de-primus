@@ -1,0 +1,107 @@
+ROSAVËLD
+
+“No nacieron del mundo, fueron clavados en él.”
+
+ROSAVËLD RUBRUM (Rosas y Rojos)
+ROSAVËLD UMBRALBUS (Blancos y Negros)
+
+
+🧬 Origen e historia
+
+Los Rosavëld no son una raza originaria de Primus. Su existencia comenzó tras el colapso del Jardín Umbrío, cuando sus guardianes realizaron un último rito desesperado para escapar de la extinción.
+
+En dicho ritual, los más ancianos fueron desollados vivos y su piel utilizada como pergamino ritual. Con sangre floral se trazaron símbolos de tránsito que abrieron una grieta entre realidades. A través de ella, los Rosavëld fueron arrojados a Primus.
+
+Primus no los recibió como huéspedes.
+Los absorbió.
+
+Sus cuerpos llegaron incompletos: huesos fuera de sitio, órganos mal colocados y flores creciendo bajo la piel. Muchos murieron al impactar con la realidad del mundo. Los que sobrevivieron escupieron sangre negra durante semanas.
+
+Los registros inquisitoriales actuales estiman que quedan menos de cien Rosavëld con vida. Su existencia es considerada un error persistente.
+
+
+
+
+Ubicación común
+
+Los Rosavëld no poseen territorios definidos:
+
+Ruinas alejadas de rutas comerciales
+Bosques marchitos o corrompidos
+Zonas donde la sangre ha empapado la tierra por generaciones
+Asentamientos ocultos bajo tierra o entre restos óseos
+
+
+Algunos suelen evitar las grandes ciudades y rara vez permanecen más de unas lunas en un mismo lugar.
+
+
+🧠 Mentalidad y cultura
+
+La cultura Rosavëld está marcada por el hambre ritual y el temor a la pérdida de control:
+
+Hambre, Dolor, Ritual
+
+Los Rosavëld viven bajo la certeza de que no alimentarse de carne o sangre desencadena la Maldición de la Dentadura en Flor, un proceso degenerativo que culmina en la Rabia del Capullo.
+
+Su sociedad se divide principalmente en dos corrientes:
+
+Los Devotos del Clavel Umbrío, que buscan controlar la maldición mediante rituales estrictos y extracción medida de sangre.
+
+Los Rosavëld Rubrum, que celebran la deformación, el exceso y la Rabia como una bendición incompleta.
+
+Matar a un hermano que ha sucumbido a la Rabia es considerado un acto de piedad.
+
+
+🧝‍♂️ Apariencia física
+Los Rosavëld presentan una anatomía humanoide alterada por injertos florales y rasgos bestiales:
+
+Orejas de conejo alargadas y sensibles
+Dentadura excesiva con colmillos regenerativos
+Garras ferales no removibles
+Pelaje corporal visible, especialmente en extremidades
+Flores o protuberancias vegetales bajo la piel en individuos ancianos o rabiosos
+Ojos de iris brillante y tono antinatural
+📏 Características generales:
+
+Estatura: similar a la humana
+Reproducción: desconocida o no documentada
+Esperanza de vida: indeterminada; muchos mueren por la Rabia o por persecución inquisitorial
+
+
+
+💬 Relaciones
+
+Humanos: temidos y perseguidos, objetivo frecuente de cacerías
+inquisitoriales hostiles
+Otras razas: evitadas o cazadas, según la variante Rosavëld
+
+
+Entre ellos, la lealtad es intensa pero frágil ante la Rabia del Capullo.
+
+
+Requisitos de apariencia
+
+
+Ítems raciales (obligatorios):
+Bunny Ears, Sharp Teeth, Bastet’s Feral Claws (No removibles), Cola de conejo, Paws V1
+
+Variantes raciales:
+
+ROSAVËLD RUBRUM (Rosas y Rojos):
+Piel similar a la humana con tatuajes en tonos rojos o rosados
+
+ROSAVËLD UMBRALBUS (Blancos y Negros):
+Piel negra con tatuajes blancos o piel blanca con tatuajes negros
+
+Cabello:
+Rubrum → cabello rojo o rosa apagado
+Umbralbus → cabello blanco o negro
+
+Otros rasgos:
+Pelaje corporal: Try Bear
+Warpaint body: 220104016
+Iris Color: FE45A4
+Textura: Reptilian
+Glow: 0.225
+
+

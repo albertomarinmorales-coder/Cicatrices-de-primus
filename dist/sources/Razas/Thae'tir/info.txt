@@ -1,0 +1,45 @@
+✨ Thae’tirs
+
+"Hijos del cielo, hijos del Thae"
+
+🧬 Origen e Historia
+Los Thae’tirs, también conocidos como Hijos del Thae, comparten poco sobre su historia. Al igual que los Malvakari, provienen de una dimensión ancestra. Según cuentan, su pueblo era sumamente visionario, capaces de leer los signos en las estrellas. Dicen que cada vez que uno de los suyos nacía, una nueva constelación aparecía en el cielo, y cuando moría, esta desaparecía.
+
+Su civilización, organizada como una antigua república, fue una de las más longevas conocidas.
+
+Hoy en día, debido a su inteligencia y sabiduría, los Thae’tirs se han dispersado por distintas regiones. Algunos partieron al norte, donde forjaron alianzas con los enanos; otros se establecieron en la capital, siguiendo a una diosa a la que ahora sirven como consejeros de sus líderes; mientras que un tercer grupo migró al sur, movido por un deseo innato de exploración.
+
+A pesar de su dispersión, los Thae’tirs mantienen relaciones cordiales con todas las razas.
+
+🌍 Ubicación Común
+Dispersos por el mundo: en el norte junto a los enanos, en la capital como consejeros, o en el sur explorando territorios desconocidos.
+
+🧠 Mentalidad y Cultura
+Dotados de una profunda sabiduría, los Thae’tirs valoran el conocimiento, la exploración y la observación del cosmos. Mantienen relaciones cordiales con todas las razas y tienden a actuar como mediadores, sabios o guías. Su cultura tiene raíces en la antigua república estelar de la que provienen, y su conexión con lo celestial.
+
+
+🧝‍♂️ Apariencia Física
+Los Thae’tirs poseen una piel de tono púrpura profundo, casi estelar, con reflejos que recuerdan al cielo nocturno. Sus ojos son de un azul oscuro brillante, con un leve resplandor que los hace parecer constelaciones vivas. El cabello, blanco como la luz lunar, cae con suavidad y contrasta con su piel. Muchos presentan marcas brillantes en forma de líneas o patrones astrales que recorren su cuerpo. Como rasgo distintivo, todos nacen con antenas delgadas y curvadas que emergen de su frente, parecidas a las de un insecto, símbolo de su vínculo con lo cósmico. 
+
+📏 - Estatura Promedio: entre 1.60 m y 1.80 m.
+🕰️- Longevidad: Desconocido
+
+
+💬 Lengua y Comunicación
+No se menciona un idioma específico, pero dada su inteligencia, es probable que dominen el Común y otras lenguas antiguas o celestiales.
+
+
+Requisitos de Apariencia (Obligatoria)
+Color de piel: 2F1247
+
+WARPAINT MUJER:  Cabeza 4854007, Cuerpo 58545, Mano 58545, Color: Blanco, Gloss: 1.0, Metalic: 0.435, Glow: 0.85. Details: 1.0.
+
+WARPAINT HOMBRE: Cabeza 220104035, Cuerpo 220101056, Hands 220105048, Color: Blanco, Gloss: 1.0, Metallic: 1.0, Glow: 1.0, Details: 1.0 (Upper Warpaint: Cabeza 4854007, Color: Blanco, Gloss 1.0)
+
+OJOS: Texture: (CS): Runes, Sectoral Shape: (CS) Ins' Yinyang F, Sectoral Color: 0E213D, Sectoral Glow: 0.7, Pupil Color: 0E213D, Sclera Color: 0E213D, Sclera Glow: 0 a 0.68.
+
+MAKE UP: MAKE UP A: 128003, Color A: 010A1AFF, Gloss A: 0.775, Metallic A: 0.38, Glow A: 0.04.
+
+ADD-ON: Insect antenna (Attached),  Insect antenna II (Attached),  Insect antenna III (Attached),  Insect antenna IV (Attached).
+
+REQUISITO DE LA RAZA: Los nombres de estos deben estar inspirados o ser de constelaciones, signos del zodiaco, planetas, estrellas.

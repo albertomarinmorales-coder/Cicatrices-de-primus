@@ -1,0 +1,46 @@
+ Elfos
+ “Eran antiguos cuando el mundo aún susurraba en voz baja. Eran sabios cuando el resto apenas caminaba. Y fueron orgullosos… incluso cuando su orgullo casi los destruye.”
+Elegantes, longevos y profundamente conectados con la magia y la naturaleza, los elfos son una de las razas más antiguas de Primus. Han dejado una huella imborrable en la historia: fundadores de ciudades majestuosas, pioneros de la magia y protagonistas de guerras legendarias.
+
+✦ Subrazas:
+Primum — Lineaje principal ancestral, orgullosa y dominante.
+Thal'dorei — Elfos silvanos, guardianes de la naturaleza.
+Drel'Shan — Elfos oscuros, rebeldes y marcados por la esclavitud.
+🧬 Descripción General
+Los elfos destacan por su gracia, longevidad y afinidad natural con el Thae. Aunque comparten raíces comunes, las distintas ramas de su linaje han desarrollado culturas muy diferenciadas.
+
+
+ - Estatura Promedio: entre 1.70 m y 1.95 m.
+- Longevidad: 100 a 600 años
+
+🜂 Elfos Primum
+La casta privilegiada del reino. Orgullosos, sabios, muchas veces arrogantes. Fueron los primeros en dominar la magia, la arquitectura y el arte del gobierno.
+
+Apariencia:,
+ Tonos de piel claros, cabellos rubios claros o blanquecinos, ojos azules, celestes o perlados. Orejas alargadas.
+
+Requisitos de apariencia: Eye Glow: 0.16
+
+ Elfos Thal’dorei
+Se alejaron de la soberbia de los Primum y buscaron una vida en armonía con la naturaleza. Viven en bosques y montañas, como cazadores, rastreadores y defensores de lo salvaje.
+
+Apariencia:,
+ Piel en tonos morenos, cabello castaño (claro u oscuro) o rojizos, y ojos verdes, avellana o marrones.
+
+🌑 Elfos Drel'Shan
+Raza mayormente esclavizada que vivieron siglos bajo el yugo élfico. Algunos se resistieron, se rebelaron y ahora sobreviven en cuevas, selvas oscuras. 
+
+Apariencia:
+ Piel de tono oscuro, violeta o gris, cabello grisáceo o blanco y ojos violetas. (Color piel 1C2A46) (Color de ojos 250D30, Glow 0.16), cabellos blancos, grisáceos o negros.
+🏛️ Cultura
+> La cultura élfica nació con jerarquías marcadas y castas rígidas, encabezadas por los Primum. A pesar de la separación de los Thal’dorei y la rebelión de los Drel'Shan, muchos elfos aún conservan estructuras sociales elitistas, especialmente los Primun, quienes práctican la esclavitud hacia clases consideradas inferiores; prioritariamente los Drel'shan.
+
+> La paz tras las guerras recientes forzó una apertura hacia otras razas. De este intercambio nacieron los semielfos, símbolo del mestizaje cultural y biológico que aún genera debate entre los más tradicionales.
+
+Los semi-elfos poseen la condición de que heredan características de sus progenitores, reflejándose tres rasgos físicos que identifican las razas que lo producen.
+
+> 
+
+🤝 Relaciones
+> Actualmente los elfos mantienen relaciones diplomáticas estables con la mayoría de las razas. Sin embargo, su pasado esclavista y su aire de superioridad generan tensiones constantes, especialmente con los Drel'Shan y pueblos humanos de clases bajas.
+> 

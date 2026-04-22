@@ -10,13 +10,16 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+const IMAGE_MAX = 10  * 1024 * 1024  // 10 MB
+const VIDEO_MAX = 100 * 1024 * 1024  // 100 MB
+
 // ── Multer (memoria, sin guardar en disco) ───────────────────────
 const upload = multer({
   storage: multer.memoryStorage(),
-  limits: { fileSize: 10 * 1024 * 1024 }, // 10 MB máximo
+  limits: { fileSize: VIDEO_MAX },
   fileFilter: (_req, file, cb) => {
-    if (file.mimetype.startsWith('image/')) cb(null, true);
-    else cb(new Error('Solo se permiten imágenes'));
+    if (file.mimetype.startsWith('image/') || file.mimetype.startsWith('video/')) cb(null, true);
+    else cb(new Error('Solo se permiten imágenes y vídeos'));
   }
 });
 
@@ -66,9 +69,19 @@ router.get('/', async (req, res) => {
 
 // ── POST /api/photos ── subir foto ───────────────────────────────
 router.post('/', requireLogin, upload.single('photo'), async (req, res) => {
-  if (!req.file) return res.status(400).json({ error: 'No se recibió ninguna imagen' });
+  if (!req.file) return res.status(400).json({ error: 'No se recibió ningún archivo' });
+
+  const isVideo = req.file.mimetype.startsWith('video/');
+  const maxSize = isVideo ? VIDEO_MAX : IMAGE_MAX;
+  if (req.file.size > maxSize) {
+    return res.status(400).json({ error: isVideo
+      ? 'El vídeo no puede superar los 100 MB'
+      : 'La imagen no puede superar los 10 MB' });
+  }
 
   const { category = 'general', title = '' } = req.body;
+  if (!title.trim()) return res.status(400).json({ error: 'El título es obligatorio' });
+
   const validCategories = ['general', 'razas', 'clases', 'oficios', 'mundo', 'eventos'];
   if (!validCategories.includes(category)) {
     return res.status(400).json({ error: 'Categoría no válida' });
@@ -77,7 +90,7 @@ router.post('/', requireLogin, upload.single('photo'), async (req, res) => {
   try {
     const cloudResult = await new Promise((resolve, reject) => {
       cloudinary.uploader.upload_stream(
-        { folder: 'cicatrices-primus', resource_type: 'image' },
+        { folder: 'cicatrices-primus', resource_type: 'auto' },
         (err, result) => err ? reject(err) : resolve(result)
       ).end(req.file.buffer);
     });

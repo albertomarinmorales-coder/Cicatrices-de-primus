@@ -2,9 +2,15 @@ import { useState, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { api, CATEGORIES } from '../../lib/api'
 
+const IMAGE_MAX_MB = 10
+const VIDEO_MAX_MB = 100
+const IMAGE_MAX_B  = IMAGE_MAX_MB * 1024 * 1024
+const VIDEO_MAX_B  = VIDEO_MAX_MB * 1024 * 1024
+
 export default function UploadModal({ onClose, onUploaded }) {
   const [file, setFile]         = useState(null)
   const [preview, setPreview]   = useState(null)
+  const [isVideo, setIsVideo]   = useState(false)
   const [title, setTitle]       = useState('')
   const [category, setCategory] = useState('general')
   const [dragging, setDragging] = useState(false)
@@ -13,8 +19,23 @@ export default function UploadModal({ onClose, onUploaded }) {
   const inputRef = useRef()
 
   const pick = useCallback((f) => {
-    if (!f || !f.type.startsWith('image/')) return
+    if (!f) return
+    const fileIsVideo = f.type.startsWith('video/')
+    const fileIsImage = f.type.startsWith('image/')
+    if (!fileIsImage && !fileIsVideo) {
+      setError('Solo se permiten imágenes (JPG, PNG, WEBP) o vídeos (MP4, WEBM)')
+      inputRef.current && (inputRef.current.value = '')
+      return
+    }
+    const maxB = fileIsVideo ? VIDEO_MAX_B : IMAGE_MAX_B
+    const maxMB = fileIsVideo ? VIDEO_MAX_MB : IMAGE_MAX_MB
+    if (f.size > maxB) {
+      setError(`El archivo supera el máximo permitido (${maxMB} MB). Selecciona otro.`)
+      inputRef.current && (inputRef.current.value = '')
+      return
+    }
     setFile(f)
+    setIsVideo(fileIsVideo)
     setPreview(URL.createObjectURL(f))
     setError('')
   }, [])
@@ -26,7 +47,8 @@ export default function UploadModal({ onClose, onUploaded }) {
 
   async function submit(e) {
     e.preventDefault()
-    if (!file) return setError('Selecciona una imagen primero')
+    if (!file)         return setError('Selecciona un archivo primero')
+    if (!title.trim()) return setError('El título es obligatorio')
     setLoading(true); setError('')
     try {
       const result = await api.uploadPhoto(file, title, category)
@@ -45,7 +67,7 @@ export default function UploadModal({ onClose, onUploaded }) {
     <div className="upload-overlay" onClick={onClose}>
       <div className="upload-modal" onClick={e => e.stopPropagation()}>
         <button className="upload-close" onClick={onClose}>✕</button>
-        <h2 className="upload-title">Subir Imagen</h2>
+        <h2 className="upload-title">Subir Imagen o Vídeo</h2>
 
         <form onSubmit={submit}>
           <div
@@ -53,27 +75,48 @@ export default function UploadModal({ onClose, onUploaded }) {
             onDragOver={e => { e.preventDefault(); setDragging(true) }}
             onDragLeave={() => setDragging(false)}
             onDrop={onDrop}
-            onClick={() => inputRef.current?.click()}
+            onClick={() => !preview && inputRef.current?.click()}
           >
             {preview
-              ? <img className="upload-preview" src={preview} alt="preview" />
+              ? isVideo
+                ? <video className="upload-preview" src={preview} controls muted />
+                : <img className="upload-preview" src={preview} alt="preview" />
               : <>
                   <i className="fa-solid fa-cloud-arrow-up upload-drop-icon" />
-                  <p>Arrastra una imagen o haz clic para seleccionar</p>
-                  <span className="upload-drop-hint">JPG, PNG, WEBP — máx. 10 MB</span>
+                  <p>Arrastra un archivo o haz clic para seleccionar</p>
+                  <span className="upload-drop-hint">
+                    Imágenes (JPG, PNG, WEBP) — máx. {IMAGE_MAX_MB} MB<br />
+                    Vídeos (MP4, WEBM) — máx. {VIDEO_MAX_MB} MB
+                  </span>
                 </>
             }
-            <input ref={inputRef} type="file" accept="image/*" hidden onChange={e => pick(e.target.files[0])} />
+            {preview && (
+              <button
+                type="button"
+                className="upload-change-file"
+                onClick={e => { e.stopPropagation(); setFile(null); setPreview(null); setIsVideo(false); inputRef.current && (inputRef.current.value = '') }}
+              >
+                <i className="fa-solid fa-rotate" /> Cambiar archivo
+              </button>
+            )}
+            <input
+              ref={inputRef}
+              type="file"
+              accept="image/*,video/*"
+              hidden
+              onChange={e => pick(e.target.files[0])}
+            />
           </div>
 
           <div className="upload-fields">
             <input
               className="upload-input"
               type="text"
-              placeholder="Título (opcional)"
+              placeholder="Título (obligatorio)"
               value={title}
               onChange={e => setTitle(e.target.value)}
               maxLength={120}
+              required
             />
 
             <div className="upload-cats">
@@ -92,10 +135,11 @@ export default function UploadModal({ onClose, onUploaded }) {
 
           {error && <p className="upload-error">{error}</p>}
 
-          <button className="upload-submit" type="submit" disabled={loading || !file}>
-            {loading ? <><i className="fa-solid fa-spinner fa-spin" /> Subiendo…</> : <>
-              <i className="fa-solid fa-upload" /> Publicar
-            </>}
+          <button className="upload-submit" type="submit" disabled={loading || !file || !title.trim()}>
+            {loading
+              ? <><i className="fa-solid fa-spinner fa-spin" /> Subiendo…</>
+              : <><i className="fa-solid fa-upload" /> Publicar</>
+            }
           </button>
         </form>
       </div>

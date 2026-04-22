@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Lightbox from '../components/gallery/Lightbox'
 import UploadModal from '../components/gallery/UploadModal'
-import { api, avatarUrl, CATEGORIES } from '../lib/api'
+import { api, avatarUrl, isVideoUrl, CATEGORIES } from '../lib/api'
 
 // ── Carousel ──────────────────────────────────────────────────────
 const SLIDES = [
@@ -71,11 +71,22 @@ function GaleriaCarousel() {
   )
 }
 
+const PRANK_MSGS = [
+  '¡Las sombras de Primus te han visto!',
+  '¡Segundo intento fallido! El Consejo de las Cicatrices ha registrado tu osadía.',
+  '¡INTRUSO DETECTADO! Tu alma ha sido catalogada en los archivos del Cuervo.',
+  '¿Sigues intentándolo? Los espías del Cuervo ya están en camino...',
+  'En serio. Para. Ya saben dónde vives.',
+]
+
 // ── Admin secret login modal ──────────────────────────────────────
 function AdminLoginModal({ onClose, onSuccess }) {
-  const [pw, setPw]     = useState('')
-  const [err, setErr]   = useState('')
-  const [busy, setBusy] = useState(false)
+  const [pw, setPw]         = useState('')
+  const [err, setErr]       = useState('')
+  const [busy, setBusy]     = useState(false)
+  const [shake, setShake]   = useState(false)
+  const [prank, setPrank]   = useState(false)
+  const failCount           = useRef(0)
 
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') onClose() }
@@ -91,7 +102,13 @@ function AdminLoginModal({ onClose, onSuccess }) {
       const { user } = await api.adminLogin(pw)
       onSuccess(user)
     } catch (error) {
-      setErr(error.message)
+      failCount.current += 1
+      const msg = PRANK_MSGS[Math.min(failCount.current - 1, PRANK_MSGS.length - 1)]
+      setErr(failCount.current === 1 ? error.message : msg)
+      setShake(true)
+      setTimeout(() => setShake(false), 600)
+      if (failCount.current >= 2) setPrank(true)
+      setPw('')
     } finally {
       setBusy(false)
     }
@@ -99,23 +116,46 @@ function AdminLoginModal({ onClose, onSuccess }) {
 
   return createPortal(
     <div className="upload-overlay" onClick={onClose}>
-      <div className="upload-modal admin-login-modal" onClick={e => e.stopPropagation()}>
+      <div className={`upload-modal admin-login-modal${shake ? ' modal-shake' : ''}`} onClick={e => e.stopPropagation()}>
         <button className="upload-close" onClick={onClose}>✕</button>
-        <h2 className="upload-title">Acceso Administrador</h2>
-        <form onSubmit={submit}>
-          <input
-            className="upload-input"
-            type="password"
-            placeholder="Contraseña secreta"
-            value={pw}
-            onChange={e => setPw(e.target.value)}
-            autoFocus
-          />
-          {err && <p className="upload-error">{err}</p>}
-          <button className="upload-submit" type="submit" disabled={busy || !pw}>
-            {busy ? 'Verificando...' : 'Entrar'}
-          </button>
-        </form>
+
+        {prank ? (
+          <div className="admin-prank">
+            <div className="admin-prank-eye">👁️</div>
+            <h3 className="admin-prank-title">⚠ ACCESO DENEGADO ⚠</h3>
+            <p className="admin-prank-msg">{err}</p>
+            <p className="admin-prank-sub">Tus movimientos han sido registrados en los archivos del Cuervo.</p>
+            <input
+              className="upload-input"
+              type="password"
+              placeholder="...¿de verdad lo intentas otra vez?"
+              value={pw}
+              onChange={e => setPw(e.target.value)}
+              style={{ marginTop: '1rem', opacity: 0.6 }}
+            />
+            <button className="upload-submit" onClick={submit} disabled={busy || !pw} style={{ marginTop: '0.5rem', background: '#4a0000' }}>
+              {busy ? 'Verificando...' : 'Tentar al destino otra vez'}
+            </button>
+          </div>
+        ) : (
+          <>
+            <h2 className="upload-title">Acceso Administrador</h2>
+            <form onSubmit={submit}>
+              <input
+                className="upload-input"
+                type="password"
+                placeholder="Contraseña secreta"
+                value={pw}
+                onChange={e => setPw(e.target.value)}
+                autoFocus
+              />
+              {err && <p className="upload-error">{err}</p>}
+              <button className="upload-submit" type="submit" disabled={busy || !pw}>
+                {busy ? 'Verificando...' : 'Entrar'}
+              </button>
+            </form>
+          </>
+        )}
       </div>
     </div>,
     document.body
@@ -170,13 +210,14 @@ function UserChip({ user, av, onLogout, onUpload, adminSession }) {
   )
 }
 
-// ── Photo card ────────────────────────────────────────────────────
+// ── Photo / Video card ────────────────────────────────────────────
 function PhotoCard({ photo, user, onClick, onDelete }) {
   const canDelete = user && (user.is_admin || user.id === photo.uploader_id)
+  const isVid = isVideoUrl(photo.url)
 
   async function handleDelete(e) {
     e.stopPropagation()
-    if (!confirm('Borrar esta foto?')) return
+    if (!confirm('Borrar este archivo?')) return
     try {
       await api.deletePhoto(photo.id)
       onDelete(photo.id)
@@ -187,7 +228,15 @@ function PhotoCard({ photo, user, onClick, onDelete }) {
 
   return (
     <div className="galeria-card" onClick={onClick}>
-      <img className="galeria-card-img" src={photo.url} alt={photo.title || 'Foto'} loading="lazy" />
+      {isVid
+        ? <video className="galeria-card-img" src={photo.url} muted preload="metadata" />
+        : <img   className="galeria-card-img" src={photo.url} alt={photo.title || 'Foto'} loading="lazy" />
+      }
+      {isVid && (
+        <div className="galeria-card-video-badge">
+          <i className="fa-solid fa-circle-play" />
+        </div>
+      )}
       <div className="galeria-card-overlay">
         {photo.title && <span className="galeria-card-title">{photo.title}</span>}
         <span className="galeria-card-cat">{photo.category}</span>

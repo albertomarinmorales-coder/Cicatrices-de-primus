@@ -5557,6 +5557,56 @@ body.modal-active {
 .upload-submit:hover:not(:disabled) { background: rgba(201,168,76,0.28); }
 .upload-submit:disabled { opacity: 0.4; cursor: not-allowed; }
 
+/* ── Upload: cambiar archivo ──────────────────────────────────── */
+.upload-change-file {
+  position: absolute; bottom: 8px; right: 8px;
+  background: rgba(0,0,0,0.7); color: var(--gold);
+  border: 1px solid var(--gold); border-radius: 6px;
+  padding: 4px 10px; font-size: .75rem; cursor: pointer;
+  display: flex; align-items: center; gap: 5px;
+  transition: background .2s;
+}
+.upload-change-file:hover { background: rgba(201,168,76,0.2); }
+
+/* ── Gallery: video badge en card ────────────────────────────── */
+.galeria-card { position: relative; }
+.galeria-card-video-badge {
+  position: absolute; top: 8px; left: 8px;
+  background: rgba(0,0,0,0.65); color: var(--gold);
+  border-radius: 50%; width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; pointer-events: none; z-index: 2;
+}
+
+/* ── Admin prank ─────────────────────────────────────────────── */
+@keyframes modalShake {
+  0%,100% { transform: translateX(0); }
+  15%     { transform: translateX(-10px) rotate(-1deg); }
+  30%     { transform: translateX(10px)  rotate(1deg); }
+  45%     { transform: translateX(-8px)  rotate(-0.5deg); }
+  60%     { transform: translateX(8px)   rotate(0.5deg); }
+  75%     { transform: translateX(-4px); }
+  90%     { transform: translateX(4px); }
+}
+.modal-shake { animation: modalShake 0.55s ease; }
+
+.admin-prank { text-align: center; padding: 0.5rem 0; }
+.admin-prank-eye {
+  font-size: 3.5rem; animation: goldAuraPulse 2s infinite;
+  display: block; margin-bottom: 0.5rem;
+}
+.admin-prank-title {
+  color: #c0392b; font-size: 1.1rem; letter-spacing: .12em;
+  margin: 0 0 0.75rem; text-shadow: 0 0 12px rgba(192,57,43,0.6);
+}
+.admin-prank-msg {
+  color: var(--gold); font-size: .95rem; margin: 0 0 0.4rem;
+  font-style: italic;
+}
+.admin-prank-sub {
+  color: var(--text-muted); font-size: .8rem; margin: 0 0 0.5rem;
+}
+
 @media (max-width: 768px) {
   .galeria-grid { columns: 2 160px; }
   .lb-arrow { display: none; }

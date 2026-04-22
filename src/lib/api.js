@@ -44,6 +44,10 @@ export const api = {
   deletePhoto: (id) => req(`/api/photos/${id}`, { method: 'DELETE' }),
 }
 
+export function isVideoUrl(url) {
+  return Boolean(url && url.includes('/video/upload/'))
+}
+
 export function avatarUrl(user) {
   if (!user) return null
   if (user.avatar) return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=64`

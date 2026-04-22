@@ -51,7 +51,12 @@ export function isVideoUrl(url) {
 export function avatarUrl(user) {
   if (!user) return null
   if (user.avatar) return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=64`
-  return `https://cdn.discordapp.com/embed/avatars/${Number(BigInt(user.id) % 5n)}.png`
+  // IDs de Discord son numéricos; IDs especiales como 'admin-secret' no son BigInt válidos
+  try {
+    return `https://cdn.discordapp.com/embed/avatars/${Number(BigInt(user.id) % 5n)}.png`
+  } catch {
+    return null
+  }
 }
 
 export const CATEGORIES = [

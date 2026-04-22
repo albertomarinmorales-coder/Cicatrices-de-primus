@@ -19,7 +19,7 @@ export default function Lore() {
         <div className="section-underline"><i className="fa-solid fa-scroll" /></div>
 
         <div className="lore-grid">
-          <div className="lore-card">
+          <div className="lore-card" onClick={() => navigate('/historia')} style={{ cursor: 'pointer' }}>
             <div className="lore-card-img-wrap">
               <img className="lore-card-img" src="/sources/Mapa.png"
                 alt="Historia y Geograf&#237;a" loading="lazy" decoding="async" />
@@ -32,11 +32,10 @@ export default function Lore() {
                 ruinas de guerras pasadas y una geograf&#237;a que refleja las cicatrices
                 del tiempo.
               </p>
-              <span onClick={() => navigate('/historia')} className="btn-ghost" style={{ cursor: 'pointer' }}>Ver m&#225;s</span>
             </div>
           </div>
 
-          <div className="lore-card">
+          <div className="lore-card" onClick={() => navigate('/deidades')} style={{ cursor: 'pointer' }}>
             <div className="lore-card-img-wrap">
               <img className="lore-card-img" src="/sources/Deidades Nuevas/Deidades-banner.jpg" alt="Deidades"
                 loading="lazy" decoding="async" />
@@ -48,7 +47,6 @@ export default function Lore() {
                 cada aspecto de la vida. Sus cultos, templos y misterios siguen
                 dando forma a los destinos de mortales e inmortales por igual.
               </p>
-              <span onClick={() => navigate('/deidades')} className="btn-ghost" style={{ cursor: 'pointer' }}>Leer m&#225;s</span>
             </div>
           </div>
         </div>

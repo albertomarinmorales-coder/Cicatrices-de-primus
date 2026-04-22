@@ -37,7 +37,10 @@ export default function Profesiones() {
                 <img className="raza-card-img" src={o.img} alt={o.name} loading="lazy" decoding="async" />
               </div>
               <div className="raza-card-body">
-                <h3 title={o.name}>{o.name}</h3>
+                {o.compact
+                  ? <h3 className="card-name-marquee-wrap" title={o.name}><span className="card-name-marquee">{o.name}</span></h3>
+                  : <h3>{o.name}</h3>
+                }
               </div>
             </div>
           ))}

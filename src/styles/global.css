@@ -1029,6 +1029,27 @@ nav {
   color: var(--gold);
 }
 
+/* Marquee para nombres largos en cards */
+.card-name-marquee-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+  width: 100%;
+}
+
+@keyframes card-marquee {
+  0%,  12% { transform: translateX(0);      opacity: 1; }
+  60%, 72% { transform: translateX(-95px);  opacity: 1; }
+  84%      { transform: translateX(-95px);  opacity: 0; }
+  85%      { transform: translateX(0);      opacity: 0; }
+  100%     { transform: translateX(0);      opacity: 1; }
+}
+
+.card-name-marquee {
+  display: inline-block;
+  animation: card-marquee 5.5s ease-in-out infinite;
+}
+
 .raza-card-body .raza-card-role {
   font-size: 0.78rem;
   color: var(--text-muted);

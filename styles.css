@@ -2504,6 +2504,10 @@ nav {
   box-sizing: border-box;
 }
 
+#page-clases .raza-card-img {
+  border: none;
+}
+
 .raza-detail-img {
   border: 1px solid var(--gold);
   box-sizing: border-box;

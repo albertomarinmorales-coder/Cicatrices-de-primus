@@ -9,7 +9,7 @@ import { api, avatarUrl, isVideoUrl, CATEGORIES } from '../lib/api'
 // ── Carousel ──────────────────────────────────────────────────────
 const SLIDES = [
   { label: 'Mundo',      desc: 'Territorios vastos, ruinas y misterios sin nombre',    img: '/sources/Carrusel/ciudad.png',   stripeA: '#0a0f18', stripeB: '#4a7ab5' },
-  { label: 'Razas',      desc: 'Cada pueblo, una historia forjada en cicatrices',       img: null,                             stripeA: '#120a0a', stripeB: '#b01010' },
+  { label: 'Razas',      desc: 'Cada pueblo, una historia forjada en cicatrices',       img: '/sources/Carrusel/razas-carrusel.png', stripeA: '#120a0a', stripeB: '#b01010' },
   { label: 'Clases',     desc: 'Caminos de poder marcados por la sangre',               img: null,                             stripeA: '#110a14', stripeB: '#7c4ba8' },
   { label: 'Profesiones',desc: 'Los que forjan, curan y sostienen el mundo',            img: '/sources/Carrusel/Artifice.png', stripeA: '#0f0e08', stripeB: '#a87c2a' },
   { label: 'Gremios',    desc: 'Alianzas que mueven los hilos del poder',               img: null,                             stripeA: '#0d1209', stripeB: '#4a8c3f' },

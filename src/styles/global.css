@@ -2648,9 +2648,17 @@ nav {
 }
 
 /* Las imágenes de portada de profesiones son ilustraciones: no recortar */
+#page-profesiones .raza-card {
+  background: #000;
+}
+
+#page-profesiones .raza-card-img-wrap {
+  background: #000;
+}
+
 #page-profesiones .raza-card-img {
   object-fit: contain;
-  background: var(--surface);
+  background: #000;
 }
 
 [id^="page-oficio-gen-"] .raza-detail-img-wrap img,

@@ -1,9 +1,16 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { avatarUrl, isVideoUrl } from '../../lib/api'
 
 export default function Lightbox({ photos, index, user, onClose, onDelete, onNav }) {
-  const photo = photos[index]
+  const photo   = photos[index]
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.volume = 0.5
+    }
+  }, [index])
 
   useEffect(() => {
     const onKey = (e) => {
@@ -36,7 +43,7 @@ export default function Lightbox({ photos, index, user, onClose, onDelete, onNav
 
       <div className="lb-content" onClick={e => e.stopPropagation()}>
         {isVideoUrl(photo.url)
-          ? <video className="lb-img" src={photo.url} controls autoPlay muted style={{ maxHeight: '70vh', background: '#000' }} />
+          ? <video ref={videoRef} className="lb-img" src={photo.url} controls autoPlay style={{ maxHeight: '70vh', background: '#000' }} />
           : <img className="lb-img" src={photo.url} alt={photo.title || 'Foto'} />
         }
         <div className="lb-info">

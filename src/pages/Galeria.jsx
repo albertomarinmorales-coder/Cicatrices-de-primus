@@ -210,43 +210,76 @@ function UserChip({ user, av, onLogout, onUpload, adminSession }) {
   )
 }
 
+// ── Confirm delete modal ──────────────────────────────────────────
+function ConfirmModal({ message, onConfirm, onCancel, busy }) {
+  return createPortal(
+    <div className="upload-overlay" onClick={onCancel}>
+      <div className="upload-modal confirm-modal" onClick={e => e.stopPropagation()}>
+        <p className="confirm-msg">{message}</p>
+        <div className="confirm-btns">
+          <button className="confirm-btn-cancel" onClick={onCancel} disabled={busy}>Cancelar</button>
+          <button className="confirm-btn-delete" onClick={onConfirm} disabled={busy}>
+            {busy ? <><i className="fa-solid fa-spinner fa-spin" /> Borrando…</> : <><i className="fa-solid fa-trash" /> Borrar</>}
+          </button>
+        </div>
+      </div>
+    </div>,
+    document.body
+  )
+}
+
 // ── Photo / Video card ────────────────────────────────────────────
 function PhotoCard({ photo, user, onClick, onDelete }) {
   const canDelete = user && (user.is_admin || user.id === photo.uploader_id)
   const isVid = isVideoUrl(photo.url)
+  const [confirmOpen, setConfirmOpen] = useState(false)
+  const [deleting, setDeleting]       = useState(false)
 
-  async function handleDelete(e) {
-    e.stopPropagation()
-    if (!confirm('Borrar este archivo?')) return
+  async function handleDelete() {
+    setDeleting(true)
     try {
       await api.deletePhoto(photo.id)
       onDelete(photo.id)
     } catch (err) {
       alert(err.message)
+    } finally {
+      setDeleting(false)
+      setConfirmOpen(false)
     }
   }
 
   return (
-    <div className="galeria-card" onClick={onClick}>
-      {isVid
-        ? <video className="galeria-card-img" src={photo.url} muted preload="metadata" />
-        : <img   className="galeria-card-img" src={photo.url} alt={photo.title || 'Foto'} loading="lazy" />
-      }
-      {isVid && (
-        <div className="galeria-card-video-badge">
-          <i className="fa-solid fa-circle-play" />
+    <>
+      <div className="galeria-card" onClick={onClick}>
+        {isVid
+          ? <video className="galeria-card-img" src={photo.url} muted preload="metadata" />
+          : <img   className="galeria-card-img" src={photo.url} alt={photo.title || 'Foto'} loading="lazy" />
+        }
+        {isVid && (
+          <div className="galeria-card-video-badge">
+            <i className="fa-solid fa-circle-play" />
+          </div>
+        )}
+        <div className="galeria-card-bar">
+          {photo.title && <span className="galeria-card-title">{photo.title}</span>}
+          <span className="galeria-card-cat">{photo.category}</span>
         </div>
-      )}
-      <div className="galeria-card-overlay">
-        {photo.title && <span className="galeria-card-title">{photo.title}</span>}
-        <span className="galeria-card-cat">{photo.category}</span>
         {canDelete && (
-          <button className="galeria-card-delete" onClick={handleDelete} title="Borrar">
+          <button className="galeria-card-delete" onClick={e => { e.stopPropagation(); setConfirmOpen(true) }} title="Borrar">
             <i className="fa-solid fa-trash" />
           </button>
         )}
       </div>
-    </div>
+
+      {confirmOpen && (
+        <ConfirmModal
+          message="¿Borrar este archivo? Esta acción no se puede deshacer."
+          onConfirm={handleDelete}
+          onCancel={() => setConfirmOpen(false)}
+          busy={deleting}
+        />
+      )}
+    </>
   )
 }
 

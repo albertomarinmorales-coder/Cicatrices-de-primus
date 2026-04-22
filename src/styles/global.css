@@ -987,7 +987,7 @@ nav {
 }
 
 .raza-card:hover {
-  border-color: rgba(176, 16, 16, 0.6);
+  border-color: var(--gold);
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
@@ -1023,6 +1023,7 @@ nav {
   font-family: 'Cinzel', serif;
   font-size: 0.9rem;
   font-weight: 700;
+  text-align: center;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--gold);
@@ -1033,6 +1034,7 @@ nav {
   color: var(--text-muted);
   font-style: italic;
   margin: 0;
+  text-align: center;
 }
 
 .raza-card-body .btn-ghost {

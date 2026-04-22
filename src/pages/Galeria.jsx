@@ -271,19 +271,13 @@ export default function Galeria() {
 
   return (
     <div className="page active">
-      {/* Hero */}
-      <div className="page-header">
-        <div className="page-header-bg" style={{ backgroundImage: "url('/images/938f05_21021a0aa69c4a3d8b01cf06a38b12c5~mv2.png')" }} />
-        <div className="page-header-overlay" />
-        <div className="page-header-content">
-          <h1 onClick={handleTitleClick} style={{ cursor: 'default', userSelect: 'none' }}>Galeria</h1>
-          <p>Los momentos de Primus</p>
-        </div>
-      </div>
-
       <GaleriaCarousel />
 
       <div className="detail-body">
+        <div className="galeria-header-row">
+          <h2 className="section-title" onClick={handleTitleClick} style={{ cursor: 'default', userSelect: 'none' }}>Galería</h2>
+          <div className="section-underline" />
+        </div>
 
         {/* Auth bar */}
         <div className="galeria-auth-bar">

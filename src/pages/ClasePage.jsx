@@ -25,20 +25,7 @@ export default function ClasePage({ slug }) {
       </div>
 
       <div className="detail-body">
-        <span className="back-btn" onClick={() => navigate('/clases')}>? Volver a Clases</span>
-
-        {data.stats.length > 0 && (
-          <div className="clase-stats-container">
-            {data.stats.map((stat, i) => (
-              <div key={i} className="clase-stat">
-                <span className="stat-label">{stat.label}</span>
-                <div className="stat-bar">
-                  <div className="stat-progress" style={{ width: `${stat.value}%` }} />
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+        <span className="back-btn" onClick={() => navigate('/clases')}>&#8592; Volver a Clases</span>
 
         <div
           className="detail-text"

@@ -57,8 +57,10 @@ export default function Clases() {
               </div>
               <div className="raza-card-body">
                 <h3>{c.name}</h3>
-                {c.role && <p className="raza-card-role" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.8rem' }}>{c.role}</p>}
-                <span className="btn-ghost">Ver m√°s</span>
+                <p className="raza-card-role" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.8rem', minHeight: '1.4rem' }}>
+                  {c.role || ''}
+                </p>
+                <span className="btn-ghost">Ver m·s</span>
               </div>
             </div>
           ))}

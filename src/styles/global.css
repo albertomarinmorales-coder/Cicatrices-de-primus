@@ -5378,6 +5378,12 @@ body.modal-active {
   position: relative; break-inside: avoid;
   margin-bottom: 12px; border-radius: 6px; overflow: hidden;
   cursor: pointer; background: var(--surface);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.galeria-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 18px rgba(201, 168, 76, 0.25);
 }
 .galeria-card-img {
   width: 100%; display: block;

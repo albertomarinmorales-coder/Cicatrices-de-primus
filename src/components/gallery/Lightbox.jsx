@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { api, avatarUrl } from '../../lib/api'
+import { avatarUrl } from '../../lib/api'
 
 export default function Lightbox({ photos, index, user, onClose, onDelete, onNav }) {
   const photo = photos[index]
@@ -21,18 +21,7 @@ export default function Lightbox({ photos, index, user, onClose, onDelete, onNav
 
   if (!photo) return null
 
-  const canDelete = user && (user.is_admin || user.id === photo.uploader_id)
   const av = photo.uploader ? avatarUrl({ id: photo.uploader_id, avatar: photo.uploader.avatar }) : null
-
-  async function handleDelete() {
-    if (!confirm('Borrar esta foto?')) return
-    try {
-      await api.deletePhoto(photo.id)
-      onDelete(photo.id)
-    } catch (e) {
-      alert(e.message)
-    }
-  }
 
   return createPortal(
     <div className="lb-overlay" onClick={onClose}>
@@ -54,11 +43,6 @@ export default function Lightbox({ photos, index, user, onClose, onDelete, onNav
             {photo.uploader?.username && <span className="lb-username">{photo.uploader.username}</span>}
             {photo.category && <span className="lb-cat">{photo.category}</span>}
           </div>
-          {canDelete && (
-            <button className="lb-delete-btn" onClick={handleDelete}>
-              <i className="fa-solid fa-trash" /> Borrar
-            </button>
-          )}
         </div>
       </div>
 

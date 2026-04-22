@@ -1761,6 +1761,54 @@ nav {
   display: block;
 }
 
+.era-img-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border: 1px solid var(--border);
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 10px,
+    rgba(255,255,255,0.03) 10px,
+    rgba(255,255,255,0.03) 20px
+  );
+  background-color: #0e0c09;
+}
+
+.era-text-placeholder {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  color: var(--text-muted);
+  opacity: 0.45;
+  font-size: 0.97rem;
+  margin-top: 0.5rem;
+}
+
+.era-visual--gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.era-img-main {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  filter: saturate(0.72) brightness(0.82);
+  display: block;
+}
+
+.era-img-thumbs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.era-img-thumbs img {
+  aspect-ratio: 4/3;
+}
+
 .ciudad-fotos {
   display: grid;
   grid-template-rows: auto auto;

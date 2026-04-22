@@ -195,59 +195,46 @@ const ANOS = [
   {
     num: 'Año 1',
     title: 'La Caída del Cuervo',
-    img: '/images/938f05_220af1edef06405cbe5f6664785fd2a0~mv2.png',
+    imgs: ['/sources/Eras/Año1/1.png', '/sources/Eras/Año1/2.png', '/sources/Eras/Año1/3.png'],
     alt: 'Año 1 - La Caída del Cuervo',
-    text: `<p>La paz frágil que sostenía el mundo se fragmentó con la muerte del rey <strong>Jon
-      Blackwood</strong>. Su sucesor, el joven e inexperto <strong>Cyprian Blackwood</strong>, fue
-      coronado en un clima de desconfianza. El Consejo de Primus comenzó a fracturarse mientras las ruinas
-      de Raventree Hall se corrompían bajo una extraña oscuridad.</p>
-    <p>Exploradores comenzaron a informar de presencias inexplicables, zonas desprovistas de luz y
-      estructuras que desafiaban las leyes de la física. Primus entró en una nueva era de inestabilidad
-      profunda.</p>`,
+    text: `<p>La muerte del Rey <strong>Jon Blackwood</strong> marcó el final definitivo de la frágil estabilidad que había mantenido unido al continente. Con su fallecimiento, Primus perdió la figura que había sostenido el equilibrio entre las distintas fuerzas del reino.</p>
+    <p>Su hijo <strong>Cyprian Blackwood</strong> ascendió al trono, pero su juventud y la reciente pérdida de sus padres generaron dudas sobre su capacidad para gobernar. Aunque su legitimidad nunca fue cuestionada, muchos comenzaron a ver su reinado como vulnerable.</p>
+    <p>El Consejo de Primus comenzó a fracturarse. Las órdenes ya no actuaban unidas: la Iglesia siguió sus propios designios, la Guardia priorizó el control interno, los consejeros buscaron mantener un equilibrio cada vez más frágil y las casas nobles empezaron a proteger únicamente sus intereses.</p>
+    <p>Mientras tanto, <strong>Raventree Hall</strong>, la antigua capital destruida, comenzó a transformarse en algo peor que ruinas. Exploradores hablaban de zonas corrompidas, presencias extrañas y estructuras que parecían desafiar las leyes naturales. La ciudad se convirtió en un lugar maldito donde pocos entraban y menos aún regresaban.</p>
+    <p>Con el poder central debilitado, el desorden comenzó a extenderse por el continente. Casas menores desobedecían al trono, los conflictos locales aumentaban y las rutas se llenaban de refugiados. Primus ya no enfrentaba un único enemigo, sino múltiples focos de inestabilidad.</p>`,
   },
   {
     num: 'Año 2',
     title: 'Rebeliones',
-    img: '/images/938f05_4cc087c79ab444d982585329f1a7f390~mv2.png',
+    imgs: null,
     alt: 'Año 2 - Rebeliones',
-    text: `<p>Considerando débil a Cyprian, múltiples rebeliones estallaron por todo el continente. Casas menores
-      ignoraron al trono y el bastión de la <strong>Orden Krieger</strong> fue asediado, viendo cómo sus
-      anillos de poder comenzaban a apagarse.</p>
-    <p>Los <strong>Magharyn</strong>, dirigidos por Caelis, debieron combatir en múltiples frentes para
-      sostener el reino, que se mantuvo en pie únicamente por el sacrificio de unos pocos leales.</p>`,
+    text: `<p>La debilidad percibida del nuevo rey desató una ola de rebeliones en todo el continente. Casas menores, pueblos fronterizos y facciones disidentes comenzaron a desafiar la autoridad de la corona.</p>
+    <p>Algunas regiones dejaron de obedecer los decretos reales, mientras que otras cayeron en el saqueo constante. El reino comenzó a fragmentarse en territorios que sobrevivían por su cuenta.</p>
+    <p>Entre los rebeldes surgieron grupos especialmente peligrosos, muchos de ellos liderados por <strong>magharyn renegados</strong> capaces de usar la magia como arma contra el propio reino, haciendo incluso alianzas con enemigos pasados como goblins y orcos.</p>
+    <p>El bastión de la <strong>Orden Krieger</strong> fue asediado por fuerzas rebeldes muy superiores en número. Aunque resistieron, la batalla reveló una dura realidad: la orden ya no podía sostener el reino por sí sola. La pérdida del fragmento de poder debilitó sus anillos, reduciendo drásticamente su capacidad de combate. Y finalmente el Bastión Krieger cayó.</p>
+    <p>Desde entonces, los <strong>Magharyn</strong>, liderados por <strong>Caelis</strong>, tuvieron que intervenir en múltiples frentes: sofocar rebeliones, proteger bastiones y escoltar refugiados. Pero su número era limitado, y Nidharrow se convirtió en un objetivo constante de ataques.</p>
+    <p>Al finalizar el año, el reino se mantenía en pie no por su estructura política, sino por el sacrificio de unas pocas órdenes agotadas.</p>`,
   },
   {
     num: 'Año 3',
     title: 'Tormentas en el Norte',
-    img: '/images/938f05_57904073b16248879c89cfebe1b101f8~mv2.png',
+    imgs: ['/sources/Eras/Año3/1.png', '/sources/Eras/Año3/2.png', '/sources/Eras/Año3/3.png'],
     alt: 'Año 3 - Tormentas en el Norte',
-    text: `<p>La ciudad de <strong>Ravensvik</strong> cayó bajo la influencia de la casa Greycliff, dividiendo el
-      norte entre leales y rebeldes. Mirna reunió a los fieles junto a shazari, enanos y humanos para
-      resistir el asedio.</p>
-    <p>Liderados por Kal'ryn y Gabriel, los leales resistieron y la tormenta se disipó. El norte
-      sobrevivió, pero las cicatrices de la traición permanecieron abiertas.</p>`,
+    text: null,
   },
   {
     num: 'Año 4',
     title: 'Azimra y el Gran Temblor',
-    img: '/images/938f05_9083126937d74cb4b3db02fefa77d25a~mv2.png',
+    imgs: null,
     alt: 'Año 4 - Azimra',
-    text: `<p>Decidido a unificar de nuevo el reino, Cyprian fundó una nueva capital cerca de la Gran Pirámide:
-      <strong>Azimra</strong>. Sin embargo, una explosión colosal de Thae en el centro de Primus rasgó el
-      cielo y cubrió el continente de auroras boreales. Al amanecer, el mundo había cambiado para siempre.</p>`,
+    text: null,
   },
   {
     num: 'Año 5',
     title: 'Azimra, un nuevo comienzo',
-    img: '/images/938f05_92a7cc5c5d0c453ca20e9a5449b24d2f~mv2.png',
+    imgs: null,
     alt: 'Año 5 - Las Maldiciones',
-    text: `<p>Aunque Azimra fue casi terminada y un nuevo Consejo consolidado, surgió una amenaza aún peor:
-      <strong>las maldiciones</strong>. Aldeas marcadas por símbolos imposibles, tierras marchitas y
-      deformaciones del alma invadieron la paz.</p>
-    <p>Surgieron nuevas órdenes y facciones para combatir esta oscuridad: <strong>Zereth-Mor</strong>,
-      <strong>Vhar'Khul</strong>, <strong>Velum Cantoris</strong>, <strong>Argent Praetor</strong>,
-      <strong>Luminarii Vox</strong>, <strong>Aldrak</strong> y <strong>Dualhar</strong>. El quinto año
-      terminó con un reino reconstruido, pero con noches que dejaron de ser seguras.</p>`,
+    text: null,
   },
 ]
 
@@ -265,6 +252,34 @@ const CIUDADES = [
   { id: 'ruinas-dolgaran', name: 'Ruinas Dol-Garan', sub: 'Lo Que Quedó Tras la Caída', px: '73.70%', py: '35.15%' },
 ]
 
+function EraVisual({ item }) {
+  if (!item.imgs && !item.img) {
+    return (
+      <div className="era-visual">
+        <div className="era-img-placeholder" aria-label="Imagen próximamente" />
+      </div>
+    )
+  }
+  const srcs = item.imgs || [item.img]
+  if (srcs.length === 1) {
+    return (
+      <div className="era-visual">
+        <img src={srcs[0]} alt={item.alt} loading="lazy" decoding="async" />
+      </div>
+    )
+  }
+  return (
+    <div className="era-visual era-visual--gallery">
+      <img className="era-img-main" src={srcs[0]} alt={item.alt} loading="lazy" decoding="async" />
+      <div className="era-img-thumbs">
+        {srcs.slice(1).map((src, i) => (
+          <img key={i} src={src} alt={`${item.alt} ${i + 2}`} loading="lazy" decoding="async" />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function Timeline({ items }) {
   return (
     <div className="historia-container">
@@ -275,11 +290,12 @@ function Timeline({ items }) {
             <div className="era-text">
               <div className="era-num">{item.num}</div>
               <h2>{item.title}</h2>
-              <div className="detail-text" dangerouslySetInnerHTML={{ __html: item.text }} />
+              {item.text
+                ? <div className="detail-text" dangerouslySetInnerHTML={{ __html: item.text }} />
+                : <p className="era-text-placeholder">Información próximamente...</p>
+              }
             </div>
-            <div className="era-visual">
-              <img src={item.img} alt={item.alt} loading="lazy" decoding="async" />
-            </div>
+            <EraVisual item={item} />
           </div>
         ))}
       </div>

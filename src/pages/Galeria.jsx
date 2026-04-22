@@ -1,15 +1,88 @@
 ﻿import { useState, useEffect, useCallback, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Lightbox from '../components/gallery/Lightbox'
 import UploadModal from '../components/gallery/UploadModal'
 import { api, avatarUrl, CATEGORIES } from '../lib/api'
 
+// ── Carousel ──────────────────────────────────────────────────────
+const SLIDES = [
+  { label: 'Mundo',      desc: 'Territorios vastos, ruinas y misterios sin nombre',    img: '/sources/Carrusel/ciudad.png',   stripeA: '#0a0f18', stripeB: '#4a7ab5' },
+  { label: 'Razas',      desc: 'Cada pueblo, una historia forjada en cicatrices',       img: null,                             stripeA: '#120a0a', stripeB: '#b01010' },
+  { label: 'Clases',     desc: 'Caminos de poder marcados por la sangre',               img: null,                             stripeA: '#110a14', stripeB: '#7c4ba8' },
+  { label: 'Profesiones',desc: 'Los que forjan, curan y sostienen el mundo',            img: '/sources/Carrusel/Artifice.png', stripeA: '#0f0e08', stripeB: '#a87c2a' },
+  { label: 'Gremios',    desc: 'Alianzas que mueven los hilos del poder',               img: null,                             stripeA: '#0d1209', stripeB: '#4a8c3f' },
+  { label: 'Eventos',    desc: 'Momentos que cambiaron el curso de la historia',        img: null,                             stripeA: '#140a0a', stripeB: '#8c2020' },
+]
+
+function GaleriaCarousel() {
+  const [idx, setIdx]     = useState(0)
+  const [anim, setAnim]   = useState(true)
+  const timerRef          = useRef(null)
+
+  function goTo(n) {
+    setAnim(true)
+    setIdx((n + SLIDES.length) % SLIDES.length)
+  }
+
+  useEffect(() => {
+    timerRef.current = setInterval(() => goTo(idx + 1), 4500)
+    return () => clearInterval(timerRef.current)
+  }, [idx])
+
+  return (
+    <div className="galeria-carousel-wrap">
+      <div
+        className="galeria-carousel"
+        style={{ transform: `translateX(-${idx * 100}%)`, transition: anim ? 'transform 0.55s cubic-bezier(0.4,0,0.2,1)' : 'none' }}
+      >
+        {SLIDES.map((s, i) => (
+          <div
+            key={i}
+            className="galeria-slide"
+            style={{ '--stripe-a': s.stripeA, '--stripe-b': s.stripeB, width: '100%' }}
+          >
+            <div
+              className="galeria-slide-ph"
+              style={s.img ? { backgroundImage: `url('${s.img}')`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
+            />
+            <div className="galeria-slide-caption">
+              <span className="galeria-slide-label">{s.label}</span>
+              <p>{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <button className="galeria-carousel-prev" onClick={() => goTo(idx - 1)}>
+        <i className="fa-solid fa-chevron-left" />
+      </button>
+      <button className="galeria-carousel-next" onClick={() => goTo(idx + 1)}>
+        <i className="fa-solid fa-chevron-right" />
+      </button>
+
+      <div className="galeria-carousel-dots">
+        {SLIDES.map((_, i) => (
+          <div key={i} className={`galeria-dot${i === idx ? ' active' : ''}`} onClick={() => goTo(i)} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 // ── Admin secret login modal ──────────────────────────────────────
 function AdminLoginModal({ onClose, onSuccess }) {
   const [pw, setPw]     = useState('')
   const [err, setErr]   = useState('')
   const [busy, setBusy] = useState(false)
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = '' }
+  }, [onClose])
 
   async function submit(e) {
     e.preventDefault()
@@ -24,7 +97,7 @@ function AdminLoginModal({ onClose, onSuccess }) {
     }
   }
 
-  return (
+  return createPortal(
     <div className="upload-overlay" onClick={onClose}>
       <div className="upload-modal admin-login-modal" onClick={e => e.stopPropagation()}>
         <button className="upload-close" onClick={onClose}>✕</button>
@@ -33,7 +106,7 @@ function AdminLoginModal({ onClose, onSuccess }) {
           <input
             className="upload-input"
             type="password"
-            placeholder="Contrasena secreta"
+            placeholder="Contraseña secreta"
             value={pw}
             onChange={e => setPw(e.target.value)}
             autoFocus
@@ -44,12 +117,13 @@ function AdminLoginModal({ onClose, onSuccess }) {
           </button>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
 
 // ── User chip (logged-in state) ───────────────────────────────────
-function UserChip({ user, av, onLogout, onUpload }) {
+function UserChip({ user, av, onLogout, onUpload, adminSession }) {
   const [open, setOpen] = useState(false)
   const chipRef = useRef(null)
 
@@ -70,11 +144,11 @@ function UserChip({ user, av, onLogout, onUpload }) {
             ? <img className="galeria-chip-avatar" src={av} alt={user.username} />
             : <div className="galeria-chip-avatar galeria-chip-avatar--fallback"><i className="fa-solid fa-user" /></div>
           }
-          {user.is_admin && <span className="galeria-chip-admin-dot" title="Administrador" />}
+          {adminSession && <span className="galeria-chip-admin-dot" title="Administrador" />}
         </div>
         <div className="galeria-chip-info">
           <span className="galeria-chip-name">{user.username}</span>
-          {user.is_admin && <span className="galeria-chip-role">Administrador</span>}
+          {adminSession && <span className="galeria-chip-role">Administrador</span>}
         </div>
         <i className={`fa-solid fa-chevron-down galeria-chip-arrow${open ? ' open' : ''}`} />
       </div>
@@ -131,6 +205,7 @@ function PhotoCard({ photo, user, onClick, onDelete }) {
 export default function Galeria() {
   const location = useLocation()
   const [user, setUser]             = useState(undefined) // undefined = loading
+  const [adminSession, setAdminSession] = useState(false)
   const [photos, setPhotos]         = useState([])
   const [category, setCategory]     = useState('all')
   const [lightboxIdx, setLightboxIdx] = useState(null)
@@ -189,6 +264,7 @@ export default function Galeria() {
   async function logout() {
     await api.logout().catch(() => {})
     setUser(null)
+    setAdminSession(false)
   }
 
   const av = user ? avatarUrl(user) : null
@@ -204,6 +280,8 @@ export default function Galeria() {
           <p>Los momentos de Primus</p>
         </div>
       </div>
+
+      <GaleriaCarousel />
 
       <div className="detail-body">
 
@@ -223,6 +301,7 @@ export default function Galeria() {
               av={av}
               onLogout={logout}
               onUpload={() => setShowUpload(true)}
+              adminSession={adminSession}
             />
           )}
         </div>
@@ -294,7 +373,7 @@ export default function Galeria() {
       {showAdmin && (
         <AdminLoginModal
           onClose={() => setShowAdmin(false)}
-          onSuccess={u => { setUser(u); setShowAdmin(false) }}
+          onSuccess={u => { setUser(u); setAdminSession(true); setShowAdmin(false) }}
         />
       )}
     </div>

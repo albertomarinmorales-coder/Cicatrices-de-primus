@@ -17,7 +17,7 @@ const OFICIOS = [
 export default function Profesiones() {
   const navigate = useNavigate()
   return (
-    <div className="page active">
+    <div className="page active" id="page-profesiones">
       <div className="page-header">
         <div className="page-header-bg" style={{ backgroundImage: "url('/images/c41305_5d27df9e861d464480ebd0dc7a3cf2bb~mv2.png')" }} />
         <div className="page-header-overlay" />
@@ -30,14 +30,14 @@ export default function Profesiones() {
       <div className="section">
         <h2 className="section-title">Profesiones</h2>
         <div className="section-underline"><i className="fa-solid fa-hammer" /></div>
-        <div className="profesiones-grid">
+        <div className="razas-grid">
           {OFICIOS.map((o) => (
-            <div key={o.name} className="oficio-card" onClick={() => navigate(o.path)} style={{ cursor: 'pointer' }}>
-              <div className="oficio-card-img-wrap">
-                <img className="oficio-card-img" src={o.img} alt={o.name} />
+            <div key={o.name} className="raza-card" onClick={() => navigate(o.path)} style={{ cursor: 'pointer' }}>
+              <div className="raza-card-img-wrap">
+                <img className="raza-card-img" src={o.img} alt={o.name} loading="lazy" decoding="async" />
               </div>
-              <div className={`oficio-card-label${o.compact ? ' oficio-card-label--compact' : ''}`} title={o.compact ? o.name : undefined}>
-                {o.compact ? 'Artifices del Velo....' : o.name}
+              <div className="raza-card-body">
+                <h3 title={o.name}>{o.name}</h3>
               </div>
             </div>
           ))}

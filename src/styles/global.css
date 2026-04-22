@@ -2626,6 +2626,12 @@ nav {
   border: none;
 }
 
+/* Las imágenes de portada de profesiones son ilustraciones: no recortar */
+#page-profesiones .raza-card-img {
+  object-fit: contain;
+  background: var(--surface);
+}
+
 [id^="page-oficio-gen-"] .raza-detail-img-wrap img,
 [id^="page-oficio-gen-"] .raza-card-img-wrap img {
   border: 1px solid var(--gold);

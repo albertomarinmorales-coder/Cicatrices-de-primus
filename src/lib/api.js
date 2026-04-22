@@ -31,7 +31,7 @@ export const api = {
     form.append('photo', file)
     form.append('title', title)
     form.append('category', category)
-    return fetch('/api/photos', {
+    return fetch(BASE + '/api/photos', {
       method: 'POST',
       credentials: 'include',
       body: form,

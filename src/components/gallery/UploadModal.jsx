@@ -95,12 +95,23 @@ export default function UploadModal({ onClose, onUploaded }) {
             onDragOver={e => { e.preventDefault(); setDragging(true) }}
             onDragLeave={() => setDragging(false)}
             onDrop={onDrop}
-            onClick={() => !preview && inputRef.current?.click()}
+            onClick={() => { if (!preview) inputRef.current?.click() }}
           >
             {preview
-              ? mode === 'video'
-                ? <video className="upload-preview" src={preview} controls muted />
-                : <img   className="upload-preview" src={preview} alt="preview" />
+              ? <div className="upload-preview-wrap">
+                  {mode === 'video'
+                    ? <video className="upload-preview" src={preview} controls muted />
+                    : <img   className="upload-preview" src={preview} alt="preview" />
+                  }
+                  <button
+                    type="button"
+                    className="upload-preview-delete"
+                    onClick={e => { e.stopPropagation(); setFile(null); setPreview(null); inputRef.current && (inputRef.current.value = '') }}
+                    title="Quitar archivo"
+                  >
+                    <i className="fa-solid fa-trash" />
+                  </button>
+                </div>
               : <>
                   <i className={`fa-solid ${currentMode.icon} upload-drop-icon`} />
                   <p>Arrastra {mode === 'foto' ? 'una imagen' : 'un vídeo'} o haz clic para seleccionar</p>
@@ -109,15 +120,6 @@ export default function UploadModal({ onClose, onUploaded }) {
                   </span>
                 </>
             }
-            {preview && (
-              <button
-                type="button"
-                className="upload-change-file"
-                onClick={e => { e.stopPropagation(); setFile(null); setPreview(null); inputRef.current && (inputRef.current.value = '') }}
-              >
-                <i className="fa-solid fa-rotate" /> Cambiar archivo
-              </button>
-            )}
             <input
               ref={inputRef}
               type="file"

@@ -5386,7 +5386,8 @@ body.modal-active {
   box-shadow: 0 0 18px rgba(201, 168, 76, 0.25);
 }
 .galeria-card-img {
-  width: 100%; display: block;
+  width: 100%; height: 220px; display: block;
+  object-fit: cover; object-position: center;
   transition: transform 0.35s ease;
 }
 .galeria-card:hover .galeria-card-img { transform: scale(1.04); }

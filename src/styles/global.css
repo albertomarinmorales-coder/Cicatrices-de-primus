@@ -3152,8 +3152,7 @@ body.modal-active .audio-toggle {
   color: var(--gold);
   border-color: var(--gold);
   box-shadow: 0 0 20px rgba(201, 168, 76, 0.6);
-  animation: none;
-  /* Quitamos el pulso de 'atenciÃ³n' cuando ya estÃ¡ sonando */
+  animation: audio-pulse 2s infinite;
 }
 
 .audio-label {

@@ -25,7 +25,7 @@ export default function AudioPlayer() {
 
   return (
     <>
-      <audio ref={audioRef} id="bgMusic" src="/audio/bg.mp3" loop preload="none" />
+      <audio ref={audioRef} id="bgMusic" src="/audio/audio.mp3" loop preload="none" />
       <div
         id="audioPlayer"
         className={`audio-toggle${playing ? ' playing pulse-active' : ''}`}

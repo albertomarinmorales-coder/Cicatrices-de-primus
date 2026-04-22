@@ -541,7 +541,7 @@ nav {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('images/938f05_21021a0aa69c4a3d8b01cf06a38b12c5~mv2.png');
+  background-image: url('/images/938f05_21021a0aa69c4a3d8b01cf06a38b12c5~mv2.png');
   background-size: cover;
   background-position: center;
   filter: brightness(0.28) saturate(0.7);
@@ -2824,7 +2824,7 @@ footer::before {
   max-width: 220px;
   min-width: 96px;
   height: 100%;
-  background: url('images/avatar.png') left center / contain no-repeat;
+  background: url('/images/avatar.png') left center / contain no-repeat;
   opacity: 0.72;
   filter: brightness(1.55) contrast(1.2) saturate(1.05) drop-shadow(0 0 16px rgba(201, 168, 76, 0.18));
   pointer-events: none;

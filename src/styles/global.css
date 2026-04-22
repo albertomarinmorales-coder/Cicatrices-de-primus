@@ -5460,16 +5460,20 @@ body.modal-active {
   box-shadow: 0 0 60px rgba(0,0,0,0.8);
 }
 .lb-info {
-  display: flex; align-items: center; gap: 14px;
-  margin-top: 14px; flex-wrap: wrap; justify-content: center;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-top: 14px;
+}
+.lb-info-left {
+  display: flex; flex-direction: column; gap: 4px; min-width: 0;
 }
 .lb-title {
   font-family: 'EB Garamond', serif; font-size: 1rem; color: #fff;
+  margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.lb-meta {
-  display: flex; align-items: center; gap: 8px;
+.lb-user {
+  display: flex; align-items: center; gap: 7px;
 }
-.lb-avatar { width: 24px; height: 24px; border-radius: 50%; }
+.lb-avatar { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; }
 .lb-username { font-family: 'Cinzel', serif; font-size: 0.72rem; color: var(--text-muted); }
 .lb-cat {
   font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.1em;

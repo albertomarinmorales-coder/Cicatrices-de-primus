@@ -47,12 +47,14 @@ export default function Lightbox({ photos, index, user, onClose, onDelete, onNav
           : <img className="lb-img" src={photo.url} alt={photo.title || 'Foto'} />
         }
         <div className="lb-info">
-          {photo.title && <p className="lb-title">{photo.title}</p>}
-          <div className="lb-meta">
-            {av && <img className="lb-avatar" src={av} alt={photo.uploader?.username} />}
-            {photo.uploader?.username && <span className="lb-username">{photo.uploader.username}</span>}
-            {photo.category && <span className="lb-cat">{photo.category}</span>}
+          <div className="lb-info-left">
+            {photo.title && <p className="lb-title">{photo.title}</p>}
+            <div className="lb-user">
+              {av && <img className="lb-avatar" src={av} alt={photo.uploader?.username} />}
+              {photo.uploader?.username && <span className="lb-username">{photo.uploader.username}</span>}
+            </div>
           </div>
+          {photo.category && <span className="lb-cat">{photo.category}</span>}
         </div>
       </div>
 

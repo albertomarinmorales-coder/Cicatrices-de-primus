@@ -2506,6 +2506,7 @@ nav {
   align-items: stretch;
   justify-content: stretch;
   aspect-ratio: 16 / 9;
+  min-width: 0;
 }
 
 .raza-card-img-wrap {
@@ -2569,6 +2570,33 @@ nav {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* Evitar overflow X en profesiones/oficios: mismo esqueleto que razas */
+[id^="page-oficio-gen-"] .raza-intro-row {
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+}
+
+[id^="page-oficio-gen-"] .raza-intro-text,
+[id^="page-oficio-gen-"] .raza-intro-text .detail-text {
+  min-width: 0;
+}
+
+[id^="page-oficio-gen-"] .raza-photos-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+[id^="page-oficio-gen-"] .raza-photo-item {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+[id^="page-oficio-gen-"] .raza-card-img-wrap {
+  min-width: 0;
+  max-width: 100%;
 }
 
 @media (max-width: 900px) {

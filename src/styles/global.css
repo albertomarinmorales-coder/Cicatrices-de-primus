@@ -4808,7 +4808,7 @@ select.gmodal-input option {
 .galeria-slide-clone {
   flex-shrink: 0;
   position: relative;
-  height: 420px;
+  height: 580px;
   overflow: hidden;
 }
 

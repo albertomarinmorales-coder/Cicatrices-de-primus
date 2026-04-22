@@ -8,12 +8,12 @@ import { api, avatarUrl, isVideoUrl, CATEGORIES } from '../lib/api'
 
 // ── Carousel ──────────────────────────────────────────────────────
 const SLIDES = [
-  { label: 'Mundo',      desc: 'Territorios vastos, ruinas y misterios sin nombre',    img: '/sources/Carrusel/ciudad.png',   stripeA: '#0a0f18', stripeB: '#4a7ab5' },
-  { label: 'Razas',      desc: 'Cada pueblo, una historia forjada en cicatrices',       img: '/sources/Carrusel/razas-carrusel.png', stripeA: '#120a0a', stripeB: '#b01010' },
-  { label: 'Clases',     desc: 'Caminos de poder marcados por la sangre',               img: null,                             stripeA: '#110a14', stripeB: '#7c4ba8' },
-  { label: 'Profesiones',desc: 'Los que forjan, curan y sostienen el mundo',            img: '/sources/Carrusel/Artifice.png', stripeA: '#0f0e08', stripeB: '#a87c2a' },
-  { label: 'Gremios',    desc: 'Alianzas que mueven los hilos del poder',               img: null,                             stripeA: '#0d1209', stripeB: '#4a8c3f' },
-  { label: 'Eventos',    desc: 'Momentos que cambiaron el curso de la historia',        img: null,                             stripeA: '#140a0a', stripeB: '#8c2020' },
+  { label: 'Mundo',      desc: 'Territorios vastos, ruinas y misterios sin nombre',    img: '/sources/Carrusel/ciudad.png',        imgPos: 'center',      stripeA: '#0a0f18', stripeB: '#4a7ab5' },
+  { label: 'Razas',      desc: 'Cada pueblo, una historia forjada en cicatrices',       img: '/sources/Carrusel/razas-carrusel.png', imgPos: 'center 35%',  stripeA: '#120a0a', stripeB: '#b01010' },
+  { label: 'Clases',     desc: 'Caminos de poder marcados por la sangre',               img: null,                                  imgPos: 'center',      stripeA: '#110a14', stripeB: '#7c4ba8' },
+  { label: 'Profesiones',desc: 'Los que forjan, curan y sostienen el mundo',            img: '/sources/Carrusel/Artifice.png',       imgPos: 'center 55%',  stripeA: '#0f0e08', stripeB: '#a87c2a' },
+  { label: 'Gremios',    desc: 'Alianzas que mueven los hilos del poder',               img: null,                                  imgPos: 'center',      stripeA: '#0d1209', stripeB: '#4a8c3f' },
+  { label: 'Eventos',    desc: 'Momentos que cambiaron el curso de la historia',        img: null,                                  imgPos: 'center',      stripeA: '#140a0a', stripeB: '#8c2020' },
 ]
 
 function GaleriaCarousel() {
@@ -45,7 +45,7 @@ function GaleriaCarousel() {
           >
             <div
               className="galeria-slide-ph"
-              style={s.img ? { backgroundImage: `url('${s.img}')`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
+              style={s.img ? { backgroundImage: `url('${s.img}')`, backgroundSize: 'cover', backgroundPosition: s.imgPos || 'center' } : {}}
             />
             <div className="galeria-slide-caption">
               <span className="galeria-slide-label">{s.label}</span>

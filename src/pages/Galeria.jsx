@@ -262,7 +262,24 @@ function PhotoCard({ photo, user, onClick, onDelete }) {
         )}
         <div className="galeria-card-bar">
           {photo.title && <span className="galeria-card-title">{photo.title}</span>}
-          <span className="galeria-card-cat">{photo.category}</span>
+          <div className="galeria-card-meta">
+            <span className="galeria-card-cat">{photo.category}</span>
+            {photo.uploader?.username && (
+              <div className="galeria-card-uploader">
+                {photo.uploader.avatar
+                  ? <img
+                      className="galeria-card-uploader-av"
+                      src={`https://cdn.discordapp.com/avatars/${photo.uploader_id}/${photo.uploader.avatar}.png?size=32`}
+                      alt={photo.uploader.username}
+                    />
+                  : <span className="galeria-card-uploader-av galeria-card-uploader-av--fallback">
+                      <i className="fa-brands fa-discord" />
+                    </span>
+                }
+                <span className="galeria-card-uploader-name">{photo.uploader.username}</span>
+              </div>
+            )}
+          </div>
         </div>
         {canDelete && (
           <button className="galeria-card-delete" onClick={e => { e.stopPropagation(); setConfirmOpen(true) }} title="Borrar">

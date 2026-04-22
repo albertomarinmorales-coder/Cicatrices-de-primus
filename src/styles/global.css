@@ -5402,9 +5402,28 @@ body.modal-active {
   font-size: 0.85rem; color: #fff; line-height: 1.3;
   border-left: 2px solid var(--gold); padding-left: 6px;
 }
+.galeria-card-meta {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 6px; padding-left: 8px;
+}
 .galeria-card-cat {
   font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.1em;
-  color: var(--gold); text-transform: uppercase; padding-left: 8px;
+  color: var(--gold); text-transform: uppercase;
+}
+.galeria-card-uploader {
+  display: flex; align-items: center; gap: 5px; flex-shrink: 0;
+}
+.galeria-card-uploader-av {
+  width: 20px; height: 20px; border-radius: 50%;
+  object-fit: cover; border: 1px solid rgba(255,255,255,0.25);
+  display: flex; align-items: center; justify-content: center;
+}
+.galeria-card-uploader-av--fallback {
+  background: #5865F2; color: #fff; font-size: 0.6rem;
+}
+.galeria-card-uploader-name {
+  font-size: 0.68rem; color: rgba(255,255,255,0.75);
+  max-width: 72px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .galeria-card-delete {
   position: absolute; top: 8px; right: 8px;

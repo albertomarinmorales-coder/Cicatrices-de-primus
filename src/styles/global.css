@@ -5143,8 +5143,167 @@ body.modal-active {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 0 1.5rem;
-  min-height: 48px;
+  padding: 0 0 2rem;
+  min-height: 60px;
+}
+
+/* ── User chip ────────────────────────────────────────── */
+.galeria-user-chip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.galeria-chip-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(12, 11, 9, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  padding: 6px 14px 6px 6px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  backdrop-filter: blur(8px);
+}
+
+.galeria-chip-left:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  background: rgba(12, 11, 9, 0.9);
+}
+
+.galeria-chip-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.galeria-chip-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  object-fit: cover;
+  display: block;
+}
+
+.galeria-chip-avatar--fallback {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: rgba(201, 168, 76, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.galeria-chip-admin-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--bg);
+}
+
+.galeria-chip-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.galeria-chip-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: #f0e8d5;
+}
+
+.galeria-chip-role {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.68rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.galeria-chip-arrow {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+  margin-left: 2px;
+}
+
+.galeria-chip-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Upload FAB button */
+.galeria-upload-fab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: 40px;
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.galeria-upload-fab:hover {
+  background: rgba(201, 168, 76, 0.22);
+  border-color: var(--gold);
+  box-shadow: 0 0 14px rgba(201, 168, 76, 0.2);
+}
+
+/* Dropdown */
+.galeria-chip-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: rgba(14, 12, 9, 0.97);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px;
+  min-width: 170px;
+  z-index: 200;
+  backdrop-filter: blur(12px);
+  animation: chipDropIn 0.15s ease;
+}
+
+@keyframes chipDropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.galeria-chip-logout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-family: 'EB Garamond', serif;
+  font-size: 0.92rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.galeria-chip-logout:hover {
+  background: rgba(176, 16, 16, 0.18);
+  color: #e07070;
 }
 .galeria-auth-loading { color: var(--text-muted); font-size: 0.85rem; }
 .galeria-login-btn {

@@ -48,6 +48,54 @@ function AdminLoginModal({ onClose, onSuccess }) {
   )
 }
 
+// ── User chip (logged-in state) ───────────────────────────────────
+function UserChip({ user, av, onLogout, onUpload }) {
+  const [open, setOpen] = useState(false)
+  const chipRef = useRef(null)
+
+  useEffect(() => {
+    if (!open) return
+    function onOutside(e) {
+      if (chipRef.current && !chipRef.current.contains(e.target)) setOpen(false)
+    }
+    document.addEventListener('mousedown', onOutside)
+    return () => document.removeEventListener('mousedown', onOutside)
+  }, [open])
+
+  return (
+    <div className="galeria-user-chip" ref={chipRef}>
+      <div className="galeria-chip-left" onClick={() => setOpen(v => !v)}>
+        <div className="galeria-chip-avatar-wrap">
+          {av
+            ? <img className="galeria-chip-avatar" src={av} alt={user.username} />
+            : <div className="galeria-chip-avatar galeria-chip-avatar--fallback"><i className="fa-solid fa-user" /></div>
+          }
+          {user.is_admin && <span className="galeria-chip-admin-dot" title="Administrador" />}
+        </div>
+        <div className="galeria-chip-info">
+          <span className="galeria-chip-name">{user.username}</span>
+          {user.is_admin && <span className="galeria-chip-role">Administrador</span>}
+        </div>
+        <i className={`fa-solid fa-chevron-down galeria-chip-arrow${open ? ' open' : ''}`} />
+      </div>
+
+      <button className="galeria-upload-fab" onClick={onUpload} title="Subir foto">
+        <i className="fa-solid fa-plus" />
+        <span>Subir</span>
+      </button>
+
+      {open && (
+        <div className="galeria-chip-dropdown">
+          <button className="galeria-chip-logout" onClick={() => { onLogout(); setOpen(false) }}>
+            <i className="fa-solid fa-right-from-bracket" />
+            Cerrar sesión
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
 // ── Photo card ────────────────────────────────────────────────────
 function PhotoCard({ photo, user, onClick, onDelete }) {
   const canDelete = user && (user.is_admin || user.id === photo.uploader_id)
@@ -162,25 +210,20 @@ export default function Galeria() {
         {/* Auth bar */}
         <div className="galeria-auth-bar">
           {user === undefined && (
-            <span className="galeria-auth-loading">Cargando...</span>
+            <span className="galeria-auth-loading"><i className="fa-solid fa-spinner fa-spin" /> Comprobando sesión...</span>
           )}
           {user === null && (
             <button className="galeria-login-btn" onClick={api.discordLogin}>
-              <i className="fa-brands fa-discord" /> Iniciar sesion con Discord
+              <i className="fa-brands fa-discord" /> Iniciar sesión con Discord
             </button>
           )}
           {user && (
-            <div className="galeria-user">
-              {av && <img className="galeria-avatar" src={av} alt={user.username} />}
-              <span className="galeria-username">{user.username}</span>
-              {user.is_admin && <span className="galeria-admin-badge">Admin</span>}
-              <button className="galeria-upload-btn" onClick={() => setShowUpload(true)}>
-                <i className="fa-solid fa-upload" /> Subir foto
-              </button>
-              <button className="galeria-logout-btn" onClick={logout}>
-                <i className="fa-solid fa-right-from-bracket" />
-              </button>
-            </div>
+            <UserChip
+              user={user}
+              av={av}
+              onLogout={logout}
+              onUpload={() => setShowUpload(true)}
+            />
           )}
         </div>
 

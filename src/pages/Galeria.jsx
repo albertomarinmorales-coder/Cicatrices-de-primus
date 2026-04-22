@@ -184,11 +184,11 @@ function UserChip({ user, av, onLogout, onUpload, adminSession }) {
             ? <img className="galeria-chip-avatar" src={av} alt={user.username} />
             : <div className="galeria-chip-avatar galeria-chip-avatar--fallback"><i className="fa-solid fa-user" /></div>
           }
-          {adminSession && <span className="galeria-chip-admin-dot" title="Administrador" />}
+          {(adminSession || user.is_admin) && <span className="galeria-chip-admin-dot" title="Administrador" />}
         </div>
         <div className="galeria-chip-info">
           <span className="galeria-chip-name">{user.username}</span>
-          {adminSession && <span className="galeria-chip-role">Administrador</span>}
+          {(adminSession || user.is_admin) && <span className="galeria-chip-role">Admin</span>}
         </div>
         <i className={`fa-solid fa-chevron-down galeria-chip-arrow${open ? ' open' : ''}`} />
       </div>

@@ -22,7 +22,9 @@ passport.use(new DiscordStrategy(
   },
   async (_accessToken, _refreshToken, profile, done) => {
     try {
-      const isAdmin = profile.id === process.env.ADMIN_DISCORD_ID;
+      const adminIds = (process.env.ADMIN_DISCORD_IDS || process.env.ADMIN_DISCORD_ID || '')
+        .split(',').map(s => s.trim()).filter(Boolean);
+      const isAdmin = adminIds.includes(profile.id);
       await pool.query(`
         INSERT INTO users (id, username, avatar, is_admin)
         VALUES ($1, $2, $3, $4)

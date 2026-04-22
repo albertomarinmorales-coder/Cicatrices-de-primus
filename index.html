@@ -814,10 +814,6 @@
           <p class="footer-tagline">Crónicas del Continente Olvidado</p>
         </div>
 
-
-  
-
-
         <div class="footer-bottom">
           <p class="footer-copy">© 2026 Cicatrices de Primus</p>
         </div>
@@ -864,7 +860,7 @@
       <div class="oficio-tiers">
         <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-enanos-ubicacion')">
-            <span class="tier-tab-name">Ubicación Común</span>
+            <span class="tier-tab-name">Información General</span>
           </button>
           <button class="tier-tab" onclick="showTier(this,'raza-enanos-mentalidad')">
             <span class="tier-tab-name">Mentalidad y Cultura</span>
@@ -988,6 +984,9 @@
           <button class="tier-tab" onclick="showTier(this,'raza-humanos-apariencia')">
             <span class="tier-tab-name">Apariencia Física</span>
           </button>
+          <button class="tier-tab" onclick="showTier(this,'raza-humanos-relaciones')">
+            <span class="tier-tab-name">Relaciones</span>
+          </button>
         </div>
         <div class="tier-panel active" id="raza-humanos-ubicacion">
           <div class="tier-panel-content">
@@ -1025,6 +1024,11 @@
             <h4 class="raza-sub-title">Lengua y Comunicación</h4>
             <p class="tier-desc">Los humanos pueden hablar múltiples lenguas. Sin embargo, el
               Común se ha establecido como idioma universal entre ellos y otras razas.</p>
+          </div>
+        </div>
+        <div class="tier-panel" id="raza-humanos-relaciones">
+          <div class="tier-panel-content">
+            <p class="tier-desc">Los humanos son la raza más sociable y diplomática de Primus. Han forjado alianzas históricas con los enanos y los Shazari, formando el núcleo de la civilización moderna.</p>
           </div>
         </div>
       </div>
@@ -1085,7 +1089,7 @@
       <div class="oficio-tiers">
         <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-malvakari-ubicacion')">
-            <span class="tier-tab-name">Ubicación Común</span>
+            <span class="tier-tab-name">Información General</span>
           </button>
           <button class="tier-tab" onclick="showTier(this,'raza-malvakari-mentalidad')">
             <span class="tier-tab-name">Mentalidad y Cultura</span>
@@ -1209,6 +1213,9 @@
           <button class="tier-tab" onclick="showTier(this,'raza-mestizos-apariencia')">
             <span class="tier-tab-name">Apariencia Física</span>
           </button>
+          <button class="tier-tab" onclick="showTier(this,'raza-mestizos-relaciones')">
+            <span class="tier-tab-name">Relaciones</span>
+          </button>
         </div>
         <div class="tier-panel active" id="raza-mestizos-ubicacion">
           <div class="tier-panel-content">
@@ -1331,7 +1338,7 @@
       <div class="oficio-tiers">
         <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-nhek-thal-ubicacion')">
-            <span class="tier-tab-name">Ubicación Común</span>
+            <span class="tier-tab-name">Información General</span>
           </button>
           <button class="tier-tab" onclick="showTier(this,'raza-nhek-thal-mentalidad')">
             <span class="tier-tab-name">Mentalidad y Cultura</span>
@@ -1556,6 +1563,11 @@
                   Amphibia Ear C Glow (R)</li>
               </ul>
             </div>
+          </div>
+        </div>
+        <div class="tier-panel" id="raza-ossalyth-relaciones">
+          <div class="tier-panel-content">
+            <p class="tier-desc">Su presencia es inquietante pero necesaria. Mantienen pactos de no agresión con los Malvakari y ciertos clanes humanos, actuando como centinelas de los secretos que otros temen desenterrar.</p>
           </div>
         </div>
       </div>
@@ -1796,10 +1808,10 @@
       <div class="oficio-tiers">
         <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-shazari-origen')">
-            <span class="tier-tab-name">Origen e Historia</span>
+            <span class="tier-tab-name">Información General</span>
           </button>
-          <button class="tier-tab" onclick="showTier(this,'raza-shazari-ubicacion')">
-            <span class="tier-tab-name">Ubicación Común</span>
+          <button class="tier-tab" onclick="showTier(this,'raza-shazari-mentalidad')">
+            <span class="tier-tab-name">Mentalidad y Cultura</span>
           </button>
           <button class="tier-tab" onclick="showTier(this,'raza-shazari-apariencia')">
             <span class="tier-tab-name">Apariencia Física</span>
@@ -1810,27 +1822,15 @@
         </div>
         <div class="tier-panel active" id="raza-shazari-origen">
           <div class="tier-panel-content">
-            <p class="tier-desc">Los Shazari son una raza felina de origen tribal que desciende de lo que muchos
-              consideran la primera creación viva. Con cuerpos ágiles, sentidos agudos y una vida marcada por el
-              instinto, los rituales y el honor, fueron durante siglos vistos como salvajes por otras civilizaciones.
-            </p>
-            <p class="tier-desc">Su sociedad, estructurada en clanes gobernados por los más fuertes o sabios, se mantuvo
-              alejada hasta que los primeros contactos diplomáticos revelaron una cultura profunda. Con el tiempo,
-              demostraron ser no solo feroces guerreros, sino también hábiles comerciantes y diplomáticos astutos.</p>
+            <p class="tier-desc">Los Shazari son una raza felina de origen tribal que desciende de lo que muchos consideran la primera creación viva. Con cuerpos ágiles, sentidos agudos y una vida marcada por el instinto, los rituales y el honor, fueron durante siglos vistos como salvajes por otras civilizaciones.</p>
+            <p class="tier-desc">Viven mayormente en selvas, sabanas y valles húmedos, aunque algunos clanes se han asentado cerca de rutas comerciales o enclaves mixtos, conservando sus costumbres en nuevas tierras.</p>
           </div>
         </div>
-        <div class="tier-panel" id="raza-shazari-ubicacion">
+        <div class="tier-panel" id="raza-shazari-mentalidad">
           <div class="tier-panel-content">
-            <p class="tier-desc">Viven mayormente en selvas, sabanas y valles húmedos, aunque algunos clanes se han
-              asentado cerca de rutas comerciales o enclaves mixtos, conservando sus costumbres en nuevas tierras.</p>
-            <div class="raza-variant-card">
-              <h4 class="raza-sub-title">Mentalidad y cultura</h4>
-              <p class="tier-desc">Su cultura tiene raíces tribales, con una fuerte jerarquía y ritos ligados a la
-                naturaleza y los ancestros. Cada acción tiene un valor espiritual, cada decisión se mide con honor. El
-                liderazgo en sus clanes suele recaer en quien demuestre sabiduría, fuerza o visión.</p>
-              <p class="tier-desc">A pesar de su pasado cerrado, hoy muchos Shazari
-                interactúan con otras razas, sin olvidar su esencia felina y su conexión con la selva.</p>
-            </div>
+            <h4 class="raza-sub-title">Mentalidad y cultura</h4>
+            <p class="tier-desc">Su cultura tiene raíces tribales, con una fuerte jerarquía y ritos ligados a la naturaleza y los ancestros. Cada acción tiene un valor espiritual, cada decisión se mide con honor. El liderazgo en sus clanes suele recaer en quien demuestre sabiduría, fuerza o visión.</p>
+            <p class="tier-desc">A pesar de su pasado cerrado, hoy muchos Shazari interactúan con otras razas, sin olvidar su esencia felina y su conexión con la selva.</p>
           </div>
         </div>
         <div class="tier-panel" id="raza-shazari-apariencia">
@@ -1929,10 +1929,7 @@
       <div class="oficio-tiers">
         <div class="tier-tabs" onclick="toggleTabs(this)">
           <button class="tier-tab active" onclick="showTier(this,'raza-thae-tir-origen')">
-            <span class="tier-tab-name">Origen e Historia</span>
-          </button>
-          <button class="tier-tab" onclick="showTier(this,'raza-thae-tir-ubicacion')">
-            <span class="tier-tab-name">Ubicación Común</span>
+            <span class="tier-tab-name">Información General</span>
           </button>
           <button class="tier-tab" onclick="showTier(this,'raza-thae-tir-mentalidad')">
             <span class="tier-tab-name">Mentalidad y Cultura</span>
@@ -1940,33 +1937,20 @@
           <button class="tier-tab" onclick="showTier(this,'raza-thae-tir-apariencia')">
             <span class="tier-tab-name">Apariencia Física</span>
           </button>
+          <button class="tier-tab" onclick="showTier(this,'raza-thae-tir-relaciones')">
+            <span class="tier-tab-name">Relaciones</span>
+          </button>
         </div>
         <div class="tier-panel active" id="raza-thae-tir-origen">
-  
           <div class="tier-panel-content">
-            <p class="tier-desc">Los Thae’tirs, también conocidos como Hijos del Thae, comparten poco sobre su historia.
-              Al igual que los Malvakari, provienen de una dimensión ancestra. Según cuentan, su pueblo era sumamente
-              visionario, capaces de leer los signos en las estrellas. Dicen que cada vez que uno de los suyos nacía,
-              una nueva constelación aparecía en el cielo, y cuando moría, esta desaparecía.</p>
-            <p class="tier-desc">Su civilización, organizada como una antigua república, fue una de las más longevas
-              conocidas.</p>
-            <p class="tier-desc">Hoy en día, debido a su inteligencia y sabiduría, los Thae’tirs se han dispersado por
-              distintas regiones. Algunos partieron al norte, donde forjaron alianzas con los enanos; otros se
-              establecieron en la capital, siguiendo a una diosa a la que ahora sirven como consejeros de sus líderes;
-              mientras que un tercer grupo migró al sur, movido por un deseo innato de exploración.</p>
-            <p class="tier-desc">A pesar de su dispersión, los Thae’tirs mantienen relaciones cordiales con todas las
-              razas.</p>
-          </div>
-        </div>
-        <div class="tier-panel" id="raza-thae-tir-ubicacion">
-          <div class="tier-panel-content">
-            <p class="tier-desc">Dispersos por el mundo: en el norte junto a los enanos, en la capital como consejeros,
-              o en el sur explorando territorios desconocidos.</p>
+            <p class="tier-desc">Los Thae’tirs, también conocidos como Hijos del Thae, provienen de una dimensión ancestra. Su pueblo era sumamente visionario, capaces de leer los signos en las estrellas.</p>
+            <p class="tier-desc">Hoy en día se encuentran dispersos por el mundo: en el norte junto a los enanos, en la capital como consejeros, o en el sur explorando territorios desconocidos.</p>
           </div>
         </div>
         <div class="tier-panel" id="raza-thae-tir-mentalidad">
           <div class="tier-panel-top">
-  
+            <h3>Mentalidad y Cultura</h3>
+          </div>
           <div class="tier-panel-content">
             <p class="tier-desc">Dotados de una profunda sabiduría, los Thae’tirs valoran el conocimiento, la
               exploración y la observación del cosmos. Mantienen relaciones cordiales con todas las razas y tienden a
@@ -2012,6 +1996,11 @@
                 REQUISITO DE LA RAZA: Los nombres de estos deben estar inspirados o ser de constelaciones, signos del
                 zodiaco, planetas, estrellas.</p>
             </div>
+          </div>
+        </div>
+        <div class="tier-panel" id="raza-thae-tir-relaciones">
+          <div class="tier-panel-content">
+            <p class="tier-desc">Aunque provienen de otra dimensión, los Thae’tirs se han integrado con elegancia en las cortes y centros de saber de Primus. Son aliados cercanos de los enanos y consejeros valorados por los humanos.</p>
           </div>
         </div>
       </div>
@@ -2155,7 +2144,21 @@
       </div>
     </div>
 
-    <div class="section"></div>
+    <div class="section">
+      <div class="detail-body" style="text-align: center; padding: 4rem 2rem;">
+        <h2 class="section-title">En Construcción</h2>
+        <div class="section-underline"><i class="fa-solid fa-compass"></i></div>
+        <p class="detail-text" style="max-width: 800px; margin: 2rem auto;">
+          Las fuerzas que moldean el equilibrio de Primus están siendo documentadas. Pronto podrás explorar las intrigas de las Grandes Casas, las Órdenes Militares y los Cultos Prohibidos.
+        </p>
+        <div class="oficio-card" style="margin: 3rem auto; max-width: 400px; cursor: default; transform: none;">
+           <div class="oficio-card-img-wrap">
+             <img class="oficio-card-img" src="images/gremiosBento.png" alt="Facciones" style="filter: grayscale(1);">
+           </div>
+           <div class="oficio-card-label">Documentación en Proceso</div>
+        </div>
+      </div>
+    </div>
 
     <footer>
       <div class="footer-content">
@@ -2425,6 +2428,7 @@
           </div>
           <div class="raza-card-body">
             <h3>Ciudadano</h3>
+            <br>
 
             <span onclick="showPage('clase-ciudadano')" class="btn-ghost">Ver más</span>
           </div>

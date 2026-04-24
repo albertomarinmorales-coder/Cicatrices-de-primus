@@ -9,7 +9,7 @@ export default function Lore() {
         <div className="page-header-bg" style={{ backgroundImage: "url('/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png')" }} />
         <div className="page-header-overlay" />
         <div className="page-header-content">
-          <h1>Historia y Geograf&#237;a</h1>
+          <h1>Historia y Geografía</h1>
           <p>El continente de Primus</p>
         </div>
       </div>
@@ -22,14 +22,14 @@ export default function Lore() {
           <div className="lore-card" onClick={() => navigate('/historia')} style={{ cursor: 'pointer' }}>
             <div className="lore-card-img-wrap">
               <img className="lore-card-img" src="/sources/Mapa.png"
-                alt="Historia y Geograf&#237;a" loading="lazy" decoding="async" />
+                alt="Historia y Geografía" loading="lazy" decoding="async" />
             </div>
             <div className="lore-card-body">
-              <h3>Historia y Geograf&#237;a</h3>
+              <h3>Historia y Geografía</h3>
               <p>
                 El continente de Primus es una tierra ancient forjada en conflictos
                 interminables. Sus terrenos vastos albergan civilizaciones olvidadas,
-                ruinas de guerras pasadas y una geograf&#237;a que refleja las cicatrices
+                ruinas de guerras pasadas y una geografía que refleja las cicatrices
                 del tiempo.
               </p>
             </div>

@@ -2992,7 +2992,6 @@ nav {
   --deity-color: #3d9550;
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .audio-player {
   position: fixed;
   bottom: 32px;
@@ -3064,7 +3063,6 @@ nav {
   }
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .raza-img-placeholder {
   height: 180px;
   background: linear-gradient(135deg, #151210 0%, #1e1a13 50%, #151210 100%);
@@ -3093,11 +3091,9 @@ nav {
   display: grid;
   grid-template-columns: 340px 1fr;
   align-items: center;
-  /* Centra imagen y texto al eje Y */
   gap: 2.5rem;
 }
 
-/* El contenedor de la imagen ocupa solo lo necesario y estÃ¡ centrado */
 .raza-intro-img {
   display: flex;
   align-items: center;
@@ -3105,7 +3101,6 @@ nav {
   height: 100%;
 }
 
-/* Las 3 imÃ¡genes de abajo rellenan su contenedor padre */
 .raza-photos-row {
   display: flex;
   gap: 1.5rem;
@@ -3160,12 +3155,10 @@ nav {
   padding-right: 0;
 }
 
-/* Bordes dorados para TODAS las fotos de profesiones */
 .oficio-card-img {
   border: none;
 }
 
-/* Las imágenes de portada de profesiones son ilustraciones: no recortar */
 #page-profesiones .raza-card {
   background: #000;
 }
@@ -3198,7 +3191,6 @@ nav {
   display: block;
 }
 
-/* Evitar overflow X en profesiones/oficios: mismo esqueleto que razas */
 [id^="page-oficio-gen-"] .raza-intro-row {
   grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
 }
@@ -3237,7 +3229,6 @@ nav {
   }
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .lore-term {
   cursor: help;
   position: relative;
@@ -3268,7 +3259,6 @@ span.lore-term {
 }
 
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 900px) {
   .raza-intro-row {
     grid-template-columns: 1fr;
@@ -3283,7 +3273,6 @@ span.lore-term {
 @media (max-width: 768px) {
   .audio-player {
     bottom: 30px;
-    /* Slight bump up to save native phone UI bars */
     right: 0;
   }
 
@@ -3293,7 +3282,6 @@ span.lore-term {
     padding: 0;
     justify-content: center;
     border-radius: 12px 0 0 12px;
-    /* Curves exclusively on the left side */
     border-right: none;
     font-size: 1rem;
   }
@@ -3314,7 +3302,6 @@ span.lore-term {
     padding: 24px 16px;
   }
 
-  /* Mobile dropdown tabs */
   .tier-tabs {
     flex-direction: column;
     border-bottom: none;
@@ -3326,7 +3313,6 @@ span.lore-term {
 
   .tier-tab {
     display: none;
-    /* Hide by default on mobile */
     width: 100%;
     text-align: left;
     border-radius: 0;
@@ -3338,7 +3324,6 @@ span.lore-term {
   .tier-tab.active {
     display: flex;
     order: -1;
-    /* Always first */
     position: relative;
     border-bottom: 2px solid var(--gold);
     background: rgba(201, 168, 76, 0.1);
@@ -3370,7 +3355,6 @@ span.lore-term {
   }
 
 
-  /* Año chapters - tablet */
   .chronicle-timeline-shell {
     padding-left: 38px;
   }
@@ -3487,7 +3471,6 @@ span.lore-term {
 
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 footer {
   background: #050505;
   padding: 30px 48px 20px;
@@ -3497,7 +3480,6 @@ footer {
   margin-top: 40px;
 }
 
-/* Glow on top center */
 footer::before {
   content: '';
   position: absolute;
@@ -3534,7 +3516,6 @@ footer::before {
   pointer-events: none;
 }
 
-/* Resplandor dorado detrÃ¡s del cuervo */
 .footer-content::after {
   content: '';
   position: absolute;
@@ -3581,7 +3562,6 @@ footer::before {
   color: var(--white);
   opacity: 0.65;
   margin-top: -18px;
-  /* Pegado nivel: FusiÃ³n */
   line-height: 1;
 }
 
@@ -3695,7 +3675,6 @@ footer::before {
   opacity: 0.9;
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .glow-divider {
   width: 100%;
   height: 1px;
@@ -3719,7 +3698,6 @@ footer::before {
   font-family: 'Cinzel', serif;
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .audio-player {
   position: fixed;
   bottom: 32px;
@@ -3749,7 +3727,6 @@ footer::before {
   transform: scale(1.05);
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .welcome-modal-overlay {
   position: fixed;
   top: 0;
@@ -3830,7 +3807,6 @@ footer::before {
   }
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 body.modal-active .audio-toggle {
   animation: goldAuraPulse 1.5s infinite alternate;
   border-color: var(--gold);
@@ -3903,7 +3879,6 @@ body.modal-active .audio-toggle {
   opacity: 0.9;
 }
 
-/* â”€â”€ BENTO GRID (INICIO) â”€â”€ */
 .bento-container {
   max-width: 1200px;
   margin: 6rem auto 6rem;
@@ -3929,7 +3904,6 @@ body.modal-active .audio-toggle {
   text-decoration: none;
 }
 
-/* Efecto de Enfoque: Oscurecer los demÃ¡s al hacer hover */
 .bento-container:has(.bento-item:hover) .bento-item:not(:hover) {
   opacity: 0.4;
   filter: grayscale(0.4) brightness(0.6);
@@ -3938,9 +3912,7 @@ body.modal-active .audio-toggle {
 .bento-container .bento-item:hover {
   opacity: 1;
   filter: grayscale(0) brightness(1.1);
-  /* Un poco mÃ¡s de brillo */
   transform: translateY(-12px) scale(1.05);
-  /* Se eleva y crece */
   border-color: var(--gold);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
   z-index: 10;
@@ -3956,7 +3928,6 @@ body.modal-active .audio-toggle {
 }
 
 .bento-item:hover .bento-bg {
-  /* Remove internal scale */
 }
 
 .bento-overlay {

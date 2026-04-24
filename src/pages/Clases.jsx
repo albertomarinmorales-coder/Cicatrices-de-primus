@@ -24,7 +24,7 @@ const CLASES = [
   { name: 'Stormheilm', path: '/clase-stormheilm', img: '/sources/Clases/6. Stormheilm/fotos/avatar.png', role: 'Luchador/Tanque' },
   { name: 'Velum Caedis', path: '/clase-velum-caedis', img: '/sources/Clases/7. Velum Caedis/fotos/avatar.png', role: 'Burst DPS' },
   { name: 'Velum Cantoris', path: '/clase-velum-cantoris', img: '/sources/Clases/7. Velum Cantoris/fotos/avatar.png', role: 'Buffer/Debuffer' },
-  { name: 'Zereth-Mor', path: '/clase-zereth-mor', img: '/sources/Clases/8. Zereth-Mor/Fotos/avatar.png', role: 'DPS M&#225;gico' },
+  { name: 'Zereth-Mor', path: '/clase-zereth-mor', img: '/sources/Clases/8. Zereth-Mor/Fotos/avatar.png', role: 'DPS Mágico' },
   { name: 'Magharyn', path: '/clase-magharyn', img: '/sources/Clases/9. Magharyn/fotos/avatar.png', role: 'Soporte/Luchador' },
 ]
 

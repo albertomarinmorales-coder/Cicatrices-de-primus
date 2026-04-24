@@ -14,7 +14,9 @@ import Clases from './pages/Clases'
 import ClasePage from './pages/ClasePage'
 import Profesiones from './pages/Profesiones'
 import OficioPage from './pages/OficioPage'
+import Mundo from './pages/Mundo'
 import Facciones from './pages/Facciones'
+import Politica from './pages/Politica'
 import Gremios from './pages/Gremios'
 import GremioAventuras from './pages/GremioAventuras'
 import Normativa from './pages/Normativa'
@@ -82,7 +84,9 @@ export default function App() {
         <Route path="/oficio-gen-minero" element={<OficioPage slug="minero" />} />
         <Route path="/oficio-gen-seeker" element={<OficioPage slug="seeker" />} />
         <Route path="/oficio-gen-tabernero" element={<OficioPage slug="tabernero" />} />
+        <Route path="/mundo" element={<Mundo />} />
         <Route path="/facciones" element={<Facciones />} />
+        <Route path="/politica" element={<Politica />} />
         <Route path="/gremios" element={<Gremios />} />
         <Route path="/gremio-aventuras" element={<GremioAventuras />} />
         <Route path="/normativa" element={<Normativa />} />

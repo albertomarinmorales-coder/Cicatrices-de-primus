@@ -1,7 +1,7 @@
-﻿import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 
-export default function Facciones() {
+export default function Politica() {
   const navigate = useNavigate()
   return (
     <div className="page active">
@@ -9,8 +9,8 @@ export default function Facciones() {
         <div className="page-header-bg" style={{ backgroundImage: "url('/images/gremiosBento.png')" }} />
         <div className="page-header-overlay" />
         <div className="page-header-content">
-          <h1>Facciones</h1>
-          <p>Las fuerzas que definen el equilibrio de Primus</p>
+          <h1>Política</h1>
+          <p>Las estructuras de poder y los territorios de Primus</p>
         </div>
       </div>
 
@@ -20,10 +20,11 @@ export default function Facciones() {
             &#8592; Volver a Mundo
           </span>
           <h2 className="section-title">En Construcción</h2>
-          <div className="section-underline"><i className="fa-solid fa-compass" /></div>
+          <div className="section-underline"><i className="fa-solid fa-landmark" /></div>
           <p className="detail-text" style={{ maxWidth: '800px', margin: '2rem auto' }}>
-            Las fuerzas que moldean el equilibrio de Primus están siendo documentadas. Pronto podrás explorar las intrigas
-            de las Grandes Casas, las Órdenes Militares y los Cultos Prohibidos.
+            Los tratados, alianzas y disputas territoriales que rigen el mundo de Primus
+            están siendo documentados. Pronto podrás explorar los reinos, sus gobernantes
+            y las intrigas que mueven los hilos del poder.
           </p>
           <div className="lore-card" style={{ margin: '3rem auto', maxWidth: '400px', cursor: 'inherit' }}>
             <div className="lore-card-img-wrap" style={{
@@ -40,6 +41,7 @@ export default function Facciones() {
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   )

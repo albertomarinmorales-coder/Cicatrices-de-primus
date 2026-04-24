@@ -11,6 +11,13 @@ const NAV_ITEMS = [
     ],
   },
   {
+    id: 'facciones', label: 'Mundo', path: '/mundo',
+    children: [
+      { label: 'Facciones', path: '/facciones' },
+      { label: 'Política', path: '/politica' },
+    ],
+  },
+  {
     id: 'razas', label: 'Razas', path: '/razas',
     children: [
       { label: 'Elfos', path: '/raza-gen-elfos' },
@@ -42,7 +49,6 @@ const NAV_ITEMS = [
       { label: 'Desconocido', path: '/clase-desconocido' },
     ],
   },
-  { id: 'facciones', label: 'Facciones', path: '/facciones' },
   {
     id: 'profesiones', label: 'Profesiones', path: '/profesiones', alignRight: true,
     children: [

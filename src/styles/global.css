@@ -61,6 +61,7 @@ body {
 a,
 span[onclick],
 button,
+.back-btn,
 .bento-item,
 .lore-card,
 .raza-card,

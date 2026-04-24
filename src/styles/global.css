@@ -4506,17 +4506,73 @@ body.modal-active .audio-toggle {
   margin: 0 auto;
 }
 
+/* Sin bloque kicker: numeral aún en el contenedor (por si faltase el envoltorio) */
 .clase-codex .clase-feature-text::before {
   content: counter(clase-sec, upper-roman);
   display: inline-block;
+  align-self: flex-start;
+  width: max-content;
+  max-width: 100%;
   font-family: 'Cinzel Decorative', serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
+  font-size: clamp(0.88rem, 1.4vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 5px 18px;
-  margin-bottom: 1.15rem;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+}
+
+.clase-codex .clase-feature-text:has(.clase-feature-top)::before {
+  content: none;
+}
+
+/* I/II/III, raya (ancho = caja = primer párrafo) y luego el texto */
+.clase-codex .clase-feature-top {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-self: flex-start;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.clase-codex .clase-feature-top::before {
+  content: counter(clase-sec, upper-roman);
+  order: 0;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(0.88rem, 1.4vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+  align-self: flex-start;
+}
+
+.clase-codex .clase-feature-top::after {
+  content: '';
+  order: 1;
+  display: block;
+  width: 100%;
+  height: 0;
+  border: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 40%, var(--accent));
+  box-shadow:
+    0 1px 5px color-mix(in srgb, var(--gold) 32%, transparent),
+    0 0 10px color-mix(in srgb, var(--gold) 16%, transparent);
+  margin: 0 0 0.5rem 0;
+  box-sizing: border-box;
+  align-self: stretch;
+}
+
+.clase-codex .clase-feature-top > p.tier-desc {
+  order: 2;
+  margin-top: 0;
+  min-width: 0;
+  align-self: stretch;
+  max-width: 100%;
 }
 
 .clase-codex .clase-feature-text p.tier-desc {

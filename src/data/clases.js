@@ -1,8 +1,17 @@
 const IMG = (src, alt) =>
   `<img src="${src}" alt="${alt}" loading="lazy" decoding="async">`
 
+/** Primer <p class="tier-desc"> bajo I/II/III: misma caja = misma anchura de raya y texto */
+const wrapFirstTierDesc = (text) => {
+  const m = String(text).match(
+    /^\s*(<p class="tier-desc"[^>]*>[\s\S]*?<\/p>)([\s\S]*)$/
+  )
+  if (!m) return text
+  return `<div class="clase-feature-top">${m[1]}</div>${m[2] || ''}`
+}
+
 const ROW = (text, img) =>
-  `<div class="clase-feature-row"><div class="clase-feature-img">${img}</div><div class="clase-feature-text">${text}</div></div>`
+  `<div class="clase-feature-row"><div class="clase-feature-img">${img}</div><div class="clase-feature-text">${wrapFirstTierDesc(text)}</div></div>`
 
 export const clasesData = {
   ciudadano: {

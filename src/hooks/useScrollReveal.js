@@ -16,7 +16,7 @@ export function useScrollReveal(dep) {
 
 export function useCardGlow(dep) {
   useEffect(() => {
-    const cards = document.querySelectorAll('.raza-card, .bento-item, .lore-card, .oficio-card, .norm-item, .norm-card')
+    const cards = document.querySelectorAll('.raza-card, .bento-item, .lore-card, .oficio-card, .norm-item, .norm-card, .equipo-card')
     const handlers = []
     cards.forEach(card => {
       const fn = (e) => {

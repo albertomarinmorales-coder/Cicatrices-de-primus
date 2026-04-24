@@ -435,9 +435,15 @@ export default function Galeria() {
             <span className="galeria-auth-loading"><i className="fa-solid fa-spinner fa-spin" /> Comprobando sesión...</span>
           )}
           {user === null && (
-            <button className="galeria-login-btn" onClick={api.discordLogin}>
-              <i className="fa-brands fa-discord" /> Iniciar sesión con Discord
-            </button>
+            <div className="galeria-login-cta">
+              <p className="galeria-login-cta__hint">
+                Para subir una foto o un vídeo, inicia sesión con Discord
+              </p>
+              <button type="button" className="equipo-discord-btn" onClick={api.discordLogin}>
+                <i className="fa-brands fa-discord equipo-discord-btn__icon" aria-hidden />
+                Discord
+              </button>
+            </div>
           )}
           {user && (
             <UserChip

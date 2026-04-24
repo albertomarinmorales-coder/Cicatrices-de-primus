@@ -273,7 +273,8 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .bento-item,
 .lore-card,
 .norm-item,
-.norm-card {
+.norm-card,
+.equipo-card {
   position: relative;
 }
 
@@ -281,7 +282,8 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .bento-item::before,
 .lore-card::before,
 .norm-item::before,
-.norm-card::before {
+.norm-card::before,
+.equipo-card::before {
   content: "";
   height: 100%;
   width: 100%;
@@ -301,7 +303,8 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .bento-item:hover::before,
 .lore-card:hover::before,
 .norm-item:hover::before,
-.norm-card:hover::before {
+.norm-card:hover::before,
+.equipo-card:hover::before {
   opacity: 1;
 }
 
@@ -5854,16 +5857,22 @@ body.modal-active {
   color: #e07070;
 }
 .galeria-auth-loading { color: var(--text-muted); font-size: 0.85rem; }
-.galeria-login-btn {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 22px;
-  background: #5865F2;
-  color: #fff;
-  border: none; border-radius: 8px; cursor: pointer;
-  font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.06em;
-  transition: opacity 0.2s, transform 0.2s;
+.galeria-login-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  max-width: 28rem;
 }
-.galeria-login-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.galeria-login-cta__hint {
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
 .galeria-user {
   display: flex; align-items: center; justify-content: center; gap: 12px;
 }
@@ -6233,5 +6242,246 @@ body.modal-active {
 }
 @media (max-width: 480px) {
   .galeria-grid { columns: 1; }
+}
+
+/* ── Página Equipo (Concilio) ───────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+#page-equipo .equipo-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 48px 48px 80px;
+}
+
+.equipo-section {
+  margin-bottom: 2.75rem;
+}
+
+/* Mismo patrón que Lore (section-title + section-underline + icono), línea a ancho completo del contenedor */
+#page-equipo .equipo-section .section-underline {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 2.25rem;
+}
+
+.equipo-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.equipo-grid--owners {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.equipo-grid--narradores {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.equipo-card {
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
+  border-radius: 10px;
+  padding: 1.25rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, transform 0.3s ease;
+}
+
+/* ::before = resplandor dorado que sigue al cursor (misma lógica que norm-item) */
+.equipo-card > * {
+  position: relative;
+  z-index: 4;
+}
+
+.equipo-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(to right, transparent, color-mix(in srgb, var(--gold) 55%, transparent), transparent);
+}
+
+.equipo-card:hover {
+  border-color: color-mix(in srgb, var(--gold) 55%, transparent);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--gold) 22%, transparent);
+  background: color-mix(in srgb, var(--gold) 6%, var(--surface));
+  transform: translateY(-2px);
+}
+
+.equipo-card__avatar-wrap {
+  position: relative;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--bg) 75%, var(--gold));
+  border: 2px solid color-mix(in srgb, var(--gold) 65%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.equipo-card__avatar-wrap--owner {
+  width: 80px;
+  height: 80px;
+}
+
+.equipo-card__avatar-wrap--narrador {
+  width: 64px;
+  height: 64px;
+}
+
+.equipo-card__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.equipo-card__avatar-fallback {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.35rem;
+  color: var(--gold);
+  text-shadow: 0 0 12px rgba(201, 168, 76, 0.35);
+}
+
+.equipo-card__avatar-wrap--narrador .equipo-card__avatar-fallback {
+  font-size: 1.05rem;
+}
+
+.equipo-card__badge {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  border-radius: 4px;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.equipo-card__name {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.equipo-card__role {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.equipo-card__desc {
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.65;
+  opacity: 0.92;
+}
+
+.equipo-footer-cta {
+  border-top: 1px solid color-mix(in srgb, var(--gold) 15%, transparent);
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 0.5rem;
+}
+
+.equipo-footer-cta__label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.equipo-discord-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: color-mix(in srgb, var(--surface) 90%, black);
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  border-radius: 8px;
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.equipo-discord-btn:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--gold) 25%, transparent);
+}
+
+.equipo-discord-btn__icon {
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+/* Mismo estilo, tamaño del CTA del hero (antes .btn-primary en Inicio) */
+.equipo-discord-btn--hero {
+  margin-top: 16px;
+  padding: 14px 48px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  gap: 12px;
+}
+
+.equipo-discord-btn--hero .equipo-discord-btn__icon {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .equipo-grid--narradores {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+
+  .equipo-grid--owners,
+  .equipo-grid--narradores {
+    grid-template-columns: 1fr;
+  }
+
+  #page-equipo .equipo-page {
+    padding: 32px 20px 60px;
+  }
 }
 

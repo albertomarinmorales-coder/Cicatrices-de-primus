@@ -14,6 +14,7 @@ const themeMap = {
   '/normativa': { color: '#696969', accent: '#222222', palette: ['#696969', '#a9a9a9', '#333333', '#222222', '#ffffff'] },
   '/gremios': { color: '#008080', accent: '#004040', palette: ['#008080', '#20b2aa', '#004040', '#e97451', '#ffffff'] },
   '/gremio-aventuras': { color: '#e97451', accent: '#8b4513', palette: ['#e97451', '#f4a460', '#8b4513', '#d2691e', '#4a6b8a', '#ffffff'] },
+  '/equipo': { color: '#c9a84c', accent: '#181510', palette: ['#c9a84c', '#e8c96a', '#fdfbf0', '#4a3a20', '#b01010'] },
 }
 
 function getThemeForPath(pathname) {

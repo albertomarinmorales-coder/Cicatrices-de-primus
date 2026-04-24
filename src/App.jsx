@@ -22,6 +22,7 @@ import GremioAventuras from './pages/GremioAventuras'
 import Normativa from './pages/Normativa'
 import NormPage from './pages/NormPage'
 import Galeria from './pages/Galeria'
+import Equipo from './pages/Equipo'
 import { useTheme } from './hooks/useTheme'
 import { useLocation } from 'react-router-dom'
 
@@ -101,6 +102,7 @@ export default function App() {
         <Route path="/norm-mazmorra" element={<NormPage slug="mazmorra" />} />
         <Route path="/norm-housing" element={<NormPage slug="housing" />} />
         <Route path="/galeria" element={<Galeria />} />
+        <Route path="/equipo" element={<Equipo />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>

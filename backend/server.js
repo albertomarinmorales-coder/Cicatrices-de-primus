@@ -61,6 +61,13 @@ app.use('/api/photos', photosRouter);
 // ── Health check ──────────────────────────────────────────────────
 app.get('/api/health', (_req, res) => res.json({ ok: true }));
 
+// La raíz no sirve el front (Vite/Netlify/Vercel). Evita "Cannot GET /" en el navegador.
+app.get('/', (_req, res) => {
+  const front = allowedOrigins[0];
+  if (front) return res.redirect(302, front);
+  res.type('text').send('Cicatrices de Primus — API. Estado: GET /api/health');
+});
+
 // ── Arranque ──────────────────────────────────────────────────────
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Backend corriendo en http://localhost:${PORT}`));

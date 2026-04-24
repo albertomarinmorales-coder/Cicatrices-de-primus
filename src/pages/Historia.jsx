@@ -206,7 +206,7 @@ const ANOS = [
   {
     num: 'Año 2',
     title: 'Rebeliones',
-    imgs: null,
+    imgs: ['/sources/Eras/Año2/1.png', '/sources/Eras/Año2/2.png', '/sources/Eras/Año2/3.png'],
     alt: 'Año 2 - Rebeliones',
     text: `<p>La debilidad percibida del nuevo rey desató una ola de rebeliones en todo el continente. Casas menores, pueblos fronterizos y facciones disidentes comenzaron a desafiar la autoridad de la corona.</p>
     <p>Algunas regiones dejaron de obedecer los decretos reales, mientras que otras cayeron en el saqueo constante. El reino comenzó a fragmentarse en territorios que sobrevivían por su cuenta.</p>
@@ -220,21 +220,45 @@ const ANOS = [
     title: 'Tormentas en el Norte',
     imgs: ['/sources/Eras/Año3/1.png', '/sources/Eras/Año3/2.png', '/sources/Eras/Año3/3.png'],
     alt: 'Año 3 - Tormentas en el Norte',
-    text: null,
+    text: `<p>Durante el tercer año la crisis alcanzó su punto más crítico. El Consejo de los Doce comenzó a fracturarse completamente y muchas órdenes reales eran ignoradas o desobedecidas.</p>
+    <p>En el norte ocurrió una traición decisiva.</p>
+    <p>La ciudad de <strong>Ravensvik</strong>, uno de los bastiones del reino, cayó bajo el control de la <strong>Casa Greycliff</strong>, iniciando una rebelión abierta que dividió a los <strong>Stormheilm</strong>.</p>
+    <p>Una parte del pueblo del norte se unió a los rebeldes, mientras que otra permaneció fiel a los antiguos juramentos.</p>
+    <p>Bajo el liderazgo de <strong>Mirna</strong> y el líder espiritual <strong>Saga</strong>, los Stormheilm leales reunieron a humanos, enanos y shazari para enfrentarse a los traidores en los campos nevados cercanos a Ravensvik. La batalla fue feroz, pero las fuerzas leales estaban superadas en número.</p>
+    <p>Entonces ocurrió lo inesperado.</p>
+    <p>Tras años de silencio, la <strong>Orden de la Luz</strong> reapareció desde el este, liderada por <strong>Kal&rsquo;ryn</strong> y <strong>Gabriel</strong>. Su llegada fue acompañada por un fenómeno divino que cambió el curso de la batalla.</p>
+    <p>Con su intervención, el norte logró resistir.</p>
+    <p>Aunque Ravensvik permaneció perdida y en ruinas, la alianza entre la Orden de la Luz y los Stormheilm es más fuerte que nunca y logró detener el caos de la rebelión, dejando al Norte en una situación precaria.</p>`,
   },
   {
     num: 'Año 4',
-    title: 'Azimra y el Gran Temblor',
-    imgs: null,
-    alt: 'Año 4 - Azimra',
-    text: null,
+    title: 'El Despertar',
+    imgs: ['/sources/Eras/Año4/1.png', '/sources/Eras/Año4/2.png', '/sources/Eras/Año4/3.png'],
+    alt: 'Año 4 - El Despertar',
+    text: `<p>Tras la caída de Ravensvik, Primus entró en una etapa de decadencia profunda. Nuevas rebeliones surgieron por todo el continente y el propio rey comenzó a desconfiar incluso de su consejo.</p>
+    <p>Los pocos supervivientes de la <strong>Orden Krieger</strong>, liderados por <strong>Seralyth</strong>, siguieron apoyando los esfuerzos por aplacar las rebeliones, pero cada vez se debilitaban más. Con su castillo ya abandonado y el origen de su poder desvaneciéndose, sus pérdidas comenzaron a ser demasiado numerosas, y pesadas.</p>
+    <p>Al mismo tiempo comenzó a expandirse la corrupción en el continente, regiones donde la vida se marchitaba y la magia se negaba a responder parecían extenderse como una infección en la misma tierra.</p>
+    <p>Ante este panorama, <strong>Cyprian</strong> tomó una decisión decisiva: fundar una nueva capital. Así nació <strong>Azimra</strong>, levantada al oeste de <strong>Ash&rsquo;Torin</strong>, donde ahora se alzaba la gran <strong>Torre del Último Juramento</strong>, centro del estudio de <strong>Thae</strong>.</p>
+    <p>Durante este año también ocurrió algo inquietante: <strong>Meiga</strong>, <strong>Erik</strong> y <strong>Red</strong> desaparecieron, sin ataques ni rumores sobre su paradero.</p>
+    <p>Fue entonces cuando sucedió&hellip;</p>
+    <p>Un evento que cambiaría la historia del mundo como era conocida, una inmensa explosión de Thae que parecería imposible para aquellos que la observasen y que a su paso reescribiría los eventos por los que el continente se regía. En el centro del continente, desde el inmenso volcán que allí dormita, una fuerte oleada del Thae fue desatada. La tierra se sacudió, el cielo tomó vida, llenándose de miles de auroras boreales que se extendieron por todo el continente de Primus.</p>
+    <p>Un espectáculo de luces imposible que dejó a los habitantes de Primus boquiabiertos, y a la expectativa de lo que esto podría traer.</p>
+    <p>¿Era acaso el fin? ¿Era un indicio de los dioses de Primus haciendo su presencia conocida? O acaso&hellip; ¿sería un nuevo principio?</p>
+    <p>La esperanza llenó los corazones de aquellos que todavía creían en un mejor mañana; para otros, el temor de lo que aquello podía significar les infundió terror, pues el mundo se había sumido en tanta pérdida, dolor y decadencia, que aquellas luces podían presagiar algo mucho peor. Fuese lo que fuese, el continente fue a dormir, y entonces, todo cambió.</p>
+    <p>Al amanecer del día siguiente quedó claro que algo fundamental había cambiado, no solo en el continente en sí, sino en el mismísimo destino de su gente.</p>`,
   },
   {
     num: 'Año 5',
-    title: 'Azimra, un nuevo comienzo',
-    imgs: null,
-    alt: 'Año 5 - Las Maldiciones',
-    text: null,
+    title: 'Azimra, un Nuevo Comienzo',
+    imgs: ['/sources/Eras/Año5/1.png', '/sources/Eras/Año5/2.png', '/sources/Eras/Año5/3.png', '/sources/Eras/Año5/4.png'],
+    alt: 'Año 5 - Azimra, un Nuevo Comienzo',
+    text: `<p>Cinco años después de la desaparición en la pirámide, <strong>Azimra</strong> se había convertido en la nueva capital del reino. La ciudad fue construida gracias a refugiados, aliados extranjeros y pueblos de todo el continente.</p>
+    <p>Las rebeliones continuaban, pero ahora la corona respondía con mayor estrategia y coordinación. <strong>Cyprian</strong> logró reconstruir el Consejo, incorporando nuevas figuras de poder. <strong>Meiga</strong>, erudita de la magia del reino; <strong>Red</strong> y su ingenio para crear los guardianes del reino, impresionantes criaturas al servicio de la corona y la capital contra la rebelión; y finalmente <strong>Eryk</strong>, legendario comandante de la antigua orden Krieger, quien con sus conocimientos y voluntad inquebrantable tomó el liderazgo de las fuerzas militares del reino. Así entonces, el reino comenzó a estabilizarse, pero una nueva amenaza apareció de entre las sombras.</p>
+    <p>Nadie sabe de dónde vienen, ni por qué aparecieron; sin embargo, los rastros fueron claros. Caravanas atacadas de forma brutal y sangrienta en el sur; cadáveres marchitos y paralizados en un pánico casi palpable cerca de las ruinas de Raventree. Tierras que se marchitaban sin explicación. El <strong>Thae</strong> parecía responder ante el caos, la muerte, y la pérdida de equilibrio en el reino: las corrupciones avanzaban por el continente, y ya nada era seguro.</p>
+    <p>Estas fuerzas no respondían a ningún enemigo conocido. No buscaban conquistar ni gobernar. Solo consumir.</p>
+    <p>Así terminó el quinto año.</p>
+    <p>Primus seguía hundido en guerras, rebeliones y catástrofes. Los rebeldes y la corona batiéndose en combate por el control del territorio. Azimra se alzaba como símbolo de reconstrucción y erudición, bajo la mirada de la Torre del Último Juramento, y los conocimientos de la muerte sobre los que estos presidían.</p>
+    <p>Pero más allá de las tierras del reino, algo más había despertado en el mundo. Y solo los aventureros de Primus podrán decidir su destino.</p>`,
   },
 ]
 
@@ -252,53 +276,70 @@ const CIUDADES = [
   { id: 'ruinas-dolgaran', name: 'Ruinas Dol-Garan', sub: 'Lo Que Quedó Tras la Caída', px: '73.70%', py: '35.15%' },
 ]
 
-function EraVisual({ item }) {
-  if (!item.imgs && !item.img) {
+function chapterImages(item) {
+  if (item.imgs && item.imgs.length > 0) return item.imgs
+  if (item.img) return [item.img]
+  return null
+}
+
+function AnoGallery({ imgs, alt }) {
+  if (!imgs || imgs.length === 0) {
+    return <div className="ano-gallery-placeholder" aria-label="Imágenes próximamente" />
+  }
+  const count = imgs.length
+  if (count === 1) {
     return (
-      <div className="era-visual">
-        <div className="era-img-placeholder" aria-label="Imagen próximamente" />
+      <div className="ano-gallery ano-gallery--1">
+        <img src={imgs[0]} alt={alt} loading="lazy" decoding="async" />
       </div>
     )
   }
-  const srcs = item.imgs || [item.img]
-  if (srcs.length === 1) {
+  if (count === 2) {
     return (
-      <div className="era-visual">
-        <img src={srcs[0]} alt={item.alt} loading="lazy" decoding="async" />
+      <div className="ano-gallery ano-gallery--2">
+        {imgs.map((src, i) => (
+          <img key={i} src={src} alt={`${alt} ${i + 1}`} loading="lazy" decoding="async" />
+        ))}
+      </div>
+    )
+  }
+  if (count === 3) {
+    return (
+      <div className="ano-gallery ano-gallery--3">
+        <img className="ano-gallery-main" src={imgs[0]} alt={`${alt} 1`} loading="lazy" decoding="async" />
+        <img src={imgs[1]} alt={`${alt} 2`} loading="lazy" decoding="async" />
+        <img src={imgs[2]} alt={`${alt} 3`} loading="lazy" decoding="async" />
       </div>
     )
   }
   return (
-    <div className="era-visual era-visual--gallery">
-      <img className="era-img-main" src={srcs[0]} alt={item.alt} loading="lazy" decoding="async" />
-      <div className="era-img-thumbs">
-        {srcs.slice(1).map((src, i) => (
-          <img key={i} src={src} alt={`${item.alt} ${i + 2}`} loading="lazy" decoding="async" />
-        ))}
-      </div>
+    <div className="ano-gallery ano-gallery--4">
+      {imgs.map((src, i) => (
+        <img key={i} src={src} alt={`${alt} ${i + 1}`} loading="lazy" decoding="async" />
+      ))}
     </div>
   )
 }
 
-function Timeline({ items }) {
+function ChronicleTimeline({ items }) {
   return (
-    <div className="historia-container">
-      <div className="timeline-thread" />
-      <div className="historia-eras">
-        {items.map((item) => (
-          <div key={item.num} className="era-block">
-            <div className="era-text">
-              <div className="era-num">{item.num}</div>
-              <h2>{item.title}</h2>
-              {item.text
-                ? <div className="detail-text" dangerouslySetInnerHTML={{ __html: item.text }} />
-                : <p className="era-text-placeholder">Información próximamente...</p>
-              }
-            </div>
-            <EraVisual item={item} />
+    <div className="caida-timeline">
+      {items.map((item, idx) => (
+        <div key={`${item.num}-${idx}`} className="ano-block">
+          <div className="ano-header">
+            <div className="ano-num">{item.num}</div>
+            <h2 className="ano-title">{item.title}</h2>
+            <div className="ano-divider"><span>✦</span></div>
           </div>
-        ))}
-      </div>
+          <AnoGallery imgs={chapterImages(item)} alt={item.alt} />
+          <div className="ano-body">
+            {item.text
+              ? <div className="detail-text" dangerouslySetInnerHTML={{ __html: item.text }} />
+              : <p className="era-text-placeholder">Información próximamente...</p>
+            }
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
@@ -345,13 +386,13 @@ export default function Historia() {
 
         {activeTab === 'antiguedad' && (
           <div className="lore-panel active">
-            <Timeline items={ERAS} />
+            <ChronicleTimeline items={ERAS} />
           </div>
         )}
 
         {activeTab === 'caida' && (
           <div className="lore-panel active">
-            <Timeline items={ANOS} />
+            <ChronicleTimeline items={ANOS} />
           </div>
         )}
 

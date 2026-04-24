@@ -85,9 +85,9 @@ export const oficiosData = {
     introHtml: `<p class="norm-quote">"Sus manos curan la carne, su saber sana el alma."</p>
 <p class="detail-body-text">Los Galenos son los guardianes de la vida en Azimra. Sirven en hospitales, campamentos y bastiones, donde su conocimiento de hierbas, ungüentos y practicas medicas marca la diferencia entre la vida y la muerte.</p>`,
     tiers: [
-      { label: 'Aprendiz', html: p('Informacion detallada para el rango de Aprendiz proximamente...') },
-      { label: 'Oficial',  html: p('Informacion detallada para el rango de Oficial proximamente...') },
-      { label: 'Maestro',  html: p('Informacion detallada para el rango de Maestro proximamente...') },
+      { label: 'Aprendiz', html: p('Iniciado en el arte de sanar. Aprende a tratar heridas leves, preparar ungüentos básicos y asistir en curaciones. Poco a poco gana en seguridad, asistiendo en el campo de batalla.') },
+      { label: 'Oficial',  html: p('Galeno experimentado y autónomo. Atiende heridas graves, estabiliza pacientes en combate y mantiene con vida a quienes están al borde de la muerte. Encargado de un departamento médico y de las iniciaciones de los nuevos aprendices.') },
+      { label: 'Maestro',  html: p('Guardián de la vida. Su conocimiento y pulso firme desafían a la muerte misma. Puede salvar a quienes otros darían por perdidos y lidera la sanación en los momentos más críticos.') },
     ],
   },
 
@@ -121,9 +121,9 @@ export const oficiosData = {
     introHtml: `<p class="norm-quote">"Juramentados en la paz, los primeros en la guerra."</p>
 <p class="detail-body-text">Los Guardias son hombres y mujeres juramentados al servicio del reino de Azimra, encargados de velar por la seguridad de sus ciudades, aldeas, fortalezas y senderos. Su presencia es sinonimo de orden: donde marchan, la ley del rey Cyprian se hace visible y tangible.</p>`,
     tiers: [
-      { label: 'Aprendiz', html: p('Informacion detallada para el rango de Aprendiz proximamente...') },
-      { label: 'Oficial',  html: p('Informacion detallada para el rango de Oficial proximamente...') },
-      { label: 'Maestro',  html: p('Informacion detallada para el rango de Maestro proximamente...') },
+      { label: 'Aprendiz', html: p('Recién juramentado. Aprende a patrullar las calles de Azimra, mantener el orden y aplicar la ley bajo supervisión, participando en tareas básicas de vigilancia y escribiendo informes.') },
+      { label: 'Oficial',  html: p('Guardia experimentado y autónomo. Patrulla ciudades y caminos, realiza arrestos, escolta caravanas y mantiene el orden incluso en situaciones de riesgo.') },
+      { label: 'Maestro',  html: p('Líder de la guardia. Dirige patrullas, coordina defensas y hace cumplir la ley con autoridad absoluta. Su palabra representa la justicia del reino en acción.') },
     ],
   },
 

@@ -16,28 +16,62 @@ const SLIDES = [
   { label: 'Eventos',    desc: 'Momentos que cambiaron el curso de la historia',        img: null,                                  imgPos: 'center',      stripeA: '#140a0a', stripeB: '#8c2020' },
 ]
 
-function GaleriaCarousel() {
-  const [idx, setIdx]     = useState(0)
-  const [anim, setAnim]   = useState(true)
-  const timerRef          = useRef(null)
+// [clone of last, slide0..slideN, clone of first]
+const EXTENDED = [SLIDES[SLIDES.length - 1], ...SLIDES, SLIDES[0]]
 
-  function goTo(n) {
-    setAnim(true)
-    setIdx((n + SLIDES.length) % SLIDES.length)
+function GaleriaCarousel() {
+  // Start at 1 (first real slide inside EXTENDED)
+  const [idx, setIdx] = useState(1)
+  const [anim, setAnim] = useState(true)
+  const timerRef = useRef(null)
+
+  // Dot highlight: map EXTENDED index back to SLIDES index
+  const realIdx =
+    idx === 0 ? SLIDES.length - 1
+    : idx >= SLIDES.length + 1 ? 0
+    : idx - 1
+
+  function startAutoplay() {
+    clearInterval(timerRef.current)
+    timerRef.current = setInterval(() => {
+      setAnim(true)
+      setIdx(prev => prev + 1)
+    }, 4500)
   }
 
   useEffect(() => {
-    timerRef.current = setInterval(() => goTo(idx + 1), 4500)
+    startAutoplay()
     return () => clearInterval(timerRef.current)
-  }, [idx])
+  }, [])
+
+  // After a transition ends on a clone, snap instantly to the real slide
+  function handleTransitionEnd() {
+    if (idx === 0) {
+      setAnim(false)
+      setIdx(SLIDES.length)
+    } else if (idx === EXTENDED.length - 1) {
+      setAnim(false)
+      setIdx(1)
+    }
+  }
+
+  function goTo(n) {
+    setAnim(true)
+    setIdx(n)
+    startAutoplay()
+  }
 
   return (
     <div className="galeria-carousel-wrap">
       <div
         className="galeria-carousel"
-        style={{ transform: `translateX(-${idx * 100}%)`, transition: anim ? 'transform 0.55s cubic-bezier(0.4,0,0.2,1)' : 'none' }}
+        style={{
+          transform: `translateX(-${idx * 100}%)`,
+          transition: anim ? 'transform 0.55s cubic-bezier(0.4,0,0.2,1)' : 'none',
+        }}
+        onTransitionEnd={handleTransitionEnd}
       >
-        {SLIDES.map((s, i) => (
+        {EXTENDED.map((s, i) => (
           <div
             key={i}
             className="galeria-slide"
@@ -64,7 +98,7 @@ function GaleriaCarousel() {
 
       <div className="galeria-carousel-dots">
         {SLIDES.map((_, i) => (
-          <div key={i} className={`galeria-dot${i === idx ? ' active' : ''}`} onClick={() => goTo(i)} />
+          <div key={i} className={`galeria-dot${i === realIdx ? ' active' : ''}`} onClick={() => goTo(i + 1)} />
         ))}
       </div>
     </div>

@@ -62,7 +62,7 @@ export const razasData = {
         label: 'Apariencia Física',
         html: `<p class="tier-desc">Bajos, robustos y de marcos físicos anchos y macizos. Su piel suele ser dura y curtida, sus barbas largas y bien cuidadas, reflejo de su orgullo cultural.</p>
 <p class="tier-desc">Lejos de la estética común que se vería en un humano, incluso las mujeres son capaces de desarrollar características muy similares a los hombres de la raza. Largas barbas, cuerpos robustos, e incluso la piel curtida son rasgos comunes en las féminas de los enanos.</p>
-<ul class="tier-perks"><li><strong>Estatura Promedio:</strong> entre 1.40 m y 1.60 m.</li><li><strong>Longevidad:</strong> 200 a 500 años</li></ul>`,
+<ul class="tier-perks"><li><strong>Estatura Promedio:</strong> entre 1.50 m y 1.60 m.</li><li><strong>Longevidad:</strong> 200 a 500 años</li></ul>`,
       },
       {
         label: 'Relaciones',

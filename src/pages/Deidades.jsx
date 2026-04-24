@@ -1,14 +1,14 @@
-import { useEffect } from 'react'
+﻿import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import { auroraLock } from '../lib/auroraLock'
 
 const DEITY_COLORS = {
-  drashet: '#4b2a6d',
+  drashet: '#6e4ba3',
   kheos:   '#f1e9ba',
   thronus: '#c9a84c',
   zhecher: '#960f2f',
-  zhenra:  '#2f6b3b',
+  zhenra:  '#3d9550',
 }
 
 const DEIDADES = [

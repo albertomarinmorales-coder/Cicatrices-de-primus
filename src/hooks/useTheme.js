@@ -6,7 +6,7 @@ const themeMap = {
   '/': { color: '#c9a84c', accent: '#b01010', palette: ['#c9a84c', '#e8c96a', '#fdfbf0', '#b01010', '#a87f32'] },
   '/lore': { color: '#c9a84c', accent: '#1c3a63', palette: ['#c9a84c', '#e8c96a', '#f5f0dc', '#1c3a63', '#162b4d'] },
   '/historia': { color: '#b87333', accent: '#4e3416', palette: ['#b87333', '#cd7f32', '#4e3416', '#8b4513', '#f0e6c8'] },
-  '/deidades': { color: '#c9a84c', accent: '#250d30', palette: ['#4b2a6d', '#f1e9ba', '#c9a84c', '#960f2f', '#2f6b3b'] },
+  '/deidades': { color: '#c9a84c', accent: '#250d30', palette: ['#6e4ba3', '#f1e9ba', '#c9a84c', '#960f2f', '#3d9550'] },
   '/razas': { color: '#2d5a27', accent: '#1a2e1a', palette: ['#2d5a27', '#4e6b45', '#1a2e1a', '#d4af37', '#8a722e', '#fdfbf0'] },
   '/profesiones': { color: '#4682b4', accent: '#1a2b3c', palette: ['#4682b4', '#5f9ea0', '#1a2b3c', '#8fa8bc', '#b8cddc', '#ffffff'] },
   '/facciones': { color: '#008080', accent: '#004040', palette: ['#008080', '#20b2aa', '#004040', '#e97451', '#ffffff'] },

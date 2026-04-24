@@ -7,7 +7,7 @@ export function useScrollReveal(dep) {
       { threshold: 0.1 }
     )
     const els = document.querySelectorAll(
-      '.section, .bento-item, .raza-card, .lore-card, .home-section, .clase-feature-row, .norm-item, .norm-card, .raza-stats-grid'
+      '.section, .bento-item, .raza-card, .lore-card, .home-section, .norm-item, .norm-card, .raza-stats-grid'
     )
     els.forEach(el => { el.classList.add('reveal'); observer.observe(el) })
     return () => observer.disconnect()

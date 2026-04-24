@@ -155,9 +155,21 @@ export default function Deidades() {
   }, [])
 
   return (
-    <div className="page active">
-      <div className="detail-hero">
-        <div className="detail-hero-bg" style={{ backgroundImage: "url('/sources/Deidades Nuevas/Deidades-banner.jpg')" }} />
+    <div className="page active" id="page-deidades">
+      <div className="detail-hero deidades-hero">
+        <div className="deidades-hero-mosaic" aria-hidden="true">
+          {DEIDADES.map((d) => (
+            <div key={d.id} className={`deidades-hero-tile deity-hero-tile--${d.id}`}>
+              <img
+                src={d.img}
+                alt=""
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
+            </div>
+          ))}
+        </div>
         <div className="detail-hero-overlay" />
         <div className="detail-hero-content">
           <div className="breadcrumb" onClick={() => navigate('/lore')} style={{ cursor: 'pointer' }}>
@@ -173,16 +185,22 @@ export default function Deidades() {
 
         <div className="deidades-list">
           {DEIDADES.map((d) => (
-            <div key={d.id} className={`deity-card deity-${d.id}`} data-deity-id={d.id}>
-              <div className="deity-portrait">
-                <img src={d.img} alt={d.name} loading="lazy" decoding="async" />
+            <article
+              key={d.id}
+              className={`deity-card deity-${d.id}`}
+              data-deity-id={d.id}
+            >
+              <div className="deity-card-frame">
+                <div className="deity-portrait">
+                  <img src={d.img} alt={d.name} loading="lazy" decoding="async" />
+                </div>
+                <div className="deity-info">
+                  <h2 className="deity-name">{d.name}</h2>
+                  <blockquote className="deity-quote">{d.quote}</blockquote>
+                  <div className="deity-desc" dangerouslySetInnerHTML={{ __html: d.desc }} />
+                </div>
               </div>
-              <div className="deity-info">
-                <div className="deity-name">{d.name}</div>
-                <div className="deity-quote">{d.quote}</div>
-                <div className="deity-desc" dangerouslySetInnerHTML={{ __html: d.desc }} />
-              </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

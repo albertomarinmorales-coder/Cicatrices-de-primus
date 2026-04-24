@@ -24,6 +24,8 @@ function GaleriaCarousel() {
   const [idx, setIdx] = useState(1)
   const [anim, setAnim] = useState(true)
   const timerRef = useRef(null)
+  const idxRef = useRef(1)
+  idxRef.current = idx
 
   // Dot highlight: map EXTENDED index back to SLIDES index
   const realIdx =
@@ -34,30 +36,45 @@ function GaleriaCarousel() {
   function startAutoplay() {
     clearInterval(timerRef.current)
     timerRef.current = setInterval(() => {
+      const prev = idxRef.current
+      if (prev >= EXTENDED.length - 1) {
+        setAnim(false)
+        setIdx(1)
+        return
+      }
       setAnim(true)
-      setIdx(prev => prev + 1)
+      setIdx(prev + 1)
     }, 4500)
   }
 
   useEffect(() => {
     startAutoplay()
-    return () => clearInterval(timerRef.current)
+    return () => {
+      clearInterval(timerRef.current)
+      timerRef.current = null
+    }
   }, [])
 
-  // After a transition ends on a clone, snap instantly to the real slide
-  function handleTransitionEnd() {
-    if (idx === 0) {
+  // Tras el wrap en clon, saltar al slide real. ref = índice al dispararse el evento.
+  function handleTransitionEnd(e) {
+    if (e.target !== e.currentTarget) return
+    if (e.propertyName && e.propertyName !== 'transform') return
+    const c = idxRef.current
+    if (c === 0) {
       setAnim(false)
       setIdx(SLIDES.length)
-    } else if (idx === EXTENDED.length - 1) {
+    } else if (c === EXTENDED.length - 1) {
       setAnim(false)
       setIdx(1)
     }
   }
 
   function goTo(n) {
+    let t = n
+    if (t < 0) t = EXTENDED.length - 1 + t
+    if (t >= EXTENDED.length) t = 1
     setAnim(true)
-    setIdx(n)
+    setIdx(t)
     startAutoplay()
   }
 

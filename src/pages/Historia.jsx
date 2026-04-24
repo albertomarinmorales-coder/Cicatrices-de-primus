@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react'
+﻿import { useState, useEffect, useLayoutEffect, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
@@ -322,24 +322,94 @@ function AnoGallery({ imgs, alt }) {
 }
 
 function ChronicleTimeline({ items }) {
+  const shellRef = useRef(null)
+  const blockRefs = useRef([])
+  const [spineFill, setSpineFill] = useState(0)
+  const [activeIdx, setActiveIdx] = useState(0)
+
+  const updateSpine = useCallback(() => {
+    const shell = shellRef.current
+    if (!shell) return
+    const rect = shell.getBoundingClientRect()
+    const vh = window.innerHeight
+    const readY = vh * 0.38
+    const h = rect.height
+    if (h < 1) return
+    let fill = (readY - rect.top) / h
+    fill = Math.max(0, Math.min(1, fill))
+    setSpineFill(fill)
+
+    const blocks = blockRefs.current.filter(Boolean)
+    let idx = 0
+    for (let i = 0; i < blocks.length; i++) {
+      const br = blocks[i].getBoundingClientRect()
+      if (br.top <= readY) idx = i
+    }
+    setActiveIdx(idx)
+  }, [])
+
+  useEffect(() => {
+    blockRefs.current = items.map(() => null)
+  }, [items])
+
+  useLayoutEffect(() => {
+    const shell = shellRef.current
+    if (!shell) return
+    let ticking = false
+    const tick = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        ticking = false
+        updateSpine()
+      })
+    }
+    updateSpine()
+    window.addEventListener('scroll', tick, { passive: true })
+    window.addEventListener('resize', tick, { passive: true })
+    const ro = new ResizeObserver(tick)
+    ro.observe(shell)
+    return () => {
+      window.removeEventListener('scroll', tick)
+      window.removeEventListener('resize', tick)
+      ro.disconnect()
+    }
+  }, [updateSpine, items])
+
   return (
-    <div className="caida-timeline">
-      {items.map((item, idx) => (
-        <div key={`${item.num}-${idx}`} className="ano-block">
-          <div className="ano-header">
-            <div className="ano-num">{item.num}</div>
-            <h2 className="ano-title">{item.title}</h2>
-            <div className="ano-divider"><span>✦</span></div>
+    <div className="chronicle-timeline-shell" ref={shellRef}>
+      <div className="chronicle-spine" aria-hidden="true">
+        <div className="chronicle-spine-rail" />
+        <div
+          className="chronicle-spine-fill"
+          style={{ transform: `scaleY(${spineFill})` }}
+        />
+      </div>
+      <div className="caida-timeline">
+        {items.map((item, idx) => (
+          <div
+            key={`${item.num}-${idx}`}
+            className={`ano-block chronicle-chapter${activeIdx === idx ? ' chronicle-chapter--active' : ''}${activeIdx > idx ? ' chronicle-chapter--past' : ''}`}
+            ref={(el) => { blockRefs.current[idx] = el }}
+          >
+            <div className="chronicle-marker" title={item.num}>
+              <span className="chronicle-marker-inner" />
+            </div>
+            <div className="ano-header">
+              <div className="ano-num">{item.num}</div>
+              <h2 className="ano-title">{item.title}</h2>
+              <div className="ano-divider"><span>✦</span></div>
+            </div>
+            <AnoGallery imgs={chapterImages(item)} alt={item.alt} />
+            <div className="ano-body">
+              {item.text
+                ? <div className="detail-text" dangerouslySetInnerHTML={{ __html: item.text }} />
+                : <p className="era-text-placeholder">Información próximamente...</p>
+              }
+            </div>
           </div>
-          <AnoGallery imgs={chapterImages(item)} alt={item.alt} />
-          <div className="ano-body">
-            {item.text
-              ? <div className="detail-text" dangerouslySetInnerHTML={{ __html: item.text }} />
-              : <p className="era-text-placeholder">Información próximamente...</p>
-            }
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }

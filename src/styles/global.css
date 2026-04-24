@@ -539,6 +539,22 @@ nav {
   /* Empuja el contenido debajo de la nav fija */
 }
 
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: min(40px, 4.5vh);
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--bg) 0%, transparent),
+    var(--bg) 100%
+  );
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -1243,6 +1259,23 @@ nav {
   overflow: hidden;
 }
 
+/* Funde el borde inferior con el body (mismo --bg) y evita el “corte” al pixel. */
+.detail-hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: min(40px, 4.5vh);
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--bg) 0%, transparent),
+    var(--bg) 100%
+  );
+}
+
 .detail-hero-bg {
   position: absolute;
   inset: 0;
@@ -1265,8 +1298,123 @@ nav {
       rgba(0, 0, 0, 0) 68%);
 }
 
-#page-deidades .detail-hero-bg {
-  background-position: center 12%;
+/* Mosaico: columnas ligeramente solapadas + máscara para fusionar bordes */
+.deidades-hero .deidades-hero-mosaic {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 0;
+  min-width: 0;
+  background: #070605;
+  filter: brightness(0.35) saturate(0.7);
+  transform: translateZ(0);
+}
+
+/* 5 × ~21% − 4 solapes ≈ 100%; el solapamiento es bajo (fusionar sin tapar de más) */
+.deidades-hero .deidades-hero-tile {
+  flex: 0 0 21.1%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+  background: #0e0c09;
+  margin-left: -1.1%;
+  z-index: 1;
+}
+
+.deidades-hero .deidades-hero-tile:first-child {
+  margin-left: 0;
+  z-index: 1;
+}
+
+.deidades-hero .deidades-hero-tile:nth-child(2) { z-index: 2; }
+.deidades-hero .deidades-hero-tile:nth-child(3) { z-index: 3; }
+.deidades-hero .deidades-hero-tile:nth-child(4) { z-index: 4; }
+.deidades-hero .deidades-hero-tile:nth-child(5) { z-index: 5; }
+
+.deidades-hero .deidades-hero-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  display: block;
+  /* Degradé en bordes solapados: se funden con la vecina (izquierda domina hacia arriba en z-index) */
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%);
+  mask-image: linear-gradient(90deg,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%);
+}
+
+/* Primera: sin ocultar el borde izquierdo; última: el derecho */
+.deidades-hero .deidades-hero-tile:first-child img {
+  -webkit-mask-image: linear-gradient(90deg,
+    #000 0%,
+    #000 88%,
+    transparent 100%);
+  mask-image: linear-gradient(90deg,
+    #000 0%,
+    #000 88%,
+    transparent 100%);
+}
+
+.deidades-hero .deidades-hero-tile:last-child img {
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0%,
+    #000 12%,
+    #000 100%);
+  mask-image: linear-gradient(90deg,
+    transparent 0%,
+    #000 12%,
+    #000 100%);
+}
+
+.deity-hero-tile--kheos img {
+  object-position: center 10%;
+}
+
+.deity-hero-tile--thronus img {
+  object-position: center 10%;
+}
+
+.deity-hero-tile--zhecher img {
+  object-position: center 10%;
+}
+
+@media (max-width: 720px) {
+  .deidades-hero .deidades-hero-mosaic {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr)) minmax(0, 0.9fr);
+  }
+
+  .deidades-hero .deidades-hero-tile {
+    margin: 0;
+  }
+
+  .deidades-hero .deidades-hero-tile:nth-child(2),
+  .deidades-hero .deidades-hero-tile:nth-child(3),
+  .deidades-hero .deidades-hero-tile:nth-child(4),
+  .deidades-hero .deidades-hero-tile:nth-child(5) {
+    z-index: 1;
+  }
+
+  .deidades-hero .deidades-hero-tile:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+
+  .deidades-hero .deidades-hero-tile img {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+  }
 }
 
 .detail-hero-content {
@@ -1982,6 +2130,103 @@ nav {
 
 /* == CAIDA DEL CUERVO - CHAPTER LAYOUT == */
 
+/* Scroll-synced vertical spine (Historia: Crónicas / Caída del Cuervo) */
+.chronicle-timeline-shell {
+  position: relative;
+  padding-left: 46px;
+}
+
+.chronicle-spine {
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Trazo base continuo, fino, tipo margen de códice */
+.chronicle-spine-rail {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(42, 35, 24, 0.5) 12%,
+    rgba(55, 48, 36, 0.55) 50%,
+    rgba(42, 35, 24, 0.5) 88%,
+    transparent 100%
+  );
+  border-radius: 1px;
+  opacity: 0.88;
+}
+
+/* Progreso al scroll: lectura; transform solo scaleY (lo aplica React) */
+.chronicle-spine-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: top center;
+  background: linear-gradient(
+    to bottom,
+    rgba(120, 28, 22, 0.4) 0%,
+    rgba(176, 20, 18, 0.28) 10%,
+    var(--gold) 45%,
+    rgba(201, 168, 76, 0.5) 100%
+  );
+  border-radius: 1px;
+  transform: scaleY(0);
+  opacity: 0.68;
+  box-shadow: 0 0 6px rgba(201, 168, 76, 0.1);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chronicle-spine-fill {
+    transition: transform 0.2s ease-out, opacity 0.2s ease;
+  }
+}
+
+.chronicle-marker {
+  position: absolute;
+  /* Alineado con el centro de la columna (shell padding 46px, raíl a ~19px) */
+  left: -28px;
+  top: 58px;
+  width: 14px;
+  height: 14px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  pointer-events: auto;
+  transform: translateX(-50%);
+}
+
+.chronicle-marker-inner {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.3s ease, transform 0.25s ease;
+}
+
+.chronicle-chapter--past .chronicle-marker-inner {
+  background: rgba(201, 168, 76, 0.12);
+  border-color: rgba(201, 168, 76, 0.35);
+}
+
+.chronicle-chapter--active .chronicle-marker-inner {
+  background: rgba(232, 201, 106, 0.35);
+  border-color: var(--gold);
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.22);
+  transform: scale(1.08);
+}
+
 .caida-timeline {
   display: flex;
   flex-direction: column;
@@ -1993,7 +2238,7 @@ nav {
   border: 1px solid var(--border);
   padding: 56px 64px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .ano-block::before {
@@ -2361,6 +2606,23 @@ nav {
   justify-content: center;
   text-align: center;
   border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  overflow: hidden;
+}
+
+.m-ciudad-hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 28px;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--bg) 0%, transparent),
+    var(--bg) 100%
+  );
 }
 
 .m-ciudad-hero-overlay {
@@ -2371,7 +2633,7 @@ nav {
 
 .m-ciudad-hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .m-ciudad-title {
@@ -2513,90 +2775,115 @@ nav {
   }
 }
 
-/* Deidades â€” alternating two-column layout */
+/* Deidades: layout codex, retrato y texto en alternancia */
+.deidades-list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
 .deity-card {
   --deity-color: var(--gold);
+  margin: 0;
+}
+
+.deity-card-frame {
   display: grid;
   grid-template-areas: "portrait info";
-  grid-template-columns: 350px 1fr;
-  gap: 64px;
-  align-items: center;
-  margin-bottom: 80px;
-  padding-bottom: 80px;
-  border-bottom: 1px solid var(--border);
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  gap: clamp(28px, 3.5vw, 48px);
+  align-items: stretch;
+  padding: clamp(28px, 3vw, 48px) clamp(24px, 2.5vw, 44px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid color-mix(in srgb, var(--deity-color) 50%, var(--border));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--deity-color) 22%, transparent),
+    0 16px 48px rgba(0, 0, 0, 0.22);
+  position: relative;
 }
 
-.deity-card:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.deidades-list .deity-card:nth-child(even) {
+.deidades-list .deity-card:nth-child(even) .deity-card-frame {
   grid-template-areas: "info portrait";
-  grid-template-columns: 1fr 350px;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
 }
 
+/* Retrato: misma altura que la columna de texto (desktop); imagen rellena con cover */
 .deity-portrait {
   grid-area: portrait;
-  height: auto;
-  border: 1px solid var(--deity-color);
-  background: transparent;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  align-self: stretch;
+  border: 1px solid color-mix(in srgb, var(--deity-color) 55%, var(--border));
+  background: rgba(0, 0, 0, 0.35);
   box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--deity-color) 42%, #ffffff 58%),
-    0 0 24px color-mix(in srgb, var(--deity-color) 60%, #ffffff 40%);
+    0 0 0 1px color-mix(in srgb, var(--deity-color) 28%, transparent),
+    0 8px 32px color-mix(in srgb, var(--deity-color) 25%, rgba(0, 0, 0, 0.5));
 }
 
 .deity-info {
   grid-area: info;
   text-align: left;
+  min-width: 0;
+  max-width: 38rem;
 }
 
 .deidades-list .deity-card:nth-child(even) .deity-info {
   text-align: right;
+  margin-left: auto;
 }
 
-.deity-card img {
+.deity-portrait img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 100%;
   transition: filter 0.6s ease;
   filter: saturate(0.92) brightness(0.96);
   display: block;
 }
 
-.deity-card:hover img {
+.deity-card:hover .deity-portrait img {
   filter: saturate(1) brightness(1);
 }
 
 .deity-name {
   font-family: 'Cinzel Decorative', serif;
-  font-size: 1.15rem;
+  font-size: clamp(1.2rem, 1.4vw, 1.45rem);
   font-weight: 700;
   color: var(--deity-color);
-  margin-bottom: 10px;
-  line-height: 1.4;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  padding-bottom: 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--deity-color) 28%, transparent);
 }
 
 .deity-quote {
   font-style: italic;
+  font-family: 'EB Garamond', Garamond, serif;
   color: var(--deity-color);
-  font-size: 1rem;
-  margin-bottom: 16px;
+  font-size: 1.05rem;
+  margin: 0 0 1.25rem;
   border-left: 2px solid var(--deity-color);
-  padding-left: 14px;
+  padding: 0.6rem 0 0.6rem 1rem;
   transition: color 0.3s ease;
-  min-height: 1.4em;
   user-select: text;
   text-align: justify;
+  line-height: 1.6;
+  background: color-mix(in srgb, var(--deity-color) 6%, transparent);
 }
 
 .deidades-list .deity-card:nth-child(even) .deity-quote {
   border-left: none;
   border-right: 2px solid var(--deity-color);
   padding-left: 0;
-  padding-right: 14px;
+  padding-right: 1rem;
 }
 
 .deity-domains {
@@ -3029,6 +3316,19 @@ span.lore-term {
 
 
   /* Año chapters - tablet */
+  .chronicle-timeline-shell {
+    padding-left: 38px;
+  }
+
+  .chronicle-spine {
+    left: 14px;
+  }
+
+  .chronicle-marker {
+    left: -22px;
+    top: 52px;
+  }
+
   .ano-block {
     padding: 40px 32px;
   }
@@ -3050,10 +3350,42 @@ span.lore-term {
     aspect-ratio: 16/9;
   }
 
-  .deity-card,
-  .deidades-list .deity-card:nth-child(even) {
-    grid-template-areas: "portrait info";
+  .deity-card-frame,
+  .deidades-list .deity-card:nth-child(even) .deity-card-frame {
+    grid-template-areas: "portrait" "info";
     grid-template-columns: 1fr;
+  }
+
+  .deidades-list .deity-card:nth-child(even) .deity-info {
+    margin-left: 0;
+    text-align: left;
+    max-width: none;
+  }
+
+  .deidades-list .deity-card:nth-child(even) .deity-quote {
+    border-right: none;
+    border-left: 2px solid var(--deity-color);
+    padding-right: 0;
+    padding-left: 1rem;
+  }
+
+  .deity-portrait {
+    position: static;
+    overflow: visible;
+    min-height: 0;
+    max-width: 300px;
+    margin-inline: auto;
+    aspect-ratio: 3 / 4;
+    height: auto;
+  }
+
+  .deity-portrait img {
+    position: static;
+    inset: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
   }
 }
 
@@ -3067,6 +3399,19 @@ span.lore-term {
   }
 
   /* Año chapters - mobile */
+  .chronicle-timeline-shell {
+    padding-left: 30px;
+  }
+
+  .chronicle-spine {
+    left: 11px;
+  }
+
+  .chronicle-marker {
+    left: -17px;
+    top: 48px;
+  }
+
   .ano-block {
     padding: 28px 20px;
   }

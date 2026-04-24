@@ -1,0 +1,12 @@
+# Netlify: caché larga en imágenes estáticas = repetición instantánea sin reencodear
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/sources/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/audio/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

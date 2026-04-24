@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { oficiosData } from '../data/oficios'
 import Footer from '../components/Footer'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { usePreloadImages } from '../hooks/usePreloadImages'
 
 export default function OficioPage({ slug }) {
   const navigate = useNavigate()
@@ -10,6 +11,7 @@ export default function OficioPage({ slug }) {
   const [activeTab, setActiveTab] = useState(0)
   const [mobileOpen, setMobileOpen] = useState(false)
   useScrollReveal(slug)
+  usePreloadImages(data ? [data.coverImg] : [])
 
   if (!data) return null
 
@@ -40,7 +42,13 @@ export default function OficioPage({ slug }) {
 
         <div className="raza-intro-row">
           <div className="raza-intro-img">
-            <img className="raza-detail-img" src={data.coverImg} alt={`${data.name} 1`} loading="lazy" />
+            <img
+              className="raza-detail-img"
+              src={data.coverImg}
+              alt={`${data.name} 1`}
+              fetchPriority="high"
+              decoding="async"
+            />
           </div>
           <div className="raza-intro-text">
             <div className="detail-text" dangerouslySetInnerHTML={{ __html: data.introHtml }} />

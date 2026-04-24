@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 import { normativaData } from '../data/normativa'
 import Footer from '../components/Footer'
+import { usePreloadImages } from '../hooks/usePreloadImages'
 
 export default function NormPage({ slug }) {
   const navigate = useNavigate()
   const data = normativaData[slug]
+  usePreloadImages(data ? [data.heroBg] : [])
 
   if (!data) {
     return (

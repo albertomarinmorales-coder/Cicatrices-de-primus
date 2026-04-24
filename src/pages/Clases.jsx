@@ -33,9 +33,14 @@ export default function Clases() {
   return (
     <div className="page active">
       <div className="roster-grid-header">
-        {ROSTER_IMGS.map((r) => (
+        {ROSTER_IMGS.map((r, i) => (
           <div key={r.alt} className="roster-grid-item">
-            <img src={r.src} alt={r.alt} />
+            <img
+              src={r.src}
+              alt={r.alt}
+              fetchPriority={i < 4 ? 'high' : 'low'}
+              decoding="async"
+            />
           </div>
         ))}
         <div className="roster-grid-overlay">

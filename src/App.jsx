@@ -25,6 +25,7 @@ import Galeria from './pages/Galeria'
 import Equipo from './pages/Equipo'
 import { useTheme } from './hooks/useTheme'
 import { useLocation } from 'react-router-dom'
+import RouteImagePreload from './components/RouteImagePreload'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -44,6 +45,7 @@ export default function App() {
       <AudioPlayer />
       <WelcomeModal />
       <ScrollToTop />
+      <RouteImagePreload />
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/inicio" element={<Navigate to="/" replace />} />

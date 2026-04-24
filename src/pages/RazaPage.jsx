@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { razasData } from '../data/razas'
 import Footer from '../components/Footer'
 import { useScrollReveal, useCardGlow } from '../hooks/useScrollReveal'
+import { usePreloadImages } from '../hooks/usePreloadImages'
 
 function useTooltips(dep) {
   useEffect(() => {
@@ -41,6 +42,7 @@ export default function RazaPage({ slug }) {
   useScrollReveal(slug)
   useCardGlow(slug)
   useTooltips(slug)
+  usePreloadImages(data ? [data.headerImg, data.coverImg] : [])
 
   if (!data) return null
 

@@ -67,7 +67,8 @@ export default function Inicio() {
           src="/images/hero.png"
           alt="Cicatrices de Primus Hero"
           className="hero-bg-img"
-          fetchpriority="high"
+          fetchPriority="high"
+          decoding="async"
           role="presentation"
         />
         <div className="hero-overlay" />

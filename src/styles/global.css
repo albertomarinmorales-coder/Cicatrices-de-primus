@@ -727,6 +727,8 @@ nav {
 .page-header-bg {
   position: absolute;
   inset: 0;
+  /* Tinte mientras llega el fondo (evita “parpadeo” en gris/blanco) */
+  background-color: #100e0c;
   background-size: cover;
   background-position: center 30%;
   filter: brightness(0.3) saturate(0.7);
@@ -1321,6 +1323,7 @@ nav {
 .detail-hero-bg {
   position: absolute;
   inset: 0;
+  background-color: #0f0d0a;
   background-size: cover;
   background-position: center 20%;
   filter: brightness(0.35) saturate(0.7);
@@ -2593,7 +2596,6 @@ nav {
   pointer-events: auto;
 }
 
-/* Modal grande */
 .ciudad-modal-overlay {
   position: fixed;
   inset: 0;
@@ -3921,6 +3923,7 @@ body.modal-active .audio-toggle {
 .bento-bg {
   position: absolute;
   inset: 0;
+  background-color: #120f0d;
   background-size: cover;
   background-position: center;
   transition: transform 0.6s ease;
@@ -3962,7 +3965,6 @@ body.modal-active .audio-toggle {
   overflow: hidden;
 }
 
-/* Grid Spans */
 .bento-2x2 {
   grid-column: span 2;
   grid-row: span 2;
@@ -4008,7 +4010,6 @@ body.modal-active .audio-toggle {
   }
 }
 
-/* â”€â”€ NORM GRID (NORMATIVA BENTO) â”€â”€ */
 .norm-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -4036,7 +4037,6 @@ body.modal-active .audio-toggle {
   text-align: center;
 }
 
-/* Bento Spans */
 .norm-2x2 {
   grid-column: span 4;
   grid-row: span 2;
@@ -4625,7 +4625,6 @@ body.modal-active .audio-toggle {
   border-color: rgba(201, 168, 76, 0.8) !important;
 }
 
-/* â”€â”€ GALERÃA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .galeria-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -5610,7 +5609,6 @@ body.modal-active {
   transition: color 0.25s ease !important;
 }
 
-/* ─── Oficio tier tables ─────────────────────────────────────────── */
 .oficio-table {
   width: 100%;
   border-collapse: collapse;

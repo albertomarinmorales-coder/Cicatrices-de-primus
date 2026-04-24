@@ -184,7 +184,7 @@ function AdminLoginModal({ onClose, onSuccess }) {
               onChange={e => setPw(e.target.value)}
               style={{ marginTop: '1rem', opacity: 0.6 }}
             />
-            <button className="upload-submit" onClick={submit} disabled={busy || !pw} style={{ marginTop: '0.5rem', background: '#4a0000' }}>
+            <button className="upload-submit upload-submit--admin" onClick={submit} disabled={busy || !pw} style={{ marginTop: '0.5rem' }}>
               {busy ? 'Verificando...' : 'Tentar al destino otra vez'}
             </button>
           </div>

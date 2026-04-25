@@ -27,6 +27,12 @@ const RAZAS_ROSTER_TOP = [
 
 const LORE_CARDS = [LORE_HEADER, '/sources/Mapa.png', '/sources/Deidades Nuevas/Deidades-banner.jpg']
 
+const VELUMS_HUB = [
+  '/sources/Clases/Velums/velums-hero.png',
+  '/sources/Clases/7.%20Velum%20Caedis/fotos/avatar.png',
+  '/sources/Clases/7.%20Velum%20Cantoris/fotos/avatar.png',
+]
+
 /** @param {string} pathname */
 export function getPreloadImagesForPath(pathname) {
   switch (pathname) {
@@ -50,6 +56,8 @@ export function getPreloadImagesForPath(pathname) {
       return [LORE_HEADER]
     case '/clases':
       return CLASES_ROSTER_TOP
+    case '/clase-velums':
+      return VELUMS_HUB
     case '/razas':
       return RAZAS_ROSTER_TOP
     case '/galeria':

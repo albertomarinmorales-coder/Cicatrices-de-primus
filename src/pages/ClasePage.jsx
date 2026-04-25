@@ -10,14 +10,19 @@ export default function ClasePage({ slug }) {
 
   if (!data) return null
 
+  const isVelumSenda = slug === 'velum-caedis' || slug === 'velum-cantoris'
+  const backTo = isVelumSenda ? '/clase-velums' : '/clases'
+  const backLabel = isVelumSenda ? 'Volver a Velums' : 'Volver a Clases'
+  const breadcrumbRoot = isVelumSenda ? 'Velums' : 'Clases'
+
   return (
-    <div className="page active">
+    <div className="page active" id={`page-${slug}`}>
       <div className="detail-hero">
         <div className="detail-hero-bg clase-hero-placeholder" aria-hidden="true" />
         <div className="detail-hero-overlay" />
         <div className="detail-hero-content">
-          <div className="breadcrumb" onClick={() => navigate('/clases')}>
-            Clases <span>/ {data.name}</span>
+          <div className="breadcrumb" onClick={() => navigate(backTo)}>
+            {breadcrumbRoot} <span>/ {data.name}</span>
           </div>
           <h1>{data.name}</h1>
           {data.tag && <span className="detail-tag">{data.tag}</span>}
@@ -25,7 +30,15 @@ export default function ClasePage({ slug }) {
       </div>
 
       <div className="detail-body">
-        <span className="back-btn" onClick={() => navigate('/clases')}>&#8592; Volver a Clases</span>
+        <span className="back-btn" onClick={() => navigate(backTo)}>&#8592; {backLabel}</span>
+
+        {data.chapterTitle && (
+          <header className="velums-chapter-head">
+            <span className="velums-chapter-ornament" aria-hidden>✦</span>
+            <h2 className="velums-elegant-title">{data.chapterTitle}</h2>
+            <span className="velums-chapter-ornament" aria-hidden>✦</span>
+          </header>
+        )}
 
         <div
           className="detail-text clase-codex"

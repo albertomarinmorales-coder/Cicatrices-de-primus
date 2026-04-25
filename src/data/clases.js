@@ -13,6 +13,15 @@ const wrapFirstTierDesc = (text) => {
 const ROW = (text, img) =>
   `<div class="clase-feature-row"><div class="clase-feature-img">${img}</div><div class="clase-feature-text">${wrapFirstTierDesc(text)}</div></div>`
 
+export const VELUM_IMG = {
+  /** Única imagen del hub /clase-velums (arte compartido Azharn) */
+  velumsHero: '/sources/Clases/Velums/velums-hero.png',
+  caedisAvatar: '/sources/Clases/7.%20Velum%20Caedis/fotos/avatar.png',
+  cantorisAvatar: '/sources/Clases/7.%20Velum%20Cantoris/fotos/avatar.png',
+  caedisFotoApertura: '/sources/Clases/7.%20Velum%20Caedis/fotos/foto-apertura.png',
+  caedisFoto1: '/sources/Clases/7.%20Velum%20Caedis/fotos/foto1.png',
+}
+
 export const clasesData = {
   ciudadano: {
     slug: 'ciudadano',
@@ -187,24 +196,19 @@ ${ROW(`<p class="tier-desc">Luchan por dominio del norte. Por legado, y por la m
   'velum-caedis': {
     slug: 'velum-caedis',
     name: 'Velum Caedis',
+    chapterTitle: 'Caminantes del Umbral',
     tag: 'Burst DPS',
     avatarImg: '/sources/Clases/7.%20Velum%20Caedis/fotos/avatar.png',
     stats: [],
     contentHtml: `
-${ROW(`<p class="tier-desc">Antes de ser vistos… ya han pasado.</p>
-<p class="tier-desc">Los Velum Caedis no luchan. No en el sentido que los vivos entienden. Ellos se desplazan entre instantes, guiados por una música que nadie más puede oír. Un susurro constante que marca el ritmo de su existencia.</p>
-<p class="tier-desc">Cada movimiento es una respuesta.</p><p class="tier-desc">Cada paso, una sentencia.</p>
-<p class="tier-desc">No dominan a los muertos. No los esclavizan. Caminan junto a ellos… o quizás son arrastrados por ellos. Voces sin descanso murmuran en su mente, señalando objetivos, exigiendo actos, reclamando finales.</p>`,
-      IMG('/sources/Clases/7.%20Velum%20Caedis/fotos/foto1.png', 'Foto 1'))}
-<div class="clase-feature-row clase-feature-row--text-only"><div class="clase-feature-text">
-<p class="tier-desc">Algunos obedecen por deber.</p><p class="tier-desc">Otros, por culpa.</p>
-<p class="tier-desc">Y algunos… porque han olvidado cómo dejar de escuchar.</p>
-<p class="tier-desc">En combate, son irreales. Apariciones fugaces que cortan el tejido de la realidad y desaparecen antes de que la sangre toque el suelo. No buscan destrucción. Buscan precisión.</p>
-<p class="tier-desc">Un nombre.</p><p class="tier-desc">Un acto.</p><p class="tier-desc">Un final.</p><p class="tier-desc">Y luego, nada.</p>
-<p class="tier-desc">Pero el precio es inevitable.</p>
-<p class="tier-desc">Cuanto más tiempo permanecen entre el mundo de los vivos y el eco de los muertos, más difusa se vuelve su existencia. Sus cuerpos siguen moviéndose… pero algo en ellos ya no regresa.</p>
-<p class="tier-desc">Y llega un momento en que el susurro deja de guiar.</p><p class="tier-desc">Y empieza a reclamar.</p>
-</div></div>`,
+${ROW(`<p class="tier-desc">Antes de ser vistos… ya han pasado. Los Velum Caedis no luchan, no en el sentido que los vivos entienden: se desplazan entre instantes, guiados por una música que nadie más puede oír, un susurro constante que marca el ritmo de su existencia. Cada movimiento es una respuesta; cada paso, una sentencia.</p>
+<p class="tier-desc">No dominan a los muertos, no los esclavizan. Caminan junto a ellos… o quizás son arrastrados por ellos. Voces sin descanso murmuran en su mente, señalando objetivos, exigiendo actos, reclamando finales.</p>`,
+      IMG(VELUM_IMG.caedisFotoApertura, 'Foto 1'))}
+${ROW(`<p class="tier-desc">Algunos obedecen por deber; otros, por culpa; y otros aún, porque hace ya tanto que olvidaron cómo dejar de escuchar que ni el silencio les resulta un alivio.</p>
+<p class="tier-desc">En combate son irreales: apariciones fugaces que cortan el tejido de la realidad y se evaden antes de que la sangre toque el suelo. No anhelan la destrucción en abstracto: buscan un nombre, un acto, un final. Y luego, nada.</p>
+<p class="tier-desc">Pero el precio es inevitable. Cuanto más se demoran en la frontera entre el mundo de los vivos y el eco de los muertos, más se difuminan. El cuerpo obedece; la presencia, en cambio, se resquebraja — algo de ellos deja de volver, aunque los pies sigan andando.</p>
+<p class="tier-desc">Y entonces, un día, el susurro deja de guiar. Y empieza, en cambio, a reclamar.</p>`,
+      IMG(VELUM_IMG.caedisFoto1, 'Foto 2'))}`,
   },
 
   'velum-cantoris': {
@@ -214,30 +218,29 @@ ${ROW(`<p class="tier-desc">Antes de ser vistos… ya han pasado.</p>
     avatarImg: '/sources/Clases/7.%20Velum%20Cantoris/fotos/avatar.png',
     stats: [],
     contentHtml: `
-${ROW(`<p class="tier-desc">Donde otros retroceden ante el silencio de la muerte, los Azharn avanzan. No lo desafían… lo aceptan. En ese vacío donde todo termina, ellos encuentran propósito.</p>
-<p class="tier-desc">Son seres marcados por un destino irrevocable, ligados a lo invisible, a lo olvidado, a aquello que se niega a desaparecer. No escuchan a los muertos como un don, sino como una condena que late en su sangre. Susurros sin descanso, voces que no conocen reposo. A través del viento y la música, los ecos de los caídos se aferran a ellos, guiando sus pasos… o arrastrándolos.</p>
-<p class="tier-desc">Nunca están solos.</p>
-<p class="tier-desc">El aire a su alrededor vibra con presencias: melodías que nacen de recuerdos marchitos, lamentos que desgarran la cordura, armonías que no pertenecen al mundo de los vivos. Para un Azharn, la música no es arte. Es un umbral. Un lenguaje antiguo con el más allá.</p>
-<p class="tier-desc">Son los intérpretes de lo inconcluso. Ejecutores de voluntades que la muerte no logró apagar. Sanadores de penas que jamás encontraron descanso. Vengadores de agravios enterrados en el olvido… o marionetas de voces que susurran mentiras con la forma de promesas.</p>
-<p class="tier-desc">Pero ningún mortal puede sostener esa mirada eternamente.</p><p class="tier-desc">A veces, el umbral devuelve la mirada.</p>
-<p class="tier-desc">Los Azharn no buscan gloria. La gloria es para los vivos. Lo suyo es algo más antiguo, más frío. Su existencia es un equilibrio imposible, una danza al filo de lo inevitable. Cuando el silencio se alza para devorarlo todo, los Azharn no huyen.</p>
-<p class="tier-desc">Ellos cantan.</p><p class="tier-desc">Ellos danzan.</p><p class="tier-desc">Y el mundo se rompe con ellos.</p>`,
-      IMG('/sources/Clases/7.%20Velum%20Cantoris/fotos/foto1.png', 'Foto 1'))}
 ${ROW(`<p class="tier-desc">Velum Cantoris — La Voz que Descompone el Mundo</p>
 <p class="tier-desc">No toda música está destinada a ser escuchada.</p>
 <p class="tier-desc">Los Velum Cantoris no se limitan a cantar… serían más soportables si así fuera. Son canales, conductos a través de los cuales lo que yace más allá encuentra forma y sonido. Sus voces son solo el inicio.</p>
 <p class="tier-desc">Instrumentos antiguos cuelgan de sus manos o reposan a su alrededor: cuerdas que vibran sin ser tocadas, tambores que laten como corazones olvidados, flautas que exhalan alientos que no pertenecen a ningún pulmón vivo. A veces son ellos quienes interpretan.</p>
-<p class="tier-desc">A veces… no.</p><p class="tier-desc">Hay momentos en los que sus manos se detienen…</p>
-<p class="tier-desc">y la música continúa.</p><p class="tier-desc">Los muertos tocan a través de ellos.</p>`,
-      IMG('/sources/Clases/7.%20Velum%20Cantoris/fotos/foto2.png', 'Foto 2'))}
+<p class="tier-desc">A veces… no.</p>
+<p class="tier-desc">Hay momentos en los que sus manos se detienen…</p>
+<p class="tier-desc">y la música continúa.</p>
+<p class="tier-desc">Los muertos tocan a través de ellos.</p>
+<p class="tier-desc">O en lugar de ellos.</p>`,
+      IMG('/sources/Clases/7.%20Velum%20Cantoris/fotos/foto2.png', 'Foto 1'))}
 ${ROW(`<p class="tier-desc">Donde su arte resuena, la realidad se agrieta. Las certezas se pudren. La voluntad se deshace como ceniza entre los dedos. No invocan el Thae de Muerte y Caos… porque ya habita en cada nota, en cada vibración que se arrastra entre mundos.</p>
-<p class="tier-desc">Algunos creen que provocan la desesperación.</p><p class="tier-desc">Se equivocan.</p>
-<p class="tier-desc">La desesperación siempre estuvo ahí.</p><p class="tier-desc">Ellos solo le dan forma.</p>
-<p class="tier-desc">Le dan voz.</p><p class="tier-desc">Le dan ritmo.</p>
+<p class="tier-desc">Cada sonido arrastra un eco antiguo. Cada pausa es una grieta por donde algo observa de vuelta.</p>
+<p class="tier-desc">Algunos creen que provocan la desesperación.</p>
+<p class="tier-desc">Se equivocan.</p>
+<p class="tier-desc">La desesperación siempre estuvo ahí.</p>
+<p class="tier-desc">Ellos solo le dan forma.</p>
+<p class="tier-desc">Le dan voz.</p>
+<p class="tier-desc">Le dan ritmo.</p>
 <p class="tier-desc">Y cuando la última nota muere… la música no desaparece. Permanece, aferrada a la mente, repitiéndose en silencio, erosionando lentamente lo que encuentra.</p>
 <p class="tier-desc">Nadie que haya presenciado a un Velum Cantoris vuelve intacto.</p>
-<p class="tier-desc">Porque no importa quién tocó realmente…</p><p class="tier-desc">la canción siempre encuentra a quien escucharla.</p>`,
-      IMG('/sources/Clases/7.%20Velum%20Cantoris/fotos/foto3.png', 'Foto 3'))}`,
+<p class="tier-desc">Porque no importa quién tocó realmente…</p>
+<p class="tier-desc">la canción siempre encuentra a quien escucharla.</p>`,
+      IMG('/sources/Clases/7.%20Velum%20Cantoris/fotos/foto3.png', 'Foto 2'))}`,
   },
 
   'zereth-mor': {

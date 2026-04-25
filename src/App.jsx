@@ -12,6 +12,7 @@ import Razas from './pages/Razas'
 import RazaPage from './pages/RazaPage'
 import Clases from './pages/Clases'
 import ClasePage from './pages/ClasePage'
+import VelumsPage from './pages/VelumsPage'
 import Profesiones from './pages/Profesiones'
 import OficioPage from './pages/OficioPage'
 import Mundo from './pages/Mundo'
@@ -71,6 +72,7 @@ export default function App() {
         <Route path="/clase-luminari-vox" element={<ClasePage slug="luminari-vox" />} />
         <Route path="/clase-noc-thar" element={<ClasePage slug="noc-thar" />} />
         <Route path="/clase-stormheilm" element={<ClasePage slug="stormheilm" />} />
+        <Route path="/clase-velums" element={<VelumsPage />} />
         <Route path="/clase-velum-caedis" element={<ClasePage slug="velum-caedis" />} />
         <Route path="/clase-velum-cantoris" element={<ClasePage slug="velum-cantoris" />} />
         <Route path="/clase-zereth-mor" element={<ClasePage slug="zereth-mor" />} />

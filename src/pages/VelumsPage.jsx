@@ -37,7 +37,7 @@ export default function VelumsPage() {
 
             <header className="velums-chapter-head">
               <span className="velums-chapter-ornament" aria-hidden>✦</span>
-              <h3 className="velums-elegant-title">Caminantes del Umbral</h3>
+              <h3 className="velums-elegant-title">Azharn</h3>
               <span className="velums-chapter-ornament" aria-hidden>✦</span>
             </header>
 

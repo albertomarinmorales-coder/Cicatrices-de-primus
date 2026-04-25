@@ -6915,69 +6915,6 @@ body.modal-active {
   padding: 0 0 0.55rem;
 }
 
-#page-velum-cantoris .velum-cantoris-beat {
-  margin: 1.15rem 0 1.35rem;
-  padding: 0.85rem 0.75rem 0.95rem 1.1rem;
-  border-left: 2px solid color-mix(in srgb, var(--accent) 55%, var(--gold) 25%);
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--gold) 9%, transparent),
-    transparent 78%
-  );
-  border-radius: 0 6px 6px 0;
-}
-
-#page-velum-cantoris .velum-cantoris-beat .tier-desc {
-  font-style: italic;
-  margin-bottom: 0.42rem;
-  line-height: 1.55;
-}
-
-#page-velum-cantoris .velum-cantoris-beat--tight .tier-desc {
-  margin-bottom: 0.32rem;
-}
-
-#page-velum-cantoris .velum-cantoris-beat .tier-desc:last-child {
-  margin-bottom: 0;
-}
-
-#page-velum-cantoris .velum-cantoris-beat-plain {
-  font-style: normal;
-}
-
-#page-velum-cantoris .velum-cantoris-punch {
-  font-style: normal;
-  font-weight: 600;
-  color: var(--accent);
-}
-
-#page-velum-cantoris .velum-cantoris-lede {
-  font-size: 1.12rem;
-  font-style: italic;
-  color: color-mix(in srgb, var(--gold) 88%, var(--text-muted));
-  letter-spacing: 0.04em;
-  margin-bottom: 1.25rem;
-}
-
-#page-velum-cantoris .velum-cantoris-coda-line {
-  font-style: italic;
-  color: var(--gold);
-  text-align: center;
-  margin-top: 1.75rem;
-  margin-bottom: 0.35rem;
-  letter-spacing: 0.06em;
-}
-
-#page-velum-cantoris .velum-cantoris-coda-title {
-  font-family: 'Cinzel', serif;
-  font-size: 1.08rem;
-  color: var(--text);
-  text-align: center;
-  margin-top: 0;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
 #page-velums .velums-codex-panel .velums-azharn-text {
   position: relative;
   z-index: 1;

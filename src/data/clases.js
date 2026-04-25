@@ -214,31 +214,18 @@ ${ROW(`<p class="tier-desc">Algunos obedecen por deber; otros, por culpa; y otro
   'velum-cantoris': {
     slug: 'velum-cantoris',
     name: 'Velum Cantoris',
-    chapterTitle: 'La Voz que Descompone el Mundo',
+    chapterTitle: 'Caminantes del Umbral',
     tag: 'Buffer / Debuffer',
     avatarImg: '/sources/Clases/7.%20Velum%20Cantoris/fotos/avatar.png',
     stats: [],
     contentHtml: `
-${ROW(`<p class="tier-desc velum-cantoris-lede">No toda música está destinada a ser escuchada.</p>
-<p class="tier-desc">Los Velum Cantoris no se limitan a cantar — serían más soportables si así fuera. Son canales, conductos a través de los cuales lo que yace más allá encuentra forma y sonido. Sus voces son solo el inicio.</p>
-<p class="tier-desc">Instrumentos antiguos cuelgan de sus manos o reposan a su alrededor: cuerdas que vibran sin ser tocadas, tambores que laten como corazones olvidados, flautas que exhalan alientos que no pertenecen a ningún pulmón vivo. A veces son ellos quienes interpretan; a veces, no.</p>
-<div class="velum-cantoris-beat" aria-label="Corte">
-  <p class="tier-desc">Hay momentos en los que sus manos se detienen…</p>
-  <p class="tier-desc">y la música continúa.</p>
-  <p class="tier-desc">Los muertos tocan a través de ellos.</p>
-  <p class="tier-desc">O en lugar de ellos.</p>
-</div>`,
+${ROW(`<p class="tier-desc">No toda música está destinada a ser escuchada. Los Velum Cantoris no se limitan a cantar — serían más soportables si así fuera. Son canales, conductos a través de los cuales lo que yace más allá encuentra forma y sonido. Sus voces son solo el inicio.</p>
+<p class="tier-desc">Instrumentos antiguos cuelgan de sus manos o reposan a su alrededor: cuerdas que vibran sin ser tocadas, tambores que laten como corazones olvidados, flautas que exhalan alientos que no pertenecen a ningún pulmón vivo. A veces son ellos quienes interpretan; a veces, no. Hay momentos en los que sus manos se detienen, y la música continúa. Los muertos tocan a través de ellos, o en lugar de ellos.</p>`,
       IMG('/sources/Clases/7.%20Velum%20Cantoris/fotos/foto2.png', 'Foto 1'))}
 ${ROW(`<p class="tier-desc">Donde su arte resuena, la realidad se agrieta. Las certezas se pudren. La voluntad se deshace como ceniza entre los dedos. No invocan el Thae de Muerte y Caos — porque ya habita en cada nota, en cada vibración que se arrastra entre mundos.</p>
-<p class="tier-desc">Cada sonido arrastra un eco antiguo. Cada pausa es una grieta por donde algo observa de vuelta.</p>
-<div class="velum-cantoris-beat velum-cantoris-beat--tight" aria-label="Corte">
-  <p class="tier-desc velum-cantoris-beat-plain">Algunos creen que provocan la desesperación.</p>
-  <p class="tier-desc velum-cantoris-punch">Se equivocan.</p>
-  <p class="tier-desc">La desesperación siempre estuvo ahí. Ellos solo le dan forma, le dan voz, le dan ritmo.</p>
-</div>
+<p class="tier-desc">Cada sonido arrastra un eco antiguo. Cada pausa es una grieta por donde algo observa de vuelta. Algunos creen que provocan la desesperación. Se equivocan: la desesperación siempre estuvo ahí. Ellos solo le dan forma, le dan voz, le dan ritmo.</p>
 <p class="tier-desc">Y cuando la última nota muere, la música no desaparece. Permanece, aferrada a la mente, repitiéndose en silencio, erosionando lentamente lo que encuentra. Nadie que haya presenciado a un Velum Cantoris vuelve intacto.</p>
-<p class="tier-desc velum-cantoris-coda-line">Porque no importa quién tocó realmente…</p>
-<p class="tier-desc velum-cantoris-coda-title">la canción siempre encuentra a quien escucharla.</p>`,
+<p class="tier-desc">Porque no importa quién tocó realmente: la canción siempre encuentra a quien escucharla.</p>`,
       IMG('/sources/Clases/7.%20Velum%20Cantoris/fotos/foto3.png', 'Foto 2'))}`,
   },
 

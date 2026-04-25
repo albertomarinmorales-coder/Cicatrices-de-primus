@@ -7,7 +7,7 @@ const CLASES = [
   { name: 'Ciudadano', path: '/clase-ciudadano', img: '/sources/Clases/1. Ciudadano/fotos/avatar.png', role: null },
   { name: "Vhark'Hul", path: '/clase-vhark-hul', img: "/sources/Clases/10. Vhark'Hul/fotos/avatar.png", role: 'Tanque/Luchador' },
   { name: 'Argent Praetor', path: '/clase-argent-praetor', img: '/sources/Clases/2. Argent Praetor/Fotos/avatar.png', role: 'Tanque/Luchador' },
-  { name: 'Dualhar', path: '/clase-dualhar', img: '/sources/Clases/3. Dualhar/fotos/avatar.png', role: 'DPS Distancia/DPS Fisico' },
+  { name: 'Dualhar', path: '/clase-dualhar', img: '/sources/Clases/3. Dualhar/Fotos/avatar.png', role: 'DPS Distancia/DPS Fisico' },
   { name: 'Luminari Vox', path: '/clase-luminari-vox', img: '/sources/Clases/4. Luminari Vox/fotos/avatar.png', role: 'Healer/Buffer' },
   { name: "Noc'thar", path: '/clase-noc-thar', img: "/sources/Clases/5. Noc'thar/fotos/avatar.png", role: 'Debuffer/Healer' },
   { name: 'Stormheilm', path: '/clase-stormheilm', img: '/sources/Clases/6. Stormheilm/fotos/avatar.png', role: 'Luchador/Tanque' },

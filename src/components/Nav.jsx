@@ -43,8 +43,6 @@ const NAV_ITEMS = [
       { label: "Noc'thar", path: '/clase-noc-thar' },
       { label: 'Stormheilm', path: '/clase-stormheilm' },
       { label: 'Velums', path: '/clase-velums' },
-      { label: 'Velum Caedis', path: '/clase-velum-caedis' },
-      { label: 'Velum Cantoris', path: '/clase-velum-cantoris' },
       { label: 'Zereth-Mor', path: '/clase-zereth-mor' },
       { label: 'Magharyn', path: '/clase-magharyn' },
       { label: 'Desconocido', path: '/clase-desconocido' },

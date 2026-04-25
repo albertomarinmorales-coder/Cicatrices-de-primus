@@ -4,7 +4,7 @@ import { VELUM_IMG } from './clases'
 export const ROSTER_IMGS = [
   { src: '/sources/Clases/1. Ciudadano/fotos/avatar.png', alt: 'Ciudadano' },
   { src: '/sources/Clases/2. Argent Praetor/Fotos/avatar.png', alt: 'Argent Praetor' },
-  { src: '/sources/Clases/3. Dualhar/fotos/avatar.png', alt: 'Dualhar' },
+  { src: '/sources/Clases/3. Dualhar/Fotos/avatar.png', alt: 'Dualhar' },
   { src: "/sources/Clases/4. Luminari Vox/fotos/avatar.png", alt: 'Luminari Vox' },
   { src: "/sources/Clases/5. Noc'thar/fotos/avatar.png", alt: "Noc'thar" },
   { src: '/sources/Clases/6. Stormheilm/fotos/avatar.png', alt: 'Stormheilm' },

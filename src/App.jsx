@@ -22,6 +22,7 @@ import Gremios from './pages/Gremios'
 import GremioAventuras from './pages/GremioAventuras'
 import Normativa from './pages/Normativa'
 import NormPage from './pages/NormPage'
+import NormTutorial from './pages/NormTutorial'
 import Galeria from './pages/Galeria'
 import Equipo from './pages/Equipo'
 import { useTheme } from './hooks/useTheme'
@@ -103,6 +104,7 @@ export default function App() {
         <Route path="/gremios" element={<Gremios />} />
         <Route path="/gremio-aventuras" element={<GremioAventuras />} />
         <Route path="/normativa" element={<Normativa />} />
+        <Route path="/norm-tutorial" element={<NormTutorial />} />
         <Route path="/norm-general" element={<NormPage slug="general" />} />
         <Route path="/norm-concepto" element={<NormPage slug="concepto" />} />
         <Route path="/norm-ic" element={<NormPage slug="ic" />} />

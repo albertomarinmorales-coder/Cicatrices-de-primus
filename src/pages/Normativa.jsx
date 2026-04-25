@@ -41,6 +41,18 @@ export default function Normativa() {
           </blockquote>
         </div>
 
+        <button
+          type="button"
+          className="normativa-tutorial-card"
+          onClick={() => navigate('/norm-tutorial')}
+        >
+          <i className="fa-solid fa-graduation-cap normativa-tutorial-card__icon" aria-hidden="true" />
+          <div className="normativa-tutorial-card__text">
+            <span className="normativa-tutorial-card__label">TUTORIAL</span>
+            <span className="normativa-tutorial-card__hint">Guía y primeros pasos (en preparación)</span>
+          </div>
+        </button>
+
         <div className="norm-grid">
           {NORM_ITEMS.map((item) => (
             <div key={item.path} className={item.className} onClick={() => navigate(item.path)} style={{ cursor: 'pointer' }}>

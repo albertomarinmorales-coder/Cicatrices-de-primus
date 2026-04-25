@@ -7,6 +7,7 @@ export const CARD_GLOW_SELECTOR = [
   '.lore-card',
   '.oficio-card',
   '.norm-item',
+  '.normativa-tutorial-card',
   '.norm-card',
   '.equipo-card',
   '.gremio-aventuras-card',

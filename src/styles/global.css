@@ -285,6 +285,7 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .lore-card,
 .oficio-card,
 .norm-item,
+.normativa-tutorial-card,
 .norm-card,
 .equipo-card,
 .gremio-aventuras-card,
@@ -297,6 +298,7 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .lore-card::before,
 .oficio-card::before,
 .norm-item::before,
+.normativa-tutorial-card::before,
 .norm-card::before,
 .equipo-card::before,
 .gremio-aventuras-card::before,
@@ -321,6 +323,7 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .lore-card:hover::before,
 .oficio-card:hover::before,
 .norm-item:hover::before,
+.normativa-tutorial-card:hover::before,
 .norm-card:hover::before,
 .equipo-card:hover::before,
 .gremio-aventuras-card:hover::before,
@@ -333,6 +336,7 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .lore-card > *,
 .oficio-card > *,
 .norm-item > *,
+.normativa-tutorial-card > *,
 .norm-card > *,
 .gremio-aventuras-card > *,
 .velums-codex-panel > *,
@@ -4193,6 +4197,143 @@ body.modal-active .audio-toggle {
   .bento-2x2 .bento-content h2 {
     font-size: 1.5rem;
   }
+}
+
+/* Card TUTORIAL encima del grid: no forma parte del bento de normas */
+.normativa-tutorial-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem 1.75rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2.25rem;
+  padding: 1.4rem 1.85rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.normativa-tutorial-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 25px rgba(176, 16, 16, 0.35);
+  background: rgba(176, 16, 16, 0.05);
+}
+
+.normativa-tutorial-card__icon {
+  font-size: 2.4rem;
+  color: var(--gold);
+  opacity: 0.75;
+  flex-shrink: 0;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.normativa-tutorial-card:hover .normativa-tutorial-card__icon {
+  opacity: 1;
+  color: var(--gold2);
+}
+
+.normativa-tutorial-card__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.normativa-tutorial-card__label {
+  font-family: 'Cinzel', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.normativa-tutorial-card:hover .normativa-tutorial-card__label {
+  color: var(--gold);
+}
+
+.normativa-tutorial-card__hint {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 500px) {
+  .normativa-tutorial-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .normativa-tutorial-card__text {
+    align-items: center;
+  }
+}
+
+/* Pagina /norm-tutorial: un solo contenedor "en construccion" */
+.norm-tutorial-construction {
+  max-width: 560px;
+  margin: 2.5rem auto 0;
+  padding: 2.75rem 2.25rem 2.5rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.norm-tutorial-construction__ornament {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.45), var(--gold), rgba(201, 168, 76, 0.45), transparent);
+  opacity: 0.95;
+}
+
+.norm-tutorial-construction__icon {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin: 0.25rem auto 1.25rem;
+  opacity: 0.8;
+}
+
+.norm-tutorial-construction__title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 700;
+  color: var(--gold);
+  margin: 0 0 1rem;
+  letter-spacing: 0.06em;
+}
+
+.norm-tutorial-construction__body {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .norm-grid {

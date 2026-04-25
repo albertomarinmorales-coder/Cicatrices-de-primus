@@ -114,9 +114,17 @@ export default function Nav() {
 
   return (
     <nav className={scrolled ? 'scrolled' : ''}>
-      <div className="nav-logo" onClick={() => go('/')}>
-        Cicatrices de Primus
-      </div>
+      <a
+        href="/"
+        className="nav-logo logo-wrap"
+        onClick={(e) => {
+          e.preventDefault()
+          go('/')
+        }}
+      >
+        <span className="logo-main">Cicatrices de Primus</span>
+        <div className="logo-underline" />
+      </a>
       <ul className={`nav-links${menuOpen ? ' open' : ''}`} id="navLinks">
         {NAV_ITEMS.map(item => (
           <li key={item.id}>

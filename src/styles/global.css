@@ -41,6 +41,11 @@
 html {
   scroll-behavior: smooth;
   user-select: none;
+  /* Misma intención de escala de texto en Safari/Chrome móvil y escritorio (evita “zoom” de texto) */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -50,6 +55,10 @@ body {
   font-size: 18px;
   line-height: 1.7;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 img {

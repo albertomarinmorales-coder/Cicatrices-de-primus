@@ -279,8 +279,9 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
   }
 }
 
-/* Resplandor al cursor: solo cards y cajas de presentacion de secciones (hubs) */
+/* Resplandor al cursor (card-glow). --card-glow-tint / --card-glow-size: deidades */
 .raza-card,
+.raza-card-img-wrap,
 .bento-item,
 .lore-card,
 .oficio-card,
@@ -289,11 +290,20 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .norm-card,
 .equipo-card,
 .gremio-aventuras-card,
-.velums-codex-panel {
+.velums-codex-panel,
+.deity-card-frame,
+.raza-photo-item,
+.raza-intro-img,
+.roster-grid-item,
+.tier-panel,
+.tier-panel-content,
+.raza-variant-card,
+.raza-requisitos-card {
   position: relative;
 }
 
 .raza-card::before,
+.raza-card-img-wrap::before,
 .bento-item::before,
 .lore-card::before,
 .oficio-card::before,
@@ -302,15 +312,23 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .norm-card::before,
 .equipo-card::before,
 .gremio-aventuras-card::before,
-.velums-codex-panel::before {
+.velums-codex-panel::before,
+.deity-card-frame::before,
+.raza-photo-item::before,
+.raza-intro-img::before,
+.roster-grid-item::before,
+.tier-panel::before,
+.tier-panel-content::before,
+.raza-variant-card::before,
+.raza-requisitos-card::before {
   content: "";
   height: 100%;
   width: 100%;
   position: absolute;
   left: 0;
   top: 0;
-  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
-      rgba(201, 168, 76, 0.1),
+  background: radial-gradient(var(--card-glow-size, 600px) circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      var(--card-glow-tint, rgba(201, 168, 76, 0.1)),
       transparent 40%);
   z-index: 3;
   opacity: 0;
@@ -319,6 +337,7 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 }
 
 .raza-card:hover::before,
+.raza-card-img-wrap:hover::before,
 .bento-item:hover::before,
 .lore-card:hover::before,
 .oficio-card:hover::before,
@@ -327,11 +346,20 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .norm-card:hover::before,
 .equipo-card:hover::before,
 .gremio-aventuras-card:hover::before,
-.velums-codex-panel:hover::before {
+.velums-codex-panel:hover::before,
+.deity-card-frame:hover::before,
+.raza-photo-item:hover::before,
+.raza-intro-img:hover::before,
+.roster-grid-item:hover::before,
+.tier-panel:hover::before,
+.tier-panel-content:hover::before,
+.raza-variant-card:hover::before,
+.raza-requisitos-card:hover::before {
   opacity: 1;
 }
 
 .raza-card > *,
+.raza-card-img-wrap > *,
 .bento-item > *,
 .lore-card > *,
 .oficio-card > *,
@@ -340,9 +368,34 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .norm-card > *,
 .gremio-aventuras-card > *,
 .velums-codex-panel > *,
-.equipo-card > * {
+.equipo-card > *,
+.deity-card-frame > *,
+.raza-photo-item > *,
+.raza-intro-img > *,
+.roster-grid-item > *,
+.tier-panel > *,
+.tier-panel-content > *,
+.raza-variant-card > *,
+.raza-requisitos-card > * {
   position: relative;
   z-index: 4;
+}
+
+/* Resplandor encima de imágenes y bloque de tabs (razas): visibles con soft-light; el ::before va por encima del img/texto (z-4) para mezclarse. */
+.raza-card-img-wrap::before,
+.raza-intro-img::before,
+.roster-grid-item::before,
+.tier-panel .tier-panel-content::before {
+  z-index: 5;
+  mix-blend-mode: soft-light;
+}
+
+/* Toda la tarjeta (grid Razas, Clases, etc.): el ::before de .raza-card quedaba en z-3, detrás de .raza-card > * (z-4) → nunca se veía sobre la portada. */
+.raza-card::before {
+  z-index: 5;
+  mix-blend-mode: screen;
+  --card-glow-tint: color-mix(in srgb, var(--gold) 27%, transparent);
+  --card-glow-size: 320px;
 }
 
 
@@ -1019,6 +1072,41 @@ a.btn-primary:active {
   margin-bottom: 20px;
 }
 
+@media (max-width: 900px) {
+  .lore-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .lore-card-img {
+    height: 220px;
+  }
+
+  .lore-card-body {
+    padding: 22px 22px 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .lore-card-img {
+    height: 190px;
+  }
+
+  .lore-card-body {
+    padding: 18px 16px 20px;
+  }
+
+  .lore-card-body h3 {
+    font-size: 1.02rem;
+  }
+
+  .lore-card-body p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+}
+
 .btn-ghost {
   display: inline-flex;
   align-items: center;
@@ -1082,6 +1170,7 @@ a.btn-primary:active {
   flex-direction: column;
   transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  isolation: isolate;
 }
 
 .raza-card:hover {
@@ -1163,7 +1252,6 @@ a.btn-primary:active {
   margin-top: auto;
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .profesiones-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1194,7 +1282,6 @@ a.btn-primary:active {
   }
 }
 
-/* Centrar cards en la pÃ¡gina de Gremios si hay pocas */
 #page-gremios .profesiones-grid {
   grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
   justify-content: center;
@@ -1260,7 +1347,6 @@ a.btn-primary:active {
   color: var(--gold2);
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .normativa-intro {
   max-width: 780px;
   margin: 0 auto 56px;
@@ -1297,7 +1383,6 @@ a.btn-primary:active {
   background: var(--accent);
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .norm-quote {
   position: relative;
   margin: 28px 0;
@@ -1324,7 +1409,6 @@ a.btn-primary:active {
   font-style: normal;
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .detail-hero {
   position: relative;
   height: 480px;
@@ -1334,7 +1418,6 @@ a.btn-primary:active {
   overflow: hidden;
 }
 
-/* Funde el borde inferior con el body (mismo --bg) y evita el “corte” al pixel. */
 .detail-hero::after {
   content: '';
   position: absolute;
@@ -1374,7 +1457,6 @@ a.btn-primary:active {
       rgba(0, 0, 0, 0) 68%);
 }
 
-/* Mosaico: columnas ligeramente solapadas + máscara para fusionar bordes */
 .deidades-hero .deidades-hero-mosaic {
   position: absolute;
   inset: 0;
@@ -1389,7 +1471,6 @@ a.btn-primary:active {
   transform: translateZ(0);
 }
 
-/* 5 × ~21% − 4 solapes ≈ 100%; el solapamiento es bajo (fusionar sin tapar de más) */
 .deidades-hero .deidades-hero-tile {
   flex: 0 0 21.1%;
   min-width: 0;
@@ -1417,7 +1498,6 @@ a.btn-primary:active {
   object-fit: cover;
   object-position: center 10%;
   display: block;
-  /* Degradé en bordes solapados: se funden con la vecina (izquierda domina hacia arriba en z-index) */
   -webkit-mask-image: linear-gradient(90deg,
     transparent 0%,
     #000 6%,
@@ -1430,7 +1510,6 @@ a.btn-primary:active {
     transparent 100%);
 }
 
-/* Primera: sin ocultar el borde izquierdo; última: el derecho */
 .deidades-hero .deidades-hero-tile:first-child img {
   -webkit-mask-image: linear-gradient(90deg,
     #000 0%,
@@ -1559,7 +1638,6 @@ a.btn-primary:active {
   margin-bottom: 24px;
 }
 
-/* Gremio de Aventuras: carta de lectura (coherente con surface / oro / Cinzel) */
 .gremio-aventuras-card {
   margin-top: 2.5rem;
   max-width: 860px;
@@ -1741,7 +1819,6 @@ a.btn-primary:active {
   color: var(--gold);
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .oficio-intro {
   display: grid;
   grid-template-columns: 1fr 260px;
@@ -1778,7 +1855,6 @@ a.btn-primary:active {
   }
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .oficio-tiers {
   margin: 40px 0;
 }
@@ -1973,7 +2049,6 @@ a.btn-primary:active {
   letter-spacing: 0.05em;
 }
 
-/* Bloque de requisitos de apariencia â€” borde dorado para diferenciar de lore */
 .raza-requisitos-card {
   background: rgba(201, 168, 76, 0.04);
   border: 1px solid rgba(201, 168, 76, 0.25);
@@ -1987,7 +2062,6 @@ a.btn-primary:active {
   margin-top: 16px;
 }
 
-/* TÃ­tulo de secciÃ³n dentro de un bloque de requisitos */
 .raza-sub-title {
   font-family: 'Cinzel', serif;
   font-size: 0.9rem;
@@ -2003,7 +2077,6 @@ a.btn-primary:active {
   margin-top: 0;
 }
 
-/* Texto destacado (avisos importantes, requisitos de nombre, etc.) */
 .raza-highlight-text {
   color: var(--gold);
   font-weight: bold;
@@ -2014,25 +2087,21 @@ a.btn-primary:active {
   margin-top: 16px;
 }
 
-/* Separador interno dentro de un tier-perks (elimina bordes inline) */
 .tier-perks--separated {
   border-bottom: 1px solid var(--border);
   padding-bottom: 16px;
   margin-bottom: 16px;
 }
 
-/* Variante peligro/lore-oscuro del highlight */
 .raza-highlight-text--danger {
   color: var(--accent);
 }
 
-/* Texto de lore en cursiva al final de un panel */
 .tier-desc--italic {
   font-style: italic;
   margin-bottom: 0;
 }
 
-/* Normativa lists */
 .norm-list {
   list-style: none;
   padding: 0;
@@ -2060,7 +2129,6 @@ a.btn-primary:active {
   margin-bottom: 4px;
 }
 
-/* Heridas tiers */
 .herida-tier {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -2090,7 +2158,6 @@ a.btn-primary:active {
   margin-bottom: 4px;
 }
 
-/* “Volver a…”: enlace de texto; sin caja (no estilo CTA) */
 .back-btn {
   display: inline-flex;
   align-items: center;
@@ -2116,7 +2183,6 @@ a.btn-primary:active {
   box-shadow: none;
 }
 
-/* Large decorative divider for sections */
 .large-separator {
   width: 100%;
   height: 1px;
@@ -2137,7 +2203,6 @@ a.btn-primary:active {
   text-shadow: 0 0 15px rgba(201, 168, 76, 0.3);
 }
 
-/* Historia eras â€” alternating two-column layout */
 .historia-eras .era-block:not(:last-child) {
   padding-bottom: 72px;
   margin-bottom: 72px;
@@ -2281,7 +2346,6 @@ a.btn-primary:active {
   margin-bottom: 20px;
 }
 
-/* --- LORE CODEX TABS --- */
 .lore-tabs {
   display: flex;
   justify-content: center;
@@ -3048,6 +3112,12 @@ a.btn-primary:active {
     inset 0 1px 0 color-mix(in srgb, var(--deity-color) 22%, transparent),
     0 16px 48px rgba(0, 0, 0, 0.22);
   position: relative;
+  --card-glow-tint: color-mix(in srgb, var(--deity-color) 18%, transparent);
+}
+
+.deity-kheos .deity-card-frame {
+  --card-glow-tint: color-mix(in srgb, var(--deity-color) 20%, transparent);
+  --card-glow-size: 360px;
 }
 
 .deidades-list .deity-card:nth-child(even) .deity-card-frame {

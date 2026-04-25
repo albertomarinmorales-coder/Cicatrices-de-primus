@@ -279,26 +279,28 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
   }
 }
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ CARD GLOW FOLLOW Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+/* Resplandor al cursor: solo cards y cajas de presentacion de secciones (hubs) */
 .raza-card,
 .bento-item,
 .lore-card,
+.oficio-card,
 .norm-item,
 .norm-card,
 .equipo-card,
 .gremio-aventuras-card,
-#page-velums .velums-codex-panel {
+.velums-codex-panel {
   position: relative;
 }
 
 .raza-card::before,
 .bento-item::before,
 .lore-card::before,
+.oficio-card::before,
 .norm-item::before,
 .norm-card::before,
 .equipo-card::before,
 .gremio-aventuras-card::before,
-#page-velums .velums-codex-panel::before {
+.velums-codex-panel::before {
   content: "";
   height: 100%;
   width: 100%;
@@ -317,12 +319,26 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .raza-card:hover::before,
 .bento-item:hover::before,
 .lore-card:hover::before,
+.oficio-card:hover::before,
 .norm-item:hover::before,
 .norm-card:hover::before,
 .equipo-card:hover::before,
 .gremio-aventuras-card:hover::before,
-#page-velums .velums-codex-panel:hover::before {
+.velums-codex-panel:hover::before {
   opacity: 1;
+}
+
+.raza-card > *,
+.bento-item > *,
+.lore-card > *,
+.oficio-card > *,
+.norm-item > *,
+.norm-card > *,
+.gremio-aventuras-card > *,
+.velums-codex-panel > *,
+.equipo-card > * {
+  position: relative;
+  z-index: 4;
 }
 
 
@@ -1301,12 +1317,6 @@ a.btn-primary:active {
   color: var(--gold);
   opacity: 0.18;
   line-height: 1;
-
-  .oficio-card::before,
-  .oficio-card:hover::before {
-    opacity: 0;
-  }
-
   font-style: normal;
 }
 

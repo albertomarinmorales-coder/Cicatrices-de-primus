@@ -1,7 +1,7 @@
 ﻿import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import { EQUIPO_DISCORD_INVITE } from '../data/equipo'
-import { useScrollReveal, useCardGlow } from '../hooks/useScrollReveal'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const BENTO_ITEMS = [
   {
@@ -58,7 +58,6 @@ const BENTO_ITEMS = [
 export default function Inicio() {
   const navigate = useNavigate()
   useScrollReveal('inicio')
-  useCardGlow('inicio')
 
   return (
     <div className="page active">

@@ -1,11 +1,10 @@
 ﻿import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
-import { useScrollReveal, useCardGlow } from '../hooks/useScrollReveal'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 
 export default function GremioAventuras() {
   const navigate = useNavigate()
   useScrollReveal('gremio-aventuras')
-  useCardGlow('gremio-aventuras')
   return (
     <div className="page active" id="page-gremio-aventuras">
       <div className="detail-hero">

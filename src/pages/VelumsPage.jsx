@@ -2,12 +2,11 @@ import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import RosterGridHeader from '../components/RosterGridHeader'
 import { VELUM_IMG } from '../data/clases'
-import { useScrollReveal, useCardGlow } from '../hooks/useScrollReveal'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 
 export default function VelumsPage() {
   const navigate = useNavigate()
   useScrollReveal('velums')
-  useCardGlow('velums')
 
   return (
     <div className="page active" id="page-velums">

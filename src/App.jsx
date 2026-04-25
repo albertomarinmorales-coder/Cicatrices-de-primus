@@ -26,7 +26,14 @@ import Galeria from './pages/Galeria'
 import Equipo from './pages/Equipo'
 import { useTheme } from './hooks/useTheme'
 import { useLocation } from 'react-router-dom'
+import { useCardGlow } from './hooks/useScrollReveal'
 import RouteImagePreload from './components/RouteImagePreload'
+
+function CardGlowGlobal() {
+  const { pathname } = useLocation()
+  useCardGlow(pathname)
+  return null
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -46,6 +53,7 @@ export default function App() {
       <AudioPlayer />
       <WelcomeModal />
       <ScrollToTop />
+      <CardGlowGlobal />
       <RouteImagePreload />
       <Routes>
         <Route path="/" element={<Inicio />} />

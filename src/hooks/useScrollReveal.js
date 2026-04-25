@@ -1,5 +1,18 @@
 import { useEffect } from 'react'
 
+/** Tarjetas / cajas de presentación de secciones (hub); alinear con el bloque card-glow en global.css */
+export const CARD_GLOW_SELECTOR = [
+  '.raza-card',
+  '.bento-item',
+  '.lore-card',
+  '.oficio-card',
+  '.norm-item',
+  '.norm-card',
+  '.equipo-card',
+  '.gremio-aventuras-card',
+  '.velums-codex-panel',
+].join(', ')
+
 export function useScrollReveal(dep) {
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -16,7 +29,7 @@ export function useScrollReveal(dep) {
 
 export function useCardGlow(dep) {
   useEffect(() => {
-    const cards = document.querySelectorAll('.raza-card, .bento-item, .lore-card, .oficio-card, .norm-item, .norm-card, .equipo-card, .gremio-aventuras-card, .velums-codex-panel')
+    const cards = document.querySelectorAll(CARD_GLOW_SELECTOR)
     const handlers = []
     cards.forEach(card => {
       const fn = (e) => {

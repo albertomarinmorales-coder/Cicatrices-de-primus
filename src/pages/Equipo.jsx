@@ -1,5 +1,4 @@
 import Footer from '../components/Footer'
-import { useCardGlow } from '../hooks/useScrollReveal'
 import { EQUIPO_DISCORD_INVITE, EQUIPO_NARRADORES, EQUIPO_OWNERS } from '../data/equipo'
 import { resolveDiscordAvatarUrl } from '../lib/discordAvatar'
 
@@ -36,8 +35,6 @@ function TeamAvatar({ member, size }) {
 }
 
 export default function Equipo() {
-  useCardGlow('equipo')
-
   return (
     <div className="page active" id="page-equipo">
       <div className="page-header">

@@ -107,9 +107,9 @@ export default function VelumsPage() {
           </div>
         </div>
 
-        <div className="section">
+        <div className="section velums-choose-section">
           <h2 className="section-title velums-choose-title">Elegir senda</h2>
-          <div className="section-underline"><i className="fa-solid fa-music" /></div>
+          <div className="section-underline velums-choose-underline" aria-hidden="true" />
           <div className="velums-choose-grid">
             <div
               className="raza-card lore-card"

@@ -6876,7 +6876,8 @@ body.modal-active {
 }
 
 #page-velums .velums-chapter-head,
-#page-velum-caedis .velums-chapter-head {
+#page-velum-caedis .velums-chapter-head,
+#page-velum-cantoris .velums-chapter-head {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -6890,7 +6891,8 @@ body.modal-active {
 }
 
 #page-velums .velums-chapter-ornament,
-#page-velum-caedis .velums-chapter-ornament {
+#page-velum-caedis .velums-chapter-ornament,
+#page-velum-cantoris .velums-chapter-ornament {
   color: color-mix(in srgb, var(--gold) 50%, var(--text-muted) 50%);
   font-size: 0.75rem;
   line-height: 1;
@@ -6899,7 +6901,8 @@ body.modal-active {
 }
 
 #page-velums .velums-elegant-title,
-#page-velum-caedis .velums-elegant-title {
+#page-velum-caedis .velums-elegant-title,
+#page-velum-cantoris .velums-elegant-title {
   font-family: 'Cinzel Decorative', serif;
   font-size: clamp(1.2rem, 2.7vw, 1.7rem);
   font-weight: 400;
@@ -6910,6 +6913,69 @@ body.modal-active {
   text-shadow: 0 0 40px color-mix(in srgb, var(--gold) 16%, transparent);
   border-bottom: 1px solid color-mix(in srgb, var(--gold) 25%, transparent);
   padding: 0 0 0.55rem;
+}
+
+#page-velum-cantoris .velum-cantoris-beat {
+  margin: 1.15rem 0 1.35rem;
+  padding: 0.85rem 0.75rem 0.95rem 1.1rem;
+  border-left: 2px solid color-mix(in srgb, var(--accent) 55%, var(--gold) 25%);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--gold) 9%, transparent),
+    transparent 78%
+  );
+  border-radius: 0 6px 6px 0;
+}
+
+#page-velum-cantoris .velum-cantoris-beat .tier-desc {
+  font-style: italic;
+  margin-bottom: 0.42rem;
+  line-height: 1.55;
+}
+
+#page-velum-cantoris .velum-cantoris-beat--tight .tier-desc {
+  margin-bottom: 0.32rem;
+}
+
+#page-velum-cantoris .velum-cantoris-beat .tier-desc:last-child {
+  margin-bottom: 0;
+}
+
+#page-velum-cantoris .velum-cantoris-beat-plain {
+  font-style: normal;
+}
+
+#page-velum-cantoris .velum-cantoris-punch {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+#page-velum-cantoris .velum-cantoris-lede {
+  font-size: 1.12rem;
+  font-style: italic;
+  color: color-mix(in srgb, var(--gold) 88%, var(--text-muted));
+  letter-spacing: 0.04em;
+  margin-bottom: 1.25rem;
+}
+
+#page-velum-cantoris .velum-cantoris-coda-line {
+  font-style: italic;
+  color: var(--gold);
+  text-align: center;
+  margin-top: 1.75rem;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.06em;
+}
+
+#page-velum-cantoris .velum-cantoris-coda-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.08rem;
+  color: var(--text);
+  text-align: center;
+  margin-top: 0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 #page-velums .velums-codex-panel .velums-azharn-text {
@@ -7021,8 +7087,35 @@ body.modal-active {
   text-shadow: 0 0 24px color-mix(in srgb, var(--gold) 18%, transparent);
 }
 
+#page-velums .detail-body {
+  padding-bottom: 56px;
+}
+
+#page-velums .velums-choose-section {
+  padding-top: 25px;
+  padding-bottom: 32px;
+}
+
 #page-velums .velums-choose-title {
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+}
+
+/* Elegir senda: una sola línea, menos → más (centro) → menos */
+#page-velums .velums-choose-underline {
+  width: min(360px, 90vw);
+  max-width: 420px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--gold) 28%, transparent) 18%,
+    color-mix(in srgb, var(--gold) 75%, transparent) 42%,
+    var(--gold) 50%,
+    color-mix(in srgb, var(--gold) 75%, transparent) 58%,
+    color-mix(in srgb, var(--gold) 28%, transparent) 82%,
+    transparent 100%
+  );
+  box-shadow: 0 0 14px color-mix(in srgb, var(--gold) 18%, transparent);
 }
 
 #page-velums .velums-choose-grid {
@@ -7030,7 +7123,7 @@ body.modal-active {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
   max-width: 560px;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto;
   padding: 0 0.5rem;
 }
 

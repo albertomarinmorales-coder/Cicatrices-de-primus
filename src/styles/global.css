@@ -19,7 +19,7 @@
   --text: #d4c9b0;
   --text-muted: #8a7d65;
   --white: #f0e8d8;
-  --nav-h: 72px;
+  --nav-h: 64px;
 
   /* Dynamic Theme Variables */
   --theme-color: #c9a84c;
@@ -441,12 +441,12 @@ nav {
 
 .logo-main {
   font-family: 'Cinzel Decorative', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
-  font-size: 1.13rem;
+  font-size: 0.98rem;
   font-weight: 700;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   line-height: 1;
-  margin-top: 4px;
+  margin-top: 3px;
   background: linear-gradient(
     180deg,
     color-mix(in srgb, var(--gold2) 92%, #fff5cf) 0%,
@@ -534,16 +534,16 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 14px;
   list-style: none;
 }
 
 .nav-links li a,
 .nav-links li span {
   font-family: 'Cinzel', serif;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--text-muted);
   cursor: pointer;
@@ -589,7 +589,7 @@ nav {
   /* starts flush with bottom of li Ã¢â‚¬â€ transparent padding bridges the gap */
   top: 100%;
   left: 0;
-  padding-top: 14px;
+  padding-top: 11px;
   /* invisible bridge so mouse doesn't leave :hover zone */
   background: transparent;
   border: none;
@@ -636,9 +636,9 @@ nav {
 
 .nav-dropdown li>span {
   display: block;
-  padding: 10px 22px;
+  padding: 8px 18px;
   font-family: 'Cinzel', serif;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -652,7 +652,7 @@ nav {
 .nav-dropdown li>span:hover {
   color: var(--gold);
   background: rgba(176, 16, 16, 0.1);
-  padding-left: 28px;
+  padding-left: 24px;
 }
 
 /* Wide 2-col variant */
@@ -668,11 +668,11 @@ nav {
 }
 
 .nav-dropdown.wide li>span {
-  padding: 9px 14px;
+  padding: 7px 12px;
 }
 
 .nav-dropdown.wide li>span:hover {
-  padding-left: 18px;
+  padding-left: 16px;
 }
 
 /* Right-align for last items so they don't overflow */
@@ -693,7 +693,7 @@ nav {
   }
 
   .logo-main {
-    font-size: 1.01rem;
+    font-size: 0.92rem;
     letter-spacing: 0.08em;
   }
 
@@ -713,7 +713,7 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 32px;
+    gap: 26px;
     transition: right 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     border-left: 1px solid rgba(176, 16, 16, 0.3);
     z-index: 1001;
@@ -730,9 +730,9 @@ nav {
 
   .nav-links li a,
   .nav-links li span {
-    font-size: 1.1rem;
+    font-size: 1rem;
     display: inline-block;
-    padding: 10px 0;
+    padding: 8px 0;
   }
 
   .nav-dropdown {

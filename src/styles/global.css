@@ -4290,8 +4290,10 @@ body.modal-active .audio-toggle {
   z-index: 0;
 }
 
-.bento-item:hover .bento-bg {
+.bento-item--bg-zoom .bento-bg {
+  transform: scale(1.28);
 }
+
 
 .bento-overlay {
   position: absolute;

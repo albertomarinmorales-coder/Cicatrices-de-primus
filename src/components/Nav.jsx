@@ -128,18 +128,30 @@ export default function Nav() {
       <ul className={`nav-links${menuOpen ? ' open' : ''}`} id="navLinks">
         {NAV_ITEMS.map(item => (
           <li key={item.id}>
-            <span
-              onClick={() => go(item.path)}
+            <a
+              href={item.path}
+              onClick={(e) => {
+                e.preventDefault()
+                go(item.path)
+              }}
               className={isActive(item) ? 'active-nav' : ''}
             >
               {item.label}
-            </span>
+            </a>
             {item.children && (
               <ul className={`nav-dropdown${item.children.length > 6 ? ' wide' : ''}${item.alignRight ? ' align-right' : ''}`}>
                 <div className="nav-dropdown-inner">
                   {item.children.map(c => (
                     <li key={c.path}>
-                      <span onClick={() => go(c.path)}>{c.label}</span>
+                      <a
+                        href={c.path}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          go(c.path)
+                        }}
+                      >
+                        {c.label}
+                      </a>
                     </li>
                   ))}
                 </div>

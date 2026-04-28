@@ -22,6 +22,7 @@ export default function WelcomeModal() {
   const [visible, setVisible] = useState(false)
   const [show, setShow] = useState(false)
   const audioRef = useRef(null)
+  const acceptButtonRef = useRef(null)
 
   useEffect(() => {
     if (!hasValidDecision()) {
@@ -31,6 +32,25 @@ export default function WelcomeModal() {
     }
     audioRef.current = document.getElementById('bgMusic')
   }, [])
+
+  useEffect(() => {
+    if (!visible) return undefined
+
+    const previousActiveElement = document.activeElement
+    const focusTimer = setTimeout(() => acceptButtonRef.current?.focus(), 80)
+
+    function onKeyDown(e) {
+      if (e.key === 'Escape') close()
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      clearTimeout(focusTimer)
+      window.removeEventListener('keydown', onKeyDown)
+      previousActiveElement?.focus?.()
+    }
+  }, [visible])
 
   function close() {
     setShow(false)
@@ -48,16 +68,22 @@ export default function WelcomeModal() {
   if (!visible) return null
 
   return (
-    <div id="welcomeModal" className={show ? 'show' : ''}>
+    <div
+      id="welcomeModal"
+      className={show ? 'show' : ''}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="welcomeModalTitle"
+    >
       <div className="welcome-modal-box">
-        <h2>Bienvenido a Primus</h2>
+        <h2 id="welcomeModalTitle">Bienvenido a Primus</h2>
         <p>
           Este servidor tiene <span>música de ambiente</span>. ¿Deseas activarla para
           sumergirte en el mundo de Primus?
         </p>
         <p className="welcome-modal-note">Puedes cambiarla en cualquier momento con el botón de música.</p>
         <div className="welcome-modal-buttons">
-          <button onClick={accept}>Activar música</button>
+          <button ref={acceptButtonRef} onClick={accept}>Activar música</button>
           <button onClick={close}>Continuar sin música</button>
         </div>
       </div>

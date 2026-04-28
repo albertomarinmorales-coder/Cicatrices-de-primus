@@ -59,16 +59,51 @@ export default function Inicio() {
   const navigate = useNavigate()
   useScrollReveal('inicio')
 
+  function renderBentoItem(item, i) {
+    const content = (
+      <>
+        <div className="bento-bg" style={{ backgroundImage: `url('${item.bg}')` }} />
+        <div className="bento-overlay" />
+        <div className="bento-content">
+          <h2>{item.title}</h2>
+          <p>{item.desc}</p>
+        </div>
+      </>
+    )
+
+    if (!item.path) {
+      return (
+        <div key={i} className={item.className}>
+          {content}
+        </div>
+      )
+    }
+
+    return (
+      <a
+        key={i}
+        href={item.path}
+        className={item.className}
+        onClick={(e) => {
+          e.preventDefault()
+          navigate(item.path)
+        }}
+      >
+        {content}
+      </a>
+    )
+  }
+
   return (
     <div className="page active">
       <section className="hero">
         <img
           src="/images/hero.png"
-          alt="Cicatrices de Primus Hero"
+          alt=""
           className="hero-bg-img"
           fetchPriority="high"
           decoding="async"
-          role="presentation"
+          aria-hidden="true"
         />
         <div className="hero-overlay" />
         <div className="hero-content">
@@ -89,21 +124,7 @@ export default function Inicio() {
       </section>
 
       <div className="bento-container">
-        {BENTO_ITEMS.map((item, i) => (
-          <div
-            key={i}
-            className={item.className}
-            onClick={item.path ? () => navigate(item.path) : undefined}
-            style={item.path ? { cursor: 'pointer' } : undefined}
-          >
-            <div className="bento-bg" style={{ backgroundImage: `url('${item.bg}')` }} />
-            <div className="bento-overlay" />
-            <div className="bento-content">
-              <h2>{item.title}</h2>
-              <p>{item.desc}</p>
-            </div>
-          </div>
-        ))}
+        {BENTO_ITEMS.map(renderBentoItem)}
       </div>
 
       <Footer />

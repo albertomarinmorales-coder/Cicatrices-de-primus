@@ -2,7 +2,7 @@ export const normativaData = {
   general: {
     title: 'General',
     subtitle: 'Normas del Servidor',
-    heroBg: '/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png',
+    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
     breadcrumb: 'General',
     intro: `<blockquote class="norm-quote">¡Bienvenido/a a nuestra comunidad! Este espacio ha sido creado para disfrutar
       juntos del servidor, compartir historias, vivir aventuras y, sobre todo, pasarla bien en un entorno respetuoso y
@@ -29,7 +29,7 @@ export const normativaData = {
   concepto: {
     title: 'Conceptos de Rol',
     subtitle: 'Glosario',
-    heroBg: '/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png',
+    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
     breadcrumb: 'Concepto de Rol',
     intro: null,
     sections: [
@@ -53,7 +53,7 @@ export const normativaData = {
   ic: {
     title: 'Normativa IC',
     subtitle: 'Rol dentro del servidor',
-    heroBg: '/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png',
+    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
     breadcrumb: 'IC',
     intro: `<blockquote class="norm-quote">Para mantener una experiencia de rol inmersiva, coherente y respetuosa para todos,
       te pedimos que leas y sigas estas normas cuando estés interpretando a tu personaje:</blockquote>`,
@@ -81,7 +81,7 @@ export const normativaData = {
   heridas: {
     title: 'Sistema de Heridas',
     subtitle: '4 Tiers',
-    heroBg: '/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png',
+    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
     breadcrumb: 'Heridas',
     intro: `<blockquote class="norm-quote">El estado físico de tu personaje importa. Cada herida tiene un peso narrativo y
       mecánico. Conoce los tiers, cuánta vida representan y cómo afectan tu interpretación.</blockquote>`,
@@ -119,7 +119,7 @@ export const normativaData = {
   construccion: {
     title: 'Normativa de Construcción',
     subtitle: 'Sistema de Edificación',
-    heroBg: '/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png',
+    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
     breadcrumb: 'Construcción',
     intro: `<blockquote class="norm-quote">Construir con sentido común también es parte del rol. Para mantener el servidor
       equilibrado, evitar sobrecargas innecesarias y permitir que todos los jugadores puedan disfrutar y desarrollarse
@@ -155,7 +155,7 @@ export const normativaData = {
   combate: {
     title: 'Sistema de Combate',
     subtitle: 'PvP · Reglas',
-    heroBg: '/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png',
+    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
     breadcrumb: 'Combate',
     intro: `<blockquote class="norm-quote">"Todo acto tiene una consecuencia. Prepárate, lanza los dados y enfréntate al destino."</blockquote>`,
     sections: [
@@ -231,7 +231,7 @@ export const normativaData = {
   esclavitud: {
     title: 'Sistema de Esclavitud',
     subtitle: 'Rol Consensuado',
-    heroBg: '/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png',
+    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
     breadcrumb: 'Esclavitud',
     intro: `<blockquote class="norm-quote">La esclavitud forma parte del mundo y su historia, pero todo debe jugarse con
       respeto y cuidado. Recuerden que son personajes y que la experiencia de todos importa.</blockquote>`,
@@ -283,7 +283,7 @@ export const normativaData = {
   robo: {
     title: 'Sistema de Robo',
     subtitle: 'Sigilo · Rol',
-    heroBg: '/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png',
+    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
     breadcrumb: 'Robo',
     intro: `<blockquote class="norm-quote">El robo forma parte del entorno de rol, pero debe realizarse de forma coherente,
       justificada y con interpretación sólida. No está permitido robar a motor bajo ninguna circunstancia. Si ves un
@@ -325,7 +325,7 @@ export const normativaData = {
   mazmorra: {
     title: 'Sistema de Mazmorra',
     subtitle: 'Exploración · Aventura',
-    heroBg: '/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png',
+    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
     breadcrumb: 'Mazmorra',
     intro: `<blockquote class="norm-quote">Las mazmorras son espacios cargados de misterio, tesoros, desafíos y muerte. Ya
       sean ruinas olvidadas, laboratorios corruptos o fortalezas malditas, estas pruebas pondrán a los aventureros al
@@ -386,7 +386,7 @@ export const normativaData = {
   housing: {
     title: 'Sistema de Housing',
     subtitle: 'Hogar · Propiedad',
-    heroBg: '/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png',
+    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
     breadcrumb: 'Housing',
     intro: `<blockquote class="norm-quote">La construcción de viviendas sigue la Normativa de Construcción Urbana, buscando
       mantener coherencia estética y funcional dentro de cada distrito o zona de Primus.</blockquote>`,

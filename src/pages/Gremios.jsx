@@ -6,7 +6,7 @@ export default function Gremios() {
   return (
     <div className="page active">
       <div className="page-header">
-        <div className="page-header-bg" style={{ backgroundImage: "url('/images/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png')" }} />
+        <div className="page-header-bg" style={{ backgroundImage: "url('/assets/images/legacy/rules-bento.png')" }} />
         <div className="page-header-overlay" />
         <div className="page-header-content">
           <h1>Gremios</h1>
@@ -22,7 +22,7 @@ export default function Gremios() {
             <div className="oficio-card-img-wrap" style={{ background: '#111' }}>
               <img
                 className="oficio-card-img"
-                src="/sources/Gremios/Emblema.webp"
+                src="/assets/images/guilds/emblema.webp"
                 alt="Gremio de Aventuras"
                 loading="lazy"
                 decoding="async"

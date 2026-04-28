@@ -6,7 +6,7 @@ export default function Lore() {
   return (
     <div className="page active">
       <div className="page-header">
-        <div className="page-header-bg" style={{ backgroundImage: "url('/images/c41305_8ef9b64ba0524648ad1b1827a0d79e6c~mv2.png')" }} />
+        <div className="page-header-bg" style={{ backgroundImage: "url('/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png')" }} />
         <div className="page-header-overlay" />
         <div className="page-header-content">
           <h1>Historia y Geografía</h1>
@@ -21,7 +21,7 @@ export default function Lore() {
         <div className="lore-grid">
           <div className="lore-card" onClick={() => navigate('/historia')} style={{ cursor: 'pointer' }}>
             <div className="lore-card-img-wrap">
-              <img className="lore-card-img" src="/sources/Mapa.png"
+              <img className="lore-card-img" src="/assets/images/common/map.png"
                 alt="Historia y Geografía" loading="lazy" decoding="async" />
             </div>
             <div className="lore-card-body">
@@ -37,7 +37,7 @@ export default function Lore() {
 
           <div className="lore-card" onClick={() => navigate('/deidades')} style={{ cursor: 'pointer' }}>
             <div className="lore-card-img-wrap">
-              <img className="lore-card-img" src="/sources/Deidades Nuevas/Deidades-banner.jpg" alt="Deidades"
+              <img className="lore-card-img" src="/assets/images/lore/deities/deidades-banner.jpg" alt="Deidades"
                 loading="lazy" decoding="async" />
             </div>
             <div className="lore-card-body">

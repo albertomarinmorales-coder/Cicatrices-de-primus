@@ -7,8 +7,6 @@ export default defineConfig({
     react(),
     viteStaticCopy({
       targets: [
-        { src: 'images', dest: '.' },
-        { src: 'sources', dest: '.' },
         { src: 'audio', dest: '.' },
       ],
     }),

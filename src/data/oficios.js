@@ -4,11 +4,11 @@ export const oficiosData = {
   alquimista: {
     slug: 'alquimista',
     name: 'Alquimista',
-    coverImg: '/sources/Oficios/Alquimista/image/1.png',
+    coverImg: '/assets/images/professions/alquimista/1.png',
     photos: [
-      '/sources/Oficios/Alquimista/image/2.png',
-      '/sources/Oficios/Alquimista/image/3.png',
-      '/sources/Oficios/Alquimista/image/4.png',
+      '/assets/images/professions/alquimista/2.png',
+      '/assets/images/professions/alquimista/3.png',
+      '/assets/images/professions/alquimista/4.png',
     ],
     introHtml: `<p class="norm-quote">"Donde otros ven humo, el ve transmutacion."</p>
 <p class="detail-body-text">Los Alquimistas son estudiosos de las esencias ocultas del mundo. En sus laboratorios, talleres y torres perfumadas de vapores extraños, transforman plantas, hongos y partes de criaturas en pociones de sanacion, balsamos para la mente y preparados capaces de restaurar tanto el cuerpo como el espiritu.<br>Su labor no se limita a la mezcla: investigan la naturaleza con paciencia y riesgo, adentrándose en bosques, pantanos y cavernas para recolectar ingredientes raros. Cada raiz, cada espora y cada fragmento de criatura es analizado y probado, pues el error en la alquimia puede ser tan mortal como una herida de guerra.<br>Los Alquimistas abastecen a aventureros, ejercitos y hospitales, y su conocimiento es tan valioso como peligroso. En Azimra se dice que donde un Galeno cierra una herida, un Alquimista prepara el remedio que permite seguir luchando.</p>`,
@@ -22,11 +22,11 @@ export const oficiosData = {
   'artifices-del-velo-y-del-brillo': {
     slug: 'artifices-del-velo-y-del-brillo',
     name: 'Artifices del Velo y del Brillo',
-    coverImg: '/sources/Oficios/Artifices%20del%20Velo%20y%20del%20Brillo/image/1.png',
+    coverImg: '/assets/images/professions/artifices-del-velo-y-del-brillo/1.png',
     photos: [
-      '/sources/Oficios/Artifices%20del%20Velo%20y%20del%20Brillo/image/2.png',
-      '/sources/Oficios/Artifices%20del%20Velo%20y%20del%20Brillo/image/3.png',
-      '/sources/Oficios/Artifices%20del%20Velo%20y%20del%20Brillo/image/4.png',
+      '/assets/images/professions/artifices-del-velo-y-del-brillo/2.png',
+      '/assets/images/professions/artifices-del-velo-y-del-brillo/3.png',
+      '/assets/images/professions/artifices-del-velo-y-del-brillo/4.png',
     ],
     introHtml: `<p class="norm-quote">"Cada pliegue es un relato, cada costura, cada baratija una historia."</p>
 <p class="detail-body-text">Los Artifices del Velo y del Brillo trabajan en talleres donde el cuero, el metal, las gemas y la magia se encuentran. Hombres y mujeres expertos en confeccion y encantamiento, crean armaduras capaces de repeler tanto el acero como los ataques magicos, combinando cueros tratados, metales refinados y telas especialmente preparadas para resistir el uso y el desgaste del combate.<br>Su conocimiento no se limita a la proteccion. Tambien practican una orfebreria precisa y delicada, elaborando anillos, amuletos y collares arcanos capaces de potenciar el daño magico de aquellos que usuarios del thae. Cada gema tallada y pulida es el resultado de una precision trabajada a traves de años, gemas que son utilizadas para canalizar y potenciar el thae.<br>Las creaciones de estos artifices son raras y codiciadas. En el campo de batalla o en los salones del poder, portar una obra del Velo y del Brillo es señal de preparacion… y de peligro para los enemigos del reino.</p>`,
@@ -40,11 +40,11 @@ export const oficiosData = {
   cazador: {
     slug: 'cazador',
     name: 'Cazador',
-    coverImg: '/sources/Oficios/Cazador/image/1.png',
+    coverImg: '/assets/images/professions/cazador/1.png',
     photos: [
-      '/sources/Oficios/Cazador/image/2.png',
-      '/sources/Oficios/Cazador/image/3.png',
-      '/sources/Oficios/Cazador/image/4.png',
+      '/assets/images/professions/cazador/2.png',
+      '/assets/images/professions/cazador/3.png',
+      '/assets/images/professions/cazador/4.png',
     ],
     introHtml: `<p class="norm-quote">"Silencioso, letal... y en armonia con la tierra."</p>
 <p class="detail-body-text">Los Cazadores son expertos en el arco y profundos conocedores del terreno y de las criaturas que lo habitan. Siguen rastros invisibles para otros, estudian habitos y saben cuando atacar para asegurar una muerte limpia y necesaria.<br>De sus presas provienen muchos de los recursos que sostienen al reino: la carne abastece las tabernas, los cueros son entregados a los Artifices del Velo y del Brillo para la creacion de armaduras, y las partes mas raras son destinadas a los Alquimistas.<br>Los cazadores mas experimentados no solo dan muerte. Tambien buscan y capturan animales aptos para la domesticacion, criaturas que luego seran entrenadas para el combate, el trabajo o la compañia.</p>`,
@@ -58,11 +58,11 @@ export const oficiosData = {
   forjador: {
     slug: 'forjador',
     name: 'Forjador',
-    coverImg: '/sources/Oficios/Forjador/image/1.png',
+    coverImg: '/assets/images/professions/forjador/1.png',
     photos: [
-      '/sources/Oficios/Forjador/image/2.png',
-      '/sources/Oficios/Forjador/image/3.png',
-      '/sources/Oficios/Forjador/image/4.png',
+      '/assets/images/professions/forjador/2.png',
+      '/assets/images/professions/forjador/3.png',
+      '/assets/images/professions/forjador/4.png',
     ],
     introHtml: `<p class="norm-quote">"Donde el fuego forja lo imaginado."</p>
 <p class="detail-body-text">El Forjador es un maestro del metal cuya habilidad nace del fuego, el martillo y la experiencia. Con manos curtidas, trabaja minerales y aleaciones para dar forma a herramientas, escudos y armamento, piezas destinadas a resistir el uso mas brutal.<br>Son los encargados de crear y preparar los filos que empuñan los guerreros mas aguerridos del reino. Cada hoja es templada con cuidado, afilada para maximizar su poder y equilibrada para no fallar en el momento decisivo. Un buen forjador no solo fabrica armas: entiende como se mueven en combate y que exige la batalla de quien las porta.</p>`,
@@ -76,11 +76,11 @@ export const oficiosData = {
   galeno: {
     slug: 'galeno',
     name: 'Galeno',
-    coverImg: '/sources/Oficios/Galeno/image/1.png',
+    coverImg: '/assets/images/professions/galeno/1.png',
     photos: [
-      '/sources/Oficios/Galeno/image/2.png',
-      '/sources/Oficios/Galeno/image/3.png',
-      '/sources/Oficios/Galeno/image/4.png',
+      '/assets/images/professions/galeno/2.png',
+      '/assets/images/professions/galeno/3.png',
+      '/assets/images/professions/galeno/4.png',
     ],
     introHtml: `<p class="norm-quote">"Sus manos curan la carne, su saber sana el alma."</p>
 <p class="detail-body-text">Los Galenos son los guardianes de la vida en Azimra. Sirven en hospitales, campamentos y bastiones, donde su conocimiento de hierbas, ungüentos y practicas medicas marca la diferencia entre la vida y la muerte.</p>`,
@@ -94,11 +94,11 @@ export const oficiosData = {
   granjero: {
     slug: 'granjero',
     name: 'Granjero',
-    coverImg: '/sources/Oficios/Granjero/image/1.png',
+    coverImg: '/assets/images/professions/granjero/1.png',
     photos: [
-      '/sources/Oficios/Granjero/image/2.png',
-      '/sources/Oficios/Granjero/image/3.png',
-      '/sources/Oficios/Granjero/image/4.png',
+      '/assets/images/professions/granjero/2.png',
+      '/assets/images/professions/granjero/3.png',
+      '/assets/images/professions/granjero/4.png',
     ],
     introHtml: `<p class="norm-quote">"El pan y la vida nacen de su esfuerzo."</p>
 <p class="detail-body-text">Los Granjeros cuidan las fertiles tierras del sur, donde el clima es mas amable y la vida puede echar raices. Alli trabajan los campos, protegen los cultivos y atienden a los animales de granja, asegurando el sustento diario del reino.</p>`,
@@ -112,11 +112,11 @@ export const oficiosData = {
   guardia: {
     slug: 'guardia',
     name: 'Guardia',
-    coverImg: '/sources/Oficios/Guardia/image/1.png',
+    coverImg: '/assets/images/professions/guardia/1.png',
     photos: [
-      '/sources/Oficios/Guardia/image/2.png',
-      '/sources/Oficios/Guardia/image/3.png',
-      '/sources/Oficios/Guardia/image/4.png',
+      '/assets/images/professions/guardia/2.png',
+      '/assets/images/professions/guardia/3.png',
+      '/assets/images/professions/guardia/4.png',
     ],
     introHtml: `<p class="norm-quote">"Juramentados en la paz, los primeros en la guerra."</p>
 <p class="detail-body-text">Los Guardias son hombres y mujeres juramentados al servicio del reino de Azimra, encargados de velar por la seguridad de sus ciudades, aldeas, fortalezas y senderos. Su presencia es sinonimo de orden: donde marchan, la ley del rey Cyprian se hace visible y tangible.</p>`,
@@ -130,11 +130,11 @@ export const oficiosData = {
   minero: {
     slug: 'minero',
     name: 'Minero',
-    coverImg: '/sources/Oficios/Minero/image/1.png',
+    coverImg: '/assets/images/professions/minero/1.png',
     photos: [
-      '/sources/Oficios/Minero/image/2.png',
-      '/sources/Oficios/Minero/image/3.png',
-      '/sources/Oficios/Minero/image/4.png',
+      '/assets/images/professions/minero/2.png',
+      '/assets/images/professions/minero/3.png',
+      '/assets/images/professions/minero/4.png',
     ],
     introHtml: `<p class="norm-quote">"Alli donde no llega la luz, el encuentra riqueza."</p>
 <p class="detail-body-text">Los Mineros son hombres y mujeres de gran fuerza y resistencia, dispuestos a adentrarse en las peligrosas minas del norte, donde la roca es traicionera y la oscuridad nunca duerme. Alli extraen minerales y vetas metalicas que luego son refinadas y vendidas a los Forjadores, sosteniendo la forja y el armamento del reino.</p>`,
@@ -148,11 +148,11 @@ export const oficiosData = {
   seeker: {
     slug: 'seeker',
     name: 'Seeker',
-    coverImg: '/sources/Oficios/Seeker/image/1.png',
+    coverImg: '/assets/images/professions/seeker/1.png',
     photos: [
-      '/sources/Oficios/Seeker/image/2.png',
-      '/sources/Oficios/Seeker/image/3.png',
-      '/sources/Oficios/Seeker/image/4.png',
+      '/assets/images/professions/seeker/2.png',
+      '/assets/images/professions/seeker/3.png',
+      '/assets/images/professions/seeker/4.png',
     ],
     introHtml: `<p class="norm-quote">"Curioso, explorador... y descubridor de la tierra."</p>
 <p class="detail-body-text">Solo los hombres y mujeres mas habiles se atreven a tomar el oficio de Seeker. Son exploradores de lo prohibido, aquellos que se adentran en mazmorras, ruinas y lugares donde nadie mas osa aventurarse. Alli enfrentan criaturas, trampas y enemigos que ponen a prueba cuerpo y voluntad.</p>`,
@@ -166,11 +166,11 @@ export const oficiosData = {
   tabernero: {
     slug: 'tabernero',
     name: 'Tabernero',
-    coverImg: '/sources/Oficios/Tabernero/image/1.png',
+    coverImg: '/assets/images/professions/tabernero/1.png',
     photos: [
-      '/sources/Oficios/Tabernero/image/2.png',
-      '/sources/Oficios/Tabernero/image/3.png',
-      '/sources/Oficios/Tabernero/image/4.png',
+      '/assets/images/professions/tabernero/2.png',
+      '/assets/images/professions/tabernero/3.png',
+      '/assets/images/professions/tabernero/4.png',
     ],
     introHtml: `<p class="norm-quote">"Donde hay fuego y bebida, hay historias... y secretos."</p>
 <p class="detail-body-text">El Tabernero es el corazon de la taberna de Azimra, guardian del fuego del hogar en un mundo marcado por la guerra. Con ingredientes frescos y recetas transmitidas de generacion en generacion, prepara los mejores platos del reino, comidas capaces de devolver fuerzas a aventureros y guerreros antes de la batalla.</p>`,

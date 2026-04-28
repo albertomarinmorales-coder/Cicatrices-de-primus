@@ -6,7 +6,7 @@ export default function Facciones() {
   return (
     <div className="page active">
       <div className="page-header">
-        <div className="page-header-bg" style={{ backgroundImage: "url('/images/gremiosBento.png')" }} />
+        <div className="page-header-bg" style={{ backgroundImage: "url('/assets/images/legacy/guilds-bento.png')" }} />
         <div className="page-header-overlay" />
         <div className="page-header-content">
           <h1>Facciones</h1>

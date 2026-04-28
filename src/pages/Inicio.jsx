@@ -6,49 +6,49 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 const BENTO_ITEMS = [
   {
     className: 'bento-item bento-2x2',
-    bg: '/images/938f05_21021a0aa69c4a3d8b01cf06a38b12c5~mv2.png',
+    bg: '/assets/images/legacy/home-intro.png',
     title: 'Bienvenido a Primus',
     desc: 'En un continente marcado por las guerras, las traiciones y la magia oscura, las cicatrices del pasado moldean el presente. Únete a nuestro servidor de roleplay ambientado en el universo de Conan Exiles y forja tu propio destino entre reinos, razas y secretos olvidados.',
     path: null,
   },
   {
     className: 'bento-item',
-    bg: '/sources/Eras/Año5/1.png',
+    bg: '/assets/images/lore/eras/ano5/1.png',
     title: 'Lore',
     desc: 'Cinco eras de historia descritas al detalle.',
     path: '/lore',
   },
   {
     className: 'bento-item',
-    bg: '/sources/Carrusel/razas-carrusel.png',
+    bg: '/assets/images/carousel/razas-carrusel.png',
     title: 'Razas',
     desc: 'Descubre los 10 linajes de Primus.',
     path: '/razas',
   },
   {
     className: 'bento-item bento-item--bg-zoom',
-    bg: '/sources/Clases/4.%20Luminari%20Vox/fotos/foto3.png',
+    bg: '/assets/images/classes/luminari-vox/foto3.png',
     title: 'Clases',
     desc: 'Especializa tu personaje y define tu rol.',
     path: '/clases',
   },
   {
     className: 'bento-item bento-item--bg-zoom',
-    bg: '/sources/Oficios/Granjero/image/1.png',
+    bg: '/assets/images/professions/granjero/1.png',
     title: 'Profesiones',
     desc: 'Maestría para prosperar en el continente.',
     path: '/profesiones',
   },
   {
     className: 'bento-item',
-    bg: '/sources/Carrusel/gremios-carrusel.png',
+    bg: '/assets/images/carousel/gremios-carrusel.png',
     title: 'Gremios',
     desc: 'Organizaciones y hermandades del servidor.',
     path: '/gremios',
   },
   {
     className: 'bento-item bento-wide',
-    bg: '/images/c41305_cb53584d750f40359f3b7f885959b67c~mv2.png',
+    bg: '/assets/images/legacy/rules-bento.png',
     title: 'Normativa General',
     desc: 'Comprende las leyes de Primus antes de forjar tu camino. Reglas de combate, construcción y convivencia.',
     path: '/normativa',
@@ -98,7 +98,7 @@ export default function Inicio() {
     <div className="page active">
       <section className="hero">
         <img
-          src="/images/hero.png"
+          src="/assets/images/common/hero.png"
           alt=""
           className="hero-bg-img"
           fetchPriority="high"

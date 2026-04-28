@@ -15,7 +15,7 @@ const DEIDADES = [
   {
     id: 'drashet',
     name: 'DRASHET',
-    img: '/sources/Deidades Nuevas/Drashet.png',
+    img: '/assets/images/lore/deities/drashet.png',
     quote: '"Como el mar que una vez fui, no juzgo lo que recibo; solo sostengo el eco de tu última canción mientras cruzas el velo hacia mi silencio".',
     desc: `Antes conocido como Nazhur, deidad del mar profundo, los secretos sumergidos y las tormentas marítimas del
       sur, su existencia estaba ligada al ciclo inevitable de abundancia y pérdida. Colosal y temido, de piel
@@ -38,7 +38,7 @@ const DEIDADES = [
   {
     id: 'kheos',
     name: 'KHEOS',
-    img: '/sources/Deidades Nuevas/Kheos.png',
+    img: '/assets/images/lore/deities/kheos.png',
     quote: '"Que tiemblen los cimientos de lo eterno, pues soy el rayo que rompe los pactos y la tormenta que nace de las cenizas de vuestro orden".',
     desc: `Antes de ser llamado por su verdadero nombre, fue conocido como Vorgrimm, una deidad ancestral venerada y
       temida en las tierras heladas del norte, símbolo del fin y el renacimiento. Su figura —un coloso cubierto
@@ -61,7 +61,7 @@ const DEIDADES = [
   {
     id: 'thronus',
     name: 'THRONUS',
-    img: '/sources/Deidades Nuevas/Thronus.png',
+    img: '/assets/images/lore/deities/thronus.png',
     quote: '"La compasión fue el susurro de un ayer que ya no existe; hoy, solo el fuego del orden purificará la ponzoña de este mundo".',
     desc: `Antes conocida como Eselia, deidad de la luz pura, la revelación interior y la sabiduría silenciosa, esta
       entidad guiaba sin imponerse. Su presencia era sutil: una luz cálida, una voz en sueños, una niebla dorada
@@ -80,7 +80,7 @@ const DEIDADES = [
   {
     id: 'zhecher',
     name: 'ZHECHER',
-    img: '/sources/Deidades Nuevas/Zhecher.png',
+    img: '/assets/images/lore/deities/zhecher.png',
     quote: '"La magia no es un don para los devotos, sino la geometría del poder revelada solo a quienes se atreven a mirar tras el velo de la realidad".',
     desc: `Zhecher es la diosa del poder y de la magia misma, la fuente silenciosa de la que emana, en parte, la
       fuerza de los guerreros que recorren el continente. Hermana menor entre ellos, ha permanecido oculta
@@ -99,7 +99,7 @@ const DEIDADES = [
   {
     id: 'zhenra',
     name: 'ZHENRA',
-    img: '/sources/Deidades Nuevas/Zhenra.png',
+    img: '/assets/images/lore/deities/zhenra.png',
     quote: '"Escuchad el rugido en el viento y buscad la vida en el brote que nace del incendio, pues aunque me oculte, la tierra jamás olvida a los suyos".',
     desc: `Zhenra es la diosa de la naturaleza, la fertilidad y la libertad instintiva, una fuerza viva que nunca ha
       ocultado su verdadero nombre ni su propósito. Se manifiesta como una mujer de piel terrosa, con cabello de

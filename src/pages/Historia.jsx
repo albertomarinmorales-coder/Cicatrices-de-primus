@@ -8,68 +8,68 @@ const CIUDADES_DATA = {
     nombre: "Aldea Akan'thal",
     subtitulo: "El Refugio de los Olvidados",
     desc: "Primer asentamiento de los Nhek'thal en Primus, provenientes de la tierra de los mil ecos. Su conocimiento de la agricultura hace estas tierras propicias para el cultivo de todo tipo de alimentos.",
-    fotos: ["/sources/Ciudades/Aldea Akan'thal/1.png", "/sources/Ciudades/Aldea Akan'thal/2.png", "/sources/Ciudades/Aldea Akan'thal/3.png"]
+    fotos: ["/assets/images/lore/cities/aldea-akanthal/1.png", "/assets/images/lore/cities/aldea-akanthal/2.png", "/assets/images/lore/cities/aldea-akanthal/3.png"]
   },
   'ashtorin': {
     nombre: "Ash'Torin",
     subtitulo: "El Enclave del Silencio Ardiente",
     desc: "Ciudad fundada por la familia Thalcharion y fiel a la corona de Cyprian. Puerto donde reside la fuerza naval del reino. Allí se ha fundado el nuevo Gremio de aventuras. El culto a Drashet es observado entre sus habitantes.",
-    fotos: ["/sources/Ciudades/Ash'Torin/1.png", "/sources/Ciudades/Ash'Torin/2.png", "/sources/Ciudades/Ash'Torin/3.png"]
+    fotos: ["/assets/images/lore/cities/ashtorin/1.png", "/assets/images/lore/cities/ashtorin/2.png", "/assets/images/lore/cities/ashtorin/3.png"]
   },
   'ashbourne': {
     nombre: "Ashbourne",
     subtitulo: "La Ciudad de las Cenizas",
     desc: "Actual sede de la Orden de la Luz y donde se encuentra su monasterio. Pueblo portuario que conecta el norte con el resto del continente. Centro de estudio y combate de las corrupciones que asolan el reino.",
-    fotos: ["/sources/Ciudades/Ashbourne/1.png", "/sources/Ciudades/Ashbourne/2.png", "/sources/Ciudades/Ashbourne/3.png"]
+    fotos: ["/assets/images/lore/cities/ashbourne/1.png", "/assets/images/lore/cities/ashbourne/2.png", "/assets/images/lore/cities/ashbourne/3.png"]
   },
   'azimra': {
     nombre: "Azimra",
     subtitulo: "El Nuevo Comienzo",
     desc: "Lo que antiguamente era un poblado, hoy en día se erige como la capital del reino de Cyprian, desde donde actualmente intenta subsanar el conflicto que asola el continente. Es el centro comercial y político del reino, donde multitud de razas y culturas se entremezclan. El dios patrón de la ciudad es Drashet, ya que allí se encuentra la Pirámide, considerada su templo. También es el centro de estudio del thae en La Torre del Último Juramento.",
-    fotos: ["/sources/Ciudades/Azimra/1.png", "/sources/Ciudades/Azimra/2.png", "/sources/Ciudades/Azimra/3.png"]
+    fotos: ["/assets/images/lore/cities/azimra/1.png", "/assets/images/lore/cities/azimra/2.png", "/assets/images/lore/cities/azimra/3.png"]
   },
   'harrowfield': {
     nombre: "Harrowfield",
     subtitulo: "Los Campos que Nunca Descansan",
     desc: "Ciudad maldita al sur de la antigua capital. En la actualidad está gobernada por la familia Valpyre, que se ha alzado contra la corona, regando el caos y el terror y aliándose con criaturas como orcos y goblins, que recorren sus calles. Allí se encuentra en funcionamiento el mercado de esclavos, con subastas ocasionales y beneficios del comercio de sangre.",
-    fotos: ["/sources/Ciudades/Harrowfield/1.png", "/sources/Ciudades/Harrowfield/2.png", "/sources/Ciudades/Harrowfield/3.png"],
+    fotos: ["/assets/images/lore/cities/harrowfield/1.png", "/assets/images/lore/cities/harrowfield/2.png", "/assets/images/lore/cities/harrowfield/3.png"],
     isHarrow: true
   },
   'jorvik': {
     nombre: "Jörvik",
     subtitulo: "La Fortaleza del Norte",
     desc: "Antiguamente un pueblo que custodiaba el pasaje al norte, hoy día Jörvik es el punto de consolidación de la Rebelión, desde donde el Jarl Bjorn lidera su lucha en contra de la corona.",
-    fotos: ["/sources/Ciudades/Jörvik/1.png", "/sources/Ciudades/Jörvik/2.png", "/sources/Ciudades/Jörvik/3.png"]
+    fotos: ["/assets/images/lore/cities/jorvik/1.png", "/assets/images/lore/cities/jorvik/2.png", "/assets/images/lore/cities/jorvik/3.png"]
   },
   'murun': {
     nombre: "Murun",
     subtitulo: "La Ciudad del Este Silencioso",
     desc: "Aldea dentro de las tierras de la corona. Habitada por aquellos que no encontraron lugar y resguardo dentro de las murallas de Azimra. Su población es de dudosa reputación y se escuchan rumores de habitantes que han desaparecido dentro de la pirámide.",
-    fotos: ["/sources/Ciudades/Murun/1.png", "/sources/Ciudades/Murun/2.png", "/sources/Ciudades/Murun/3.png"]
+    fotos: ["/assets/images/lore/cities/murun/1.png", "/assets/images/lore/cities/murun/2.png", "/assets/images/lore/cities/murun/3.png"]
   },
   'ruinas-dolgaran': {
     nombre: "Ruinas Dol-Garan",
     subtitulo: "Lo Que Quedó Tras la Caída",
     desc: "Antiguo bastión de los enanos. Ciudad que estuvo atrapada en el tiempo por la influencia del fragmento de Kheos. Fue liberada del poder del fragmento tras ser recuperado por valientes guerreros. En la actualidad se encuentra abandonada y en ruinas.",
-    fotos: ["/sources/Ciudades/Ruinas Dol-Garan/1.png", "/sources/Ciudades/Ruinas Dol-Garan/2.png", "/sources/Ciudades/Ruinas Dol-Garan/3.png"]
+    fotos: ["/assets/images/lore/cities/ruinas-dol-garan/1.png", "/assets/images/lore/cities/ruinas-dol-garan/2.png", "/assets/images/lore/cities/ruinas-dol-garan/3.png"]
   },
   'ruinas-ravensvik': {
     nombre: "Ruinas Ravensvik",
     subtitulo: "La Última Frontera Olvidada",
     desc: "Antiguo asiento de la casa Greycliff y bastión del norte. Destruida después de la rebelión de sus líderes contra la corona. En la actualidad se encuentra en ruinas.",
-    fotos: ["/sources/Ciudades/Ruinas Ravensvik/1.png", "/sources/Ciudades/Ruinas Ravensvik/2.png", "/sources/Ciudades/Ruinas Ravensvik/3.png"]
+    fotos: ["/assets/images/lore/cities/ruinas-ravensvik/1.png", "/assets/images/lore/cities/ruinas-ravensvik/2.png", "/assets/images/lore/cities/ruinas-ravensvik/3.png"]
   },
   'raventree-hill': {
     nombre: "Ruinas de Raventree Hall",
     subtitulo: "La Capital que el Mundo Olvidó",
     desc: "Antigua capital del reino de Jon Blackwood. En la actualidad se encuentra en ruinas y parece estar ocupada por fuerzas oscuras. Catalogada como Tierra Santa por la Orden de la Luz y localización de la antigua Catedral de Thronus.",
-    fotos: ["/sources/Ciudades/Ruinas de Raventree Hall/1.png", "/sources/Ciudades/Ruinas de Raventree Hall/2.png", "/sources/Ciudades/Ruinas de Raventree Hall/3.png"]
+    fotos: ["/assets/images/lore/cities/ruinas-de-raventree-hall/1.png", "/assets/images/lore/cities/ruinas-de-raventree-hall/2.png", "/assets/images/lore/cities/ruinas-de-raventree-hall/3.png"]
   },
   'skalford': {
     nombre: "Skalford",
     subtitulo: "Donde la Justicia Tiene Precio",
     desc: "Precaria aldea aferrada a un islote en el río congelado del profundo Norte. Refugio de los antiguos habitantes de la ciudad de Ravensvik. Asechada constantemente por los peligros del norte, sus pobladores se niegan a abandonar el territorio.",
-    fotos: ["/sources/Ciudades/Skalford/1.png", "/sources/Ciudades/Skalford/2.png", "/sources/Ciudades/Skalford/3.png"]
+    fotos: ["/assets/images/lore/cities/skalford/1.png", "/assets/images/lore/cities/skalford/2.png", "/assets/images/lore/cities/skalford/3.png"]
   }
 }
 
@@ -119,7 +119,7 @@ const ERAS = [
   {
     num: 'I Era',
     title: '"El Nacimiento de las Civilizaciones"',
-    img: '/images/938f05_82528c51b3f4476799987dbd0f2003a9~mv2.png',
+    img: '/assets/images/legacy/938f05-82528c51b3f4476799987dbd0f2003a9-mv2.png',
     alt: 'I Era - El Nacimiento de las Civilizaciones',
     text: `<p>Eones habían transcurrido desde la creación. En el vasto mundo, los continentes se alzaban
       separados por océanos inmensos, y en aquellos días remotos solo uno era conocido: Primus. Este
@@ -139,7 +139,7 @@ const ERAS = [
   {
     num: 'II Era',
     title: 'Las Primeras Guerras',
-    img: '/images/938f05_d8a4840d292e405a9412b588b94968d4~mv2.png',
+    img: '/assets/images/legacy/938f05-d8a4840d292e405a9412b588b94968d4-mv2.png',
     alt: 'II Era - Las Primeras Guerras',
     text: `<p>Las antiguas alianzas comenzaron a romperse. Los Elfos Primales intentaron imponer su supremacía
       sobre Humanos y Shazari, desatando guerras en bosques y llanuras. Los Enanos fueron arrastrados al
@@ -154,7 +154,7 @@ const ERAS = [
   {
     num: 'III Era',
     title: 'La Gran Guerra de Civilizaciones',
-    img: '/images/938f05_4c965443699c48d7879df5e0f2c047f4~mv2.png',
+    img: '/assets/images/legacy/938f05-4c965443699c48d7879df5e0f2c047f4-mv2.png',
     alt: 'III Era - La Gran Guerra de Civilizaciones',
     text: `<p>La guerra escaló hasta convertirse en un conflicto entre civilizaciones enteras. Los Elfos Primales
       reunieron a Silvanos y Oscuros, prometiendo libertad a estos últimos; sin embargo, los Oscuros se
@@ -167,7 +167,7 @@ const ERAS = [
   {
     num: 'IV Era',
     title: 'La Era de los Reinos Fracturados',
-    img: '/images/938f05_6fcb70fda3f4406c9bacac8b2e6d8048~mv2.png',
+    img: '/assets/images/legacy/938f05-6fcb70fda3f4406c9bacac8b2e6d8048-mv2.png',
     alt: 'IV Era - La Era de los Reinos Fracturados',
     text: `<p>Tras generaciones de guerra, Primus quedó dividido en cientos de feudos y fortalezas aisladas. El
       abuso del Thae dejó huellas profundas: zonas corruptas, bestias deformadas y regiones donde las
@@ -180,7 +180,7 @@ const ERAS = [
   {
     num: 'V Era',
     title: 'La Era de las Unificaciones',
-    img: '/images/938f05_156a74c1aa9a4b06b6a5da69a955e632~mv2.png',
+    img: '/assets/images/legacy/938f05-156a74c1aa9a4b06b6a5da69a955e632-mv2.png',
     alt: 'V Era - La Era de las Unificaciones',
     text: `<p>El agotamiento de siglos de guerra llevó a buscar la paz. La Casa Blackwood impulsó tratados de
       unión y nacieron tres grandes ciudades que definieron el nuevo orden: <strong>Ruinas de Raventree
@@ -195,7 +195,7 @@ const ANOS = [
   {
     num: 'Año 1',
     title: 'La Caída del Cuervo',
-    imgs: ['/sources/Eras/Año1/1.png', '/sources/Eras/Año1/2.png', '/sources/Eras/Año1/3.png'],
+    imgs: ['/assets/images/lore/eras/ano1/1.png', '/assets/images/lore/eras/ano1/2.png', '/assets/images/lore/eras/ano1/3.png'],
     alt: 'Año 1 - La Caída del Cuervo',
     text: `<p>La muerte del Rey <strong>Jon Blackwood</strong> marcó el final definitivo de la frágil estabilidad que había mantenido unido al continente. Con su fallecimiento, Primus perdió la figura que había sostenido el equilibrio entre las distintas fuerzas del reino.</p>
     <p>Su hijo <strong>Cyprian Blackwood</strong> ascendió al trono, pero su juventud y la reciente pérdida de sus padres generaron dudas sobre su capacidad para gobernar. Aunque su legitimidad nunca fue cuestionada, muchos comenzaron a ver su reinado como vulnerable.</p>
@@ -206,7 +206,7 @@ const ANOS = [
   {
     num: 'Año 2',
     title: 'Rebeliones',
-    imgs: ['/sources/Eras/Año2/1.png', '/sources/Eras/Año2/2.png', '/sources/Eras/Año2/3.png'],
+    imgs: ['/assets/images/lore/eras/ano2/1.png', '/assets/images/lore/eras/ano2/2.png', '/assets/images/lore/eras/ano2/3.png'],
     alt: 'Año 2 - Rebeliones',
     text: `<p>La debilidad percibida del nuevo rey desató una ola de rebeliones en todo el continente. Casas menores, pueblos fronterizos y facciones disidentes comenzaron a desafiar la autoridad de la corona.</p>
     <p>Algunas regiones dejaron de obedecer los decretos reales, mientras que otras cayeron en el saqueo constante. El reino comenzó a fragmentarse en territorios que sobrevivían por su cuenta.</p>
@@ -218,7 +218,7 @@ const ANOS = [
   {
     num: 'Año 3',
     title: 'Tormentas en el Norte',
-    imgs: ['/sources/Eras/Año3/1.png', '/sources/Eras/Año3/2.png', '/sources/Eras/Año3/3.png'],
+    imgs: ['/assets/images/lore/eras/ano3/1.png', '/assets/images/lore/eras/ano3/2.png', '/assets/images/lore/eras/ano3/3.png'],
     alt: 'Año 3 - Tormentas en el Norte',
     text: `<p>Durante el tercer año la crisis alcanzó su punto más crítico. El Consejo de los Doce comenzó a fracturarse completamente y muchas órdenes reales eran ignoradas o desobedecidas.</p>
     <p>En el norte ocurrió una traición decisiva.</p>
@@ -233,7 +233,7 @@ const ANOS = [
   {
     num: 'Año 4',
     title: 'El Despertar',
-    imgs: ['/sources/Eras/Año4/1.png', '/sources/Eras/Año4/2.png', '/sources/Eras/Año4/3.png'],
+    imgs: ['/assets/images/lore/eras/ano4/1.png', '/assets/images/lore/eras/ano4/2.png', '/assets/images/lore/eras/ano4/3.png'],
     alt: 'Año 4 - El Despertar',
     text: `<p>Tras la caída de Ravensvik, Primus entró en una etapa de decadencia profunda. Nuevas rebeliones surgieron por todo el continente y el propio rey comenzó a desconfiar incluso de su consejo.</p>
     <p>Los pocos supervivientes de la <strong>Orden Krieger</strong>, liderados por <strong>Seralyth</strong>, siguieron apoyando los esfuerzos por aplacar las rebeliones, pero cada vez se debilitaban más. Con su castillo ya abandonado y el origen de su poder desvaneciéndose, sus pérdidas comenzaron a ser demasiado numerosas, y pesadas.</p>
@@ -250,7 +250,7 @@ const ANOS = [
   {
     num: 'Año 5',
     title: 'Azimra, un Nuevo Comienzo',
-    imgs: ['/sources/Eras/Año5/1.png', '/sources/Eras/Año5/2.png', '/sources/Eras/Año5/3.png', '/sources/Eras/Año5/4.png'],
+    imgs: ['/assets/images/lore/eras/ano5/1.png', '/assets/images/lore/eras/ano5/2.png', '/assets/images/lore/eras/ano5/3.png', '/assets/images/lore/eras/ano5/4.png'],
     alt: 'Año 5 - Azimra, un Nuevo Comienzo',
     text: `<p>Cinco años después de la desaparición en la pirámide, <strong>Azimra</strong> se había convertido en la nueva capital del reino. La ciudad fue construida gracias a refugiados, aliados extranjeros y pueblos de todo el continente.</p>
     <p>Las rebeliones continuaban, pero ahora la corona respondía con mayor estrategia y coordinación. <strong>Cyprian</strong> logró reconstruir el Consejo, incorporando nuevas figuras de poder. <strong>Meiga</strong>, erudita de la magia del reino; <strong>Red</strong> y su ingenio para crear los guardianes del reino, impresionantes criaturas al servicio de la corona y la capital contra la rebelión; y finalmente <strong>Eryk</strong>, legendario comandante de la antigua orden Krieger, quien con sus conocimientos y voluntad inquebrantable tomó el liderazgo de las fuerzas militares del reino. Así entonces, el reino comenzó a estabilizarse, pero una nueva amenaza apareció de entre las sombras.</p>
@@ -428,7 +428,7 @@ export default function Historia() {
   return (
     <div className="page active">
       <div className="detail-hero">
-        <div className="detail-hero-bg" style={{ backgroundImage: "url('/sources/938f05_156a74c1aa9a4b06b6a5da69a955e632~mv2.png')", backgroundPosition: 'center center' }} />
+        <div className="detail-hero-bg" style={{ backgroundImage: "url('/assets/images/legacy/938f05-156a74c1aa9a4b06b6a5da69a955e632-mv2.png')", backgroundPosition: 'center center' }} />
         <div className="detail-hero-overlay" />
         <div className="detail-hero-content">
           <div className="breadcrumb" onClick={() => navigate('/lore')} style={{ cursor: 'pointer' }}>
@@ -469,7 +469,7 @@ export default function Historia() {
         {activeTab === 'ciudades' && (
           <div className="lore-panel active">
             <div className="mapa-wrap">
-              <img src="/sources/Mapa.png" className="mapa-img" alt="Mapa de Primus" draggable="false" />
+              <img src="/assets/images/common/map.png" className="mapa-img" alt="Mapa de Primus" draggable="false" />
               {CIUDADES.map((c) => (
                 <div
                   key={c.id}

@@ -2,29 +2,29 @@
 import Footer from '../components/Footer'
 
 const ROSTER_IMGS = [
-  { src: '/sources/Razas/Elfos/images/cover.png', alt: 'Elfos' },
-  { src: '/sources/Razas/Enanos/images/cover.png', alt: 'Enanos' },
-  { src: '/sources/Razas/Humanos/images/cover.png', alt: 'Humanos' },
-  { src: '/sources/Razas/Malvakari/images/cover.png', alt: 'Malvakari' },
-  { src: '/sources/Razas/Mestizos/images/cover.png', alt: 'Mestizos' },
-  { src: '/sources/Razas/Nhekthal/images/cover.png', alt: 'Nhek-Thal' },
-  { src: '/sources/Razas/Ossalyth/images/cover.png', alt: 'Ossalyth' },
-  { src: '/sources/Razas/Rosaveld/images/cover.png', alt: 'Rosaveld' },
-  { src: '/sources/Razas/Shazari/images/cover.png', alt: 'Shazari' },
-  { src: '/sources/Razas/Thaetir/images/cover.png', alt: 'Thae-Tir' },
+  { src: '/assets/images/races/elfos/cover.png', alt: 'Elfos' },
+  { src: '/assets/images/races/enanos/cover.png', alt: 'Enanos' },
+  { src: '/assets/images/races/humanos/cover.png', alt: 'Humanos' },
+  { src: '/assets/images/races/malvakari/cover.png', alt: 'Malvakari' },
+  { src: '/assets/images/races/mestizos/cover.png', alt: 'Mestizos' },
+  { src: '/assets/images/races/nhekthal/cover.png', alt: 'Nhek-Thal' },
+  { src: '/assets/images/races/ossalyth/cover.png', alt: 'Ossalyth' },
+  { src: '/assets/images/races/rosaveld/cover.png', alt: 'Rosaveld' },
+  { src: '/assets/images/races/shazari/cover.png', alt: 'Shazari' },
+  { src: '/assets/images/races/thaetir/cover.png', alt: 'Thae-Tir' },
 ]
 
 const RAZAS = [
-  { name: 'Elfos', path: '/raza-gen-elfos', img: '/sources/Razas/Elfos/images/cover.png' },
-  { name: 'Enanos', path: '/raza-gen-enanos', img: '/sources/Razas/Enanos/images/cover.png' },
-  { name: 'Humanos', path: '/raza-gen-humanos', img: '/sources/Razas/Humanos/images/cover.png' },
-  { name: 'Malvakari', path: '/raza-gen-malvakari', img: '/sources/Razas/Malvakari/images/cover.png' },
-  { name: 'Mestizos', path: '/raza-gen-mestizos', img: '/sources/Razas/Mestizos/images/cover.png' },
-  { name: "Nhek'thal", path: '/raza-gen-nhek-thal', img: '/sources/Razas/Nhekthal/images/cover.png' },
-  { name: 'Ossalyth', path: '/raza-gen-ossalyth', img: '/sources/Razas/Ossalyth/images/cover.png' },
-  { name: 'Rosaveld', path: '/raza-gen-rosaveld', img: '/sources/Razas/Rosaveld/images/cover.png' },
-  { name: 'Shazari', path: '/raza-gen-shazari', img: '/sources/Razas/Shazari/images/cover.png' },
-  { name: "Thae'tir", path: '/raza-gen-thae-tir', img: '/sources/Razas/Thaetir/images/cover.png' },
+  { name: 'Elfos', path: '/raza-gen-elfos', img: '/assets/images/races/elfos/cover.png' },
+  { name: 'Enanos', path: '/raza-gen-enanos', img: '/assets/images/races/enanos/cover.png' },
+  { name: 'Humanos', path: '/raza-gen-humanos', img: '/assets/images/races/humanos/cover.png' },
+  { name: 'Malvakari', path: '/raza-gen-malvakari', img: '/assets/images/races/malvakari/cover.png' },
+  { name: 'Mestizos', path: '/raza-gen-mestizos', img: '/assets/images/races/mestizos/cover.png' },
+  { name: "Nhek'thal", path: '/raza-gen-nhek-thal', img: '/assets/images/races/nhekthal/cover.png' },
+  { name: 'Ossalyth', path: '/raza-gen-ossalyth', img: '/assets/images/races/ossalyth/cover.png' },
+  { name: 'Rosaveld', path: '/raza-gen-rosaveld', img: '/assets/images/races/rosaveld/cover.png' },
+  { name: 'Shazari', path: '/raza-gen-shazari', img: '/assets/images/races/shazari/cover.png' },
+  { name: "Thae'tir", path: '/raza-gen-thae-tir', img: '/assets/images/races/thaetir/cover.png' },
 ]
 
 export default function Razas() {

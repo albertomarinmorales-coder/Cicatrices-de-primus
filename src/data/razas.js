@@ -2,12 +2,12 @@ export const razasData = {
   elfos: {
     slug: 'elfos',
     name: 'Elfos',
-    headerImg: '/images/raza-header-elfos.png',
-    coverImg: '/sources/Razas/Elfos/images/cover.png',
+    headerImg: '/assets/images/races/headers/elfos.png',
+    coverImg: '/assets/images/races/elfos/cover.png',
     photos: [
-      '/sources/Razas/Elfos/images/1.png',
-      '/sources/Razas/Elfos/images/2.png',
-      '/sources/Razas/Elfos/images/3.png',
+      '/assets/images/races/elfos/1.png',
+      '/assets/images/races/elfos/2.png',
+      '/assets/images/races/elfos/3.png',
     ],
     introHtml: `<p class="norm-quote">"Eran antiguos cuando el mundo aún susurraba en voz baja. Eran sabios cuando el resto apenas caminaba. Y fueron orgullosos… incluso cuando su orgullo casi los destruye."</p>`,
     tabs: [
@@ -39,12 +39,12 @@ export const razasData = {
   enanos: {
     slug: 'enanos',
     name: 'Enanos',
-    headerImg: '/images/raza-header-enanos.png',
-    coverImg: '/sources/Razas/Enanos/images/cover.png',
+    headerImg: '/assets/images/races/headers/enanos.png',
+    coverImg: '/assets/images/races/enanos/cover.png',
     photos: [
-      '/sources/Razas/Enanos/images/1.png',
-      '/sources/Razas/Enanos/images/2.png',
-      '/sources/Razas/Enanos/images/3.png',
+      '/assets/images/races/enanos/1.png',
+      '/assets/images/races/enanos/2.png',
+      '/assets/images/races/enanos/3.png',
     ],
     introHtml: `<p class="norm-quote">"Forjados en piedra y fuego, inquebrantables ante el tiempo."</p>`,
     tabs: [
@@ -74,12 +74,12 @@ export const razasData = {
   humanos: {
     slug: 'humanos',
     name: 'Humanos',
-    headerImg: '/images/raza-header-humanos.png',
-    coverImg: '/sources/Razas/Humanos/images/cover.png',
+    headerImg: '/assets/images/races/headers/humanos.png',
+    coverImg: '/assets/images/races/humanos/cover.png',
     photos: [
-      '/sources/Razas/Humanos/images/1.png',
-      '/sources/Razas/Humanos/images/2.png',
-      '/sources/Razas/Humanos/images/3.png',
+      '/assets/images/races/humanos/1.png',
+      '/assets/images/races/humanos/2.png',
+      '/assets/images/races/humanos/3.png',
     ],
     introHtml: `<p class="norm-quote">"La parte imperfecta del mundo"</p>`,
     tabs: [
@@ -113,12 +113,12 @@ export const razasData = {
   malvakari: {
     slug: 'malvakari',
     name: 'Malvakari',
-    headerImg: '/images/raza-header-malvakari.png',
-    coverImg: '/sources/Razas/Malvakari/images/cover.png',
+    headerImg: '/assets/images/races/headers/malvakari.png',
+    coverImg: '/assets/images/races/malvakari/cover.png',
     photos: [
-      '/sources/Razas/Malvakari/images/1.png',
-      '/sources/Razas/Malvakari/images/2.png',
-      '/sources/Razas/Malvakari/images/3.png',
+      '/assets/images/races/malvakari/1.png',
+      '/assets/images/races/malvakari/2.png',
+      '/assets/images/races/malvakari/3.png',
     ],
     introHtml: `<p class="norm-quote">"Nacidos del fuego de otro mundo, errantes entre dimensiones."</p>`,
     tabs: [
@@ -151,12 +151,12 @@ export const razasData = {
   mestizos: {
     slug: 'mestizos',
     name: 'Mestizos',
-    headerImg: '/images/raza-header-mestizos.png',
-    coverImg: '/sources/Razas/Mestizos/images/cover.png',
+    headerImg: '/assets/images/races/headers/mestizos.png',
+    coverImg: '/assets/images/races/mestizos/cover.png',
     photos: [
-      '/sources/Razas/Mestizos/images/1.png',
-      '/sources/Razas/Mestizos/images/2.png',
-      '/sources/Razas/Mestizos/images/3.png',
+      '/assets/images/races/mestizos/1.png',
+      '/assets/images/races/mestizos/2.png',
+      '/assets/images/races/mestizos/3.png',
     ],
     introHtml: `<p class="norm-quote">"La sangre mezclada, la identidad negada"</p>`,
     tabs: [
@@ -190,12 +190,12 @@ export const razasData = {
   'nhek-thal': {
     slug: 'nhek-thal',
     name: "Nhek'thal",
-    headerImg: '/images/raza-header-nhek-thal.png',
-    coverImg: '/sources/Razas/Nhekthal/images/cover.png',
+    headerImg: '/assets/images/races/headers/nhek-thal.png',
+    coverImg: '/assets/images/races/nhekthal/cover.png',
     photos: [
-      '/sources/Razas/Nhekthal/images/1.png',
-      '/sources/Razas/Nhekthal/images/2.png',
-      '/sources/Razas/Nhekthal/images/3.png',
+      '/assets/images/races/nhekthal/1.png',
+      '/assets/images/races/nhekthal/2.png',
+      '/assets/images/races/nhekthal/3.png',
     ],
     introHtml: `<p class="norm-quote">"Hijos del cascarón y la marea, guardianes del equilibrio entre tierra y agua."</p>`,
     tabs: [
@@ -237,12 +237,12 @@ export const razasData = {
   ossalyth: {
     slug: 'ossalyth',
     name: 'Ossalyth',
-    headerImg: '/images/raza-header-ossalyth.png',
-    coverImg: '/sources/Razas/Ossalyth/images/cover.png',
+    headerImg: '/assets/images/races/headers/ossalyth.png',
+    coverImg: '/assets/images/races/ossalyth/cover.png',
     photos: [
-      '/sources/Razas/Ossalyth/images/1.png',
-      '/sources/Razas/Ossalyth/images/2.png',
-      '/sources/Razas/Ossalyth/images/3.png',
+      '/assets/images/races/ossalyth/1.png',
+      '/assets/images/races/ossalyth/2.png',
+      '/assets/images/races/ossalyth/3.png',
     ],
     introHtml: `<p>Habitan en zonas costeras, arrecifes ocultos o ruinas sumergidas, donde su presencia ha moldeado el paisaje cultural de las regiones. También se los puede encontrar como intermediarios diplomáticos en enclaves portuarios.</p>`,
     tabs: [
@@ -273,12 +273,12 @@ export const razasData = {
   rosaveld: {
     slug: 'rosaveld',
     name: 'Rosaveld',
-    headerImg: '/images/raza-header-rosaveld.png',
-    coverImg: '/sources/Razas/Rosaveld/images/cover.png',
+    headerImg: '/assets/images/races/headers/rosaveld.png',
+    coverImg: '/assets/images/races/rosaveld/cover.png',
     photos: [
-      '/sources/Razas/Rosaveld/images/1.png',
-      '/sources/Razas/Rosaveld/images/2.png',
-      '/sources/Razas/Rosaveld/images/image.png',
+      '/assets/images/races/rosaveld/1.png',
+      '/assets/images/races/rosaveld/2.png',
+      '/assets/images/races/rosaveld/image.png',
     ],
     introHtml: `<p class="norm-quote">"No nacieron del mundo, fueron clavados en él."</p>`,
     tabs: [
@@ -324,12 +324,12 @@ export const razasData = {
   shazari: {
     slug: 'shazari',
     name: 'Shazari',
-    headerImg: '/images/raza-header-shazari.png',
-    coverImg: '/sources/Razas/Shazari/images/cover.png',
+    headerImg: '/assets/images/races/headers/shazari.png',
+    coverImg: '/assets/images/races/shazari/cover.png',
     photos: [
-      '/sources/Razas/Shazari/images/1.png',
-      '/sources/Razas/Shazari/images/2.png',
-      '/sources/Razas/Shazari/images/3.png',
+      '/assets/images/races/shazari/1.png',
+      '/assets/images/races/shazari/2.png',
+      '/assets/images/races/shazari/3.png',
     ],
     introHtml: `<p class="norm-quote">"Orgullo, ritual y sangre. Rugimos cuando el mundo aún no sabía hablar"</p>`,
     tabs: [
@@ -365,12 +365,12 @@ export const razasData = {
   'thae-tir': {
     slug: 'thae-tir',
     name: "Thae'tir",
-    headerImg: '/images/raza-header-thae-tir.png',
-    coverImg: '/sources/Razas/Thaetir/images/cover.png',
+    headerImg: '/assets/images/races/headers/thae-tir.png',
+    coverImg: '/assets/images/races/thaetir/cover.png',
     photos: [
-      '/sources/Razas/Thaetir/images/1.png',
-      '/sources/Razas/Thaetir/images/2.png',
-      '/sources/Razas/Thaetir/images/3.png',
+      '/assets/images/races/thaetir/1.png',
+      '/assets/images/races/thaetir/2.png',
+      '/assets/images/races/thaetir/3.png',
     ],
     introHtml: `<p class="norm-quote">"Hijos del cielo, hijos del Thae"</p>`,
     tabs: [

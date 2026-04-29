@@ -73,29 +73,35 @@ const CIUDADES_DATA = {
   }
 }
 
-function CiudadModal({ ciudad, onClose }) {
+function CiudadModal({ ciudad, onClose, onPrev, onNext }) {
   useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') onClose() }
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose()
+      if (e.key === 'ArrowLeft') onPrev()
+      if (e.key === 'ArrowRight') onNext()
+    }
     document.addEventListener('keydown', onKey)
     document.body.style.overflow = 'hidden'
     return () => {
       document.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
     }
-  }, [onClose])
+  }, [onClose, onPrev, onNext])
 
   const harrowStyle = ciudad.isHarrow ? { filter: 'brightness(1.25) contrast(1.1)' } : {}
   const harrowStyle3 = ciudad.isHarrow ? { filter: 'brightness(1.6) contrast(1.1)' } : {}
 
   return createPortal(
     <div className="ciudad-modal-overlay open" onClick={onClose}>
-      <div className="ciudad-modal" onClick={(e) => e.stopPropagation()}>
+      <div className="ciudad-modal" role="dialog" aria-modal="true" aria-labelledby="ciudad-modal-title" onClick={(e) => e.stopPropagation()}>
         <button className="ciudad-modal-close" onClick={onClose} aria-label="Cerrar">✕</button>
+        <button className="ciudad-modal-nav ciudad-modal-nav--prev" type="button" onClick={onPrev} aria-label="Ciudad anterior">‹</button>
+        <button className="ciudad-modal-nav ciudad-modal-nav--next" type="button" onClick={onNext} aria-label="Ciudad siguiente">›</button>
         <div className="modern-ciudad-modal">
           <div className="m-ciudad-hero">
             <div className="m-ciudad-hero-overlay" />
             <div className="m-ciudad-hero-content">
-              <h2 className="m-ciudad-title">{ciudad.nombre}</h2>
+              <h2 className="m-ciudad-title" id="ciudad-modal-title">{ciudad.nombre}</h2>
               <div className="m-ciudad-divider" />
               <p className="m-ciudad-subtitle">{ciudad.subtitulo}</p>
             </div>
@@ -414,10 +420,86 @@ function ChronicleTimeline({ items }) {
   )
 }
 
+function ChronicleTabs({ items, ariaLabel }) {
+  const [activeIdx, setActiveIdx] = useState(0)
+  const activeItem = items[activeIdx] || items[0]
+
+  if (!activeItem) return null
+
+  return (
+    <div
+      className="caida-year-tabs-wrap"
+      style={{ '--active-year-index': activeIdx, '--year-count': items.length }}
+    >
+      <div className="caida-year-tabs" role="tablist" aria-label={ariaLabel}>
+        {items.map((item, idx) => {
+          const isActive = activeIdx === idx
+          return (
+            <button
+              key={item.num}
+              type="button"
+              className={`caida-year-tab${isActive ? ' active' : ''}`}
+              role="tab"
+              aria-selected={isActive}
+              aria-controls={`caida-year-panel-${idx}`}
+              id={`caida-year-tab-${idx}`}
+              onClick={() => setActiveIdx(idx)}
+            >
+              <span>{item.num}</span>
+              <strong>{item.title}</strong>
+            </button>
+          )
+        })}
+        <span className="caida-year-timeline-marker" aria-hidden="true" />
+      </div>
+
+      <div
+        className="caida-year-panel"
+        role="tabpanel"
+        id={`caida-year-panel-${activeIdx}`}
+        aria-labelledby={`caida-year-tab-${activeIdx}`}
+      >
+        <div className="ano-block caida-year-block">
+          <div className="ano-header">
+            <div className="ano-num">{activeItem.num}</div>
+            <h2 className="ano-title">{activeItem.title}</h2>
+            <div className="ano-divider"><span>✦</span></div>
+          </div>
+          <AnoGallery imgs={chapterImages(activeItem)} alt={activeItem.alt} />
+          <div className="ano-body">
+            {activeItem.text
+              ? <div className="detail-text" dangerouslySetInnerHTML={{ __html: activeItem.text }} />
+              : <p className="era-text-placeholder">Información próximamente...</p>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Historia() {
   const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState('antiguedad')
   const [modalCiudad, setModalCiudad] = useState(null)
+  const activeCiudadIndex = modalCiudad ? CIUDADES.findIndex((c) => c.id === modalCiudad) : -1
+  const activeCiudad = modalCiudad ? CIUDADES_DATA[modalCiudad] : null
+
+  const showPrevCiudad = useCallback(() => {
+    setModalCiudad((currentId) => {
+      const currentIndex = CIUDADES.findIndex((c) => c.id === currentId)
+      const prevIndex = currentIndex <= 0 ? CIUDADES.length - 1 : currentIndex - 1
+      return CIUDADES[prevIndex].id
+    })
+  }, [])
+
+  const showNextCiudad = useCallback(() => {
+    setModalCiudad((currentId) => {
+      const currentIndex = CIUDADES.findIndex((c) => c.id === currentId)
+      const nextIndex = currentIndex < 0 || currentIndex >= CIUDADES.length - 1 ? 0 : currentIndex + 1
+      return CIUDADES[nextIndex].id
+    })
+  }, [])
 
   const tabs = [
     { id: 'antiguedad', label: 'Crónicas de Antaño' },
@@ -456,13 +538,13 @@ export default function Historia() {
 
         {activeTab === 'antiguedad' && (
           <div className="lore-panel active">
-            <ChronicleTimeline items={ERAS} />
+            <ChronicleTabs items={ERAS} ariaLabel="Eras de las Crónicas de Antaño" />
           </div>
         )}
 
         {activeTab === 'caida' && (
           <div className="lore-panel active">
-            <ChronicleTimeline items={ANOS} />
+            <ChronicleTabs items={ANOS} ariaLabel="Años de La Caída del Cuervo" />
           </div>
         )}
 
@@ -475,7 +557,7 @@ export default function Historia() {
                   key={c.id}
                   className="ciudad-pin"
                   style={{ '--px': c.px, '--py': c.py }}
-                  onClick={() => setModalCiudad(CIUDADES_DATA[c.id])}
+                  onClick={() => setModalCiudad(c.id)}
                   title={c.name}
                 >
                   <div className="ciudad-pin-dot" />
@@ -490,8 +572,13 @@ export default function Historia() {
         )}
       </div>
 
-      {modalCiudad && (
-        <CiudadModal ciudad={modalCiudad} onClose={() => setModalCiudad(null)} />
+      {activeCiudad && activeCiudadIndex >= 0 && (
+        <CiudadModal
+          ciudad={activeCiudad}
+          onClose={() => setModalCiudad(null)}
+          onPrev={showPrevCiudad}
+          onNext={showNextCiudad}
+        />
       )}
 
       <Footer />

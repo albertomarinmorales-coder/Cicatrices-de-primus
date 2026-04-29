@@ -2454,28 +2454,50 @@ a.btn-primary:active {
 .lore-tabs {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 80px;
-  padding: 0 20px;
-  flex-wrap: wrap;
+  gap: 0;
+  max-width: 980px;
+  margin: 0 auto 72px;
+  padding: 6px;
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(20, 16, 11, 0.94), rgba(9, 7, 5, 0.94)),
+    var(--surface);
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.025);
 }
 
 .lore-tab {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 18px 32px;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid rgba(201, 168, 76, 0.12);
+  flex: 1 1 0;
+  padding: 20px 24px;
   font-family: 'Cinzel', serif;
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   text-align: center;
-  min-width: 220px;
+  min-width: 0;
+}
+
+.lore-tab:last-child {
+  border-right: 0;
+}
+
+.lore-tab::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
+  pointer-events: none;
 }
 
 .lore-tab::after {
@@ -2493,8 +2515,15 @@ a.btn-primary:active {
 .lore-tab:hover,
 .lore-tab.active {
   color: var(--gold);
-  background: rgba(176, 16, 16, 0.05);
-  border-color: var(--accent);
+  background:
+    radial-gradient(circle at center top, rgba(201, 168, 76, 0.11), transparent 58%),
+    rgba(176, 16, 16, 0.04);
+}
+
+.lore-tab:hover::before,
+.lore-tab.active::before {
+  border-color: rgba(201, 168, 76, 0.18);
+  opacity: 1;
 }
 
 .lore-tab.active::after {
@@ -2508,6 +2537,23 @@ a.btn-primary:active {
 
 .lore-panel.active {
   display: block;
+}
+
+@media (max-width: 720px) {
+  .lore-tabs {
+    flex-direction: column;
+    margin-bottom: 48px;
+  }
+
+  .lore-tab {
+    border-right: 0;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+    padding: 16px 18px;
+  }
+
+  .lore-tab:last-child {
+    border-bottom: 0;
+  }
 }
 
 /* --- TIMELINE THREAD --- */
@@ -2811,6 +2857,126 @@ a.btn-primary:active {
   text-align: center;
 }
 
+.caida-year-tabs-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.caida-year-tabs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  padding-bottom: 34px;
+  position: relative;
+}
+
+.caida-year-tabs::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201, 168, 76, 0.34), rgba(201, 168, 76, 0.34), transparent);
+}
+
+.caida-year-timeline-marker {
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: calc(100% / var(--year-count));
+  height: 14px;
+  pointer-events: none;
+  transform: translate3d(calc(var(--active-year-index) * 100%), 0, 0);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.caida-year-timeline-marker::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(232, 201, 106, 0.35);
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 0 4px rgba(10, 8, 5, 0.92), 0 0 14px rgba(201, 168, 76, 0.24);
+  transform: translateX(-50%);
+}
+
+.caida-year-tab {
+  appearance: none;
+  background: linear-gradient(180deg, rgba(24, 20, 14, 0.95), rgba(12, 10, 7, 0.95));
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  min-height: 92px;
+  padding: 16px 12px;
+  position: relative;
+  text-align: center;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.caida-year-tab::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--accent), var(--gold), var(--accent));
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+}
+
+.caida-year-tab span,
+.caida-year-tab strong {
+  display: block;
+}
+
+.caida-year-tab span {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.caida-year-tab strong {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.35;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.caida-year-tab:hover,
+.caida-year-tab.active {
+  background: rgba(176, 16, 16, 0.08);
+  border-color: var(--accent);
+  color: var(--gold);
+}
+
+.caida-year-tab.active {
+  transform: translateY(-2px);
+}
+
+.caida-year-tab.active::after {
+  width: 100%;
+}
+
+.caida-year-panel {
+  animation: fadeIn 0.35s ease forwards;
+}
+
+.caida-year-block {
+  min-height: 0;
+}
+
 /* â”€â”€ MAPA INTERACTIVO DE CIUDADES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .mapa-wrap {
   position: relative;
@@ -2954,7 +3120,9 @@ a.btn-primary:active {
 .ciudad-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.82);
+  background:
+    radial-gradient(circle at center, rgba(201, 168, 76, 0.08), transparent 42%),
+    rgba(0, 0, 0, 0.86);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -2971,19 +3139,35 @@ a.btn-primary:active {
 }
 
 .ciudad-modal {
-  background: var(--bg);
-  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.8);
-  border: 1px solid  rgba(201, 168, 76, 0.5);
-  width: min(1200px, 95%);
-  max-height: 90vh; 
+  background:
+    linear-gradient(180deg, rgba(23, 19, 13, 0.98), rgba(9, 7, 5, 0.98)),
+    var(--surface);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.78), inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(201, 168, 76, 0.34);
+  width: min(900px, 94vw);
+  height: min(585px, calc(100vh - 32px));
+  max-height: calc(100vh - 32px);
   position: relative;
   padding: 0;
   animation: cinematicFadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-  overflow: hidden;
+  overflow: visible;
+}
+
+.ciudad-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  height: 2px;
+  z-index: 3;
+  background: linear-gradient(to right, transparent, var(--accent), var(--gold), var(--accent), transparent);
+  opacity: 0.78;
 }
 
 @keyframes cinematicFadeIn {
-  from { opacity: 0; transform: translateY(40px) scale(0.98); filter: blur(10px); }
+  from { opacity: 0; transform: translateY(24px) scale(0.985); filter: blur(8px); }
   to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 }
 
@@ -3001,24 +3185,68 @@ a.btn-primary:active {
   background: var(--gold);
 }
 
+.ciudad-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ciudad-modal::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.ciudad-modal::-webkit-scrollbar-thumb {
+  background: rgba(201, 168, 76, 0.65);
+}
+
 .modern-ciudad-modal {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  box-sizing: border-box;
   color: var(--text);
-  overflow: hidden;
+  display: grid;
+  gap: 0;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  height: 100%;
+  overflow: visible;
+  padding: clamp(20px, 3vw, 32px);
+  position: relative;
+}
+
+.modern-ciudad-modal::before,
+.modern-ciudad-modal::after {
+  content: '';
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  border-color: rgba(201, 168, 76, 0.18);
+  pointer-events: none;
+}
+
+.modern-ciudad-modal::before {
+  left: 18px;
+  top: 18px;
+  border-left: 1px solid;
+  border-top: 1px solid;
+}
+
+.modern-ciudad-modal::after {
+  right: 18px;
+  bottom: 18px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .m-ciudad-hero {
   position: relative;
-  height: 220px;
-  background: linear-gradient(180deg, #110f0c 0%, var(--bg) 100%);
+  min-height: 118px;
+  background:
+    radial-gradient(circle at center top, rgba(201, 168, 76, 0.1), transparent 62%),
+    rgba(0, 0, 0, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.14);
+  border-bottom: 0;
   overflow: hidden;
+  padding: 26px 68px 22px;
 }
 
 .m-ciudad-hero::after {
@@ -3032,8 +3260,8 @@ a.btn-primary:active {
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    color-mix(in srgb, var(--bg) 0%, transparent),
-    var(--bg) 100%
+    color-mix(in srgb, var(--surface) 0%, transparent),
+    rgba(9, 7, 5, 0.72) 100%
   );
 }
 
@@ -3050,24 +3278,24 @@ a.btn-primary:active {
 
 .m-ciudad-title {
   font-family: 'Cinzel Decorative', serif;
-  font-size: clamp(2rem, 5vw, 3.5rem) !important;
-  color: var(--white) !important;
-  text-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 2px 10px rgba(0, 0, 0, 0.9);
-  margin-bottom: 5px !important;
-  letter-spacing: 4px;
+  font-size: clamp(1.45rem, 3.4vw, 2.25rem) !important;
+  color: var(--gold) !important;
+  text-shadow: 0 0 22px rgba(201, 168, 76, 0.13), 0 2px 10px rgba(0, 0, 0, 0.9);
+  margin-bottom: 0 !important;
+  letter-spacing: 0.12em;
 }
 
 .m-ciudad-divider {
-  width: 80px;
-  height: 2px;
-  background: var(--gold);
-  margin: 15px auto;
-  box-shadow: 0 0 10px var(--gold);
+  width: min(220px, 48vw);
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 12px auto 10px;
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.28);
 }
 
 .m-ciudad-subtitle {
   font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gold);
@@ -3077,63 +3305,83 @@ a.btn-primary:active {
 .m-ciudad-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 40px;
-  background: var(--bg);
+  gap: 6px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(201, 168, 76, 0.14);
 }
 
 .m-gallery-item {
   position: relative;
-  aspect-ratio: 16/9;
+  aspect-ratio: 2/1;
   overflow: hidden;
-  border-radius: 4px;
-  border: 1px solid rgba(201, 168, 76, 0.2);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .m-gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.8) brightness(0.9);
-  transition: transform 0.6s ease;
+  filter: saturate(0.72) brightness(0.86);
+  transition: transform 0.45s ease, filter 0.35s ease;
 }
 
 .m-gallery-item:hover {
-  border-color: var(--gold);
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(201, 168, 76, 0.58);
+  box-shadow: 0 0 22px rgba(201, 168, 76, 0.12);
   z-index: 2;
 }
 
 .m-gallery-item:hover img {
-  transform: scale(1.1);
-  filter: saturate(1) brightness(1.1);
+  transform: scale(1.045);
+  filter: saturate(0.9) brightness(0.96);
 }
 
 .m-ciudad-info {
-  padding: 0 40px 60px;
-  background: var(--bg);
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  min-height: 0;
+  padding: 18px 0 0;
+  background: transparent;
 }
 
 .m-ciudad-desc {
-  max-width: 900px;
+  max-width: 780px;
   margin: 0 auto;
   position: relative;
+  padding: 20px clamp(20px, 3vw, 32px);
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(201, 168, 76, 0.14);
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.m-ciudad-desc::before {
+  content: 'Archivo geográfico del reino';
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(201, 168, 76, 0.52);
+  margin-bottom: 10px;
 }
 
 .m-ciudad-desc p {
   font-family: 'EB Garamond', serif;
-  font-size: 1.25rem;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  line-height: 1.62;
+  color: var(--text-muted);
   text-align: justify;
   margin: 0;
 }
 
 .m-ciudad-desc p::first-letter {
   font-family: 'Cinzel Decorative', serif;
-  font-size: 2.8rem;
+  font-size: 2.35rem;
   float: left;
   line-height: 0.9;
   margin-right: 10px;
@@ -3144,48 +3392,199 @@ a.btn-primary:active {
 
 .ciudad-modal-close {
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: 0;
+  right: 0;
   z-index: 10000;
-  background: var(--cta-bg);
-  backdrop-filter: blur(5px);
-  border: 1px solid var(--cta-border);
+  background: rgba(9, 7, 5, 0.78);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(201, 168, 76, 0.28);
   color: var(--gold);
-  font-size: 1.2rem;
-  width: 44px;
-  height: 44px;
+  font-size: 1rem;
+  width: 38px;
+  height: 38px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--cta-transition);
-  border-radius: var(--cta-radius);
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  transform: translate(50%, -50%);
 }
 
 .ciudad-modal-close:hover {
   border-color: var(--gold);
-  box-shadow: var(--cta-shadow);
+  box-shadow: 0 0 18px rgba(201, 168, 76, 0.18);
   color: var(--white);
-  transform: rotate(90deg);
+  transform: translate(50%, -50%) scale(1.03);
+}
+
+.ciudad-modal-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 10000;
+  width: 46px;
+  height: 68px;
+  border: 1px solid rgba(201, 168, 76, 0.24);
+  background:
+    linear-gradient(180deg, rgba(24, 20, 14, 0.92), rgba(9, 7, 5, 0.92)),
+    var(--surface);
+  color: rgba(201, 168, 76, 0.86);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-family: 'Cinzel', serif;
+  font-size: 2.4rem;
+  line-height: 1;
+  transform: translateY(-50%);
+  transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.ciudad-modal-nav--prev {
+  left: -62px;
+}
+
+.ciudad-modal-nav--next {
+  right: -62px;
+}
+
+.ciudad-modal-nav:hover {
+  border-color: rgba(201, 168, 76, 0.62);
+  color: var(--gold);
+  background:
+    radial-gradient(circle at center, rgba(201, 168, 76, 0.12), transparent 68%),
+    rgba(9, 7, 5, 0.94);
+  box-shadow: 0 0 22px rgba(201, 168, 76, 0.12);
+}
+
+.ciudad-modal-nav:focus-visible {
+  outline: 2px solid rgba(201, 168, 76, 0.78);
+  outline-offset: 3px;
 }
 
 @media (max-width: 900px) {
+  .ciudad-modal-overlay {
+    padding: 14px;
+  }
+
+  .ciudad-modal {
+    width: min(100%, 94vw);
+    height: min(560px, calc(100vh - 28px));
+    max-height: calc(100vh - 28px);
+  }
+
+  .modern-ciudad-modal {
+    padding: 18px;
+  }
+
   .m-ciudad-hero {
-    height: 200px;
+    min-height: 104px;
+    padding: 24px 52px 20px;
   }
   
   .m-ciudad-gallery {
-    grid-template-columns: 1fr;
-    padding: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 6px;
   }
   
   .m-ciudad-info {
-    padding: 0 20px 40px;
+    padding: 14px 0 0;
   }
   
   .m-ciudad-desc p {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .ciudad-modal-nav {
+    width: 36px;
+    height: 52px;
+    font-size: 1.9rem;
+  }
+
+  .ciudad-modal-nav--prev {
+    left: -46px;
+  }
+
+  .ciudad-modal-nav--next {
+    right: -46px;
+  }
+}
+
+@media (max-width: 560px) {
+  .ciudad-modal-overlay {
+    padding: 8px;
+  }
+
+  .ciudad-modal {
+    width: 96vw;
+    height: min(540px, calc(100vh - 16px));
+    max-height: calc(100vh - 16px);
+  }
+
+  .modern-ciudad-modal {
+    padding: 12px;
+  }
+
+  .modern-ciudad-modal::before,
+  .modern-ciudad-modal::after {
+    width: 52px;
+    height: 52px;
+  }
+
+  .m-ciudad-hero {
+    min-height: 88px;
+    padding: 18px 42px 16px;
+  }
+
+  .m-ciudad-title {
+    font-size: clamp(1.12rem, 7vw, 1.55rem) !important;
+    letter-spacing: 0.08em;
+  }
+
+  .m-ciudad-divider {
+    margin: 8px auto 7px;
+  }
+
+  .m-ciudad-subtitle {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+  }
+
+  .m-gallery-item {
+    aspect-ratio: 1.55/1;
+  }
+
+  .m-ciudad-desc {
+    padding: 14px 16px;
+  }
+
+  .m-ciudad-desc::before {
+    font-size: 0.54rem;
+    letter-spacing: 0.18em;
+    margin-bottom: 8px;
+  }
+
+  .m-ciudad-desc p {
+    font-size: 0.92rem;
+    line-height: 1.42;
+    text-align: left;
+  }
+
+  .m-ciudad-desc p::first-letter {
+    font-size: 1.9rem;
+  }
+
+  .ciudad-modal-close {
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+  }
+
+  .ciudad-modal-nav {
+    width: 30px;
+    height: 44px;
+    font-size: 1.55rem;
   }
 }
 
@@ -3694,6 +4093,10 @@ span.lore-term {
     padding: 40px 32px;
   }
 
+  .caida-year-tab {
+    min-height: 84px;
+  }
+
   .ano-title {
     font-size: 1.35rem;
   }
@@ -3775,6 +4178,35 @@ span.lore-term {
 
   .ano-block {
     padding: 28px 20px;
+  }
+
+  .caida-year-tabs-wrap {
+    gap: 24px;
+  }
+
+  .caida-year-tabs {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-bottom: 0;
+  }
+
+  .caida-year-tabs::before,
+  .caida-year-timeline-marker {
+    display: none;
+  }
+
+  .caida-year-tab {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    min-height: 0;
+    padding: 14px 16px;
+    text-align: left;
+  }
+
+  .caida-year-tab strong {
+    margin-top: 0;
+    text-align: right;
   }
 
   .ano-title {

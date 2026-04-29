@@ -512,15 +512,26 @@ function ChronicleTimeline({ items, onOpenImage }) {
 
 function ChronicleTabs({ items, ariaLabel, onOpenImage }) {
   const [activeIdx, setActiveIdx] = useState(0)
+  const [periodNavOpen, setPeriodNavOpen] = useState(false)
   const activeItem = items[activeIdx] || items[0]
 
   if (!activeItem) return null
 
   return (
     <div
-      className="caida-year-tabs-wrap"
+      className={`caida-year-tabs-wrap${periodNavOpen ? ' open' : ''}`}
       style={{ '--active-year-index': activeIdx, '--year-count': items.length }}
     >
+      <button
+        className="caida-year-tabs-trigger"
+        type="button"
+        aria-expanded={periodNavOpen}
+        onClick={() => setPeriodNavOpen((open) => !open)}
+      >
+        <span>{activeItem.num}</span>
+        <strong>{activeItem.title}</strong>
+        <i className="fa-solid fa-chevron-down" aria-hidden />
+      </button>
       <div className="caida-year-tabs" role="tablist" aria-label={ariaLabel}>
         {items.map((item, idx) => {
           const isActive = activeIdx === idx
@@ -533,7 +544,10 @@ function ChronicleTabs({ items, ariaLabel, onOpenImage }) {
               aria-selected={isActive}
               aria-controls={`caida-year-panel-${idx}`}
               id={`caida-year-tab-${idx}`}
-              onClick={() => setActiveIdx(idx)}
+              onClick={() => {
+                setActiveIdx(idx)
+                setPeriodNavOpen(false)
+              }}
             >
               <span>{item.num}</span>
               <strong>{item.title}</strong>
@@ -575,6 +589,7 @@ export default function Historia() {
   const [showTabsReturn, setShowTabsReturn] = useState(false)
   const [tabsReturnBottom, setTabsReturnBottom] = useState(32)
   const [imageLightbox, setImageLightbox] = useState(null)
+  const [sectionNavOpen, setSectionNavOpen] = useState(false)
   const activeCiudadIndex = modalCiudad ? CIUDADES.findIndex((c) => c.id === modalCiudad) : -1
   const activeCiudad = modalCiudad ? CIUDADES_DATA[modalCiudad] : null
 
@@ -648,6 +663,7 @@ export default function Historia() {
     { id: 'caida', label: 'La Caída del Cuervo' },
     { id: 'ciudades', label: 'Geografía del Reino' },
   ]
+  const activeSectionLabel = tabs.find((t) => t.id === activeTab)?.label || tabs[0].label
 
   return (
     <div className="page active">
@@ -666,16 +682,32 @@ export default function Historia() {
       <div className="detail-body">
         <span className="back-btn" onClick={() => navigate('/lore')} style={{ cursor: 'pointer' }}>&#8592; Volver al Lore</span>
 
-        <div className="lore-tabs" id="historia-tabs">
-          {tabs.map((t) => (
-            <div
-              key={t.id}
-              className={`lore-tab${activeTab === t.id ? ' active' : ''}`}
-              onClick={() => setActiveTab(t.id)}
-            >
-              {t.label}
-            </div>
-          ))}
+        <div className={`lore-tabs${sectionNavOpen ? ' open' : ''}`} id="historia-tabs">
+          <button
+            className="lore-tabs-trigger"
+            type="button"
+            aria-expanded={sectionNavOpen}
+            aria-controls="historia-tabs-list"
+            onClick={() => setSectionNavOpen((open) => !open)}
+          >
+            <span>{activeSectionLabel}</span>
+            <i className="fa-solid fa-chevron-down" aria-hidden />
+          </button>
+          <div className="lore-tabs-list" id="historia-tabs-list">
+            {tabs.map((t) => (
+              <button
+                key={t.id}
+                type="button"
+                className={`lore-tab${activeTab === t.id ? ' active' : ''}`}
+                onClick={() => {
+                  setActiveTab(t.id)
+                  setSectionNavOpen(false)
+                }}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {activeTab === 'antiguedad' && (

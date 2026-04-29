@@ -73,28 +73,94 @@ const CIUDADES_DATA = {
   }
 }
 
-function CiudadModal({ ciudad, onClose, onPrev, onNext }) {
+function HistoriaImageLightbox({ images, index, onClose, onNav }) {
+  const image = images[index]
+  const [isClosing, setIsClosing] = useState(false)
+  const closeTimerRef = useRef(null)
+
+  const requestClose = useCallback(() => {
+    if (isClosing) return
+    setIsClosing(true)
+    closeTimerRef.current = window.setTimeout(onClose, 240)
+  }, [isClosing, onClose])
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow
+    const onKey = (e) => {
+      if (e.key === 'Escape') requestClose()
+      if (e.key === 'ArrowLeft') onNav(-1)
+      if (e.key === 'ArrowRight') onNav(1)
+    }
+
+    document.body.style.overflow = 'hidden'
+    document.addEventListener('keydown', onKey)
+    return () => {
+      if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current)
+      document.body.style.overflow = previousOverflow
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [requestClose, onNav])
+
+  if (!image) return null
+
+  return createPortal(
+    <div className={`historia-image-lightbox open${isClosing ? ' is-closing' : ''}`} onClick={requestClose}>
+      {images.length > 1 && (
+        <>
+          <button className="historia-image-lightbox-nav historia-image-lightbox-nav--prev" type="button" onClick={(e) => { e.stopPropagation(); onNav(-1) }} aria-label="Imagen anterior">‹</button>
+          <button className="historia-image-lightbox-nav historia-image-lightbox-nav--next" type="button" onClick={(e) => { e.stopPropagation(); onNav(1) }} aria-label="Imagen siguiente">›</button>
+        </>
+      )}
+      <div className="historia-image-lightbox-frame" onClick={(e) => e.stopPropagation()}>
+        <button className="historia-image-lightbox-close" type="button" onClick={requestClose} aria-label="Cerrar imagen">✕</button>
+        <img key={image.src} src={image.src} alt={image.alt} style={image.style || undefined} />
+        <div className="historia-image-lightbox-caption">
+          <span>{image.alt}</span>
+          {images.length > 1 && <strong>{index + 1} / {images.length}</strong>}
+        </div>
+      </div>
+    </div>,
+    document.body
+  )
+}
+
+function CiudadModal({ ciudad, onClose, onPrev, onNext, onOpenImage }) {
+  const [isClosing, setIsClosing] = useState(false)
+  const closeTimerRef = useRef(null)
+
+  const requestClose = useCallback(() => {
+    if (isClosing) return
+    setIsClosing(true)
+    closeTimerRef.current = window.setTimeout(onClose, 260)
+  }, [isClosing, onClose])
+
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'Escape') onClose()
+      if (e.key === 'Escape') requestClose()
       if (e.key === 'ArrowLeft') onPrev()
       if (e.key === 'ArrowRight') onNext()
     }
     document.addEventListener('keydown', onKey)
     document.body.style.overflow = 'hidden'
     return () => {
+      if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current)
       document.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
     }
-  }, [onClose, onPrev, onNext])
+  }, [requestClose, onPrev, onNext])
 
-  const harrowStyle = ciudad.isHarrow ? { filter: 'brightness(1.25) contrast(1.1)' } : {}
-  const harrowStyle3 = ciudad.isHarrow ? { filter: 'brightness(1.6) contrast(1.1)' } : {}
+  const harrowStyle = ciudad.isHarrow ? { filter: 'brightness(1.42) contrast(1.08) saturate(1.05)' } : {}
+  const harrowStyle3 = ciudad.isHarrow ? { filter: 'brightness(2.05) contrast(1.04) saturate(1.08)' } : {}
+  const ciudadImages = ciudad.fotos.map((src, i) => ({
+    src,
+    alt: `${ciudad.nombre} ${i + 1}`,
+    style: ciudad.isHarrow ? (i === 2 ? harrowStyle3 : harrowStyle) : undefined,
+  }))
 
   return createPortal(
-    <div className="ciudad-modal-overlay open" onClick={onClose}>
+    <div className={`ciudad-modal-overlay open${isClosing ? ' is-closing' : ''}`} onClick={requestClose}>
       <div className="ciudad-modal" role="dialog" aria-modal="true" aria-labelledby="ciudad-modal-title" onClick={(e) => e.stopPropagation()}>
-        <button className="ciudad-modal-close" onClick={onClose} aria-label="Cerrar">✕</button>
+        <button className="ciudad-modal-close" onClick={requestClose} aria-label="Cerrar">✕</button>
         <button className="ciudad-modal-nav ciudad-modal-nav--prev" type="button" onClick={onPrev} aria-label="Ciudad anterior">‹</button>
         <button className="ciudad-modal-nav ciudad-modal-nav--next" type="button" onClick={onNext} aria-label="Ciudad siguiente">›</button>
         <div className="modern-ciudad-modal">
@@ -107,9 +173,16 @@ function CiudadModal({ ciudad, onClose, onPrev, onNext }) {
             </div>
           </div>
           <div className="m-ciudad-gallery">
-            <div className="m-gallery-item"><img src={ciudad.fotos[0]} alt={ciudad.nombre} loading="lazy" style={harrowStyle} /></div>
-            <div className="m-gallery-item"><img src={ciudad.fotos[1]} alt={ciudad.nombre} loading="lazy" style={harrowStyle} /></div>
-            <div className="m-gallery-item"><img src={ciudad.fotos[2]} alt={ciudad.nombre} loading="lazy" style={harrowStyle3} /></div>
+            {ciudadImages.map((image, i) => (
+              <button
+                key={image.src}
+                className="m-gallery-item"
+                type="button"
+                onClick={() => onOpenImage(ciudadImages, i)}
+              >
+                <img src={image.src} alt={image.alt} loading="lazy" style={image.style} />
+              </button>
+            ))}
           </div>
           <div className="m-ciudad-info">
             <div className="m-ciudad-desc"><p>{ciudad.desc}</p></div>
@@ -288,15 +361,18 @@ function chapterImages(item) {
   return null
 }
 
-function AnoGallery({ imgs, alt }) {
+function AnoGallery({ imgs, alt, onOpenImage = () => {} }) {
   if (!imgs || imgs.length === 0) {
     return <div className="ano-gallery-placeholder" aria-label="Imágenes próximamente" />
   }
+  const images = imgs.map((src, i) => ({ src, alt: imgs.length === 1 ? alt : `${alt} ${i + 1}` }))
   const count = imgs.length
   if (count === 1) {
     return (
       <div className="ano-gallery ano-gallery--1">
-        <img src={imgs[0]} alt={alt} loading="lazy" decoding="async" />
+        <button className="lore-image-trigger" type="button" onClick={() => onOpenImage(images, 0)}>
+          <img src={imgs[0]} alt={alt} loading="lazy" decoding="async" />
+        </button>
       </div>
     )
   }
@@ -304,7 +380,9 @@ function AnoGallery({ imgs, alt }) {
     return (
       <div className="ano-gallery ano-gallery--2">
         {imgs.map((src, i) => (
-          <img key={i} src={src} alt={`${alt} ${i + 1}`} loading="lazy" decoding="async" />
+          <button key={src} className="lore-image-trigger" type="button" onClick={() => onOpenImage(images, i)}>
+            <img src={src} alt={`${alt} ${i + 1}`} loading="lazy" decoding="async" />
+          </button>
         ))}
       </div>
     )
@@ -312,22 +390,30 @@ function AnoGallery({ imgs, alt }) {
   if (count === 3) {
     return (
       <div className="ano-gallery ano-gallery--3">
-        <img className="ano-gallery-main" src={imgs[0]} alt={`${alt} 1`} loading="lazy" decoding="async" />
-        <img src={imgs[1]} alt={`${alt} 2`} loading="lazy" decoding="async" />
-        <img src={imgs[2]} alt={`${alt} 3`} loading="lazy" decoding="async" />
+        <button className="lore-image-trigger ano-gallery-main" type="button" onClick={() => onOpenImage(images, 0)}>
+          <img src={imgs[0]} alt={`${alt} 1`} loading="lazy" decoding="async" />
+        </button>
+        <button className="lore-image-trigger" type="button" onClick={() => onOpenImage(images, 1)}>
+          <img src={imgs[1]} alt={`${alt} 2`} loading="lazy" decoding="async" />
+        </button>
+        <button className="lore-image-trigger" type="button" onClick={() => onOpenImage(images, 2)}>
+          <img src={imgs[2]} alt={`${alt} 3`} loading="lazy" decoding="async" />
+        </button>
       </div>
     )
   }
   return (
     <div className="ano-gallery ano-gallery--4">
       {imgs.map((src, i) => (
-        <img key={i} src={src} alt={`${alt} ${i + 1}`} loading="lazy" decoding="async" />
+        <button key={src} className="lore-image-trigger" type="button" onClick={() => onOpenImage(images, i)}>
+          <img src={src} alt={`${alt} ${i + 1}`} loading="lazy" decoding="async" />
+        </button>
       ))}
     </div>
   )
 }
 
-function ChronicleTimeline({ items }) {
+function ChronicleTimeline({ items, onOpenImage }) {
   const shellRef = useRef(null)
   const blockRefs = useRef([])
   const [spineFill, setSpineFill] = useState(0)
@@ -406,7 +492,7 @@ function ChronicleTimeline({ items }) {
               <h2 className="ano-title">{item.title}</h2>
               <div className="ano-divider"><span>✦</span></div>
             </div>
-            <AnoGallery imgs={chapterImages(item)} alt={item.alt} />
+            <AnoGallery imgs={chapterImages(item)} alt={item.alt} onOpenImage={onOpenImage} />
             <div className="ano-body">
               {item.text
                 ? <div className="detail-text" dangerouslySetInnerHTML={{ __html: item.text }} />
@@ -420,7 +506,7 @@ function ChronicleTimeline({ items }) {
   )
 }
 
-function ChronicleTabs({ items, ariaLabel }) {
+function ChronicleTabs({ items, ariaLabel, onOpenImage }) {
   const [activeIdx, setActiveIdx] = useState(0)
   const activeItem = items[activeIdx] || items[0]
 
@@ -465,7 +551,7 @@ function ChronicleTabs({ items, ariaLabel }) {
             <h2 className="ano-title">{activeItem.title}</h2>
             <div className="ano-divider"><span>✦</span></div>
           </div>
-          <AnoGallery imgs={chapterImages(activeItem)} alt={activeItem.alt} />
+          <AnoGallery imgs={chapterImages(activeItem)} alt={activeItem.alt} onOpenImage={onOpenImage} />
           <div className="ano-body">
             {activeItem.text
               ? <div className="detail-text" dangerouslySetInnerHTML={{ __html: activeItem.text }} />
@@ -484,8 +570,21 @@ export default function Historia() {
   const [modalCiudad, setModalCiudad] = useState(null)
   const [showTabsReturn, setShowTabsReturn] = useState(false)
   const [tabsReturnBottom, setTabsReturnBottom] = useState(32)
+  const [imageLightbox, setImageLightbox] = useState(null)
   const activeCiudadIndex = modalCiudad ? CIUDADES.findIndex((c) => c.id === modalCiudad) : -1
   const activeCiudad = modalCiudad ? CIUDADES_DATA[modalCiudad] : null
+
+  const openImageLightbox = useCallback((images, index) => {
+    setImageLightbox({ images, index })
+  }, [])
+
+  const navigateImageLightbox = useCallback((direction) => {
+    setImageLightbox((current) => {
+      if (!current) return current
+      const nextIndex = (current.index + direction + current.images.length) % current.images.length
+      return { ...current, index: nextIndex }
+    })
+  }, [])
 
   useEffect(() => {
     const updateTabsReturn = () => {
@@ -533,6 +632,13 @@ export default function Historia() {
     })
   }, [])
 
+  const scrollToHistoriaTabs = useCallback(() => {
+    const tabs = document.getElementById('historia-tabs')
+    if (!tabs) return
+    const top = tabs.getBoundingClientRect().top + window.scrollY - 120
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+  }, [])
+
   const tabs = [
     { id: 'antiguedad', label: 'Crónicas de Antaño' },
     { id: 'caida', label: 'La Caída del Cuervo' },
@@ -570,13 +676,13 @@ export default function Historia() {
 
         {activeTab === 'antiguedad' && (
           <div className="lore-panel active">
-            <ChronicleTabs items={ERAS} ariaLabel="Eras de las Crónicas de Antaño" />
+            <ChronicleTabs items={ERAS} ariaLabel="Eras de las Crónicas de Antaño" onOpenImage={openImageLightbox} />
           </div>
         )}
 
         {activeTab === 'caida' && (
           <div className="lore-panel active">
-            <ChronicleTabs items={ANOS} ariaLabel="Años de La Caída del Cuervo" />
+            <ChronicleTabs items={ANOS} ariaLabel="Años de La Caída del Cuervo" onOpenImage={openImageLightbox} />
           </div>
         )}
 
@@ -610,6 +716,16 @@ export default function Historia() {
           onClose={() => setModalCiudad(null)}
           onPrev={showPrevCiudad}
           onNext={showNextCiudad}
+          onOpenImage={openImageLightbox}
+        />
+      )}
+
+      {imageLightbox && (
+        <HistoriaImageLightbox
+          images={imageLightbox.images}
+          index={imageLightbox.index}
+          onClose={() => setImageLightbox(null)}
+          onNav={navigateImageLightbox}
         />
       )}
 
@@ -618,7 +734,7 @@ export default function Historia() {
           className={`historia-tabs-return${showTabsReturn ? ' is-visible' : ''}`}
           type="button"
           style={{ '--historia-tabs-return-bottom': `${tabsReturnBottom}px` }}
-          onClick={() => document.getElementById('historia-tabs')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+          onClick={scrollToHistoriaTabs}
         >
           <span>↑</span>
           Secciones

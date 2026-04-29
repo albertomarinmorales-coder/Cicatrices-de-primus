@@ -511,17 +511,38 @@ function ChronicleTimeline({ items, onOpenImage }) {
 }
 
 function ChronicleTabs({ items, ariaLabel, onOpenImage }) {
+  const navRef = useRef(null)
   const [activeIdx, setActiveIdx] = useState(0)
   const [periodNavOpen, setPeriodNavOpen] = useState(false)
   const activeItem = items[activeIdx] || items[0]
+
+  useEffect(() => {
+    if (!periodNavOpen) return undefined
+
+    const onPointerDown = (e) => {
+      if (!navRef.current?.contains(e.target)) setPeriodNavOpen(false)
+    }
+    const onKey = (e) => {
+      if (e.key === 'Escape') setPeriodNavOpen(false)
+    }
+
+    document.addEventListener('pointerdown', onPointerDown)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [periodNavOpen])
 
   if (!activeItem) return null
 
   return (
     <div
       className={`caida-year-tabs-wrap${periodNavOpen ? ' open' : ''}`}
+      ref={navRef}
       style={{ '--active-year-index': activeIdx, '--year-count': items.length }}
     >
+      <span className="mobile-dropdown-label">{ariaLabel}</span>
       <button
         className="caida-year-tabs-trigger"
         type="button"
@@ -582,9 +603,21 @@ function ChronicleTabs({ items, ariaLabel, onOpenImage }) {
   )
 }
 
+const HISTORIA_TABS = [
+  { id: 'antiguedad', label: 'Crónicas de Antaño' },
+  { id: 'caida', label: 'Tras la Caída' },
+  { id: 'ciudades', label: 'Geografía del Reino' },
+]
+
+const HISTORIA_ACTIVE_TAB_KEY = 'historia-active-tab'
+
 export default function Historia() {
   const navigate = useNavigate()
-  const [activeTab, setActiveTab] = useState('antiguedad')
+  const navRef = useRef(null)
+  const [activeTab, setActiveTab] = useState(() => {
+    const saved = window.localStorage.getItem(HISTORIA_ACTIVE_TAB_KEY)
+    return HISTORIA_TABS.some((tab) => tab.id === saved) ? saved : 'antiguedad'
+  })
   const [modalCiudad, setModalCiudad] = useState(null)
   const [showTabsReturn, setShowTabsReturn] = useState(false)
   const [tabsReturnBottom, setTabsReturnBottom] = useState(32)
@@ -651,6 +684,28 @@ export default function Historia() {
     })
   }, [])
 
+  useEffect(() => {
+    window.localStorage.setItem(HISTORIA_ACTIVE_TAB_KEY, activeTab)
+  }, [activeTab])
+
+  useEffect(() => {
+    if (!sectionNavOpen) return undefined
+
+    const onPointerDown = (e) => {
+      if (!navRef.current?.contains(e.target)) setSectionNavOpen(false)
+    }
+    const onKey = (e) => {
+      if (e.key === 'Escape') setSectionNavOpen(false)
+    }
+
+    document.addEventListener('pointerdown', onPointerDown)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [sectionNavOpen])
+
   const scrollToHistoriaTabs = useCallback(() => {
     const tabs = document.getElementById('historia-tabs')
     if (!tabs) return
@@ -658,11 +713,7 @@ export default function Historia() {
     window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
   }, [])
 
-  const tabs = [
-    { id: 'antiguedad', label: 'Crónicas de Antaño' },
-    { id: 'caida', label: 'La Caída del Cuervo' },
-    { id: 'ciudades', label: 'Geografía del Reino' },
-  ]
+  const tabs = HISTORIA_TABS
   const activeSectionLabel = tabs.find((t) => t.id === activeTab)?.label || tabs[0].label
 
   return (
@@ -682,7 +733,8 @@ export default function Historia() {
       <div className="detail-body">
         <span className="back-btn" onClick={() => navigate('/lore')} style={{ cursor: 'pointer' }}>&#8592; Volver al Lore</span>
 
-        <div className={`lore-tabs${sectionNavOpen ? ' open' : ''}`} id="historia-tabs">
+        <div className={`lore-tabs${sectionNavOpen ? ' open' : ''}`} id="historia-tabs" ref={navRef}>
+          <span className="mobile-dropdown-label">Sección de historia</span>
           <button
             className="lore-tabs-trigger"
             type="button"

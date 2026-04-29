@@ -2539,6 +2539,54 @@ a.btn-primary:active {
   display: block;
 }
 
+.historia-tabs-return {
+  position: fixed;
+  left: 32px;
+  bottom: var(--historia-tabs-return-bottom, 32px);
+  z-index: 3005;
+  align-items: center;
+  background:
+    linear-gradient(180deg, rgba(24, 20, 14, 0.88), rgba(9, 7, 5, 0.9)),
+    var(--surface);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 168, 76, 0.26);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'Cinzel', serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  gap: 10px;
+  letter-spacing: 0.16em;
+  opacity: 0;
+  padding: 13px 16px;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.historia-tabs-return.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.historia-tabs-return span {
+  color: var(--gold);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.historia-tabs-return:hover {
+  border-color: rgba(201, 168, 76, 0.58);
+  box-shadow: 0 0 22px rgba(201, 168, 76, 0.13), 0 8px 28px rgba(0, 0, 0, 0.55);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 720px) {
   .lore-tabs {
     flex-direction: column;
@@ -2553,6 +2601,21 @@ a.btn-primary:active {
 
   .lore-tab:last-child {
     border-bottom: 0;
+  }
+
+  .historia-tabs-return {
+    bottom: var(--historia-tabs-return-bottom, 18px);
+    left: 18px;
+    padding: 12px;
+  }
+
+  .historia-tabs-return {
+    font-size: 0;
+    gap: 0;
+  }
+
+  .historia-tabs-return span {
+    font-size: 1rem;
   }
 }
 

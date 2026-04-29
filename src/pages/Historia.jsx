@@ -482,8 +482,40 @@ export default function Historia() {
   const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState('antiguedad')
   const [modalCiudad, setModalCiudad] = useState(null)
+  const [showTabsReturn, setShowTabsReturn] = useState(false)
+  const [tabsReturnBottom, setTabsReturnBottom] = useState(32)
   const activeCiudadIndex = modalCiudad ? CIUDADES.findIndex((c) => c.id === modalCiudad) : -1
   const activeCiudad = modalCiudad ? CIUDADES_DATA[modalCiudad] : null
+
+  useEffect(() => {
+    const updateTabsReturn = () => {
+      const tabs = document.getElementById('historia-tabs')
+      const footer = document.querySelector('footer')
+      const baseBottom = window.matchMedia('(max-width: 720px)').matches ? 18 : 32
+      const footerGap = 12
+
+      if (tabs) {
+        setShowTabsReturn(tabs.getBoundingClientRect().bottom < 0)
+      }
+
+      if (!footer) {
+        setTabsReturnBottom(baseBottom)
+        return
+      }
+
+      const footerTop = footer.getBoundingClientRect().top
+      const footerAvoidanceBottom = window.innerHeight - footerTop + footerGap
+      setTabsReturnBottom(Math.max(baseBottom, footerAvoidanceBottom))
+    }
+
+    updateTabsReturn()
+    window.addEventListener('scroll', updateTabsReturn, { passive: true })
+    window.addEventListener('resize', updateTabsReturn)
+    return () => {
+      window.removeEventListener('scroll', updateTabsReturn)
+      window.removeEventListener('resize', updateTabsReturn)
+    }
+  }, [])
 
   const showPrevCiudad = useCallback(() => {
     setModalCiudad((currentId) => {
@@ -524,7 +556,7 @@ export default function Historia() {
       <div className="detail-body">
         <span className="back-btn" onClick={() => navigate('/lore')} style={{ cursor: 'pointer' }}>&#8592; Volver al Lore</span>
 
-        <div className="lore-tabs">
+        <div className="lore-tabs" id="historia-tabs">
           {tabs.map((t) => (
             <div
               key={t.id}
@@ -579,6 +611,19 @@ export default function Historia() {
           onPrev={showPrevCiudad}
           onNext={showNextCiudad}
         />
+      )}
+
+      {createPortal(
+        <button
+          className={`historia-tabs-return${showTabsReturn ? ' is-visible' : ''}`}
+          type="button"
+          style={{ '--historia-tabs-return-bottom': `${tabsReturnBottom}px` }}
+          onClick={() => document.getElementById('historia-tabs')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+        >
+          <span>↑</span>
+          Secciones
+        </button>,
+        document.body
       )}
 
       <Footer />

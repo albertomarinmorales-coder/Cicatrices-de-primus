@@ -3464,6 +3464,19 @@ a.btn-primary:active {
   overflow: visible;
   padding: clamp(20px, 3vw, 32px);
   position: relative;
+  animation: ciudadModalContentIn 0.3s ease both;
+}
+
+@keyframes ciudadModalContentIn {
+  from {
+    opacity: 0;
+    transform: translateX(18px) scale(0.992);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
 
 .modern-ciudad-modal::before,

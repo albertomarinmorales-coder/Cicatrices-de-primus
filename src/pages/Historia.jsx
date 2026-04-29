@@ -77,12 +77,14 @@ function HistoriaImageLightbox({ images, index, onClose, onNav }) {
   const image = images[index]
   const [isClosing, setIsClosing] = useState(false)
   const closeTimerRef = useRef(null)
+  const isClosingRef = useRef(false)
 
   const requestClose = useCallback(() => {
-    if (isClosing) return
+    if (isClosingRef.current) return
+    isClosingRef.current = true
     setIsClosing(true)
     closeTimerRef.current = window.setTimeout(onClose, 240)
-  }, [isClosing, onClose])
+  }, [onClose])
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow
@@ -127,12 +129,14 @@ function HistoriaImageLightbox({ images, index, onClose, onNav }) {
 function CiudadModal({ ciudad, onClose, onPrev, onNext, onOpenImage }) {
   const [isClosing, setIsClosing] = useState(false)
   const closeTimerRef = useRef(null)
+  const isClosingRef = useRef(false)
 
   const requestClose = useCallback(() => {
-    if (isClosing) return
+    if (isClosingRef.current) return
+    isClosingRef.current = true
     setIsClosing(true)
     closeTimerRef.current = window.setTimeout(onClose, 260)
-  }, [isClosing, onClose])
+  }, [onClose])
 
   useEffect(() => {
     const onKey = (e) => {
@@ -163,7 +167,7 @@ function CiudadModal({ ciudad, onClose, onPrev, onNext, onOpenImage }) {
         <button className="ciudad-modal-close" onClick={requestClose} aria-label="Cerrar">✕</button>
         <button className="ciudad-modal-nav ciudad-modal-nav--prev" type="button" onClick={onPrev} aria-label="Ciudad anterior">‹</button>
         <button className="ciudad-modal-nav ciudad-modal-nav--next" type="button" onClick={onNext} aria-label="Ciudad siguiente">›</button>
-        <div className="modern-ciudad-modal">
+        <div className="modern-ciudad-modal" key={ciudad.nombre}>
           <div className="m-ciudad-hero">
             <div className="m-ciudad-hero-overlay" />
             <div className="m-ciudad-hero-content">

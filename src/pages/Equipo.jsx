@@ -50,6 +50,14 @@ export default function Equipo() {
       </div>
 
       <div className="equipo-page">
+        <div className="equipo-intro">
+          <span className="equipo-intro__eyebrow">Archivo del Concilio</span>
+          <p>
+            Custodios de la continuidad, la mesa y las historias vivas de Primus. Este es el equipo que
+            mantiene el mundo en movimiento y acompaña a la comunidad en sus tramas.
+          </p>
+        </div>
+
         <section className="equipo-section" aria-labelledby="equipo-owners-title">
           <h2 id="equipo-owners-title" className="section-title">
             Owners

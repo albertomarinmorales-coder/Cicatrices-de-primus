@@ -1453,16 +1453,171 @@ a.btn-primary:active {
 }
 
 .normativa-intro {
-  max-width: 780px;
-  margin: 0 auto 56px;
+  max-width: 980px;
+  margin: 0 auto 3rem;
+  padding: 1.1rem clamp(1.25rem, 3vw, 2.25rem) 1.35rem;
   text-align: center;
+  background: linear-gradient(180deg, rgba(12, 10, 8, 0.34), rgba(12, 10, 8, 0.14));
+  border: 1px solid rgba(201, 168, 76, 0.14);
+  border-radius: 10px;
+  box-shadow: inset 0 1px 0 rgba(240, 232, 216, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.normativa-intro::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(520px, 72%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 201, 106, 0.5), transparent);
+  opacity: 0.95;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.normativa-intro::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(520px, 72%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 201, 106, 0.5), transparent);
+  opacity: 0.95;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.normativa-intro > * {
+  position: relative;
+  z-index: 1;
+}
+
+.normativa-intro__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold2);
+}
+
+.normativa-intro__eyebrow::before,
+.normativa-intro__eyebrow::after {
+  content: '';
+  width: 2.4rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 201, 106, 0.78));
+}
+
+.normativa-intro__eyebrow::after {
+  background: linear-gradient(90deg, rgba(232, 201, 106, 0.78), transparent);
 }
 
 .normativa-intro p {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  line-height: 1.85;
-  margin-top: 12px;
+  font-size: 1.08rem;
+  color: rgba(240, 232, 216, 0.82);
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: none;
+}
+
+.normativa-intro__ornament {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+  margin: 0.9rem auto 0.2rem;
+  color: rgba(232, 201, 106, 0.74);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+}
+
+.normativa-intro__ornament::before,
+.normativa-intro__ornament::after {
+  content: '';
+  width: min(110px, 20vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 201, 106, 0.55));
+}
+
+.normativa-intro__ornament::after {
+  background: linear-gradient(90deg, rgba(232, 201, 106, 0.55), transparent);
+}
+
+.normativa-intro .normativa-intro__quote {
+  width: 100%;
+  max-width: none;
+  margin: 1.05rem auto 0;
+  background: rgba(8, 7, 5, 0.2);
+  border: 0;
+  border-left: 2px solid rgba(232, 201, 106, 0.42);
+  border-right: 2px solid rgba(232, 201, 106, 0.18);
+  border-radius: 0;
+  color: rgba(212, 201, 176, 0.82);
+  box-shadow: none;
+}
+
+.normativa-subsection {
+  max-width: 1200px;
+  margin: 0 auto 2.75rem;
+}
+
+.normativa-subsection__heading {
+  display: grid;
+  justify-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.85rem;
+  padding-top: 0.6rem;
+  text-align: center;
+}
+
+.normativa-subsection__heading::before {
+  content: '';
+  width: min(420px, 62vw);
+  height: 1px;
+  margin-bottom: 1.25rem;
+  background: linear-gradient(90deg, transparent, rgba(232, 201, 106, 0.52), rgba(176, 16, 16, 0.22), rgba(232, 201, 106, 0.52), transparent);
+}
+
+.normativa-subsection__kicker {
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(232, 201, 106, 0.78);
+  line-height: 1.6;
+}
+
+.normativa-subsection__heading h3 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  color: var(--gold);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.normativa-subsection__heading p {
+  max-width: 62ch;
+  color: rgba(212, 201, 176, 0.72);
+  font-size: 1rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.normativa-tutorial-wrap {
+  max-width: 1200px;
+  margin: 0 auto 2.9rem;
+  padding: 1.1rem 0 0.6rem;
 }
 
 .norm-section {
@@ -5205,76 +5360,97 @@ body.modal-active .audio-toggle {
 
 /* Card TUTORIAL encima del grid: no forma parte del bento de normas */
 .normativa-tutorial-card {
+  --card-glow-tint: rgba(240, 232, 216, 0.07);
+  --card-glow-size: 440px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 1.25rem 1.75rem;
+  gap: 1.1rem 1.4rem;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto 2.25rem;
-  padding: 1.4rem 1.85rem;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
+  margin: 0 auto;
+  padding: 1.25rem 1.55rem;
+  background:
+    radial-gradient(circle at 8% 50%, rgba(240, 232, 216, 0.08), transparent 18%),
+    linear-gradient(135deg, rgba(201, 168, 76, 0.1), rgba(15, 12, 9, 0.82) 42%, rgba(201, 168, 76, 0.06));
+  border: 1px solid rgba(201, 168, 76, 0.26);
   border-radius: 12px;
   cursor: pointer;
   font: inherit;
   color: inherit;
-  text-align: left;
+  text-align: center;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, transform 0.35s ease;
 }
 
 .normativa-tutorial-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 0 25px rgba(176, 16, 16, 0.35);
-  background: rgba(176, 16, 16, 0.05);
+  box-shadow: 0 0 24px rgba(201, 168, 76, 0.28), 0 14px 34px rgba(0, 0, 0, 0.34);
+  background:
+    radial-gradient(circle at 8% 50%, rgba(240, 232, 216, 0.12), transparent 22%),
+    linear-gradient(135deg, rgba(201, 168, 76, 0.14), rgba(15, 12, 9, 0.88) 42%, rgba(201, 168, 76, 0.1));
+  transform: translateY(-1px);
 }
 
 .normativa-tutorial-card__icon {
-  font-size: 2.4rem;
+  display: inline-grid;
+  width: 3.35rem;
+  height: 3.35rem;
+  place-items: center;
+  font-size: 1.55rem;
   color: var(--gold);
-  opacity: 0.75;
+  background: rgba(8, 7, 5, 0.58);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: 50%;
+  opacity: 0.9;
   flex-shrink: 0;
-  transition: color 0.3s ease, opacity 0.3s ease;
+  box-shadow: inset 0 0 18px rgba(201, 168, 76, 0.08);
+  transition: color 0.3s ease, opacity 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
 .normativa-tutorial-card:hover .normativa-tutorial-card__icon {
   opacity: 1;
   color: var(--gold2);
+  border-color: rgba(201, 168, 76, 0.55);
+  transform: scale(1.04);
 }
 
 .normativa-tutorial-card__text {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.35rem;
+  align-items: center;
+  gap: 0.4rem;
   min-width: 0;
 }
 
 .normativa-tutorial-card__label {
-  font-family: 'Cinzel', serif;
-  font-size: 1.35rem;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--gold);
   line-height: 1.2;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
   transition: color 0.3s ease;
 }
 
 .normativa-tutorial-card:hover .normativa-tutorial-card__label {
-  color: var(--gold);
+  color: var(--gold2);
 }
 
 .normativa-tutorial-card__hint {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-  letter-spacing: 0.04em;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.98rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  letter-spacing: 0.02em;
 }
+
 
 @media (max-width: 500px) {
   .normativa-tutorial-card {
@@ -5287,6 +5463,7 @@ body.modal-active .audio-toggle {
     align-items: center;
   }
 }
+
 
 /* Pagina /norm-tutorial: un solo contenedor "en construccion" */
 .norm-tutorial-construction {
@@ -5345,14 +5522,16 @@ body.modal-active .audio-toggle {
   grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: 150px;
   gap: 1.5rem;
-  margin: 3rem auto;
+  margin: 1.35rem auto 3rem;
   max-width: 1200px;
 }
 
 .norm-item {
+  --card-glow-tint: rgba(240, 232, 216, 0.065);
+  --card-glow-size: 420px;
   grid-column: span 2;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
+  background: linear-gradient(145deg, rgba(201, 168, 76, 0.08), rgba(10, 8, 6, 0.72) 48%, rgba(201, 168, 76, 0.06));
+  border: 1px solid rgba(201, 168, 76, 0.22);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -5365,6 +5544,8 @@ body.modal-active .audio-toggle {
   position: relative;
   overflow: hidden;
   text-align: center;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(9px);
 }
 
 .norm-2x2 {
@@ -5385,8 +5566,9 @@ body.modal-active .audio-toggle {
 
 .norm-item:hover {
   border-color: var(--accent);
-  box-shadow: 0 0 25px rgba(176, 16, 16, 0.4);
-  background: rgba(176, 16, 16, 0.05);
+  box-shadow: 0 0 24px rgba(201, 168, 76, 0.24), 0 14px 34px rgba(0, 0, 0, 0.34);
+  background: linear-gradient(145deg, rgba(201, 168, 76, 0.12), rgba(10, 8, 6, 0.78) 48%, rgba(201, 168, 76, 0.08));
+  transform: translateY(-1px);
 }
 
 .norm-icon {

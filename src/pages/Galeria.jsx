@@ -479,7 +479,7 @@ export default function Galeria() {
             <i className="fa-solid fa-images" />
             <p>No hay fotos en esta categoria todavia.</p>
             {user && <button className="galeria-upload-btn" onClick={() => setShowUpload(true)}>
-              Ser el primero en subir una
+              Sé el primero en subir una
             </button>}
           </div>
         ) : (

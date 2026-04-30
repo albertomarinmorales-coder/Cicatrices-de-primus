@@ -32,8 +32,10 @@ export default function Normativa() {
         <div className="section-underline"><i className="fa-solid fa-gavel" /></div>
 
         <div className="normativa-intro">
+          <span className="normativa-intro__eyebrow">Antes de comenzar</span>
           <p>En caso de incumplir alguna de estas normas, se le aplicará las sanciones debidas según lo hecho.</p>
-          <blockquote className="quote">
+          <span className="normativa-intro__ornament" aria-hidden="true">✦</span>
+          <blockquote className="norm-quote normativa-intro__quote">
             "El desconocimiento de la normativa no exime de su cumplimiento. Siempre debes
             ser consciente de lo que hacéis, recordad que estáis en un servidor de rol y
             todo lo que hagas tendrá una consecuencia, por lo que debéis usar el sentido
@@ -41,17 +43,19 @@ export default function Normativa() {
           </blockquote>
         </div>
 
-        <button
-          type="button"
-          className="normativa-tutorial-card"
-          onClick={() => navigate('/norm-tutorial')}
-        >
-          <i className="fa-solid fa-graduation-cap normativa-tutorial-card__icon" aria-hidden="true" />
-          <div className="normativa-tutorial-card__text">
-            <span className="normativa-tutorial-card__label">TUTORIAL</span>
-            <span className="normativa-tutorial-card__hint">Guía y primeros pasos (en preparación)</span>
-          </div>
-        </button>
+        <div className="normativa-tutorial-wrap">
+          <button
+            type="button"
+            className="normativa-tutorial-card"
+            onClick={() => navigate('/norm-tutorial')}
+          >
+            <i className="fa-solid fa-graduation-cap normativa-tutorial-card__icon" aria-hidden="true" />
+            <div className="normativa-tutorial-card__text">
+              <span className="normativa-tutorial-card__label">TUTORIAL</span>
+              <span className="normativa-tutorial-card__hint">Guía y primeros pasos (en preparación)</span>
+            </div>
+          </button>
+        </div>
 
         <div className="norm-grid">
           {NORM_ITEMS.map((item) => (

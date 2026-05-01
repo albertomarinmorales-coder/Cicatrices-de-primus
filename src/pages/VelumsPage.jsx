@@ -20,7 +20,7 @@ export default function VelumsPage() {
 
         <div className="section">
           <h2 className="section-title">Los Azharn</h2>
-          <div className="section-underline"><i className="fa-solid fa-music" /></div>
+          <div className="section-underline"><i className="ra ra-ocarina" aria-hidden /></div>
 
           <div className="velums-codex-panel">
             <div className="lore-card-img-wrap velums-hub-hero-wrap">

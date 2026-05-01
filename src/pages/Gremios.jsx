@@ -16,7 +16,7 @@ export default function Gremios() {
 
       <div className="section">
         <h2 className="section-title">Nuestros Gremios</h2>
-        <div className="section-underline"><i className="fa-solid fa-shield-halved" /></div>
+        <div className="section-underline"><i className="ra ra-cracked-shield" aria-hidden /></div>
         <div className="profesiones-grid">
           <div className="oficio-card" onClick={() => navigate('/gremio-aventuras')} style={{ cursor: 'pointer' }}>
             <div className="oficio-card-img-wrap" style={{ background: '#111' }}>

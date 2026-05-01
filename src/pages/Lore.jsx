@@ -16,7 +16,7 @@ export default function Lore() {
 
       <div className="section">
         <h2 className="section-title">Lore</h2>
-        <div className="section-underline"><i className="fa-solid fa-scroll" /></div>
+        <div className="section-underline"><i className="ra ra-scroll-unfurled" aria-hidden /></div>
 
         <div className="lore-grid">
           <div className="lore-card" onClick={() => navigate('/historia')} style={{ cursor: 'pointer' }}>

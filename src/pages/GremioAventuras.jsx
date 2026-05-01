@@ -23,7 +23,7 @@ export default function GremioAventuras() {
 
         <div className="gremio-aventuras-card">
           <div className="gremio-aventuras-card__head">
-            <i className="fa-solid fa-compass" aria-hidden />
+            <i className="ra ra-compass" aria-hidden />
             <span>A la aventura</span>
           </div>
           <div className="gremio-aventuras-card__inner">
@@ -60,7 +60,7 @@ export default function GremioAventuras() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fa-solid fa-scroll" aria-hidden />
+              <i className="ra ra-scroll-unfurled" aria-hidden />
               Guía: Gremio de Aventuras
             </a>
           </div>

@@ -39,8 +39,8 @@ export default function Clases() {
       <RosterGridHeader title="Clases" subtitle="Las sendas de poder en Primus" />
 
       <div className="section">
-        <h2 className="section-title">Las Clases</h2>
-        <div className="section-underline"><i className="fa-solid fa-khanda" /></div>
+        <h2 className="section-heading-kicker">Elige tu senda</h2>
+        <div className="section-underline"><i className="ra ra-crossed-swords" aria-hidden /></div>
         <div className="clases-filter-bar" role="tablist" aria-label="Filtrar clases por rol">
           {ROLE_FILTERS.map((role) => (
             <button

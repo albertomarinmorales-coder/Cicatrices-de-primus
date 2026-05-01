@@ -979,6 +979,18 @@ a.btn-primary:active {
   text-shadow: 0 0 20px rgba(201, 168, 76, 0.25);
 }
 
+/* Encima del grid cuando el hero ya lleva el titular principal — evita duplicar el mismo h1/h2 ornamental */
+.section-heading-kicker {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.62rem, 1vw, 0.78rem);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(212, 201, 176, 0.78);
+  margin: 0 0 1rem;
+}
+
 .section-underline {
   width: 140px;
   height: 2px;
@@ -987,6 +999,7 @@ a.btn-primary:active {
   position: relative;
 }
 
+.section-underline .ra,
 .section-underline i {
   position: absolute;
   top: 50%;
@@ -4358,16 +4371,29 @@ a.btn-primary:active {
   box-sizing: border-box;
 }
 
-/* La regla global ".raza-card-img-wrap > *" eleva todos los hijos directos del wrap a z-index: 4.
-   Eso dejaba la imagen por encima del chip (z-3), del nameplate (z-2) y del degradado (z-1),
-   ocultando ambos en las clases no-Velum. Se baja la imagen al mismo nivel que las mitades
-   de Velum (que ya declaran z-index: 0 en su selector específico). Tarjetas compartidas: Clases, Razas, Profesiones. */
-:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card .raza-card-img {
+/* Se baja la imagen al mismo nivel que las mitades de Velum (z-0). Razas / Profesiones / Velums: scale unificado. */
+:is(#page-razas, #page-profesiones, #page-velums) .clase-card .raza-card-img {
   z-index: 0;
   border: none;
   /* Reduce sensación de zoom del cover (ligero alejamiento desde el centro) */
   transform: scale(0.94);
   transform-origin: center 38%;
+}
+
+/* Clases: un poco menos de zoom en el fondo; Velums con corrección más suave */
+#page-clases .clase-card .raza-card-img {
+  z-index: 0;
+  border: none;
+}
+
+#page-clases .razas-grid .raza-card:not(.raza-card--velums) .raza-card-img {
+  transform: scale(0.88);
+  transform-origin: center 38%;
+}
+
+#page-clases .raza-card--velums .raza-card-img--velums-half {
+  transform: scale(0.92);
+  transform-origin: center center;
 }
 
 /* Profesiones: portadas más legibles (páginas detalle u otros usos de .clase-card fuera del grid de la lista) */
@@ -4377,10 +4403,6 @@ a.btn-primary:active {
 
 #page-profesiones .clase-card:hover .raza-card-img {
   filter: grayscale(0) saturate(0.98) brightness(1.22);
-}
-
-#page-clases .clase-card .raza-card-img--velums-half {
-  transform-origin: center center;
 }
 
 #page-clases .clases-filter-bar {
@@ -4418,6 +4440,46 @@ a.btn-primary:active {
   gap: 18px;
 }
 
+/* Clases, Razas y Profesiones: 4 + 4 + 2 centrados (10 ítems; en Clases solo con filtro «Todas») */
+:is(#page-clases, #page-razas, #page-profesiones) .razas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+:is(#page-clases, #page-razas, #page-profesiones) .razas-grid > .raza-card {
+  flex: unset;
+  min-width: 0;
+  width: auto;
+}
+
+/* Ocupa columnas centrales 2–3 cuando hay exactamente diez ítems */
+:is(#page-clases, #page-razas, #page-profesiones) .razas-grid:has(.raza-card:nth-child(10):last-child) .raza-card:nth-child(9) {
+  grid-column: 2;
+}
+
+:is(#page-clases, #page-razas, #page-profesiones) .razas-grid:has(.raza-card:nth-child(10):last-child) .raza-card:nth-child(10) {
+  grid-column: 3;
+}
+
+@media (max-width: 900px) {
+  :is(#page-clases, #page-razas, #page-profesiones) .razas-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  :is(#page-clases, #page-razas, #page-profesiones) .razas-grid:has(.raza-card:nth-child(10):last-child) .raza-card:nth-child(9),
+  :is(#page-clases, #page-razas, #page-profesiones) .razas-grid:has(.raza-card:nth-child(10):last-child) .raza-card:nth-child(10) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  :is(#page-clases, #page-razas, #page-profesiones) .razas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Razas / Clases / Profesiones: al pasar el cursor por una card, las demás se atenúan un poco
    y la imagen pasa a blanco y negro. Sin hover en el grid, todo se ve normal. */
 :is(#page-razas, #page-clases, #page-profesiones) .razas-grid:has(.raza-card:hover) .raza-card:not(:hover),
@@ -4446,10 +4508,33 @@ a.btn-primary:active {
   filter: grayscale(0) saturate(0.98) brightness(1.22);
 }
 
+/* Razas en grid: portadas menos oscuras que el bloque genérico (Clases siguen igual) */
+#page-razas .razas-grid .raza-card .raza-card-img {
+  filter: grayscale(0) saturate(0.84) brightness(1.06);
+}
+
+#page-razas .razas-grid .clase-card:hover .raza-card-img {
+  filter: grayscale(0) saturate(0.94) brightness(1.14);
+}
+
+#page-clases .razas-grid .raza-card .raza-card-img {
+  filter: grayscale(0) saturate(0.95) brightness(0.96);
+}
+
+#page-clases .razas-grid .clase-card:hover .raza-card-img {
+  filter: grayscale(0) saturate(1.05) brightness(1.06);
+}
+
 :is(#page-razas, #page-clases, #page-profesiones) .razas-grid:has(.raza-card:hover) .raza-card:not(:hover) .raza-card-img,
 :is(#page-razas, #page-clases, #page-profesiones) .razas-grid:not(:has(.raza-card:hover)):has(.raza-card:focus-within) .raza-card:not(:focus-within) .raza-card-img {
   /* Misma orden de funciones que el estado a color para interpolar bien (evita corte brusco a B+N) */
   filter: grayscale(1) saturate(0.42) brightness(0.86);
+}
+
+/* Debe ir tras el bloque :is anterior: filtros menos agresivos al atenuar hermanas en Razas */
+#page-razas .razas-grid:has(.raza-card:hover) .raza-card:not(:hover) .raza-card-img,
+#page-razas .razas-grid:not(:has(.raza-card:hover)):has(.raza-card:focus-within) .raza-card:not(:focus-within) .raza-card-img {
+  filter: grayscale(1) saturate(0.46) brightness(0.93);
 }
 
 :is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card {
@@ -4507,10 +4592,10 @@ a.btn-primary:active {
   background: #0d0b08;
 }
 
-/* Velums: quitar borde interior duplicado; queda el marco de la card + línea central */
+/* Velums (Clases): sin borde duplicado; viñeta perimetral en el wrap (el ::after del wrap es la línea central). */
 #page-clases .raza-card--velums .raza-card-img-wrap--velums-split {
   border: none;
-  box-shadow: none;
+  box-shadow: inset 0 0 42px 16px rgba(8, 7, 5, 0.2);
 }
 
 :is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card .raza-card-img-wrap::after {
@@ -4525,6 +4610,32 @@ a.btn-primary:active {
   );
   pointer-events: none;
   z-index: 1;
+}
+
+/* Razas: menos velo en la imagen para que el arte se lea mejor */
+#page-razas .clase-card .raza-card-img-wrap::after {
+  background: linear-gradient(
+    to top,
+    rgba(8, 7, 5, 0.78) 0%,
+    rgba(8, 7, 5, 0.38) 42%,
+    rgba(8, 7, 5, 0.06) 76%
+  );
+}
+
+/* Clases: viñeta negra muy leve en los bordes + degradado inferior (suaviza el recorte tras el scale). */
+#page-clases .clase-card .raza-card-img-wrap:not(.raza-card-img-wrap--velums-split)::after {
+  background:
+    radial-gradient(
+      farthest-side ellipse at 50% 36%,
+      transparent 58%,
+      rgba(8, 7, 5, 0.16) 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(8, 7, 5, 0.98) 0%,
+      rgba(8, 7, 5, 0.58) 36%,
+      rgba(8, 7, 5, 0.09) 70%
+    );
 }
 
 :is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card .raza-card-body {
@@ -6371,6 +6482,16 @@ body.modal-active .audio-toggle {
     radial-gradient(circle at center, transparent 0%, rgba(8, 7, 5, 0.3) 40%, rgba(8, 7, 5, 0.8) 100%);
 }
 
+/* Solo Razas: el grid hero por defecto es muy oscuro (B+N + brightness 0.6) */
+#page-razas .roster-grid-item img {
+  filter: grayscale(0.72) brightness(0.9);
+}
+
+#page-razas .roster-grid-overlay {
+  background: linear-gradient(to bottom, transparent 42%, var(--bg) 100%),
+    radial-gradient(circle at center, transparent 0%, rgba(8, 7, 5, 0.16) 48%, rgba(8, 7, 5, 0.52) 100%);
+}
+
 .roster-grid-overlay .page-header-content {
   padding-bottom: 0;
 }
@@ -6758,7 +6879,8 @@ body.modal-active .audio-toggle {
   opacity: 0.45;
 }
 
-.galeria-empty i {
+.galeria-empty i,
+.galeria-empty .ra {
   font-size: 2.5rem;
   color: var(--gold);
   opacity: 0.4;
@@ -7667,6 +7789,22 @@ body.modal-active {
   transform: rotate(180deg);
 }
 
+.galeria-fab-plus {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.galeria-chip-arrow.ra {
+  display: inline-block;
+}
+
+.galeria-discord-micro {
+  width: 70%;
+  height: 70%;
+}
+
 /* Upload FAB button */
 .galeria-upload-fab {
   display: flex;
@@ -7883,7 +8021,12 @@ body.modal-active {
   gap: 1rem; padding: 5rem 2rem; color: var(--text-muted);
   font-family: 'EB Garamond', serif; font-size: 1.05rem;
 }
-.galeria-empty i, .galeria-loading i { font-size: 2.5rem; color: var(--gold); opacity: 0.4; }
+.galeria-empty i, .galeria-loading i,
+.galeria-empty .ra, .galeria-loading .ra {
+  font-size: 2.5rem;
+  color: var(--gold);
+  opacity: 0.4;
+}
 
 /* ── Lightbox ───────────────────────────────────────────────────── */
 .lb-overlay {
@@ -8496,6 +8639,12 @@ body.modal-active {
 .equipo-discord-btn__icon {
   font-size: 1.125rem;
   line-height: 1;
+  flex-shrink: 0;
+}
+
+.equipo-discord-btn__icon:is(svg) {
+  width: 1.125rem;
+  height: 1.125rem;
 }
 
 /* Mismo estilo, tamaño del CTA del hero (antes .btn-primary en Inicio) */
@@ -8509,8 +8658,9 @@ body.modal-active {
   gap: 12px;
 }
 
-.equipo-discord-btn--hero .equipo-discord-btn__icon {
-  font-size: 1.25rem;
+.equipo-discord-btn--hero .equipo-discord-btn__icon:is(svg) {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 @media (max-width: 900px) {

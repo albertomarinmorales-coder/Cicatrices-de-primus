@@ -51,8 +51,8 @@ export default function Razas() {
       </div>
 
       <div className="section">
-        <h2 className="section-title">Las Razas de Primus</h2>
-        <div className="section-underline"><i className="fa-solid fa-users" /></div>
+        <h2 className="section-heading-kicker">Elige tu linaje</h2>
+        <div className="section-underline"><i className="ra ra-double-team" aria-hidden /></div>
         <div className="razas-grid">
           {RAZAS.map((r) => (
             <div

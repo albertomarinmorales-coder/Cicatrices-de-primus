@@ -23,13 +23,13 @@ export default function Profesiones() {
         <div className="page-header-overlay" />
         <div className="page-header-content">
           <h1>Profesiones</h1>
-          <p>Los profesiones del continente de Primus</p>
+          <p>Las profesiones del continente de Primus</p>
         </div>
       </div>
 
       <div className="section">
-        <h2 className="section-title">Profesiones</h2>
-        <div className="section-underline"><i className="fa-solid fa-hammer" /></div>
+        <h2 className="section-heading-kicker">Elige tu profesión</h2>
+        <div className="section-underline"><i className="ra ra-hammer" aria-hidden /></div>
         <div className="razas-grid">
           {OFICIOS.map((o) => (
             <div

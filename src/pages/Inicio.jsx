@@ -1,5 +1,6 @@
 ﻿import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
+import DiscordIcon from '../components/DiscordIcon'
 import { EQUIPO_DISCORD_INVITE } from '../data/equipo'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
@@ -117,7 +118,7 @@ export default function Inicio() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fa-brands fa-discord equipo-discord-btn__icon" aria-hidden />
+            <DiscordIcon className="equipo-discord-btn__icon" />
             Abrir Ticket
           </a>
         </div>

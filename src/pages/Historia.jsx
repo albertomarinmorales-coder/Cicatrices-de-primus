@@ -551,7 +551,7 @@ function ChronicleTabs({ items, ariaLabel, onOpenImage }) {
       >
         <span>{activeItem.num}</span>
         <strong>{activeItem.title}</strong>
-        <i className="fa-solid fa-chevron-down" aria-hidden />
+        <i className="ra ra-heavy-fall" aria-hidden />
       </button>
       <div className="caida-year-tabs" role="tablist" aria-label={ariaLabel}>
         {items.map((item, idx) => {
@@ -743,7 +743,7 @@ export default function Historia() {
             onClick={() => setSectionNavOpen((open) => !open)}
           >
             <span>{activeSectionLabel}</span>
-            <i className="fa-solid fa-chevron-down" aria-hidden />
+            <i className="ra ra-heavy-fall" aria-hidden />
           </button>
           <div className="lore-tabs-list" id="historia-tabs-list">
             {tabs.map((t) => (

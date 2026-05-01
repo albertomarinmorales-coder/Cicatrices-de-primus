@@ -17,7 +17,7 @@ export default function Mundo() {
 
       <div className="section">
         <h2 className="section-title">Mundo</h2>
-        <div className="section-underline"><i className="fa-solid fa-globe" /></div>
+        <div className="section-underline"><i className="ra ra-mountains" aria-hidden /></div>
 
         <div className="lore-grid">
           <div className="lore-card" onClick={() => navigate('/facciones')} style={{ cursor: 'pointer' }}>
@@ -27,7 +27,7 @@ export default function Mundo() {
               height: '240px',
               borderBottom: '1px solid var(--gold)',
             }}>
-              <i className="fa-solid fa-hammer" style={{ fontSize: '3rem', color: 'var(--gold)', opacity: 0.75 }} />
+              <i className="ra ra-hammer" style={{ fontSize: '3rem', color: 'var(--gold)', opacity: 0.75 }} aria-hidden />
             </div>
             <div className="lore-card-body">
               <h3>Facciones</h3>
@@ -42,7 +42,7 @@ export default function Mundo() {
               height: '240px',
               borderBottom: '1px solid var(--gold)',
             }}>
-              <i className="fa-solid fa-hammer" style={{ fontSize: '3rem', color: 'var(--gold)', opacity: 0.75 }} />
+              <i className="ra ra-hammer" style={{ fontSize: '3rem', color: 'var(--gold)', opacity: 0.75 }} aria-hidden />
             </div>
             <div className="lore-card-body">
               <h3>Política</h3>

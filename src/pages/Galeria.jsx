@@ -2,6 +2,7 @@
 import { createPortal } from 'react-dom'
 import { useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
+import DiscordIcon from '../components/DiscordIcon'
 import Lightbox from '../components/gallery/Lightbox'
 import UploadModal from '../components/gallery/UploadModal'
 import { api, avatarUrl, isVideoUrl, CATEGORIES } from '../lib/api'
@@ -107,10 +108,10 @@ function GaleriaCarousel() {
       </div>
 
       <button className="galeria-carousel-prev" onClick={() => goTo(idx - 1)}>
-        <i className="fa-solid fa-chevron-left" />
+        <i className="ra ra-reverse" aria-hidden />
       </button>
       <button className="galeria-carousel-next" onClick={() => goTo(idx + 1)}>
-        <i className="fa-solid fa-chevron-right" />
+        <i className="ra ra-forward" aria-hidden />
       </button>
 
       <div className="galeria-carousel-dots">
@@ -233,7 +234,7 @@ function UserChip({ user, av, onLogout, onUpload, adminSession }) {
         <div className="galeria-chip-avatar-wrap">
           {av
             ? <img className="galeria-chip-avatar" src={av} alt={user.username} />
-            : <div className="galeria-chip-avatar galeria-chip-avatar--fallback"><i className="fa-solid fa-user" /></div>
+            : <div className="galeria-chip-avatar galeria-chip-avatar--fallback"><i className="ra ra-player" aria-hidden /></div>
           }
           {(adminSession || user.is_admin) && <span className="galeria-chip-admin-dot" title="Administrador" />}
         </div>
@@ -241,18 +242,18 @@ function UserChip({ user, av, onLogout, onUpload, adminSession }) {
           <span className="galeria-chip-name">{user.username}</span>
           {(adminSession || user.is_admin) && <span className="galeria-chip-role">Admin</span>}
         </div>
-        <i className={`fa-solid fa-chevron-down galeria-chip-arrow${open ? ' open' : ''}`} />
+        <i className={`ra ra-heavy-fall galeria-chip-arrow${open ? ' open' : ''}`} aria-hidden />
       </div>
 
       <button className="galeria-upload-fab" onClick={onUpload} title="Subir foto">
-        <i className="fa-solid fa-plus" />
+        <span className="galeria-fab-plus" aria-hidden>+</span>
         <span>Subir</span>
       </button>
 
       {open && (
         <div className="galeria-chip-dropdown">
           <button className="galeria-chip-logout" onClick={() => { onLogout(); setOpen(false) }}>
-            <i className="fa-solid fa-right-from-bracket" />
+            <i className="ra ra-metal-gate" aria-hidden />
             Cerrar sesión
           </button>
         </div>
@@ -270,7 +271,7 @@ function ConfirmModal({ message, onConfirm, onCancel, busy }) {
         <div className="confirm-btns">
           <button className="confirm-btn-cancel" onClick={onCancel} disabled={busy}>Cancelar</button>
           <button className="confirm-btn-delete" onClick={onConfirm} disabled={busy}>
-            {busy ? <><i className="fa-solid fa-spinner fa-spin" /> Borrando…</> : <><i className="fa-solid fa-trash" /> Borrar</>}
+            {busy ? <><i className="ra ra-load ra-spin" aria-hidden /> Borrando…</> : <><i className="ra ra-demolish" aria-hidden /> Borrar</>}
           </button>
         </div>
       </div>
@@ -308,7 +309,7 @@ function PhotoCard({ photo, user, onClick, onDelete }) {
         }
         {isVid && (
           <div className="galeria-card-video-badge">
-            <i className="fa-solid fa-circle-play" />
+            <i className="ra ra-on-target" aria-hidden />
           </div>
         )}
         <div className="galeria-card-bar">
@@ -324,7 +325,7 @@ function PhotoCard({ photo, user, onClick, onDelete }) {
                       alt={photo.uploader.username}
                     />
                   : <span className="galeria-card-uploader-av galeria-card-uploader-av--fallback">
-                      <i className="fa-brands fa-discord" />
+                      <DiscordIcon className="galeria-discord-micro" title="Discord" />
                     </span>
                 }
                 <span className="galeria-card-uploader-name">{photo.uploader.username}</span>
@@ -334,7 +335,7 @@ function PhotoCard({ photo, user, onClick, onDelete }) {
         </div>
         {canDelete && (
           <button className="galeria-card-delete" onClick={e => { e.stopPropagation(); setConfirmOpen(true) }} title="Borrar">
-            <i className="fa-solid fa-trash" />
+            <i className="ra ra-demolish" aria-hidden />
           </button>
         )}
       </div>
@@ -432,7 +433,7 @@ export default function Galeria() {
         {/* Auth bar */}
         <div className="galeria-auth-bar">
           {user === undefined && (
-            <span className="galeria-auth-loading"><i className="fa-solid fa-spinner fa-spin" /> Comprobando sesión...</span>
+            <span className="galeria-auth-loading"><i className="ra ra-load ra-spin" aria-hidden /> Comprobando sesión...</span>
           )}
           {user === null && (
             <div className="galeria-login-cta">
@@ -440,7 +441,7 @@ export default function Galeria() {
                 Para subir una foto o un vídeo, inicia sesión con Discord
               </p>
               <button type="button" className="equipo-discord-btn" onClick={api.discordLogin}>
-                <i className="fa-brands fa-discord equipo-discord-btn__icon" aria-hidden />
+                <DiscordIcon className="equipo-discord-btn__icon" />
                 Discord
               </button>
             </div>
@@ -472,11 +473,11 @@ export default function Galeria() {
         {/* Grid */}
         {photosLoading ? (
           <div className="galeria-loading">
-            <i className="fa-solid fa-spinner fa-spin" /> Cargando...
+            <i className="ra ra-load ra-spin" aria-hidden /> Cargando...
           </div>
         ) : photos.length === 0 ? (
           <div className="galeria-empty">
-            <i className="fa-solid fa-images" />
+            <i className="ra ra-crystals" aria-hidden />
             <p>No hay fotos en esta categoria todavia.</p>
             {user && <button className="galeria-upload-btn" onClick={() => setShowUpload(true)}>
               Sé el primero en subir una

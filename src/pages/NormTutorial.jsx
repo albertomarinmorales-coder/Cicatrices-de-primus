@@ -31,7 +31,7 @@ export default function NormTutorial() {
 
         <div className="norm-tutorial-construction" role="status" aria-live="polite">
           <div className="norm-tutorial-construction__ornament" aria-hidden="true" />
-          <i className="fa-solid fa-hammer norm-tutorial-construction__icon" />
+          <i className="ra ra-hammer norm-tutorial-construction__icon" aria-hidden />
           <h2 className="norm-tutorial-construction__title">En construcción</h2>
           <p className="norm-tutorial-construction__body">
             Esta sección ofrecerá una guía paso a paso para empezar en el servidor. Mientras la preparamos,

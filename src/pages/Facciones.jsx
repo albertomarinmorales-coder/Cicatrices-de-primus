@@ -20,7 +20,7 @@ export default function Facciones() {
             &#8592; Volver a Mundo
           </span>
           <h2 className="section-title">En Construcción</h2>
-          <div className="section-underline"><i className="fa-solid fa-compass" /></div>
+          <div className="section-underline"><i className="ra ra-compass" aria-hidden /></div>
           <p className="detail-text" style={{ maxWidth: '800px', margin: '2rem auto' }}>
             Las fuerzas que moldean el equilibrio de Primus están siendo documentadas. Pronto podrás explorar las intrigas
             de las Grandes Casas, las Órdenes Militares y los Cultos Prohibidos.
@@ -32,7 +32,7 @@ export default function Facciones() {
               height: '240px',
               borderBottom: '1px solid var(--gold)',
             }}>
-              <i className="fa-solid fa-hammer" style={{ fontSize: '3rem', color: 'var(--gold)', opacity: 0.75 }} />
+              <i className="ra ra-hammer" style={{ fontSize: '3rem', color: 'var(--gold)', opacity: 0.75 }} aria-hidden />
             </div>
             <div className="lore-card-body">
               <p style={{ color: 'var(--text-muted)', fontStyle: 'italic', margin: 0 }}>Documentación en Proceso</p>

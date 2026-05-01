@@ -3,8 +3,8 @@ import { createPortal } from 'react-dom'
 import { api, CATEGORIES } from '../../lib/api'
 
 const MODES = [
-  { id: 'foto',  label: 'Foto',  icon: 'fa-image',  accept: 'image/*', maxMB: 10,  maxB: 10  * 1024 * 1024, hint: 'JPG, PNG, WEBP' },
-  { id: 'video', label: 'Vídeo', icon: 'fa-film',   accept: 'video/*', maxMB: 100, maxB: 100 * 1024 * 1024, hint: 'MP4, WEBM, MOV' },
+  { id: 'foto',  label: 'Foto',  icon: 'mirror',  accept: 'image/*', maxMB: 10,  maxB: 10  * 1024 * 1024, hint: 'JPG, PNG, WEBP' },
+  { id: 'video', label: 'Vídeo', icon: 'telescope',   accept: 'video/*', maxMB: 100, maxB: 100 * 1024 * 1024, hint: 'MP4, WEBM, MOV' },
 ]
 
 export default function UploadModal({ onClose, onUploaded }) {
@@ -83,7 +83,7 @@ export default function UploadModal({ onClose, onUploaded }) {
               className={`upload-tab${mode === m.id ? ' active' : ''}`}
               onClick={() => switchMode(m.id)}
             >
-              <i className={`fa-solid ${m.icon}`} />
+              <i className={`ra ra-${m.icon}`} aria-hidden />
               {m.label}
             </button>
           ))}
@@ -109,11 +109,11 @@ export default function UploadModal({ onClose, onUploaded }) {
                     onClick={e => { e.stopPropagation(); setFile(null); setPreview(null); inputRef.current && (inputRef.current.value = '') }}
                     title="Quitar archivo"
                   >
-                    <i className="fa-solid fa-trash" />
+                    <i className="ra ra-demolish" aria-hidden />
                   </button>
                 </div>
               : <>
-                  <i className={`fa-solid ${currentMode.icon} upload-drop-icon`} />
+                  <i className={`ra ra-${currentMode.icon} upload-drop-icon`} aria-hidden />
                   <p>Arrastra {mode === 'foto' ? 'una imagen' : 'un vídeo'} o haz clic para seleccionar</p>
                   <span className="upload-drop-hint">
                     {currentMode.hint} — máx. {currentMode.maxMB} MB
@@ -157,8 +157,8 @@ export default function UploadModal({ onClose, onUploaded }) {
 
           <button className="upload-submit" type="submit" disabled={loading || !file || !title.trim()}>
             {loading
-              ? <><i className="fa-solid fa-spinner fa-spin" /> Subiendo…</>
-              : <><i className="fa-solid fa-upload" /> Publicar</>
+              ? <><i className="ra ra-load ra-spin" aria-hidden /> Subiendo…</>
+              : <><i className="ra ra-splash" aria-hidden /> Publicar</>
             }
           </button>
         </form>

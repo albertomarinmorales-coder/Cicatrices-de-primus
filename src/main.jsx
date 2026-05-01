@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { HashRouter } from 'react-router-dom'
 import App from './App.jsx'
+import 'rpg-awesome/css/rpg-awesome.css'
 import './styles/global.css'
 
 // Cinzel – pesos usados en el proyecto

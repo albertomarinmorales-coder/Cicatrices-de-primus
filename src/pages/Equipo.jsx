@@ -1,4 +1,5 @@
 import Footer from '../components/Footer'
+import DiscordIcon from '../components/DiscordIcon'
 import { EQUIPO_DISCORD_INVITE, EQUIPO_NARRADORES, EQUIPO_OWNERS } from '../data/equipo'
 import { resolveDiscordAvatarUrl } from '../lib/discordAvatar'
 
@@ -63,7 +64,7 @@ export default function Equipo() {
             Owners
           </h2>
           <div className="section-underline" aria-hidden="true">
-            <i className="fa-solid fa-crown" />
+            <i className="ra ra-crown" aria-hidden />
           </div>
           <div className="equipo-grid equipo-grid--owners">
             {EQUIPO_OWNERS.map((m) => (
@@ -83,7 +84,7 @@ export default function Equipo() {
             Narradores
           </h2>
           <div className="section-underline" aria-hidden="true">
-            <i className="fa-solid fa-book-open" />
+            <i className="ra ra-burning-book" aria-hidden />
           </div>
           <div className="equipo-grid equipo-grid--narradores">
             {EQUIPO_NARRADORES.map((m) => (
@@ -105,7 +106,7 @@ export default function Equipo() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fa-brands fa-discord equipo-discord-btn__icon" aria-hidden />
+            <DiscordIcon className="equipo-discord-btn__icon" />
             Discord
           </a>
         </div>

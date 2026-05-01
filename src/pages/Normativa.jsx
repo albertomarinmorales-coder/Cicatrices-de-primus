@@ -2,16 +2,16 @@
 import Footer from '../components/Footer'
 
 const NORM_ITEMS = [
-  { path: '/norm-general', icon: 'fa-solid fa-scroll', label: 'General', className: 'norm-item norm-2x2' },
-  { path: '/norm-concepto', icon: 'fa-solid fa-masks-theater', label: 'Concepto de Rol', className: 'norm-item norm-tall' },
-  { path: '/norm-ic', icon: 'fa-solid fa-list-check', label: 'Normativa IC', className: 'norm-item' },
-  { path: '/norm-construccion', icon: 'fa-solid fa-hammer', label: 'Construcción', className: 'norm-item' },
-  { path: '/norm-combate', icon: 'fa-solid fa-khanda', label: 'Sistema de Combate', className: 'norm-item' },
-  { path: '/norm-heridas', icon: 'fa-solid fa-heart-pulse', label: 'Heridas', className: 'norm-item' },
-  { path: '/norm-esclavitud', icon: 'fa-solid fa-link-slash', label: 'Sistemas de Esclavitud', className: 'norm-item' },
-  { path: '/norm-robo', icon: 'fa-solid fa-user-secret', label: 'Sistemas de Robo', className: 'norm-item' },
-  { path: '/norm-housing', icon: 'fa-solid fa-house', label: 'Sistemas de Housing', className: 'norm-item norm-half' },
-  { path: '/norm-mazmorra', icon: 'fa-solid fa-dungeon', label: 'Sistemas de Mazmorra', className: 'norm-item norm-half' },
+  { path: '/norm-general', icon: 'scroll-unfurled', label: 'General', className: 'norm-item norm-2x2' },
+  { path: '/norm-concepto', icon: 'arcane-mask', label: 'Concepto de Rol', className: 'norm-item norm-tall' },
+  { path: '/norm-ic', icon: 'jigsaw-piece', label: 'Normativa IC', className: 'norm-item' },
+  { path: '/norm-construccion', icon: 'hammer', label: 'Construcción', className: 'norm-item' },
+  { path: '/norm-combate', icon: 'crossed-swords', label: 'Sistema de Combate', className: 'norm-item' },
+  { path: '/norm-heridas', icon: 'broken-bone', label: 'Heridas', className: 'norm-item' },
+  { path: '/norm-esclavitud', icon: 'chain', label: 'Sistemas de Esclavitud', className: 'norm-item' },
+  { path: '/norm-robo', icon: 'cloak-and-dagger', label: 'Sistemas de Robo', className: 'norm-item' },
+  { path: '/norm-housing', icon: 'castle-flag', label: 'Sistemas de Housing', className: 'norm-item norm-half' },
+  { path: '/norm-mazmorra', icon: 'metal-gate', label: 'Sistemas de Mazmorra', className: 'norm-item norm-half' },
 ]
 
 export default function Normativa() {
@@ -29,7 +29,7 @@ export default function Normativa() {
 
       <div className="section">
         <h2 className="section-title">Normativas</h2>
-        <div className="section-underline"><i className="fa-solid fa-gavel" /></div>
+        <div className="section-underline"><i className="ra ra-gavel" aria-hidden /></div>
 
         <div className="normativa-intro">
           <span className="normativa-intro__eyebrow">Antes de comenzar</span>
@@ -49,7 +49,7 @@ export default function Normativa() {
             className="normativa-tutorial-card"
             onClick={() => navigate('/norm-tutorial')}
           >
-            <i className="fa-solid fa-graduation-cap normativa-tutorial-card__icon" aria-hidden="true" />
+            <i className="ra ra-queen-crown normativa-tutorial-card__icon" aria-hidden="true" />
             <div className="normativa-tutorial-card__text">
               <span className="normativa-tutorial-card__label">TUTORIAL</span>
               <span className="normativa-tutorial-card__hint">Guía y primeros pasos (en preparación)</span>
@@ -62,7 +62,7 @@ export default function Normativa() {
             <div key={item.path} className={item.className} onClick={() => navigate(item.path)} style={{ cursor: 'pointer' }}>
               {item.customIcon
                 ? <span className="norm-icon" style={{ fontStyle: 'normal' }}>{item.customIcon}</span>
-                : <i className={`${item.icon} norm-icon`} />}
+                : <i className={`ra ra-${item.icon} norm-icon`} aria-hidden />}
               <h3>{item.label}</h3>
             </div>
           ))}

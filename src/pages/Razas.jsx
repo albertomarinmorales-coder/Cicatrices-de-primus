@@ -30,7 +30,7 @@ const RAZAS = [
 export default function Razas() {
   const navigate = useNavigate()
   return (
-    <div className="page active">
+    <div className="page active" id="page-razas">
       <div className="roster-grid-header">
         {ROSTER_IMGS.map((r, i) => (
           <div key={r.alt} className="roster-grid-item">
@@ -55,12 +55,19 @@ export default function Razas() {
         <div className="section-underline"><i className="fa-solid fa-users" /></div>
         <div className="razas-grid">
           {RAZAS.map((r) => (
-            <div key={r.name} className="raza-card" onClick={() => navigate(r.path)} style={{ cursor: 'pointer' }}>
+            <div
+              key={r.name}
+              className="raza-card clase-card"
+              onClick={() => navigate(r.path)}
+              style={{ cursor: 'pointer' }}
+            >
               <div className="raza-card-img-wrap">
                 <img src={r.img} alt={r.name} className="raza-card-img" loading="lazy" decoding="async" />
-              </div>
-              <div className="raza-card-body">
-                <h3>{r.name}</h3>
+                <div className="raza-card-body">
+                  <div className="clase-card-nameplate">
+                    <h3>{r.name}</h3>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

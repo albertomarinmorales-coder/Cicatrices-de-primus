@@ -717,9 +717,9 @@ export default function Historia() {
   const activeSectionLabel = tabs.find((t) => t.id === activeTab)?.label || tabs[0].label
 
   return (
-    <div className="page active">
+    <div className="page active" id="page-historia">
       <div className="detail-hero">
-        <div className="detail-hero-bg" style={{ backgroundImage: "url('/assets/images/legacy/938f05-156a74c1aa9a4b06b6a5da69a955e632-mv2.png')", backgroundPosition: 'center center' }} />
+        <div className="detail-hero-bg detail-hero-bg--historia" aria-hidden="true" />
         <div className="detail-hero-overlay" />
         <div className="detail-hero-content">
           <div className="breadcrumb" onClick={() => navigate('/lore')} style={{ cursor: 'pointer' }}>

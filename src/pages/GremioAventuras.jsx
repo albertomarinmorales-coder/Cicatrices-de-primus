@@ -8,7 +8,7 @@ export default function GremioAventuras() {
   return (
     <div className="page active" id="page-gremio-aventuras">
       <div className="detail-hero">
-        <div className="detail-hero-bg" style={{ backgroundImage: "url('/assets/images/legacy/adventurers.webp')" }} />
+        <div className="detail-hero-bg detail-hero-bg--gremio-aventuras" aria-hidden="true" />
         <div className="detail-hero-overlay" />
         <div className="detail-hero-content">
           <div className="breadcrumb" onClick={() => navigate('/gremios')} style={{ cursor: 'pointer' }}>

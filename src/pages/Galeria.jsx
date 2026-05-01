@@ -107,11 +107,11 @@ function GaleriaCarousel() {
         ))}
       </div>
 
-      <button className="galeria-carousel-prev" onClick={() => goTo(idx - 1)}>
-        <i className="ra ra-reverse" aria-hidden />
+      <button type="button" className="galeria-carousel-prev" onClick={() => goTo(idx - 1)} aria-label="Anterior">
+        ‹
       </button>
-      <button className="galeria-carousel-next" onClick={() => goTo(idx + 1)}>
-        <i className="ra ra-forward" aria-hidden />
+      <button type="button" className="galeria-carousel-next" onClick={() => goTo(idx + 1)} aria-label="Siguiente">
+        ›
       </button>
 
       <div className="galeria-carousel-dots">
@@ -421,7 +421,7 @@ export default function Galeria() {
   const av = user ? avatarUrl(user) : null
 
   return (
-    <div className="page active">
+    <div className="page active" id="page-galeria">
       <GaleriaCarousel />
 
       <div className="detail-body">

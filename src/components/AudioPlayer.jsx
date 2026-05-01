@@ -33,7 +33,7 @@ export default function AudioPlayer() {
         title={playing ? 'Pausar música' : 'Reproducir música'}
         style={{ position: 'fixed', bottom: '32px', right: '32px', zIndex: 3010 }}
       >
-        <i className={playing ? 'ra ra-interdiction' : 'ra ra-forward'} aria-hidden />
+        <span className="audio-toggle-icon" aria-hidden="true" />
       </div>
     </>
   )

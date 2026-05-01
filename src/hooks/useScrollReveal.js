@@ -19,7 +19,6 @@ export const CARD_GLOW_SELECTOR = [
   '.deity-card-frame',
   '.raza-photo-item',
   '.raza-intro-img',
-  '.roster-grid-item',
   '.tier-panel',
   '.tier-panel-content',
   '.raza-variant-card',

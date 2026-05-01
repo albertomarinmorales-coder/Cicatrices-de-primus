@@ -41,7 +41,7 @@ export default function RazaPage({ slug }) {
 
   useScrollReveal(slug)
   useTooltips(slug)
-  usePreloadImages(data ? [data.headerImg, data.coverImg] : [])
+  usePreloadImages(data ? [data.coverImg] : [])
 
   if (!data) return null
 
@@ -57,7 +57,11 @@ export default function RazaPage({ slug }) {
   return (
     <div className="page active">
       <div className="detail-hero">
-        <div className="detail-hero-bg" style={{ backgroundImage: `url('${data.headerImg}')` }} />
+        <div
+          className="detail-hero-bg detail-hero-bg--raza"
+          data-raza={data.slug}
+          aria-hidden="true"
+        />
         <div className="detail-hero-overlay" />
         <div className="detail-hero-content">
           <div className="breadcrumb" onClick={() => navigate('/razas')}>

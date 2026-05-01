@@ -39,10 +39,7 @@ export default function Equipo() {
   return (
     <div className="page active" id="page-equipo">
       <div className="page-header">
-        <div
-          className="page-header-bg"
-          style={{ backgroundImage: "url('/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png')" }}
-        />
+        <div className="page-header-bg" aria-hidden="true" />
         <div className="page-header-overlay" />
         <div className="page-header-content">
           <h1>El Concilio</h1>

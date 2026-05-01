@@ -19,7 +19,7 @@ export default function Profesiones() {
   return (
     <div className="page active" id="page-profesiones">
       <div className="page-header">
-        <div className="page-header-bg" style={{ backgroundImage: "url('/assets/images/legacy/c41305-5d27df9e861d464480ebd0dc7a3cf2bb-mv2.png')" }} />
+        <div className="page-header-bg" aria-hidden="true" />
         <div className="page-header-overlay" />
         <div className="page-header-content">
           <h1>Profesiones</h1>

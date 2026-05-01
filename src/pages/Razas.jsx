@@ -1,18 +1,6 @@
 ﻿import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
-
-const ROSTER_IMGS = [
-  { src: '/assets/images/races/elfos/cover.png', alt: 'Elfos' },
-  { src: '/assets/images/races/enanos/cover.png', alt: 'Enanos' },
-  { src: '/assets/images/races/humanos/cover.png', alt: 'Humanos' },
-  { src: '/assets/images/races/malvakari/cover.png', alt: 'Malvakari' },
-  { src: '/assets/images/races/mestizos/cover.png', alt: 'Mestizos' },
-  { src: '/assets/images/races/nhekthal/cover.png', alt: 'Nhek-Thal' },
-  { src: '/assets/images/races/ossalyth/cover.png', alt: 'Ossalyth' },
-  { src: '/assets/images/races/rosaveld/cover.png', alt: 'Rosaveld' },
-  { src: '/assets/images/races/shazari/cover.png', alt: 'Shazari' },
-  { src: '/assets/images/races/thaetir/cover.png', alt: 'Thae-Tir' },
-]
+import RosterGridHeader from '../components/RosterGridHeader'
 
 const RAZAS = [
   { name: 'Elfos', path: '/raza-gen-elfos', img: '/assets/images/races/elfos/cover.png' },
@@ -31,24 +19,7 @@ export default function Razas() {
   const navigate = useNavigate()
   return (
     <div className="page active" id="page-razas">
-      <div className="roster-grid-header">
-        {ROSTER_IMGS.map((r, i) => (
-          <div key={r.alt} className="roster-grid-item">
-            <img
-              src={r.src}
-              alt={r.alt}
-              fetchPriority={i < 4 ? 'high' : 'low'}
-              decoding="async"
-            />
-          </div>
-        ))}
-        <div className="roster-grid-overlay">
-          <div className="page-header-content">
-            <h1>Razas</h1>
-            <p>Los diez linajes de Primus</p>
-          </div>
-        </div>
-      </div>
+      <RosterGridHeader title="Razas" subtitle="Los diez linajes de Primus" />
 
       <div className="section">
         <h2 className="section-heading-kicker">Elige tu linaje</h2>

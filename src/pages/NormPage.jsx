@@ -1,12 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import { normativaData } from '../data/normativa'
 import Footer from '../components/Footer'
-import { usePreloadImages } from '../hooks/usePreloadImages'
 
 export default function NormPage({ slug }) {
   const navigate = useNavigate()
   const data = normativaData[slug]
-  usePreloadImages(data ? [data.heroBg] : [])
 
   if (!data) {
     return (
@@ -22,7 +20,7 @@ export default function NormPage({ slug }) {
   return (
     <div className="page active">
       <div className="detail-hero">
-        <div className="detail-hero-bg" style={{ backgroundImage: `url('${data.heroBg}')` }} />
+        <div className="detail-hero-bg detail-hero-bg--norm" aria-hidden="true" />
         <div className="detail-hero-overlay" />
         <div className="detail-hero-content">
           <div className="breadcrumb" onClick={() => navigate('/normativa')} style={{ cursor: 'pointer' }}>

@@ -159,15 +159,7 @@ export default function Deidades() {
       <div className="detail-hero deidades-hero">
         <div className="deidades-hero-mosaic" aria-hidden="true">
           {DEIDADES.map((d) => (
-            <div key={d.id} className={`deidades-hero-tile deity-hero-tile--${d.id}`}>
-              <img
-                src={d.img}
-                alt=""
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-              />
-            </div>
+            <div key={d.id} className={`deidades-hero-tile deity-hero-tile--${d.id}`} />
           ))}
         </div>
         <div className="detail-hero-overlay" />

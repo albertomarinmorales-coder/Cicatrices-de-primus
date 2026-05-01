@@ -4,9 +4,9 @@ import Footer from '../components/Footer'
 export default function Gremios() {
   const navigate = useNavigate()
   return (
-    <div className="page active">
+    <div className="page active" id="page-gremios">
       <div className="page-header">
-        <div className="page-header-bg" style={{ backgroundImage: "url('/assets/images/legacy/rules-bento.png')" }} />
+        <div className="page-header-bg" aria-hidden="true" />
         <div className="page-header-overlay" />
         <div className="page-header-content">
           <h1>Gremios</h1>

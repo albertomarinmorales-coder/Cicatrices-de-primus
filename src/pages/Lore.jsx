@@ -4,9 +4,9 @@ import Footer from '../components/Footer'
 export default function Lore() {
   const navigate = useNavigate()
   return (
-    <div className="page active">
+    <div className="page active" id="page-lore">
       <div className="page-header">
-        <div className="page-header-bg" style={{ backgroundImage: "url('/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png')" }} />
+        <div className="page-header-bg" aria-hidden="true" />
         <div className="page-header-overlay" />
         <div className="page-header-content">
           <h1>Historia y Geografía</h1>

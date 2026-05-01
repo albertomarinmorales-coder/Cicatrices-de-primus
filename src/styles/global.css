@@ -4357,6 +4357,232 @@ a.btn-primary:active {
   border: none;
 }
 
+/* La regla global ".raza-card-img-wrap > *" eleva todos los hijos directos del wrap a z-index: 4.
+   Eso dejaba la imagen por encima del chip (z-3), del nameplate (z-2) y del degradado (z-1),
+   ocultando ambos en las clases no-Velum. Se baja la imagen al mismo nivel que las mitades
+   de Velum (que ya declaran z-index: 0 en su selector específico). */
+#page-clases .clase-card .raza-card-img {
+  z-index: 0;
+}
+
+#page-clases .clases-filter-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0 auto 1.8rem;
+}
+
+#page-clases .clases-filter-chip {
+  appearance: none;
+  border: 1px solid rgba(201, 168, 76, 0.22);
+  background: rgba(12, 10, 8, 0.56);
+  color: rgba(212, 201, 176, 0.78);
+  font-family: 'Cinzel', serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.52rem 0.84rem;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+#page-clases .clases-filter-chip:hover,
+#page-clases .clases-filter-chip.active {
+  color: var(--gold);
+  border-color: rgba(201, 168, 76, 0.55);
+  background: rgba(201, 168, 76, 0.08);
+  box-shadow: 0 0 16px rgba(201, 168, 76, 0.16);
+}
+
+#page-clases .razas-grid {
+  gap: 18px;
+}
+
+#page-clases .clase-card {
+  position: relative;
+  min-height: 358px;
+  /* Una sola línea dorada (sin halo duplicado) para verse más fina */
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--border));
+  background: #0d0b08;
+  box-shadow: none;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, filter 0.28s ease;
+}
+
+#page-clases .clase-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 78%, transparent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Resplandor al cursor menos intenso (evita efecto muy brillante / doble glow) */
+#page-clases .clase-card::before {
+  --card-glow-tint: color-mix(in srgb, var(--gold) 11%, transparent);
+  --card-glow-size: 240px;
+  mix-blend-mode: soft-light;
+}
+
+#page-clases .clase-card:hover::before {
+  opacity: 0.42;
+}
+
+#page-clases .clase-card .raza-card-img-wrap::before {
+  background: radial-gradient(
+    420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    color-mix(in srgb, var(--gold) 7%, transparent),
+    transparent 46%
+  );
+}
+
+#page-clases .clase-card:hover .raza-card-img-wrap::before {
+  opacity: 0.34;
+}
+
+#page-clases .clase-card .raza-card-img-wrap {
+  height: 358px;
+  position: relative;
+  /* Sin segundo borde: el marco lo define solo .clase-card */
+  border: none;
+  box-sizing: border-box;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+/* Velums: quitar borde interior duplicado; queda el marco de la card + línea central */
+#page-clases .raza-card--velums .raza-card-img-wrap--velums-split {
+  border: none;
+  box-shadow: none;
+}
+
+#page-clases .clase-card .raza-card-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 7, 5, 0.98) 0%,
+    rgba(8, 7, 5, 0.6) 38%,
+    rgba(8, 7, 5, 0.1) 72%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+#page-clases .clase-card .raza-card-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 1.05rem 1rem 0.95rem;
+  gap: 0.4rem;
+}
+
+#page-clases .clase-card .raza-card-body h3 {
+  text-align: center;
+  font-size: 0.88rem;
+  color: rgba(240, 232, 216, 0.95);
+}
+
+#page-clases .clase-card .clase-card-nameplate {
+  display: grid;
+  gap: 0.12rem;
+  text-align: center;
+  justify-items: center;
+  padding: 0.45rem 0.62rem 0.42rem;
+  border-radius: 10px;
+  border: 1px solid rgba(201, 168, 76, 0.22);
+  background:
+    linear-gradient(180deg, rgba(15, 13, 10, 0.9), rgba(10, 9, 7, 0.8)),
+    radial-gradient(circle at 16% 0%, rgba(201, 168, 76, 0.2), transparent 46%);
+  box-shadow: inset 0 1px 0 rgba(255, 244, 211, 0.1), 0 5px 18px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(1px);
+}
+
+#page-clases .clase-card .clase-card-nameplate h3 {
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: rgba(252, 246, 232, 0.96);
+  text-shadow: 0 0 16px rgba(201, 168, 76, 0.28);
+}
+
+#page-clases .clase-card .clase-card-nameplate-sub {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: none;
+  font-style: italic;
+  color: rgba(214, 200, 166, 0.86);
+  line-height: 1.35;
+  text-align: center;
+}
+
+#page-clases .clase-card-role-chip {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  z-index: 3;
+  font-family: 'Cinzel', serif;
+  font-size: 0.575rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  line-height: 1.25;
+  max-width: calc(100% - 1.4rem);
+  color: rgba(8, 7, 5, 0.95);
+  background: rgba(201, 168, 76, 0.92);
+  border: 0.5px solid rgba(8, 7, 5, 0.45);
+  padding: 0.34rem 0.5rem;
+  white-space: normal;
+  word-break: break-word;
+  hyphens: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+/* Fallback global: garantiza la misma estructura visual en todas las cards de Clases
+   incluso si cambia el contenedor padre o el id de la página. */
+.clase-card {
+  position: relative;
+}
+
+.clase-card .raza-card-img-wrap {
+  position: relative;
+  height: 358px;
+}
+
+.clase-card .raza-card-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.05rem 1rem 0.95rem;
+}
+
+.clase-card .clase-card-nameplate {
+  display: grid;
+}
+
+.clase-card-role-chip {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  z-index: 4;
+}
+
+
 .raza-detail-img {
   border: 1px solid var(--gold);
   box-sizing: border-box;
@@ -8204,10 +8430,10 @@ body.modal-active {
 
 /* Clases: tarjeta Velums — borde dorado + línea central muy fina (ver .raza-card--velums) */
 .raza-card--velums {
-  border: 1px solid color-mix(in srgb, var(--gold) 42%, var(--border));
+  border: 0.5px solid color-mix(in srgb, var(--gold) 42%, var(--border));
   box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--gold) 10%, transparent),
-    inset 0 1px 0 color-mix(in srgb, var(--gold) 6%, transparent);
+    0 0 0 0.5px color-mix(in srgb, var(--gold) 10%, transparent),
+    inset 0 0.5px 0 color-mix(in srgb, var(--gold) 6%, transparent);
 }
 
 .raza-card--velums:hover {
@@ -8215,17 +8441,16 @@ body.modal-active {
   transform: translateY(-4px);
   box-shadow:
     0 12px 40px rgba(0, 0, 0, 0.6),
-    0 0 0 1px color-mix(in srgb, var(--gold) 22%, transparent);
+    0 0 0 0.5px color-mix(in srgb, var(--gold) 22%, transparent);
 }
 
 .raza-card--velums .raza-card-img-wrap--velums-split {
   position: relative;
   z-index: 0;
   isolation: isolate;
-  border: 1px solid var(--gold);
+  border: 0.5px solid var(--gold);
   box-sizing: border-box;
-  /* Sin inset de 1px en todo el perimetro: con la linea central generaba bordes dobles y saltos al pintar */
-  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--gold) 12%, transparent);
+  box-shadow: inset 0 0.5px 0 color-mix(in srgb, var(--gold) 12%, transparent);
 }
 
 /* Divisor: 1px real centrado (sin scaleX, evita “temblor” y grosor raro al hacer hover en la card) */
@@ -8235,7 +8460,7 @@ body.modal-active {
   top: 4%;
   bottom: 4%;
   left: 50%;
-  width: 1px;
+  width: 0.5px;
   transform: translate(-50%, 0);
   /* Linea “fina” = trazo bajo y extremos en degradé, sin subpixel horizontal */
   background: linear-gradient(

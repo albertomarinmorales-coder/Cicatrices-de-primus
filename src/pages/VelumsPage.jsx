@@ -111,7 +111,7 @@ export default function VelumsPage() {
           <div className="section-underline velums-choose-underline" aria-hidden="true" />
           <div className="velums-choose-grid">
             <div
-              className="raza-card lore-card"
+              className="raza-card lore-card clase-card"
               onClick={() => navigate('/clase-velum-caedis')}
               style={{ cursor: 'pointer' }}
               role="button"
@@ -126,14 +126,16 @@ export default function VelumsPage() {
                   loading="lazy"
                   decoding="async"
                 />
-              </div>
-              <div className="raza-card-body">
-                <h3>Velum Caedis</h3>
-                <p className="raza-card-role">Burst DPS</p>
+                <span className="clase-card-role-chip is-dps">Burst DPS</span>
+                <div className="raza-card-body">
+                  <div className="clase-card-nameplate">
+                    <h3>Velum Caedis</h3>
+                  </div>
+                </div>
               </div>
             </div>
             <div
-              className="raza-card lore-card"
+              className="raza-card lore-card clase-card"
               onClick={() => navigate('/clase-velum-cantoris')}
               style={{ cursor: 'pointer' }}
               role="button"
@@ -148,10 +150,12 @@ export default function VelumsPage() {
                   loading="lazy"
                   decoding="async"
                 />
-              </div>
-              <div className="raza-card-body">
-                <h3>Velum Cantoris</h3>
-                <p className="raza-card-role">Buffer / Debuffer</p>
+                <span className="clase-card-role-chip is-soporte">Buffer / Debuffer</span>
+                <div className="raza-card-body">
+                  <div className="clase-card-nameplate">
+                    <h3>Velum Cantoris</h3>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

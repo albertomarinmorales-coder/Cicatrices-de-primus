@@ -36,6 +36,11 @@
   --cta-pad: 12px 28px;
   --cta-font: 'Cinzel', Georgia, serif;
   --cta-transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+  /* Botones Discord: cristal (glass) */
+  --discord-glass-blur: 14px;
+  --discord-glass-border: color-mix(in srgb, var(--gold) 34%, transparent);
+  --discord-glass-border-hover: color-mix(in srgb, var(--gold) 58%, transparent);
 }
 
 html {
@@ -4357,12 +4362,21 @@ a.btn-primary:active {
    Eso dejaba la imagen por encima del chip (z-3), del nameplate (z-2) y del degradado (z-1),
    ocultando ambos en las clases no-Velum. Se baja la imagen al mismo nivel que las mitades
    de Velum (que ya declaran z-index: 0 en su selector específico). Tarjetas compartidas: Clases, Razas, Profesiones. */
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card .raza-card-img {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card .raza-card-img {
   z-index: 0;
   border: none;
   /* Reduce sensación de zoom del cover (ligero alejamiento desde el centro) */
   transform: scale(0.94);
   transform-origin: center 38%;
+}
+
+/* Profesiones: portadas más legibles (páginas detalle u otros usos de .clase-card fuera del grid de la lista) */
+#page-profesiones .clase-card .raza-card-img {
+  filter: grayscale(0) saturate(0.88) brightness(1.12);
+}
+
+#page-profesiones .clase-card:hover .raza-card-img {
+  filter: grayscale(0) saturate(0.98) brightness(1.22);
 }
 
 #page-clases .clase-card .raza-card-img--velums-half {
@@ -4400,38 +4414,77 @@ a.btn-primary:active {
   box-shadow: 0 0 16px rgba(201, 168, 76, 0.16);
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .razas-grid {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .razas-grid {
   gap: 18px;
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card {
+/* Razas / Clases / Profesiones: al pasar el cursor por una card, las demás se atenúan un poco
+   y la imagen pasa a blanco y negro. Sin hover en el grid, todo se ve normal. */
+:is(#page-razas, #page-clases, #page-profesiones) .razas-grid:has(.raza-card:hover) .raza-card:not(:hover),
+:is(#page-razas, #page-clases, #page-profesiones) .razas-grid:not(:has(.raza-card:hover)):has(.raza-card:focus-within) .raza-card:not(:focus-within) {
+  filter: brightness(0.92);
+  opacity: 0.97;
+}
+
+/*
+  Estado a color del grid (grayscale explícito) + transición; la regla B+N de hermanas va más abajo
+  y debe ser la última en cascada para ese selector.
+*/
+:is(#page-razas, #page-clases, #page-profesiones) .razas-grid .raza-card .raza-card-img {
+  filter: grayscale(0) saturate(0.6) brightness(0.8);
+  transition:
+    filter 0.52s ease-in-out,
+    transform 0.5s ease;
+}
+
+/* Profesiones en grid: portada más clara; debe ir después del bloque :is anterior */
+#page-profesiones .razas-grid .raza-card .raza-card-img {
+  filter: grayscale(0) saturate(0.88) brightness(1.12);
+}
+
+#page-profesiones .razas-grid .clase-card:hover .raza-card-img {
+  filter: grayscale(0) saturate(0.98) brightness(1.22);
+}
+
+:is(#page-razas, #page-clases, #page-profesiones) .razas-grid:has(.raza-card:hover) .raza-card:not(:hover) .raza-card-img,
+:is(#page-razas, #page-clases, #page-profesiones) .razas-grid:not(:has(.raza-card:hover)):has(.raza-card:focus-within) .raza-card:not(:focus-within) .raza-card-img {
+  /* Misma orden de funciones que el estado a color para interpolar bien (evita corte brusco a B+N) */
+  filter: grayscale(1) saturate(0.42) brightness(0.86);
+}
+
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card {
   position: relative;
   min-height: 358px;
   /* Una sola línea dorada (sin halo duplicado) para verse más fina */
   border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--border));
   background: #0d0b08;
   box-shadow: none;
-  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, filter 0.28s ease;
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    filter 0.42s cubic-bezier(0.45, 0, 0.2, 1),
+    opacity 0.42s cubic-bezier(0.45, 0, 0.2, 1);
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card:hover {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card:hover {
   border-color: color-mix(in srgb, var(--accent) 78%, transparent);
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
 
 /* Resplandor al cursor menos intenso (evita efecto muy brillante / doble glow) */
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card::before {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card::before {
   --card-glow-tint: color-mix(in srgb, var(--gold) 11%, transparent);
   --card-glow-size: 240px;
   mix-blend-mode: soft-light;
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card:hover::before {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card:hover::before {
   opacity: 0.42;
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card .raza-card-img-wrap::before {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card .raza-card-img-wrap::before {
   background: radial-gradient(
     420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
     color-mix(in srgb, var(--gold) 7%, transparent),
@@ -4439,11 +4492,11 @@ a.btn-primary:active {
   );
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card:hover .raza-card-img-wrap::before {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card:hover .raza-card-img-wrap::before {
   opacity: 0.34;
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card .raza-card-img-wrap {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card .raza-card-img-wrap {
   height: 358px;
   position: relative;
   /* Sin segundo borde: el marco lo define solo .clase-card */
@@ -4460,7 +4513,7 @@ a.btn-primary:active {
   box-shadow: none;
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card .raza-card-img-wrap::after {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card .raza-card-img-wrap::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -4474,7 +4527,7 @@ a.btn-primary:active {
   z-index: 1;
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card .raza-card-body {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card .raza-card-body {
   position: absolute;
   left: 0;
   right: 0;
@@ -4484,13 +4537,13 @@ a.btn-primary:active {
   gap: 0.4rem;
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card .raza-card-body h3 {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card .raza-card-body h3 {
   text-align: center;
   font-size: 0.88rem;
   color: rgba(240, 232, 216, 0.95);
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card .clase-card-nameplate {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card .clase-card-nameplate {
   display: grid;
   gap: 0.12rem;
   text-align: center;
@@ -4505,7 +4558,7 @@ a.btn-primary:active {
   backdrop-filter: blur(1px);
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card .clase-card-nameplate h3 {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card .clase-card-nameplate h3 {
   margin: 0;
   text-align: center;
   font-size: 0.9rem;
@@ -4514,7 +4567,7 @@ a.btn-primary:active {
   text-shadow: 0 0 16px rgba(201, 168, 76, 0.28);
 }
 
-:is(#page-clases, #page-razas, #page-profesiones) .clase-card .clase-card-nameplate-sub {
+:is(#page-clases, #page-razas, #page-profesiones, #page-velums) .clase-card .clase-card-nameplate-sub {
   display: block;
   font-family: 'Cinzel', serif;
   font-size: 0.56rem;
@@ -4526,7 +4579,7 @@ a.btn-primary:active {
   text-align: center;
 }
 
-#page-clases .clase-card-role-chip {
+:is(#page-clases, #page-velums) .clase-card-role-chip {
   position: absolute;
   top: 0.7rem;
   left: 0.7rem;
@@ -6308,14 +6361,23 @@ body.modal-active .audio-toggle {
   text-underline-offset: 4px !important;
 }
 
-/* Enlace/ botón “ticket” Discord: misma silueta que .equipo-discord-btn */
+/* Enlace/ botón “ticket” Discord: mismo cristal que .equipo-discord-btn */
 #btn-discord-ticket,
 #btn-discord-ticket a {
-  background: var(--cta-bg) !important;
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--gold) 14%, transparent) 0%,
+    rgba(14, 12, 10, 0.45) 50%,
+    rgba(10, 9, 7, 0.52) 100%
+  ) !important;
   color: var(--gold) !important;
-  border: 1px solid var(--cta-border) !important;
+  border: 1px solid var(--discord-glass-border) !important;
   border-radius: var(--cta-radius) !important;
-  box-shadow: none !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 220, 0.1),
+    0 4px 28px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(var(--discord-glass-blur)) saturate(1.08) !important;
+  -webkit-backdrop-filter: blur(var(--discord-glass-blur)) saturate(1.08) !important;
   transition: var(--cta-transition) !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -6330,10 +6392,18 @@ body.modal-active .audio-toggle {
 
 #btn-discord-ticket:hover,
 #btn-discord-ticket a:hover {
-  border-color: var(--gold) !important;
-  box-shadow: var(--cta-shadow) !important;
-  color: var(--gold) !important;
-  background: var(--cta-bg) !important;
+  border-color: var(--discord-glass-border-hover) !important;
+  color: var(--gold2) !important;
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--gold) 24%, transparent) 0%,
+    rgba(22, 19, 14, 0.54) 50%,
+    rgba(14, 12, 10, 0.6) 100%
+  ) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 220, 0.14),
+    0 0 28px rgba(201, 168, 76, 0.22),
+    0 8px 32px rgba(0, 0, 0, 0.45) !important;
 }
 
 #btn-discord-ticket svg {
@@ -6764,9 +6834,14 @@ body.modal-active .audio-toggle {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--cta-bg);
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--gold) 14%, transparent) 0%,
+    rgba(14, 12, 10, 0.45) 50%,
+    rgba(10, 9, 7, 0.52) 100%
+  );
   color: var(--gold);
-  border: 1px solid var(--cta-border);
+  border: 1px solid var(--discord-glass-border);
   border-radius: var(--cta-radius);
   padding: 10px 18px;
   font-size: 0.8rem;
@@ -6776,14 +6851,26 @@ body.modal-active .audio-toggle {
   cursor: pointer;
   text-decoration: none;
   transition: var(--cta-transition);
-  box-shadow: none;
+  backdrop-filter: blur(var(--discord-glass-blur)) saturate(1.08);
+  -webkit-backdrop-filter: blur(var(--discord-glass-blur)) saturate(1.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 220, 0.1),
+    0 4px 28px rgba(0, 0, 0, 0.4);
 }
 
 .galeria-btn-discord:hover {
-  border-color: var(--gold);
-  box-shadow: var(--cta-shadow);
-  color: var(--gold);
-  background: var(--cta-bg);
+  border-color: var(--discord-glass-border-hover);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 220, 0.14),
+    0 0 28px rgba(201, 168, 76, 0.22),
+    0 8px 32px rgba(0, 0, 0, 0.45);
+  color: var(--gold2);
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--gold) 24%, transparent) 0%,
+    rgba(22, 19, 14, 0.54) 50%,
+    rgba(14, 12, 10, 0.6) 100%
+  );
 }
 
 .galeria-btn-upload {
@@ -8300,8 +8387,13 @@ body.modal-active {
   justify-content: center;
   gap: 10px;
   padding: var(--cta-pad);
-  background: var(--cta-bg);
-  border: 1px solid var(--cta-border);
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--gold) 14%, transparent) 0%,
+    rgba(14, 12, 10, 0.45) 50%,
+    rgba(10, 9, 7, 0.52) 100%
+  );
+  border: 1px solid var(--discord-glass-border);
   border-radius: var(--cta-radius);
   color: var(--gold);
   font-family: var(--cta-font);
@@ -8310,12 +8402,26 @@ body.modal-active {
   text-decoration: none;
   cursor: pointer;
   transition: var(--cta-transition);
-  box-shadow: none;
+  backdrop-filter: blur(var(--discord-glass-blur)) saturate(1.08);
+  -webkit-backdrop-filter: blur(var(--discord-glass-blur)) saturate(1.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 220, 0.1),
+    0 4px 28px rgba(0, 0, 0, 0.4);
 }
 
 .equipo-discord-btn:hover {
-  border-color: var(--gold);
-  box-shadow: var(--cta-shadow);
+  border-color: var(--discord-glass-border-hover);
+  color: var(--gold2);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 220, 0.14),
+    0 0 28px rgba(201, 168, 76, 0.22),
+    0 8px 32px rgba(0, 0, 0, 0.45);
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--gold) 24%, transparent) 0%,
+    rgba(22, 19, 14, 0.54) 50%,
+    rgba(14, 12, 10, 0.6) 100%
+  );
 }
 
 .equipo-discord-btn__icon {

@@ -26,7 +26,7 @@ export const clasesData = {
   ciudadano: {
     slug: 'ciudadano',
     name: 'Ciudadano',
-    tag: 'Soporte / Utilidad',
+    tag: 'Support / Utilidad',
     avatarImg: '/assets/images/classes/ciudadano/avatar.png',
     stats: [
       { label: 'Utilidad', value: 95 },

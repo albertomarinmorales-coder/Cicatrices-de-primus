@@ -9,11 +9,11 @@ const ROLE_FILTERS = [
   { id: 'tanque', label: 'Tanque' },
   { id: 'dps', label: 'DPS' },
   { id: 'healer', label: 'Healer' },
-  { id: 'soporte', label: 'Soporte' },
+  { id: 'support', label: 'Support' },
 ]
 
 const CLASES = [
-  { name: 'Ciudadano', path: '/clase-ciudadano', img: '/assets/images/classes/ciudadano/avatar.png', role: null, roleGroup: 'soporte', roleLabel: 'Base' },
+  { name: 'Ciudadano', path: '/clase-ciudadano', img: '/assets/images/classes/ciudadano/avatar.png', role: null, roleGroup: 'Support', roleLabel: 'Base' },
   { name: "Vhark'Hul", path: '/clase-vhark-hul', img: "/assets/images/classes/vharkhul/avatar.png", role: 'Tanque/Luchador', roleGroup: 'tanque', roleLabel: 'Tanque' },
   { name: 'Argent Praetor', path: '/clase-argent-praetor', img: '/assets/images/classes/argent-praetor/avatar.png', role: 'Tanque/Luchador', roleGroup: 'tanque', roleLabel: 'Tanque' },
   { name: 'Dualhar', path: '/clase-dualhar', img: '/assets/images/classes/dualhar/avatar.png', role: 'DPS Distancia/DPS Fisico', roleGroup: 'dps', roleLabel: 'DPS' },
@@ -22,7 +22,7 @@ const CLASES = [
   { name: 'Stormheilm', path: '/clase-stormheilm', img: '/assets/images/classes/stormheilm/avatar.png', role: 'Luchador/Tanque', roleGroup: 'tanque', roleLabel: 'Tanque' },
   { name: 'Velums', path: '/clase-velums', velumsSplit: true, role: 'Caedis / Cantoris', roleGroup: 'dps', roleLabel: 'Dualidad' },
   { name: 'Zereth-Mor', path: '/clase-zereth-mor', img: '/assets/images/classes/zereth-mor/avatar.png', role: 'DPS Mágico', roleGroup: 'dps', roleLabel: 'DPS' },
-  { name: 'Magharyn', path: '/clase-magharyn', img: '/assets/images/classes/magharyn/avatar.png', role: 'Soporte/Luchador', roleGroup: 'soporte', roleLabel: 'Soporte' },
+  { name: 'Magharyn', path: '/clase-magharyn', img: '/assets/images/classes/magharyn/avatar.png', role: 'Support/Luchador', roleGroup: 'Support', roleLabel: 'Support' },
 ]
 
 export default function Clases() {

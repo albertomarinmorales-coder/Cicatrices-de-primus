@@ -4579,6 +4579,75 @@ a.btn-primary:active {
   text-align: center;
 }
 
+/* Clases: pies de tarjeta con estilo “cristal” (glass); sólo esta página */
+#page-clases .clase-card .clase-card-nameplate {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 0.5rem 0.75rem 0.46rem;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.03) 35%,
+      rgba(8, 7, 5, 0.42) 85%
+    );
+  border-color: rgba(255, 250, 235, 0.28);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.28),
+    inset 0 -10px 24px rgba(0, 0, 0, 0.18),
+    0 8px 22px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(201, 168, 76, 0.15);
+  backdrop-filter: blur(18px) saturate(175%);
+  -webkit-backdrop-filter: blur(18px) saturate(175%);
+}
+
+#page-clases .clase-card .clase-card-nameplate::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    transparent 38%,
+    transparent 62%,
+    rgba(201, 168, 76, 0.06) 100%
+  );
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  opacity: 0.85;
+}
+
+#page-clases .clase-card:hover .clase-card-nameplate {
+  border-color: rgba(201, 168, 76, 0.48);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(255, 255, 255, 0.06) 32%,
+      rgba(12, 10, 8, 0.48) 88%
+    );
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.32),
+    inset 0 -8px 20px rgba(0, 0, 0, 0.15),
+    0 10px 32px rgba(0, 0, 0, 0.45),
+    0 0 28px rgba(201, 168, 76, 0.18);
+}
+
+#page-clases .clase-card:hover .clase-card-nameplate::after {
+  opacity: 1;
+}
+
+#page-clases .clase-card .clase-card-nameplate h3 {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 252, 246, 0.99);
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.85),
+    0 0 22px rgba(201, 168, 76, 0.25);
+}
+
 :is(#page-clases, #page-velums) .clase-card-role-chip {
   position: absolute;
   top: 0.7rem;

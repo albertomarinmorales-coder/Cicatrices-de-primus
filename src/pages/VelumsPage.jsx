@@ -150,7 +150,7 @@ export default function VelumsPage() {
                   loading="lazy"
                   decoding="async"
                 />
-                <span className="clase-card-role-chip is-soporte">Buffer / Debuffer</span>
+                <span className="clase-card-role-chip is-Support">Buffer / Debuffer</span>
                 <div className="raza-card-body">
                   <div className="clase-card-nameplate">
                     <h3>Velum Cantoris</h3>

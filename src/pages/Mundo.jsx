@@ -31,7 +31,7 @@ export default function Mundo() {
             </div>
             <div className="lore-card-body">
               <h3>Facciones</h3>
-              <p style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>En construcción</p>
+              <p>Las fuerzas que definen el equilibrio de Primus: coronas, rebeldes, órdenes, torres y territorios hostiles.</p>
             </div>
           </div>
 

@@ -4664,7 +4664,8 @@ a.btn-primary:active {
   gap: 18px;
 }
 
-/* Clases, Razas y Profesiones: 4 + 4 + 2 centrados (10 ítems; en Clases solo con filtro «Todas») */
+/* Clases, Razas y Profesiones: grid 4 columnas; filas incompletas centradas con grid-column */
+/* Razas / Profesiones: 10 ítems → 4+4+2 centrados. Clases: 11 ítems → 4+4+3 centrados */
 :is(#page-clases, #page-razas, #page-profesiones) .razas-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -4687,6 +4688,38 @@ a.btn-primary:active {
   grid-column: 3;
 }
 
+/*
+ * Solo Clases con 11 ítems: grid 12 columnas (4 fichas × span 3 = misma anchura que grid de 4 columnas).
+ * Última fila: líneas 2–4 / 5–7 / 8–10 → huecos 1 track | … | 2 tracks (centro del bloque ~ línea 6.5 del grid).
+ */
+#page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+#page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card {
+  grid-column: span 3;
+}
+
+#page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(9) {
+  grid-column: 2 / span 3;
+}
+
+#page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(10) {
+  grid-column: 5 / span 3;
+}
+
+#page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(11) {
+  grid-column: 8 / span 3;
+}
+
+/* Un pelín a la derecha respecto al snap del grid (sin tocar el translateY del hover) */
+#page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(9),
+#page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(10),
+#page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(11) {
+  position: relative;
+  left: clamp(12px, 0.85vw, 20px);
+}
+
 @media (max-width: 900px) {
   :is(#page-clases, #page-razas, #page-profesiones) .razas-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4696,11 +4729,35 @@ a.btn-primary:active {
   :is(#page-clases, #page-razas, #page-profesiones) .razas-grid:has(.raza-card:nth-child(10):last-child) .raza-card:nth-child(10) {
     grid-column: auto;
   }
+
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card {
+    grid-column: auto;
+  }
+
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(9),
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(10),
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(11) {
+    position: static;
+    left: auto;
+  }
 }
 
 @media (max-width: 600px) {
   :is(#page-clases, #page-razas, #page-profesiones) .razas-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Mayor especificidad que la regla de 12 cols del caso 11 ítems */
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) {
+    grid-template-columns: 1fr;
+  }
+
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card {
+    grid-column: auto;
   }
 }
 

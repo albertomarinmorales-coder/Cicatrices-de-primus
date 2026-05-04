@@ -10,13 +10,7 @@ const NAV_ITEMS = [
       { label: 'Deidades', path: '/deidades' },
     ],
   },
-  {
-    id: 'facciones', label: 'Mundo', path: '/mundo',
-    children: [
-      { label: 'Facciones', path: '/facciones' },
-      { label: 'Política', path: '/politica' },
-    ],
-  },
+  { id: 'mundo', label: 'Mundo', path: '/mundo' },
   {
     id: 'razas', label: 'Razas', path: '/razas',
     children: [
@@ -42,7 +36,8 @@ const NAV_ITEMS = [
       { label: 'Luminari Vox', path: '/clase-luminari-vox' },
       { label: "Noc'thar", path: '/clase-noc-thar' },
       { label: 'Stormheilm', path: '/clase-stormheilm' },
-      { label: 'Velums', path: '/clase-velums' },
+      { label: 'Velum Caedis', path: '/clase-velum-caedis' },
+      { label: 'Velum Cantoris', path: '/clase-velum-cantoris' },
       { label: 'Zereth-Mor', path: '/clase-zereth-mor' },
       { label: 'Magharyn', path: '/clase-magharyn' },
       { label: 'Desconocido', path: '/clase-desconocido' },
@@ -69,22 +64,7 @@ const NAV_ITEMS = [
       { label: 'Gremio de Aventuras', path: '/gremio-aventuras' },
     ],
   },
-  {
-    id: 'normativa', label: 'Normativa', path: '/normativa', alignRight: true,
-    children: [
-      { label: 'Tutorial', path: '/norm-tutorial' },
-      { label: 'General', path: '/norm-general' },
-      { label: 'Concepto de Rol', path: '/norm-concepto' },
-      { label: 'Normativa IC', path: '/norm-ic' },
-      { label: 'Construcción', path: '/norm-construccion' },
-      { label: 'Combate', path: '/norm-combate' },
-      { label: 'Heridas', path: '/norm-heridas' },
-      { label: 'Esclavitud', path: '/norm-esclavitud' },
-      { label: 'Robo', path: '/norm-robo' },
-      { label: 'Housing', path: '/norm-housing' },
-      { label: 'Mazmorra', path: '/norm-mazmorra' },
-    ],
-  },
+  { id: 'normativa', label: 'Normativa', path: '/normativa', alignRight: true },
   { id: 'galeria', label: 'Galería', path: '/galeria' },
 ]
 

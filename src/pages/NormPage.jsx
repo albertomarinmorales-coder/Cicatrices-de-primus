@@ -2,9 +2,13 @@ import { useNavigate } from 'react-router-dom'
 import { normativaData } from '../data/normativa'
 import Footer from '../components/Footer'
 
+const SYSTEM_SLUGS = new Set(['construccion', 'combate', 'heridas', 'housing', 'mazmorra'])
+
 export default function NormPage({ slug }) {
   const navigate = useNavigate()
   const data = normativaData[slug]
+  const backTo = SYSTEM_SLUGS.has(slug) ? '/sistema' : '/normativa'
+  const backLabel = SYSTEM_SLUGS.has(slug) ? 'Sistema' : 'Normativa'
 
   if (!data) {
     return (
@@ -23,8 +27,8 @@ export default function NormPage({ slug }) {
         <div className="detail-hero-bg detail-hero-bg--norm" aria-hidden="true" />
         <div className="detail-hero-overlay" />
         <div className="detail-hero-content">
-          <div className="breadcrumb" onClick={() => navigate('/normativa')} style={{ cursor: 'pointer' }}>
-            Normativa <span>/ {data.breadcrumb}</span>
+          <div className="breadcrumb" onClick={() => navigate(backTo)} style={{ cursor: 'pointer' }}>
+            {backLabel} <span>/ {data.breadcrumb}</span>
           </div>
           <h1>{data.title}</h1>
           <span className="detail-tag">{data.subtitle}</span>
@@ -32,8 +36,8 @@ export default function NormPage({ slug }) {
       </div>
 
       <div className="detail-body">
-        <span className="back-btn" onClick={() => navigate('/normativa')} style={{ cursor: 'pointer' }}>
-          &#8592; Volver a Normativa
+        <span className="back-btn" onClick={() => navigate(backTo)} style={{ cursor: 'pointer' }}>
+          &#8592; Volver a {backLabel}
         </span>
 
         {data.intro && (

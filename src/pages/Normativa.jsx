@@ -14,7 +14,7 @@ const NORM_ITEMS = [
   { path: '/norm-mazmorra', icon: 'metal-gate', label: 'Sistemas de Mazmorra', className: 'norm-item norm-half' },
 ]
 
-export default function Normativa() {
+export default function Normativa({ title = 'Normativa', subtitle = 'Reglas del servidor' }) {
   const navigate = useNavigate()
   return (
     <div className="page active" id="page-normativa">
@@ -22,50 +22,65 @@ export default function Normativa() {
         <div className="page-header-bg" aria-hidden="true" />
         <div className="page-header-overlay" />
         <div className="page-header-content">
-          <h1>Normativa</h1>
-          <p>Reglas del servidor</p>
+          <h1>{title}</h1>
+          <p>{subtitle}</p>
         </div>
       </div>
 
       <div className="section">
-        <h2 className="section-title">Normativas</h2>
+        <h2 className="section-title">{title}</h2>
         <div className="section-underline"><i className="ra ra-gavel" aria-hidden /></div>
 
-        <div className="normativa-intro">
-          <span className="normativa-intro__eyebrow">Antes de comenzar</span>
-          <p>En caso de incumplir alguna de estas normas, se le aplicará las sanciones debidas según lo hecho.</p>
-          <span className="normativa-intro__ornament" aria-hidden="true">✦</span>
-          <blockquote className="norm-quote normativa-intro__quote">
-            "El desconocimiento de la normativa no exime de su cumplimiento. Siempre debes
-            ser consciente de lo que hacéis, recordad que estáis en un servidor de rol y
-            todo lo que hagas tendrá una consecuencia, por lo que debéis usar el sentido
-            común."
-          </blockquote>
+        <div className="norm-tutorial-construction" role="status" aria-live="polite">
+          <div className="norm-tutorial-construction__ornament" aria-hidden="true" />
+          <i className="ra ra-hammer norm-tutorial-construction__icon" aria-hidden />
+          <h2 className="norm-tutorial-construction__title">En construcción</h2>
+          <p className="norm-tutorial-construction__body">
+            Esta sección está siendo reordenada. Pronto tendrá una estructura más clara entre sistema
+            de juego y normativa del servidor.
+          </p>
         </div>
 
-        <div className="normativa-tutorial-wrap">
-          <button
-            type="button"
-            className="normativa-tutorial-card"
-            onClick={() => navigate('/norm-tutorial')}
-          >
-            <i className="ra ra-queen-crown normativa-tutorial-card__icon" aria-hidden="true" />
-            <div className="normativa-tutorial-card__text">
-              <span className="normativa-tutorial-card__label">TUTORIAL</span>
-              <span className="normativa-tutorial-card__hint">Guía y primeros pasos (en preparación)</span>
-            </div>
-          </button>
-        </div>
+        <div hidden aria-hidden="true" style={{ display: 'none' }}>
+          <h2 className="section-title">Normativas</h2>
+          <div className="section-underline"><i className="ra ra-gavel" aria-hidden /></div>
 
-        <div className="norm-grid">
-          {NORM_ITEMS.map((item) => (
-            <div key={item.path} className={item.className} onClick={() => navigate(item.path)} style={{ cursor: 'pointer' }}>
-              {item.customIcon
-                ? <span className="norm-icon" style={{ fontStyle: 'normal' }}>{item.customIcon}</span>
-                : <i className={`ra ra-${item.icon} norm-icon`} aria-hidden />}
-              <h3>{item.label}</h3>
-            </div>
-          ))}
+          <div className="normativa-intro">
+            <span className="normativa-intro__eyebrow">Antes de comenzar</span>
+            <p>En caso de incumplir alguna de estas normas, se le aplicará las sanciones debidas según lo hecho.</p>
+            <span className="normativa-intro__ornament" aria-hidden="true">✦</span>
+            <blockquote className="norm-quote normativa-intro__quote">
+              "El desconocimiento de la normativa no exime de su cumplimiento. Siempre debes
+              ser consciente de lo que hacéis, recordad que estáis en un servidor de rol y
+              todo lo que hagas tendrá una consecuencia, por lo que debéis usar el sentido
+              común."
+            </blockquote>
+          </div>
+
+          <div className="normativa-tutorial-wrap">
+            <button
+              type="button"
+              className="normativa-tutorial-card"
+              onClick={() => navigate('/norm-tutorial')}
+            >
+              <i className="ra ra-queen-crown normativa-tutorial-card__icon" aria-hidden="true" />
+              <div className="normativa-tutorial-card__text">
+                <span className="normativa-tutorial-card__label">TUTORIAL</span>
+                <span className="normativa-tutorial-card__hint">Guía y primeros pasos (en preparación)</span>
+              </div>
+            </button>
+          </div>
+
+          <div className="norm-grid">
+            {NORM_ITEMS.map((item) => (
+              <div key={item.path} className={item.className} onClick={() => navigate(item.path)} style={{ cursor: 'pointer' }}>
+                {item.customIcon
+                  ? <span className="norm-icon" style={{ fontStyle: 'normal' }}>{item.customIcon}</span>
+                  : <i className={`ra ra-${item.icon} norm-icon`} aria-hidden />}
+                <h3>{item.label}</h3>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <Footer />

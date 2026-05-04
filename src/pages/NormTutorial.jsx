@@ -17,13 +17,13 @@ export default function NormTutorial() {
       <div className="section">
         <span
           className="back-btn"
-          onClick={() => navigate('/normativa')}
+          onClick={() => navigate('/sistema')}
           style={{ display: 'inline-block', marginBottom: '1.5rem', cursor: 'pointer' }}
           role="button"
           tabIndex={0}
-          onKeyDown={(e) => { if (e.key === 'Enter') navigate('/normativa') }}
+          onKeyDown={(e) => { if (e.key === 'Enter') navigate('/sistema') }}
         >
-          &#8592; Volver a Normativa
+          &#8592; Volver a Sistema
         </span>
 
         <div className="norm-tutorial-construction" role="status" aria-live="polite">
@@ -32,7 +32,7 @@ export default function NormTutorial() {
           <h2 className="norm-tutorial-construction__title">En construcción</h2>
           <p className="norm-tutorial-construction__body">
             Esta sección ofrecerá una guía paso a paso para empezar en el servidor. Mientras la preparamos,
-            puedes revisar el resto de la normativa desde el enlace de arriba.
+            puedes revisar el resto del sistema desde el enlace de arriba.
           </p>
         </div>
       </div>

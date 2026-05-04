@@ -12,17 +12,13 @@ import Razas from './pages/Razas'
 import RazaPage from './pages/RazaPage'
 import Clases from './pages/Clases'
 import ClasePage from './pages/ClasePage'
-import VelumsPage from './pages/VelumsPage'
 import Profesiones from './pages/Profesiones'
 import OficioPage from './pages/OficioPage'
-import Mundo from './pages/Mundo'
 import Facciones from './pages/Facciones'
 import Politica from './pages/Politica'
 import Gremios from './pages/Gremios'
 import GremioAventuras from './pages/GremioAventuras'
 import Normativa from './pages/Normativa'
-import NormPage from './pages/NormPage'
-import NormTutorial from './pages/NormTutorial'
 import Galeria from './pages/Galeria'
 import Equipo from './pages/Equipo'
 import { useTheme } from './hooks/useTheme'
@@ -81,7 +77,7 @@ export default function App() {
         <Route path="/clase-luminari-vox" element={<ClasePage slug="luminari-vox" />} />
         <Route path="/clase-noc-thar" element={<ClasePage slug="noc-thar" />} />
         <Route path="/clase-stormheilm" element={<ClasePage slug="stormheilm" />} />
-        <Route path="/clase-velums" element={<VelumsPage />} />
+        <Route path="/clase-velums" element={<Navigate to="/clase-velum-caedis" replace />} />
         <Route path="/clase-velum-caedis" element={<ClasePage slug="velum-caedis" />} />
         <Route path="/clase-velum-cantoris" element={<ClasePage slug="velum-cantoris" />} />
         <Route path="/clase-zereth-mor" element={<ClasePage slug="zereth-mor" />} />
@@ -98,23 +94,24 @@ export default function App() {
         <Route path="/oficio-gen-minero" element={<OficioPage slug="minero" />} />
         <Route path="/oficio-gen-seeker" element={<OficioPage slug="seeker" />} />
         <Route path="/oficio-gen-tabernero" element={<OficioPage slug="tabernero" />} />
-        <Route path="/mundo" element={<Mundo />} />
-        <Route path="/facciones" element={<Facciones />} />
+        <Route path="/mundo" element={<Facciones />} />
+        <Route path="/facciones" element={<Navigate to="/mundo" replace />} />
         <Route path="/politica" element={<Politica />} />
         <Route path="/gremios" element={<Gremios />} />
         <Route path="/gremio-aventuras" element={<GremioAventuras />} />
+        <Route path="/sistema" element={<Navigate to="/normativa" replace />} />
         <Route path="/normativa" element={<Normativa />} />
-        <Route path="/norm-tutorial" element={<NormTutorial />} />
-        <Route path="/norm-general" element={<NormPage slug="general" />} />
-        <Route path="/norm-concepto" element={<NormPage slug="concepto" />} />
-        <Route path="/norm-ic" element={<NormPage slug="ic" />} />
-        <Route path="/norm-construccion" element={<NormPage slug="construccion" />} />
-        <Route path="/norm-heridas" element={<NormPage slug="heridas" />} />
-        <Route path="/norm-combate" element={<NormPage slug="combate" />} />
-        <Route path="/norm-esclavitud" element={<NormPage slug="esclavitud" />} />
-        <Route path="/norm-robo" element={<NormPage slug="robo" />} />
-        <Route path="/norm-mazmorra" element={<NormPage slug="mazmorra" />} />
-        <Route path="/norm-housing" element={<NormPage slug="housing" />} />
+        <Route path="/norm-tutorial" element={<Navigate to="/normativa" replace />} />
+        <Route path="/norm-general" element={<Navigate to="/normativa" replace />} />
+        <Route path="/norm-concepto" element={<Navigate to="/normativa" replace />} />
+        <Route path="/norm-ic" element={<Navigate to="/normativa" replace />} />
+        <Route path="/norm-construccion" element={<Navigate to="/normativa" replace />} />
+        <Route path="/norm-heridas" element={<Navigate to="/normativa" replace />} />
+        <Route path="/norm-combate" element={<Navigate to="/normativa" replace />} />
+        <Route path="/norm-esclavitud" element={<Navigate to="/normativa" replace />} />
+        <Route path="/norm-robo" element={<Navigate to="/normativa" replace />} />
+        <Route path="/norm-mazmorra" element={<Navigate to="/normativa" replace />} />
+        <Route path="/norm-housing" element={<Navigate to="/normativa" replace />} />
         <Route path="/galeria" element={<Galeria />} />
         <Route path="/equipo" element={<Equipo />} />
         <Route path="*" element={<Navigate to="/" replace />} />

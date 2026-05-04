@@ -12,7 +12,7 @@ const HISTORIA_HERO = '/assets/images/legacy/938f05-156a74c1aa9a4b06b6a5da69a955
 const CLASES_ROSTER_TOP = [
   '/assets/images/classes/ciudadano/avatar.png',
   '/assets/images/classes/argent-praetor/avatar.png',
-  '/assets/images/classes/dualhar/avatar.png',
+  '/assets/images/classes/dualhar/avatar.webp',
   '/assets/images/classes/luminari-vox/avatar.png',
   '/assets/images/classes/nocthar/avatar.png',
 ]
@@ -45,6 +45,7 @@ export function getPreloadImagesForPath(pathname) {
     case '/politica':
       return [MUNDO_HEADER]
     case '/normativa':
+    case '/sistema':
       return [LORE_HEADER]
     case '/gremios':
       return [GREM_HEADER]
@@ -57,6 +58,8 @@ export function getPreloadImagesForPath(pathname) {
     case '/clases':
       return CLASES_ROSTER_TOP
     case '/clase-velums':
+    case '/clase-velum-caedis':
+    case '/clase-velum-cantoris':
       return VELUMS_HUB
     case '/razas':
       return RAZAS_ROSTER_TOP

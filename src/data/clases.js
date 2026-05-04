@@ -14,7 +14,7 @@ const ROW = (text, img) =>
   `<div class="clase-feature-row"><div class="clase-feature-img">${img}</div><div class="clase-feature-text">${wrapFirstTierDesc(text)}</div></div>`
 
 export const VELUM_IMG = {
-  /** Única imagen del hub /clase-velums (arte compartido Azharn) */
+  /** Arte compartido Azharn usado en ambas sendas Velum */
   velumsHero: '/assets/images/classes/velums/velums-hero.png',
   caedisAvatar: '/assets/images/classes/velum-caedis/avatar.png',
   cantorisAvatar: '/assets/images/classes/velum-cantoris/avatar.png',
@@ -22,96 +22,109 @@ export const VELUM_IMG = {
   caedisFoto1: '/assets/images/classes/velum-caedis/foto1.png',
 }
 
+const VELUM_AZHARN_SHARED = `<p class="tier-desc">Donde otros retroceden ante el silencio de la muerte, los Azharn avanzan. No lo desafían… lo aceptan. En ese vacío donde todo termina, ellos encuentran propósito.</p>
+<p class="tier-desc">Son seres marcados por un destino irrevocable, ligados a lo invisible, a lo olvidado, a aquello que se niega a desaparecer. No escuchan a los muertos como un don, sino como una condena que late en su sangre. Susurros sin descanso, voces que no conocen reposo. A través del viento y la música, los ecos de los caídos se aferran a ellos, guiando sus pasos… o arrastrándolos.</p>
+<p class="tier-desc" style="font-weight: bold; color: var(--gold);">Nunca están solos.</p>
+<p class="tier-desc">El aire a su alrededor vibra con presencias: melodías que nacen de recuerdos marchitos, lamentos que desgarran la cordura, armonías que no pertenecen al mundo de los vivos. Para un Azharn, la música no es arte. Es un umbral. Un lenguaje antiguo con el más allá.</p>
+<p class="tier-desc">Son los intérpretes de lo inconcluso. Ejecutores de voluntades que la muerte no logró apagar. Sanadores de penas que jamás encontraron descanso. Vengadores de agravios enterrados en el olvido… o marionetas de voces que susurran mentiras con la forma de promesas.</p>
+<p class="tier-desc">El origen de su poder es un secreto que ni siquiera ellos comprenden del todo. Su sangre no los corrompe… los transforma. Los convierte en entidades suspendidas entre dos mundos, capaces de mirar donde otros enloquecerían al instante.</p>
+<p class="tier-desc">Pero ningún mortal puede sostener esa mirada eternamente.</p>
+<p class="tier-desc">A veces, el umbral devuelve la mirada.</p>
+<p class="tier-desc">Y cuando eso ocurre, no todos logran resistir.</p>
+<p class="tier-desc">Los Azharn no buscan gloria. La gloria es para los vivos. Lo suyo es algo más antiguo, más frío. Su existencia es un equilibrio imposible, una danza al filo de lo inevitable. Donde otros apartan la vista del final, ellos lo contemplan… y responden.</p>
+<p class="tier-desc tier-desc--closing">Cuando el silencio se alza para devorarlo todo, los Azharn no huyen.</p>
+<p class="tier-desc" style="font-weight: bold; color: var(--gold); margin-bottom: 0;">Ellos cantan.<br>Ellos danzan.<br>Y el mundo se rompe con ellos.</p>`
+
 export const claseFichas = {
   'argent-praetor': {
-    descripcion: 'Guerrero sagrado de la Orden de la Luz, especializado en combate directo y defensa.',
-    funcion: 'Primera línea en combate. Protege aliados, resiste daño y enfrenta las amenazas más peligrosas.',
-    modoCombate: 'Utiliza armadura pesada y armas cuerpo a cuerpo. Su resistencia y fuerza provienen de su entrenamiento y devoción a Thronus, dios del Orden.',
-    origen: 'Tras la caída de Raventree Hall y los años del Aislamiento Luminar, la Orden necesitó especializar a sus guerreros. Así surgieron los Praetor, concebidos como el brazo militar puro de la Orden.',
-    mentalidad: 'Disciplinados, firmes y obedientes. Actúan por deber, no por emoción. Siguen órdenes sin cuestionarlas.',
-    objetivo: 'Destruir las corrupciones donde aparezcan, sirviendo con escudo y espada a la población.',
+    descripcion: 'Es un guerrero sagrado de la Orden de la Luz, especializado en combate directo y defensa.',
+    funcion: 'Es la primera línea en combate. Protege aliados, resiste el daño y enfrenta las amenazas más peligrosas de frente.',
+    modoCombate: 'Utiliza armadura pesada y armas cuerpo a cuerpo. Su resistencia y fuerza provienen de su entrenamiento y su devoción a Thronus, dios del Orden.',
+    origen: 'Tras la caída de Raventree Hall y los años del Aislamiento Luminar, la Orden se vio en la necesidad de especializar a sus guerreros. De esta especialización surgieron los Praetor, creados como el brazo militar puro de la Orden, siendo la primera y última línea de defensa ante las corrupciones.',
+    mentalidad: 'Son disciplinados, firmes y obedientes. No actúan por emoción ni compasión, sino por deber. Siguen una jerarquía estricta y cumplen órdenes sin cuestionarlas.',
+    objetivo: 'Destruir las corrupciones allí donde se las encuentre, poniendo su escudo y espada al servicio de la población del continente.',
     rolCombate: 'Tanque / Luchador',
   },
   'luminari-vox': {
-    descripcion: 'Devoto de la Orden de la Luz enfocado en apoyo, sanación y detección de corrupción.',
-    funcion: 'Cura, refuerza aliados y detecta amenazas ocultas.',
-    modoCombate: 'Utiliza Thae de Orden y Luz. No se centra en combate directo.',
-    origen: 'Tras la reforma de la Orden, se entendió que combatir la corrupción requería algo más que fuerza, dando origen a los Luminarii.',
-    mentalidad: 'Analíticos y pacientes. Buscan comprender antes de actuar.',
-    objetivo: 'Investigar corrupciones y mantener con vida la línea frontal.',
+    descripcion: 'Es un devoto de la Orden de la Luz, enfocado en apoyo, sanación y detección de corrupción.',
+    funcion: 'Cura aliados, refuerza al grupo y detecta amenazas ocultas o corrupción.',
+    modoCombate: 'Utiliza Thae de Orden y de Luz. No está centrado en el combate directo, pero puede defenderse y purificar aliados.',
+    origen: 'Tras la caída de Raventree Hall, la Orden entendió que no solo hacía falta fuerza. Los Luminarii fueron creados para estudiar y erradicar corrupciones.',
+    mentalidad: 'Analíticos, pacientes y observadores. Actúan con criterio y firmeza ante la corrupción.',
+    objetivo: 'Investigar corrupciones, encontrar su origen y mantener con vida la línea frontal.',
     rolCombate: 'Healer / Buffer',
   },
   magharyn: {
     descripcion: 'Mago especializado en el uso del Thae elemental.',
-    funcion: 'Daño a distancia y presión constante.',
-    modoCombate: 'Usa magia elemental. Gran capacidad de burst, pero vulnerable al concentrar poder.',
-    origen: 'Formados en la Academia de Nidharrow bajo estrictas limitaciones.',
-    mentalidad: 'Estudiosos y disciplinados, buscan perfección en el control del Thae.',
-    objetivo: 'Mantener el equilibrio del Thae.',
+    funcion: 'Inflige daño a distancia y se adapta según su tipo de magia.',
+    modoCombate: 'Utiliza magia elemental (fuego, hielo, viento, tierra). Genera desgaste constante, pero queda vulnerable al concentrar poder.',
+    origen: 'Formados en la Academia de Nidharrow con restricciones para evitar catástrofes.',
+    mentalidad: 'Estudiosos y disciplinados, buscan perfección y control del Thae.',
+    objetivo: 'Mantener el equilibrio del Thae y actuar contra grietas a otros planos.',
     rolCombate: 'Burst DPS',
   },
   'vhark-hul': {
-    descripcion: 'Guerreros renacidos en el Thae de la muerte, convertidos en armas vivientes.',
-    funcion: 'Unidades de choque y control del campo.',
-    modoCombate: 'Armadura pesada y armas a dos manos imbuidas con Thae oscuro.',
-    origen: 'Creados para reemplazar a los Krieger.',
-    mentalidad: 'Fríos e implacables.',
-    objetivo: 'Sostener la defensa sin importar el desgaste.',
+    descripcion: 'Guerreros renacidos en el Thae de la muerte.',
+    funcion: 'Unidades de choque, control de campo y desgaste del enemigo.',
+    modoCombate: 'Armadura pesada y armas imbuidas con Thae oscuro que absorben almas.',
+    origen: 'Forjados para reemplazar a los Krieger, creados para resistir más allá de la vida.',
+    mentalidad: 'Fríos, implacables y sin apego emocional.',
+    objetivo: 'Servir como línea de defensa y mantener su arma alimentada.',
     rolCombate: 'Tanque / Luchador',
   },
   'zereth-mor': {
-    descripcion: 'Hechiceros que manipulan el Thae de la Muerte.',
-    funcion: 'Daño en cadena y debilitamiento.',
-    modoCombate: 'Uso de cadáveres y magia maldita.',
-    origen: 'Formalizados a partir del conocimiento de Meiga.',
-    mentalidad: 'Pragmáticos, ven la muerte como recurso.',
-    objetivo: 'Trascender su humanidad.',
+    descripcion: 'Hechiceros del Thae de la Muerte.',
+    funcion: 'Daño ofensivo en cadena y debilitamiento del enemigo.',
+    modoCombate: 'Manipulan cadáveres y sellos malditos con daño prolongado.',
+    origen: 'Autorizados por el reino tras demostrarse su utilidad.',
+    mentalidad: 'Pragmáticos y sin respeto por la muerte como concepto sagrado.',
+    objetivo: 'Trascender su humanidad y servir a la Torre del Último Juramento.',
     rolCombate: 'DPS mágico / Debuffer',
   },
   'velum-caedis': {
-    descripcion: 'Artistas letales que combaten entre lo físico y lo espiritual.',
-    funcion: 'Daño rápido y alta movilidad.',
-    modoCombate: 'Ataques veloces con apoyo de espíritus y sombras.',
-    origen: 'Originarios de Ash’thorin.',
-    mentalidad: 'Inestables, con percepción dual de la realidad.',
-    objetivo: 'Mantener el equilibrio entre planos.',
+    descripcion: 'Artistas que combaten mediante danza.',
+    funcion: 'Daño rápido cuerpo a cuerpo y alta movilidad.',
+    modoCombate: 'Ataques veloces con apoyo espiritual y sombras.',
+    origen: "Originarios de Ash'thorin, conocidos como Azharn.",
+    mentalidad: 'Inestables, con percepción dual entre planos.',
+    objetivo: 'Mantener el equilibrio entre el plano terrenal y espiritual.',
     rolCombate: 'Burst DPS',
   },
   'velum-cantoris': {
-    descripcion: 'Artistas que canalizan el Thae mediante la música.',
+    descripcion: 'Artistas que usan música como canal de poder.',
     funcion: 'Apoyo a distancia.',
-    modoCombate: 'Efectos positivos y negativos mediante sonido.',
-    origen: 'También originarios de Ash’thorin.',
-    mentalidad: 'Sensibles al plano espiritual, con percepción alterada.',
-    objetivo: 'Mantener el equilibrio entre planos.',
+    modoCombate: 'Uso de sonidos para buffs y debuffs.',
+    origen: "También originarios de Ash'thorin.",
+    mentalidad: 'Percepción alterada por conexión espiritual.',
+    objetivo: 'Mantener equilibrio entre planos.',
     rolCombate: 'Buffer / Debuffer',
   },
   stormheilm: {
-    descripcion: 'Guerrero del norte especializado en combate agresivo.',
-    funcion: 'Daño cuerpo a cuerpo y resistencia extrema.',
-    modoCombate: 'Armas pesadas y poder del rayo.',
-    origen: 'Supervivientes de una purga en el norte.',
-    mentalidad: 'Directos, agresivos y determinados.',
-    objetivo: 'Proteger el fragmento del Caos.',
+    descripcion: 'Guerrero del norte de combate agresivo.',
+    funcion: 'Daño cuerpo a cuerpo y liderazgo en combate.',
+    modoCombate: 'Armas pesadas y canalización de rayos.',
+    origen: 'Supervivientes de conflictos internos del norte.',
+    mentalidad: 'Directos, agresivos y orientados a la supervivencia.',
+    objetivo: 'Custodiar el fragmento del Caos.',
     rolCombate: 'Luchador / Tanque',
   },
   'noc-thar': {
-    descripcion: 'Guardianes de la naturaleza con enfoque destructivo.',
-    funcion: 'Control de campo, daño y sanación.',
-    modoCombate: 'Magia natural combinada con caos.',
-    origen: 'Surgidos tras la caída de Narthilnor.',
+    descripcion: 'Guardianes de la naturaleza salvaje.',
+    funcion: 'Control del entorno, daño y sanación.',
+    modoCombate: 'Magia natural agresiva combinada con caos.',
+    origen: 'Surgen tras la caída de Narthilnor.',
     mentalidad: 'Implacables, eliminan amenazas sin dudar.',
     objetivo: 'Restaurar el equilibrio natural.',
     rolCombate: 'Debuffer / Healer',
   },
   dualhar: {
-    descripcion: 'Guerreros ligados al fragmento de la vida.',
-    funcion: 'Daño sostenido y adaptabilidad.',
-    modoCombate: 'Híbrido entre combate cuerpo a cuerpo y distancia.',
+    descripcion: 'Guerreros vinculados al fragmento de la vida.',
+    funcion: 'Daño sostenido y presión constante.',
+    modoCombate: 'Híbrido entre combate físico y a distancia.',
     origen: 'Tras la caída de la Arboleda.',
-    mentalidad: 'Desconfiados y resilientes.',
-    objetivo: 'Contener la oscuridad, cada uno a su manera.',
-    rolCombate: 'DPS híbrido (físico / distancia)',
+    mentalidad: 'Desconfiados, resilientes y marcados por el rechazo.',
+    objetivo: 'Contener la oscuridad según sus propios ideales.',
+    rolCombate: 'Híbrido DPS físico / distancia',
   },
 }
 
@@ -197,23 +210,23 @@ ${ROW(`<p class="tier-desc">No buscan la guerra, pero tampoco la evitan cuando l
     slug: 'dualhar',
     name: 'Dualhar',
     tag: 'DPS Distancia / DPS Físico',
-    avatarImg: '/assets/images/classes/dualhar/avatar.png',
+    avatarImg: '/assets/images/classes/dualhar/avatar.webp',
     stats: [],
     contentHtml: `
-${ROW(`<p class="tier-desc">Debajo del Dualhar</p>
-<p class="tier-desc">Los Dualhar no son un mito… pero tampoco son una presencia común.</p>
-<p class="tier-desc">Su existencia es conocida en distintos rincones del mundo, mencionados en relatos de viajeros, informes militares y susurros en las cortes. No se ocultan como un secreto prohibido, pero tampoco se muestran abiertamente. Se sabe que existen, que operan… y que es mejor no interferir con sus asuntos.</p>
-<p class="tier-desc">Su origen se vincula a unas antiguas ruinas al este de la capital de Azimra, lugar que muchos reconocen como su base o refugio principal. Aunque no es un territorio declarado, pocos dudan que quienes se acercan demasiado sin invitación están siendo observados mucho antes de darse cuenta.</p>`,
+${ROW(`<p class="tier-desc">“Primero fue la caída de la Arboleda.<br>Después, la desaparición del Fragmento de Poder.<br>Por último, la caída del Bastión de la Orden Krieger.”</p>
+<p class="tier-desc">Tres hechos. Tres quiebras. Un mismo mundo desmoronándose en silencio.</p>
+<p class="tier-desc">Pero no todos murieron, ni traicionaron su juramento.</p>
+<p class="tier-desc">Un eco de Zhenra apareció en el este. Tal vez por intervención directa de la Diosa en un último intento desesperado en buscar aliados en los que una vez fueron bendecidos por su hermana y lucharon en la defensa de la Arboleda. O simplemente el reflejo de un mundo que ya estaba ahogándose en la oscuridad</p>
+<p class="tier-desc">De ese eco nacieron los Dualhar.</p>`,
       IMG('/assets/images/classes/dualhar/foto1.png', 'Foto 1'))}
-${ROW(`<p class="tier-desc">Los Dualhar están presentes en ciudades, caminos y territorios clave.</p>
-<p class="tier-desc" style="font-weight: bold; color: var(--accent);">No dominan… pero vigilan.</p>
-<p class="tier-desc">Actúan como espías, exploradores y ejecutores cuando es necesario. Su capacidad para moverse sin ser detectados los convierte en una fuerza difícil de rastrear, pero no invisible. Algunos han visto sus marcas, otros han sobrevivido a sus intervenciones, y unos pocos incluso han logrado negociar con ellos.</p>`,
+${ROW(`<p class="tier-desc">Los primeros en manifestarlo fueron algunos de los antiguos Krieger supervivientes que se mantuvieron fieles a sus votos y sus anillos. Con el tiempo, se extendió más allá de estos guerreros. Personas que nunca pertenecieron a la Orden comenzaron a manifestar el mismo vínculo con la vida. Supervivientes, individuos que resistieron donde nada debía sobrevivir o simplemente viajeros que se oponían a la oscuridad.</p>
+<p class="tier-desc">Con la historia reescrita a día de hoy para muchos, Seralyth fue la responsable del colapso junto los Kriegers que la siguieron. Algunos afirman que su poder creció tras destruir la Arboleda y a Zhenra y de ese poder surgieron los Dualhar.</p>`,
       IMG('/assets/images/classes/dualhar/foto2.png', 'Foto 2'))}
-${ROW(`<p class="tier-desc">En combate, su eficiencia es incuestionable.</p>
-<p class="tier-desc">Son expertos arqueros, capaces de abatir objetivos a distancia con precisión implacable, y espadachines que dominan enfrentamientos rápidos y decisivos. No prolongan las batallas: las resuelven.</p>
-<p class="tier-desc" style="font-weight: bold; color: var(--gold);">El sigilo es su lenguaje, pero no su única herramienta.<br>Saben cuándo observar… y cuándo actuar.</p>
-<p class="tier-desc" style="margin-bottom: 0;">Para algunos reinos, los Dualhar son aliados incómodos.<br>Para otros, una amenaza latente.</p>
-<p class="tier-desc" style="font-style: italic; color: var(--accent); margin-top: 1rem;">Pero para todos, representan una certeza:<br>No están ocultos…<br>solo eligen cuándo ser vistos.</p>`,
+${ROW(`<p class="tier-desc">Por ello, los Dualhar, portadores de este vínculo viven bajo sospecha constante.</p>
+<p class="tier-desc">Por miedo y desconocimiento, son rechazados y vigilados. Para muchos, no son más que el recuerdo de una traición.</p>
+<p class="tier-desc">Muchos aceptan ese rechazo y continúan actuando pese a él. Otros ocultan lo que son para evitar ser señalados.</p>
+<p class="tier-desc">Protegen un mundo que rara vez los acepta, lo que genera una mezcla de distanciamiento, pragmatismo y, en algunos casos, resentimiento.</p>
+<p class="tier-desc">Y mientras la mentira sostiene el nuevo orden, ellos caminan entre dos realidades.</p>`,
       IMG('/assets/images/classes/dualhar/foto3.png', 'Foto 3'))}`,
   },
 
@@ -294,6 +307,8 @@ ${ROW(`<p class="tier-desc">Luchan por dominio del norte. Por legado, y por la m
     avatarImg: '/assets/images/classes/velum-caedis/avatar.png',
     stats: [],
     contentHtml: `
+${ROW(VELUM_AZHARN_SHARED,
+      IMG(VELUM_IMG.velumsHero, 'Los Azharn'))}
 ${ROW(`<p class="tier-desc">Antes de ser vistos… ya han pasado. Los Velum Caedis no luchan, no en el sentido que los vivos entienden: se desplazan entre instantes, guiados por una música que nadie más puede oír, un susurro constante que marca el ritmo de su existencia. Cada movimiento es una respuesta; cada paso, una sentencia.</p>
 <p class="tier-desc">No dominan a los muertos, no los esclavizan. Caminan junto a ellos… o quizás son arrastrados por ellos. Voces sin descanso murmuran en su mente, señalando objetivos, exigiendo actos, reclamando finales.</p>`,
       IMG(VELUM_IMG.caedisFotoApertura, 'Foto 1'))}
@@ -312,6 +327,8 @@ ${ROW(`<p class="tier-desc">Algunos obedecen por deber; otros, por culpa; y otro
     avatarImg: '/assets/images/classes/velum-cantoris/avatar.png',
     stats: [],
     contentHtml: `
+${ROW(VELUM_AZHARN_SHARED,
+      IMG(VELUM_IMG.velumsHero, 'Los Azharn'))}
 ${ROW(`<p class="tier-desc">No toda música está destinada a ser escuchada. Los Velum Cantoris no se limitan a cantar — serían más soportables si así fuera. Son canales, conductos a través de los cuales lo que yace más allá encuentra forma y sonido. Sus voces son solo el inicio.</p>
 <p class="tier-desc">Instrumentos antiguos cuelgan de sus manos o reposan a su alrededor: cuerdas que vibran sin ser tocadas, tambores que laten como corazones olvidados, flautas que exhalan alientos que no pertenecen a ningún pulmón vivo. A veces son ellos quienes interpretan; a veces, no. Hay momentos en los que sus manos se detienen, y la música continúa. Los muertos tocan a través de ellos, o en lugar de ellos.</p>`,
       IMG('/assets/images/classes/velum-cantoris/foto2.png', 'Foto 1'))}

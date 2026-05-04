@@ -16,13 +16,14 @@ const CLASES = [
   { name: 'Ciudadano', path: '/clase-ciudadano', img: '/assets/images/classes/ciudadano/avatar.png', role: null, roleGroup: 'Support', roleLabel: 'Base' },
   { name: "Vhark'Hul", path: '/clase-vhark-hul', img: "/assets/images/classes/vharkhul/avatar.png", role: 'Tanque/Luchador', roleGroup: 'tanque', roleLabel: 'Tanque' },
   { name: 'Argent Praetor', path: '/clase-argent-praetor', img: '/assets/images/classes/argent-praetor/avatar.png', role: 'Tanque/Luchador', roleGroup: 'tanque', roleLabel: 'Tanque' },
-  { name: 'Dualhar', path: '/clase-dualhar', img: '/assets/images/classes/dualhar/avatar.png', role: 'DPS Distancia/DPS Fisico', roleGroup: 'dps', roleLabel: 'DPS' },
+  { name: 'Dualhar', path: '/clase-dualhar', img: '/assets/images/classes/dualhar/avatar.webp', role: 'DPS Distancia/DPS Fisico', roleGroup: 'dps', roleLabel: 'DPS' },
   { name: 'Luminari Vox', path: '/clase-luminari-vox', img: '/assets/images/classes/luminari-vox/avatar.png', role: 'Healer/Buffer', roleGroup: 'healer', roleLabel: 'Healer' },
   { name: "Noc'thar", path: '/clase-noc-thar', img: "/assets/images/classes/nocthar/avatar.png", role: 'Debuffer/Healer', roleGroup: 'healer', roleLabel: 'Healer' },
   { name: 'Stormheilm', path: '/clase-stormheilm', img: '/assets/images/classes/stormheilm/avatar.png', role: 'Luchador/Tanque', roleGroup: 'tanque', roleLabel: 'Tanque' },
-  { name: 'Velums', path: '/clase-velums', velumsSplit: true, role: 'Caedis / Cantoris', roleGroup: 'dps', roleLabel: 'Dualidad' },
+  { name: 'Velum Caedis', path: '/clase-velum-caedis', img: VELUM_IMG.caedisAvatar, role: 'Burst DPS', roleGroup: 'dps', roleLabel: 'DPS' },
+  { name: 'Velum Cantoris', path: '/clase-velum-cantoris', img: VELUM_IMG.cantorisAvatar, role: 'Buffer / Debuffer', roleGroup: 'support', roleLabel: 'Support' },
   { name: 'Zereth-Mor', path: '/clase-zereth-mor', img: '/assets/images/classes/zereth-mor/avatar.png', role: 'DPS Mágico', roleGroup: 'dps', roleLabel: 'DPS' },
-  { name: 'Magharyn', path: '/clase-magharyn', img: '/assets/images/classes/magharyn/avatar.png', role: 'Support/Luchador', roleGroup: 'Support', roleLabel: 'Support' },
+  { name: 'Magharyn', path: '/clase-magharyn', img: '/assets/images/classes/magharyn/avatar.png', role: 'Support/Luchador', roleGroup: 'support', roleLabel: 'Support' },
 ]
 
 export default function Clases() {

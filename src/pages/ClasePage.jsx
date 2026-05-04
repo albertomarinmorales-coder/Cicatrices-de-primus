@@ -14,7 +14,7 @@ const FICHA_FIELDS = [
   ['Rol de combate', 'rolCombate'],
 ]
 
-const ROMAN_NUMERALS = ['I', 'II', 'III', 'IV', 'V']
+const ROMAN_NUMERALS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
 
 function splitClaseSections(contentHtml) {
   if (typeof document === 'undefined') return [contentHtml]
@@ -149,6 +149,7 @@ function ClaseTextTabs({ chapterTitle, contentHtml }) {
 
       <div
         className="detail-text clase-codex clase-codex--tabbed"
+        style={{ counterReset: `clase-sec ${activeSection}` }}
         dangerouslySetInnerHTML={{ __html: currentSection }}
       />
     </section>
@@ -163,10 +164,9 @@ export default function ClasePage({ slug }) {
 
   if (!data) return null
 
-  const isVelumSenda = slug === 'velum-caedis' || slug === 'velum-cantoris'
-  const backTo = isVelumSenda ? '/clase-velums' : '/clases'
-  const backLabel = isVelumSenda ? 'Volver a Velums' : 'Volver a Clases'
-  const breadcrumbRoot = isVelumSenda ? 'Velums' : 'Clases'
+  const backTo = '/clases'
+  const backLabel = 'Volver a Clases'
+  const breadcrumbRoot = 'Clases'
 
   return (
     <div className="page active" id={`page-${slug}`}>

@@ -94,7 +94,7 @@ function HabilidadesProximamente() {
                   Habilidad
                 </th>
                 <th style={{ border: '1px solid var(--border)', color: 'var(--gold)', padding: '0.85rem', textAlign: 'left' }}>
-                  Estado
+                  Efecto
                 </th>
               </tr>
             </thead>

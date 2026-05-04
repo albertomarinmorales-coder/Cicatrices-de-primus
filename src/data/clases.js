@@ -197,7 +197,7 @@ ${ROW(`<p class="tier-desc">Aunque históricamente relegados a las clases bajas,
 <p class="tier-desc">El Ciudadano ha vivido la vida sin grandes lujos o con muchos lujos depende de su posicion social, pero con una fuerte conexión con la realidad del mundo normalmente. Sabe que todo lo que sube puede caer, y que sin sus manos, ningún imperio puede sostenerse. Algunos Ciudadanos son idealistas, otros más cínicos; pero todos comparten una cosa: conocimiento del valor del esfuerzo y la repetición.</p>`,
       IMG('/assets/images/classes/ciudadano/foto2.png', 'Foto 2'))}
 ${ROW(`<p class="tier-desc">Donde una casa noble piensa en estrategia, el Ciudadano común ve el estado de la cosecha. Donde un Magharyn habla del equilibrio del Thae, el ciudadano aplicado en salud conoce qué planta puede sanar o envenenar en segundos.</p>
-<p class="tier-desc" style="font-weight: bold; font-style: italic; color: var(--accent);">Los Ciudadanos Suelen Optar en un punto de su vida a un camino distinto, optando por estudiar artes en combate o, seguir haciéndose en negocios.</p>`,
+<p class="tier-desc">Los Ciudadanos suelen optar en un punto de su vida a un camino distinto, optando por estudiar artes en combate o seguir haciéndose en negocios.</p>`,
       IMG('/assets/images/classes/ciudadano/foto3.png', 'Foto 3'))}`,
   },
 
@@ -214,34 +214,26 @@ ${ROW(`<p class="tier-desc">Donde una casa noble piensa en estrategia, el Ciudad
     contentHtml: `
 ${ROW(
       historiaP(
-        'No fueron creados por capricho, ni por necesidad inmediata.',
-        'Los Vhark\'hul nacen de una obsesión.',
+        'No fueron creados por capricho, ni por necesidad inmediata. Los Vhark\'hul nacen de una obsesión.',
         'Fue Erick quien, en su búsqueda por trascender los límites del Thae conocido, comenzó a experimentar con una combinación que muchos consideraban imposible… o prohibida: el Thae del Poder y el Thae de la Muerte. No se trataba de dominar ambos, sino de fundirlos, de crear una fuerza que no solo destruyera, sino que perdurara más allá del final.',
-        'El resultado no fue una criatura, sino un propósito encarnado.',
-        'Los Vhark\'hul no nacen: son forjados.',
+        'El resultado no fue una criatura, sino un propósito encarnado. Los Vhark\'hul no nacen: son forjados.',
         'Cada uno es el producto de rituales donde la vida es moldeada, quebrada y reconstruida bajo una voluntad superior. No poseen la inestabilidad de los Magharyn ni la dependencia de los Nigromantes. Son algo distinto. Algo más… definitivo..'
       ),
       IMG("/assets/images/classes/vharkhul/foto1.png", 'Foto 1')
     )}
 ${ROW(
       historiaP(
-        'Sus armas no son simples herramientas de guerra.',
-        'Las hojas que empuñan están ligadas a su esencia, y con cada enemigo caído, reclaman algo más que la victoria: recolectan su alma. No como trofeo, sino como combustible. Cada alma absorbida fortalece su existencia, refuerza su vínculo con el Thae y los acerca más a aquello que Erick buscaba crear… una entidad autosostenida, imposible de extinguir por medios convencionales.',
-        'Por ello, muchos los llaman desalmados.',
-        'No por carecer de alma, sino porque han trascendido la necesidad de una propia. Sus emociones son ecos lejanos, su humanidad una sombra que apenas recuerdan. Se mueven con precisión, con frialdad, como si cada acción estuviera ya decidida desde antes de ejecutarse.',
-        'Otros los llaman guardianes.'
+        'Sus armas no son simples herramientas de guerra. Las hojas que empuñan están ligadas a su esencia, y con cada enemigo caído, reclaman algo más que la victoria: recolectan su alma. No como trofeo, sino como combustible. Cada alma absorbida fortalece su existencia, refuerza su vínculo con el Thae y los acerca más a aquello que Erick buscaba crear… una entidad autosostenida, imposible de extinguir por medios convencionales.',
+        'Por ello, muchos los llaman desalmados. No por carecer de alma, sino porque han trascendido la necesidad de una propia. Sus emociones son ecos lejanos, su humanidad una sombra que apenas recuerdan. Se mueven con precisión, con frialdad, como si cada acción estuviera ya decidida desde antes de ejecutarse. Otros los llaman guardianes.'
       ),
       IMG("/assets/images/classes/vharkhul/foto2.png", 'Foto 2')
     )}
 ${ROW(
       historiaP(
         'En lo alto de la Torre del Último Juramento, los Vhark\'hul permanecen. No como vigilantes pasivos, sino como centinelas de algo que pocos comprenden. Allí donde los votos no pueden romperse, donde las promesas tienen peso real, ellos existen como recordatorio viviente de que algunos compromisos… no admiten traición.',
-        'Responden al reino.',
-        'No responden a órdenes comunes.',
-        'Y no luchan por gloria.',
+        'Responden al reino. No responden a órdenes comunes. Y no luchan por gloria.',
         'Cada Vhark\'hul sigue un propósito propio, grabado en su ser durante su creación. Un objetivo que puede tomar años, décadas… o siglos en cumplirse.',
-        'Y cuando finalmente lo logran, no celebran.',
-        'Solo continúan.'
+        'Y cuando finalmente lo logran, no celebran. Solo continúan.'
       ),
       IMG("/assets/images/classes/vharkhul/foto3.png", 'Foto 3')
     )}`,
@@ -267,18 +259,14 @@ ${ROW(
 ${ROW(
       historiaP(
         'Su presencia en el campo de batalla no es simbólica. Se interponen entre la oscuridad y el inocente, entre la corrupción y el orden, entre la blasfemia y el altar. Son severos porque el mundo lo exige. Son firmes porque el mal no negocia. Son implacables porque la corrupción no descansa.',
-        'El Praetor no protege por compasión.',
-        'Protege por deber.'
+        'El Praetor no protege por compasión. Protege por deber.'
       ),
       IMG('/assets/images/classes/argent-praetor/foto2.png', 'Foto 2')
     )}
 ${ROW(
       historiaP(
         'No buscan la guerra, pero tampoco la evitan cuando la herejía rehúsa inclinarse. Cuando la sombra se niega a extinguirse y la corrupción rechaza redención, entonces la espada habla y la llama consume. No por odio, ni por placer, sino por mandato del Orden. Dentro de la Lucis Aeternae, los Praetor conforman la primera línea de toda cruzada. Son la cabeza visible de la rama militar, ejemplo para todo aquellos que les siguen y piedra angular de la estrategia bélica de la Orden. Su disciplina refleja el orden celestial que veneran: jerarquía clara, responsabilidad absoluta y obediencia incuestionable al Lux Belator y al Primus Luxor.',
-        'No son conquistadores.',
-        'No son fanáticos sin dirección.',
-        'Son la muralla viva de Thronus.',
-        'Y mientras arda la Llama Eterna, un Praetor permanecerá en pie.'
+        'No son conquistadores. No son fanáticos sin dirección. Son la muralla viva de Thronus. Y mientras arda la Llama Eterna, un Praetor permanecerá en pie.'
       ),
       IMG('/assets/images/classes/argent-praetor/foto3.png', 'Foto 3')
     )}`,
@@ -293,7 +281,7 @@ ${ROW(
     contentHtml: `
 ${ROW(
       historiaP(
-        '“Primero fue la caída de la Arboleda.<br />Después, la desaparición del Fragmento de Poder.<br />Por último, la caída del Bastión de la Orden Krieger.”',
+        'Primero fue la caída de la Arboleda. Después, la desaparición del Fragmento de Poder. Por último, la caída del Bastión de la Orden Krieger.',
         'Tres hechos. Tres quiebras. Un mismo mundo desmoronándose en silencio.',
         'Pero no todos murieron, ni traicionaron su juramento.',
         'Un eco de Zhenra apareció en el este. Tal vez por intervención directa de la Diosa en un último intento desesperado en buscar aliados en los que una vez fueron bendecidos por su hermana y lucharon en la defensa de la Arboleda. O simplemente el reflejo de un mundo que ya estaba ahogándose en la oscuridad.',
@@ -310,11 +298,9 @@ ${ROW(
     )}
 ${ROW(
       historiaP(
-        'Por ello, los Dualhar, portadores de este vínculo viven bajo sospecha constante.',
-        'Por miedo y desconocimiento, son rechazados y vigilados. Para muchos, no son más que el recuerdo de una traición.',
+        'Por ello, los Dualhar, portadores de este vínculo viven bajo sospecha constante. Por miedo y desconocimiento, son rechazados y vigilados. Para muchos, no son más que el recuerdo de una traición.',
         'Muchos aceptan ese rechazo y continúan actuando pese a él. Otros ocultan lo que son para evitar ser señalados.',
-        'Protegen un mundo que rara vez los acepta, lo que genera una mezcla de distanciamiento, pragmatismo y, en algunos casos, resentimiento.',
-        'Y mientras la mentira sostiene el nuevo orden, ellos caminan entre dos realidades.'
+        'Protegen un mundo que rara vez los acepta, lo que genera una mezcla de distanciamiento, pragmatismo y, en algunos casos, resentimiento. Y mientras la mentira sostiene el nuevo orden, ellos caminan entre dos realidades.'
       ),
       IMG('/assets/images/classes/dualhar/foto3.png', 'Foto 3')
     )}`,
@@ -344,9 +330,8 @@ ${ROW(
 ${ROW(
       historiaP(
         'Dentro de la jerarquía de la Orden, los Luminarii representan el equilibrio del fuego sagrado. Si los Praetor ejecutan el mandato visible, ellos garantizan que dicho mandato permanezca alineado con la verdad doctrinal. Responden al Lux Purificare y al Primus Luxor con la misma obediencia que sus hermanos armados, pero su campo de batalla es el pensamiento, la herejía latente y la corrupción encubierta.',
-        'No buscan protagonismo; Buscan claridad. No desean condenar por impulso; desean purificar con precisión.',
-        'No son meros inquisidores ni simples sanadores; son el Ojo de la Llama Eterna.',
-        'Y mientras exista una sombra en Primus, un Luminarii estará observando.'
+        'No buscan protagonismo; buscan claridad. No desean condenar por impulso; desean purificar con precisión.',
+        'No son meros inquisidores ni simples sanadores; son el Ojo de la Llama Eterna. Y mientras exista una sombra en Primus, un Luminarii estará observando.'
       ),
       IMG('/assets/images/classes/luminari-vox/foto3.png', 'Foto 3')
     )}`,
@@ -370,10 +355,7 @@ ${ROW(
     )}
 ${ROW(
       historiaP(
-        'Así nacieron los Noc\'thar.',
-        'No como una orden fundada.',
-        'No como una tradición transmitida.',
-        'Sino como la venganza de la propia naturaleza.',
+        'Así nacieron los Noc\'thar. No como una orden fundada. No como una tradición transmitida. Sino como la venganza de la propia naturaleza.',
         'Si los Custos fueron Guardianes del Cambio y el Equilibrio, los Noc\'thar son guardianes de la Respuesta y la Reparación. No buscan dominar la naturaleza, pero tampoco limitarla a la paciencia eterna. Han aceptado que cuando la corrupción desgarra el mundo, el bosque no susurra: ruge.',
         'Su vínculo espiritual no fue destruido con la caída de Narthilnor; fue transformado. Allí donde antes encontraban guía en la serenidad perpetua, ahora han aprendido a canalizar también la fuerza primordial del caos, representada en la figura de Vorgrimm, no como amo, sino como herramienta. Entienden que la vida no florece sin violencia natural: el incendio limpia, la helada endurece, y la tormenta purifica.'
       ),
@@ -383,12 +365,8 @@ ${ROW(
       historiaP(
         'Algunos entre ellos aún sanan tierras heridas, pero sus manos ya no son solo suaves. Otros marchan como guerreros inclementes, arrancando la corrupción desde la raíz antes de que pueda extenderse. No actúan desde la compasión ingenua, sino desde una justicia antigua que precede a reyes y credos.',
         'Habitan ahora los lugares donde el bosque es más áspero, donde el viento corta y la nieve cubre cicatrices que aún laten bajo el suelo. Allí, los Noc\'thar velan por el mundo no como mediadores pasivos, sino como su ultimátum viviente.',
-        'No han abandonado su misión.',
-        'La han endurecido.',
-        'No son meros druidas heridos.',
-        'Son la herida que aprendió a caminar.',
-        'Y cuando la tierra vuelva a gritar, no responderán con un susurro.',
-        'Responderán con un rugido..'
+        'No han abandonado su misión. La han endurecido. No son meros druidas heridos. Son la herida que aprendió a caminar.',
+        'Y cuando la tierra vuelva a gritar, no responderán con un susurro. Responderán con un rugido..'
       ),
       IMG("/assets/images/classes/nocthar/foto3.png", 'Foto 3')
     )}`,
@@ -411,9 +389,7 @@ ${ROW(
     )}
 ${ROW(
       historiaP(
-        'No conocen la retirada.',
-        'No conocen el temor.',
-        'La única dirección que aceptan es hacia adelante.',
+        'No conocen la retirada. No conocen el temor. La única dirección que aceptan es hacia adelante.',
         'La purga de Ravensvik redujo su número, pero templó su esencia. Comprendieron que el enemigo no siempre se alza más allá del horizonte helado; a veces se oculta en la ambición interna, en el orgullo sin honor. Desde entonces, la manada es más pequeña, más unida y más letal.',
         'Su vínculo con los elementos también se transformó. La piedra, el hielo y el trueno ya no son solo maestros: son armas vivientes en sus manos. Y en la tormenta reconocen el eco de Vorgrimm, no como divinidad distante, sino como principio de prueba y selección. Para ellos, el caos no es destrucción sin sentido; es supervivencia. Es el derecho del fuerte a mantenerse en pie cuando todo lo demás cae.'
       ),
@@ -423,11 +399,8 @@ ${ROW(
       historiaP(
         'Luchan por dominio del norte. Por legado, y por la manada.',
         'Defenderán Yrsafell hasta que el hielo reclame sus huesos y el trueno pronuncie su nombre por última vez. Porque si la montaña no retrocede ante la tormenta, tampoco lo harán sus hijos.',
-        'No son meros bárbaros.',
-        'No son simples exploradores del norte.',
-        'Son la tormenta que avanza.',
-        'Y cuando el viento aúlle en las cumbres, no será advertencia.',
-        'Será un anuncio.'
+        'No son meros bárbaros. No son simples exploradores del norte. Son la tormenta que avanza.',
+        'Y cuando el viento aúlle en las cumbres, no será advertencia. Será un anuncio.'
       ),
       IMG('/assets/images/classes/stormheilm/foto3.png', 'Foto 3')
     )}`,
@@ -442,49 +415,35 @@ ${ROW(
     contentHtml: `
 ${ROW(
       historiaP(
-        'Azharn,',
-        'Donde otros retroceden ante el silencio de la muerte, los Azharn avanzan. No lo desafían… lo aceptan. En ese vacío donde todo termina, ellos encuentran propósito.',
+        'Azharn. Donde otros retroceden ante el silencio de la muerte, los Azharn avanzan. No lo desafían… lo aceptan. En ese vacío donde todo termina, ellos encuentran propósito.',
         'Son seres marcados por un destino irrevocable, ligados a lo invisible, a lo olvidado, a aquello que se niega a desaparecer. No escuchan a los muertos como un don, sino como una condena que late en su sangre. Susurros sin descanso, voces que no conocen reposo. A través del viento y la música, los ecos de los caídos se aferran a ellos, guiando sus pasos… o arrastrándolos.',
-        'Nunca están solos.',
-        'El aire a su alrededor vibra con presencias: melodías que nacen de recuerdos marchitos, lamentos que desgarran la cordura, armonías que no pertenecen al mundo de los vivos. Para un Azharn, la música no es arte. Es un umbral. Un lenguaje antiguo con el más allá.',
+        'Nunca están solos. El aire a su alrededor vibra con presencias: melodías que nacen de recuerdos marchitos, lamentos que desgarran la cordura, armonías que no pertenecen al mundo de los vivos. Para un Azharn, la música no es arte. Es un umbral. Un lenguaje antiguo con el más allá.',
         'Son los intérpretes de lo inconcluso. Ejecutores de voluntades que la muerte no logró apagar. Sanadores de penas que jamás encontraron descanso. Vengadores de agravios enterrados en el olvido… o marionetas de voces que susurran mentiras con la forma de promesas.',
         'El origen de su poder es un secreto que ni siquiera ellos comprenden del todo. Su sangre no los corrompe… los transforma. Los convierte en entidades suspendidas entre dos mundos, capaces de mirar donde otros enloquecerían al instante.',
-        'Pero ningún mortal puede sostener esa mirada eternamente.',
-        'A veces, el umbral devuelve la mirada.',
-        'Y cuando eso ocurre, no todos logran resistir.',
+        'Pero ningún mortal puede sostener esa mirada eternamente. A veces, el umbral devuelve la mirada. Y cuando eso ocurre, no todos logran resistir.',
         'Los Azharn no buscan gloria. La gloria es para los vivos. Lo suyo es algo más antiguo, más frío. Su existencia es un equilibrio imposible, una danza al filo de lo inevitable. Donde otros apartan la vista del final, ellos lo contemplan… y responden.',
-        'Cuando el silencio se alza para devorarlo todo, los Azharn no huyen.',
-        'Ellos cantan.',
-        'Ellos danzan.',
-        'Y el mundo se rompe con ellos.'
+        'Cuando el silencio se alza para devorarlo todo, los Azharn no huyen. Ellos cantan. Ellos danzan. Y el mundo se rompe con ellos.'
       ),
       IMG(VELUM_IMG.velumsHero, 'Velum')
     )}
 ${ROW(
       historiaP(
-        'Velum Caedis — Caminantes del Umbral,',
+        'Velum Caedis — Caminantes del Umbral.',
         'Antes de ser vistos… ya han pasado.',
         'Los Velum Caedis no luchan. No en el sentido que los vivos entienden. Ellos se desplazan entre instantes, guiados por una música que nadie más puede oír. Un susurro constante que marca el ritmo de su existencia.',
-        'Cada movimiento es una respuesta.',
-        'Cada paso, una sentencia.',
+        'Cada movimiento es una respuesta. Cada paso, una sentencia.',
         'No dominan a los muertos. No los esclavizan. Caminan junto a ellos… o quizás son arrastrados por ellos. Voces sin descanso murmuran en su mente, señalando objetivos, exigiendo actos, reclamando finales.'
       ),
       IMG(VELUM_IMG.caedisFotoApertura, 'Foto 1')
     )}
 ${ROW(
       historiaP(
-        'Algunos obedecen por deber.',
-        'Otros, por culpa.',
-        'Y algunos… porque han olvidado cómo dejar de escuchar.',
+        'Algunos obedecen por deber. Otros, por culpa. Y algunos… porque han olvidado cómo dejar de escuchar.',
         'En combate, son irreales. Apariciones fugaces que cortan el tejido de la realidad y desaparecen antes de que la sangre toque el suelo. No buscan destrucción. Buscan precisión.',
-        'Un nombre.',
-        'Un acto.',
-        'Un final.',
-        'Y luego, nada.',
+        'Un nombre. Un acto. Un final. Y luego, nada.',
         'Pero el precio es inevitable.',
         'Cuanto más tiempo permanecen entre el mundo de los vivos y el eco de los muertos, más difusa se vuelve su existencia. Sus cuerpos siguen moviéndose… pero algo en ellos ya no regresa.',
-        'Y llega un momento en que el susurro deja de guiar.',
-        'Y empieza a reclamar.'
+        'Y llega un momento en que el susurro deja de guiar. Y empieza a reclamar.'
       ),
       IMG(VELUM_IMG.caedisFoto1, 'Foto 2')
     )}`,
@@ -501,32 +460,22 @@ ${ROW(
       historiaP(
         'Donde otros retroceden ante el silencio de la muerte, los Azharn avanzan. No lo desafían… lo aceptan. En ese vacío donde todo termina, ellos encuentran propósito.',
         'Son seres marcados por un destino irrevocable, ligados a lo invisible, a lo olvidado, a aquello que se niega a desaparecer. No escuchan a los muertos como un don, sino como una condena que late en su sangre. Susurros sin descanso, voces que no conocen reposo. A través del viento y la música, los ecos de los caídos se aferran a ellos, guiando sus pasos… o arrastrándolos.',
-        'Nunca están solos.',
-        'El aire a su alrededor vibra con presencias: melodías que nacen de recuerdos marchitos, lamentos que desgarran la cordura, armonías que no pertenecen al mundo de los vivos. Para un Azharn, la música no es arte. Es un umbral. Un lenguaje antiguo con el más allá.',
+        'Nunca están solos. El aire a su alrededor vibra con presencias: melodías que nacen de recuerdos marchitos, lamentos que desgarran la cordura, armonías que no pertenecen al mundo de los vivos. Para un Azharn, la música no es arte. Es un umbral. Un lenguaje antiguo con el más allá.',
         'Son los intérpretes de lo inconcluso. Ejecutores de voluntades que la muerte no logró apagar. Sanadores de penas que jamás encontraron descanso. Vengadores de agravios enterrados en el olvido… o marionetas de voces que susurran mentiras con la forma de promesas.',
         'El origen de su poder es un secreto que ni siquiera ellos comprenden del todo. Su sangre no los corrompe… los transforma. Los convierte en entidades suspendidas entre dos mundos, capaces de mirar donde otros enloquecerían al instante.',
-        'Pero ningún mortal puede sostener esa mirada eternamente.',
-        'A veces, el umbral devuelve la mirada.',
-        'Y cuando eso ocurre, no todos logran resistir.',
+        'Pero ningún mortal puede sostener esa mirada eternamente. A veces, el umbral devuelve la mirada. Y cuando eso ocurre, no todos logran resistir.',
         'Los Azharn no buscan gloria. La gloria es para los vivos. Lo suyo es algo más antiguo, más frío. Su existencia es un equilibrio imposible, una danza al filo de lo inevitable. Donde otros apartan la vista del final, ellos lo contemplan… y responden.',
-        'Cuando el silencio se alza para devorarlo todo, los Azharn no huyen.',
-        'Ellos cantan.',
-        'Ellos danzan.',
-        'Y el mundo se rompe con ellos.'
+        'Cuando el silencio se alza para devorarlo todo, los Azharn no huyen. Ellos cantan. Ellos danzan. Y el mundo se rompe con ellos.'
       ),
       IMG(VELUM_IMG.velumsHero, 'Velum')
     )}
 ${ROW(
       historiaP(
-        'Velum Cantoris — La Voz que Descompone el Mundo,',
+        'Velum Cantoris — La Voz que Descompone el Mundo.',
         'No toda música está destinada a ser escuchada.',
         'Los Velum Cantoris no se limitan a cantar… serían más soportables si así fuera. Son canales, conductos a través de los cuales lo que yace más allá encuentra forma y sonido. Sus voces son solo el inicio.',
-        'Instrumentos antiguos cuelgan de sus manos o reposan a su alrededor: cuerdas que vibran sin ser tocadas, tambores que laten como corazones olvidados, flautas que exhalan alientos que no pertenecen a ningún pulmón vivo. A veces son ellos quienes interpretan.',
-        'A veces… no.',
-        'Hay momentos en los que sus manos se detienen…',
-        'y la música continúa.',
-        'Los muertos tocan a través de ellos.',
-        'O en lugar de ellos.'
+        'Instrumentos antiguos cuelgan de sus manos o reposan a su alrededor: cuerdas que vibran sin ser tocadas, tambores que laten como corazones olvidados, flautas que exhalan alientos que no pertenecen a ningún pulmón vivo. A veces son ellos quienes interpretan. A veces… no.',
+        'Hay momentos en los que sus manos se detienen… y la música continúa. Los muertos tocan a través de ellos. O en lugar de ellos.'
       ),
       IMG('/assets/images/classes/velum-cantoris/foto2.png', 'Foto 1')
     )}
@@ -534,16 +483,9 @@ ${ROW(
       historiaP(
         'Donde su arte resuena, la realidad se agrieta. Las certezas se pudren. La voluntad se deshace como ceniza entre los dedos. No invocan el Thae de Muerte y Caos… porque ya habita en cada nota, en cada vibración que se arrastra entre mundos.',
         'Cada sonido arrastra un eco antiguo. Cada pausa es una grieta por donde algo observa de vuelta.',
-        'Algunos creen que provocan la desesperación.',
-        'Se equivocan.',
-        'La desesperación siempre estuvo ahí.',
-        'Ellos solo le dan forma.',
-        'Le dan voz.',
-        'Le dan ritmo.',
+        'Algunos creen que provocan la desesperación. Se equivocan. La desesperación siempre estuvo ahí. Ellos solo le dan forma. Le dan voz. Le dan ritmo.',
         'Y cuando la última nota muere… la música no desaparece. Permanece, aferrada a la mente, repitiéndose en silencio, erosionando lentamente lo que encuentra.',
-        'Nadie que haya presenciado a un Velum Cantoris vuelve intacto.',
-        'Porque no importa quién tocó realmente…',
-        'la canción siempre encuentra a quien escucharla.'
+        'Nadie que haya presenciado a un Velum Cantoris vuelve intacto. Porque no importa quién tocó realmente… la canción siempre encuentra a quien escucharla.'
       ),
       IMG('/assets/images/classes/velum-cantoris/foto3.png', 'Foto 2')
     )}`,
@@ -558,30 +500,23 @@ ${ROW(
     contentHtml: `
 ${ROW(
       historiaP(
-        'No todos los que estudian la muerte lo hacen desde las sombras.',
-        'Algunos fueron autorizados a mirarla de frente… y a utilizarla.',
-        'Los Zereth\'mor no surgieron como una orden clandestina ni como un culto prohibido. Su existencia fue legitimada en un momento donde el mundo necesitaba respuestas que la vida no podía ofrecer. Fue Meiga, en un acto que muchos consideraron impensable, quien presentó la nigromancia no como una aberración, sino como una herramienta. Y contra todo pronóstico, tanto el rey como Caelis concedieron su aprobación.',
-        'No por confianza.',
-        'Sino por necesidad.'
+        'No todos los que estudian la muerte lo hacen desde las sombras. Algunos fueron autorizados a mirarla de frente… y a utilizarla.',
+        'Los Zereth\'mor no surgieron como una orden clandestina ni como un culto prohibido. Su existencia fue legitimada en un momento donde el mundo necesitaba respuestas que la vida no podía ofrecer. Fue Meiga, en un acto que muchos consideraron impensable, quien presentó la nigromancia no como una aberración, sino como una herramienta. Y contra todo pronóstico, tanto el rey como Caelis concedieron su aprobación. No por confianza. Sino por necesidad.'
       ),
       IMG('/assets/images/classes/zereth-mor/foto1.png', 'Foto 1')
     )}
 ${ROW(
       historiaP(
         'Desde entonces, los Zereth\'mor caminan una línea peligrosa: son practicantes de un arte prohibido… permitido bajo vigilancia. Enseñan a quienes pueden soportarlo, formando discípulos capaces de manipular lo que otros temen incluso nombrar.',
-        'Para ellos, los muertos no son sagrados.',
-        'Son útiles.'
+        'Para ellos, los muertos no son sagrados. Son útiles.'
       ),
       IMG('/assets/images/classes/zereth-mor/foto2.png', 'Foto 2')
     )}
 ${ROW(
       historiaP(
         'No ven almas en descanso ni cuerpos dignos de duelo. Ven estructuras vacías, listas para ser reclamadas. En sus manos, los caídos se convierten en marionetas, obedientes, silenciosas, eternamente funcionales. Cada cadáver reanimado es un hilo más en una red invisible que solo ellos saben manejar.',
-        'Por eso se les teme.',
-        'Porque los Zereth\'mor no desafían la muerte.',
-        'La reorganizan.',
-        'Aun así, su existencia sigue siendo cuestionada. Para muchos, son una traición al orden natural. Para otros, una herramienta necesaria en tiempos de guerra. Pero para quienes entienden su verdadera naturaleza, representan algo más inquietante:',
-        'La prueba de que la muerte… puede perder su significado.',
+        'Por eso se les teme. Porque los Zereth\'mor no desafían la muerte. La reorganizan.',
+        'Aun así, su existencia sigue siendo cuestionada. Para muchos, son una traición al orden natural. Para otros, una herramienta necesaria en tiempos de guerra. Pero para quienes entienden su verdadera naturaleza, representan algo más inquietante: la prueba de que la muerte… puede perder su significado.',
         'Y cuando eso ocurre, no hay límite claro entre lo que debe permanecer en reposo… y lo que puede volver a levantarse.'
       ),
       IMG('/assets/images/classes/zereth-mor/foto3.png', 'Foto 3')
@@ -622,7 +557,7 @@ ${ROW(
     avatarImg: '/assets/images/classes/desconocido/avatar.png',
     stats: [],
     contentHtml: `<p class="tier-desc">Algunos nacen con acero, otros con fe, otros con dones que el mundo puede nombrar. Pero existen unos pocos cuya senda no figura en códices ni juramentos. No pertenecen a órdenes conocidas, no responden a linajes ni a doctrinas visibles. Caminan entre ruinas, guerras y sombras dejando señales que pocos entienden.</p>
-<p class="tier-desc" style="font-style: italic; color: var(--accent);">Se desconoce si son restos de una verdad olvidada… o ecos de algo que aún no ha despertado.</p>
-<p class="tier-desc" style="font-weight: bold; margin-bottom: 0;">Nadie sabe de dónde vienen.<br>Nadie sabe qué buscan.</p>`,
+<p class="tier-desc">Se desconoce si son restos de una verdad olvidada… o ecos de algo que aún no ha despertado.</p>
+<p class="tier-desc">Nadie sabe de dónde vienen. Nadie sabe qué buscan.</p>`,
   },
 }

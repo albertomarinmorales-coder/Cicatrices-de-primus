@@ -108,7 +108,7 @@ export default function Facciones() {
         <h2 className="section-title">Mundo de Primus</h2>
         <div className="section-underline"><i className="ra ra-compass" aria-hidden /></div>
         <div className="detail-text" style={{ maxWidth: '760px', margin: '0 auto 3.5rem', textAlign: 'center' }}>
-          <p>Los poderes que lo moldean.</p>
+          <p>Los sucesos que han marcado el mundo de Primus.</p>
         </div>
 
         <div className={`lore-tabs${tabsOpen ? ' open' : ''}`} id="facciones-tabs">

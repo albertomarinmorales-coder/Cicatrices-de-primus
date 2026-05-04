@@ -6767,7 +6767,7 @@ body.modal-active .audio-toggle {
   margin: 0 auto;
   min-width: 0;
   width: 100%;
-  max-width: 740px;
+  max-width: min(740px, 68ch);
   background: none;
   border: none;
   display: flex;
@@ -6869,16 +6869,36 @@ body.modal-active .audio-toggle {
   align-self: stretch;
 }
 
-.clase-codex .clase-feature-text p.tier-desc {
+.clase-codex .clase-feature-text p.tier-desc,
+.clase-codex > p.tier-desc {
   font-family: 'EB Garamond', serif;
-  font-weight: 300;
-  font-size: 1.05rem;
-  line-height: 1.95;
-  color: var(--text-muted);
-  margin-bottom: 1.1rem;
+  font-style: normal !important;
+  font-weight: 300 !important;
+  font-size: 1.06rem;
+  line-height: 2.02;
+  letter-spacing: 0.01em;
+  color: var(--text-muted) !important;
+  margin-bottom: 1.25rem;
+  text-wrap: pretty;
+  hyphens: auto;
+  hyphenate-limit-chars: 8 4 4;
 }
 
-.clase-codex .clase-feature-text p.tier-desc:last-child {
+.clase-codex .clase-feature-text p.tier-desc strong,
+.clase-codex .clase-feature-text p.tier-desc em,
+.clase-codex .clase-feature-text p.tier-desc b,
+.clase-codex .clase-feature-text p.tier-desc i,
+.clase-codex > p.tier-desc strong,
+.clase-codex > p.tier-desc em,
+.clase-codex > p.tier-desc b,
+.clase-codex > p.tier-desc i {
+  font-style: normal !important;
+  font-weight: 300 !important;
+  color: inherit !important;
+}
+
+.clase-codex .clase-feature-text p.tier-desc:last-child,
+.clase-codex > p.tier-desc:last-child {
   margin-bottom: 0;
 }
 
@@ -7114,6 +7134,13 @@ body.modal-active .audio-toggle {
 
 .clase-detail-panel .clase-codex {
   gap: 0;
+  max-width: min(100%, 72ch);
+  margin-inline: auto;
+}
+
+.clase-detail-panel .clase-codex > p.tier-desc {
+  max-width: min(740px, 68ch);
+  margin-inline: auto;
 }
 
 .clase-detail-panel .clase-codex > .clase-feature-row,

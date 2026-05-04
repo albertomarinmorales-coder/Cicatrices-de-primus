@@ -323,11 +323,7 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .velums-codex-panel,
 .deity-card-frame,
 .raza-photo-item,
-.raza-intro-img,
-.tier-panel,
-.tier-panel-content,
-.raza-variant-card,
-.raza-requisitos-card {
+.raza-intro-img {
   position: relative;
 }
 
@@ -344,11 +340,7 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .velums-codex-panel::before,
 .deity-card-frame::before,
 .raza-photo-item::before,
-.raza-intro-img::before,
-.tier-panel::before,
-.tier-panel-content::before,
-.raza-variant-card::before,
-.raza-requisitos-card::before {
+.raza-intro-img::before {
   content: "";
   height: 100%;
   width: 100%;
@@ -377,11 +369,7 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .velums-codex-panel:hover::before,
 .deity-card-frame:hover::before,
 .raza-photo-item:hover::before,
-.raza-intro-img:hover::before,
-.tier-panel:hover::before,
-.tier-panel-content:hover::before,
-.raza-variant-card:hover::before,
-.raza-requisitos-card:hover::before {
+.raza-intro-img:hover::before {
   opacity: 1;
 }
 
@@ -398,19 +386,14 @@ body:has(#page-deidades) #particles-container .particle:nth-child(3n+3) {
 .equipo-card > *,
 .deity-card-frame > *,
 .raza-photo-item > *,
-.raza-intro-img > *,
-.tier-panel > *,
-.tier-panel-content > *,
-.raza-variant-card > *,
-.raza-requisitos-card > * {
+.raza-intro-img > * {
   position: relative;
   z-index: 4;
 }
 
-/* Resplandor encima de imágenes y bloque de tabs (razas): visibles con soft-light; el ::before va por encima del img/texto (z-4) para mezclarse. */
+/* Resplandor encima de imágenes (razas): visible con soft-light; el ::before va por encima del img (z-4) para mezclarse. */
 .raza-card-img-wrap::before,
-.raza-intro-img::before,
-.tier-panel .tier-panel-content::before {
+.raza-intro-img::before {
   z-index: 5;
   mix-blend-mode: soft-light;
 }
@@ -2598,6 +2581,95 @@ a.btn-primary:active {
 .tier-desc--italic {
   font-style: italic;
   margin-bottom: 0;
+}
+
+/*
+ * Razas / Oficios (pestañas): ritmo y listas alineadas — etiquetas en columna fija cuando hay <strong> al inicio del <li>.
+ */
+.detail-body .oficio-tiers .tier-panel-content .tier-desc {
+  margin-bottom: 1.15rem;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .tier-desc:last-child {
+  margin-bottom: 0;
+}
+
+.detail-body .oficio-tiers .tier-panel-content > .tier-perks:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .tier-desc + .tier-perks {
+  margin-top: 0;
+  padding-top: 1rem;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .tier-perks + .tier-perks {
+  border-top: none;
+  padding-top: 0;
+  margin-top: -0.15rem;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .tier-perks + .tier-desc {
+  margin-top: 0.35rem;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .tier-perks + .raza-variant-card,
+.detail-body .oficio-tiers .tier-panel-content .tier-perks + .raza-requisitos-card {
+  margin-top: 0.35rem;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .tier-perks {
+  margin-bottom: 1.15rem;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .tier-perks:last-child {
+  margin-bottom: 0;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .raza-variant-card:last-child .tier-perks:last-child,
+.detail-body .oficio-tiers .tier-panel-content .raza-requisitos-card .tier-perks:last-child {
+  margin-bottom: 0;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .tier-perks li:has(> strong:first-child) {
+  gap: 14px;
+  align-items: baseline;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .tier-perks li > strong:first-child {
+  flex: 0 0 auto;
+  min-width: 10.75rem;
+  max-width: 38%;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold);
+  line-height: 1.35;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .raza-variant-card .tier-perks li > strong:first-child,
+.detail-body .oficio-tiers .tier-panel-content .raza-requisitos-card .tier-perks li > strong:first-child {
+  min-width: 9.25rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .raza-sub-title + .tier-desc {
+  margin-top: -0.15rem;
+}
+
+.detail-body .oficio-tiers .tier-panel-content h5.raza-sub-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.11em;
+  margin-top: 1.35rem;
+}
+
+.detail-body .oficio-tiers .tier-panel-content .raza-variant-card .raza-sub-title:first-child,
+.detail-body .oficio-tiers .tier-panel-content .raza-requisitos-card .raza-sub-title:first-child {
+  margin-top: 0;
 }
 
 .norm-list {
@@ -5249,6 +5321,17 @@ span.lore-term {
     padding: 24px 16px;
   }
 
+  .detail-body .oficio-tiers .tier-panel-content .tier-perks li:has(> strong:first-child) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .detail-body .oficio-tiers .tier-panel-content .tier-perks li > strong:first-child {
+    min-width: 0;
+    max-width: none;
+  }
+
   .tier-tabs {
     flex-direction: column;
     border-bottom: none;
@@ -6873,6 +6956,58 @@ body.modal-active .audio-toggle {
 
 .clase-section-tabs {
   margin: 0 0 clamp(1.5rem, 3vw, 2.25rem);
+}
+
+/* Tabla de habilidades (ClasePage): pestañas como Razas/Oficios — Nivel 1–3 */
+.clase-habilidades-card .clase-habilidades-intro.tier-desc {
+  margin-bottom: 1.15rem;
+}
+
+.clase-habilidades-tiers {
+  margin-top: 0;
+}
+
+.clase-habilidades-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.clase-habilidades-table {
+  width: 100%;
+  min-width: 280px;
+  border-collapse: collapse;
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.clase-habilidades-table thead th {
+  border: 1px solid var(--border);
+  color: var(--gold);
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.clase-habilidades-table tbody td {
+  border: 1px solid var(--border);
+  padding: 0.85rem 1rem;
+  color: var(--text-muted);
+  font-family: 'EB Garamond', serif;
+  font-size: 0.97rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  line-height: 1.55;
+  vertical-align: top;
+}
+
+.clase-habilidades-table .clase-habilidades-placeholder-row td {
+  font-style: italic;
+  text-align: center;
+  color: color-mix(in srgb, var(--text-muted) 82%, transparent);
 }
 
 .clase-detail-panel .clase-codex {

@@ -62,10 +62,24 @@ function ClaseFicha({ ficha }) {
   )
 }
 
-function HabilidadesProximamente() {
+const HABILIDADES_NIVELES = ['Nivel 1', 'Nivel 2', 'Nivel 3']
+
+function ClaseHabilidadesSection() {
+  const [activeTab, setActiveTab] = useState(0)
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  function handleTab(i) {
+    if (typeof window !== 'undefined' && window.innerWidth <= 900 && i === activeTab) {
+      setMobileOpen((v) => !v)
+      return
+    }
+    setActiveTab(i)
+    setMobileOpen(false)
+  }
+
   return (
     <section
-      className="gremio-aventuras-card"
+      className="gremio-aventuras-card clase-habilidades-card"
       aria-labelledby="clase-habilidades-title"
       style={{ maxWidth: '960px', marginTop: 0 }}
     >
@@ -74,32 +88,60 @@ function HabilidadesProximamente() {
         <span id="clase-habilidades-title">Tabla de habilidades</span>
       </div>
       <div className="gremio-aventuras-card__inner">
-        <div className="detail-text" style={{ lineHeight: 1.65 }}>
-          <p style={{ marginBottom: '1rem' }}>
-            Las habilidades adquiribles se publicarán próximamente.
-          </p>
-          <table
-            style={{
-              width: '100%',
-              borderCollapse: 'collapse',
-              fontFamily: "'Cinzel', serif",
-              fontSize: '0.78rem',
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-            }}
+        <p className="tier-desc clase-habilidades-intro">
+          Las habilidades adquiribles se publicarán próximamente.
+        </p>
+
+        <div className="oficio-tiers clase-habilidades-tiers">
+          <div
+            className={`tier-tabs${mobileOpen ? ' open' : ''}`}
+            role="tablist"
+            aria-label="Nivel de habilidad"
+            onClick={() => typeof window !== 'undefined' && window.innerWidth <= 900 && setMobileOpen((v) => !v)}
           >
-            <thead>
-              <tr>
-                <th style={{ border: '1px solid var(--border)', color: 'var(--gold)', padding: '0.85rem', textAlign: 'left' }}>
-                  Habilidad
-                </th>
-                <th style={{ border: '1px solid var(--border)', color: 'var(--gold)', padding: '0.85rem', textAlign: 'left' }}>
-                  Efecto
-                </th>
-              </tr>
-            </thead>
-            <tbody />
-          </table>
+            {HABILIDADES_NIVELES.map((label, i) => (
+              <button
+                key={label}
+                type="button"
+                role="tab"
+                aria-selected={activeTab === i}
+                className={`tier-tab${activeTab === i ? ' active' : ''}`}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleTab(i)
+                }}
+              >
+                <span className="tier-tab-name">{label}</span>
+              </button>
+            ))}
+          </div>
+
+          {HABILIDADES_NIVELES.map((label, i) => (
+            <div
+              key={label}
+              role="tabpanel"
+              aria-hidden={activeTab !== i}
+              className={`tier-panel${activeTab === i ? ' active' : ''}`}
+            >
+              <div className="tier-panel-content">
+                <div className="clase-habilidades-table-wrap">
+                  <table className="clase-habilidades-table" aria-label={`Habilidades — ${label}`}>
+                    <thead>
+                      <tr>
+                        <th scope="col">Habilidad</th>
+                        <th scope="col">Efecto</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="clase-habilidades-placeholder-row">
+                        <td colSpan={2}>En construcción...</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -189,7 +231,7 @@ export default function ClasePage({ slug }) {
 
         <ClaseTextTabs chapterTitle={data.chapterTitle} contentHtml={data.contentHtml} />
 
-        <HabilidadesProximamente />
+        <ClaseHabilidadesSection />
       </div>
 
       <Footer />

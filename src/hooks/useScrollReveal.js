@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect } from 'react'
 
 /**
  * Debe coincidir con el bloque card-glow en global.css.
- * Razas: grid (raza-card), foto en card (raza-card-img-wrap), portada y galería, tabs (tier-panel + tier-panel-content), bloques HTML.
+ * Razas: grid (raza-card), foto en card (raza-card-img-wrap), portada y galería.
  */
 export const CARD_GLOW_SELECTOR = [
   '.raza-card',
@@ -19,10 +19,6 @@ export const CARD_GLOW_SELECTOR = [
   '.deity-card-frame',
   '.raza-photo-item',
   '.raza-intro-img',
-  '.tier-panel',
-  '.tier-panel-content',
-  '.raza-variant-card',
-  '.raza-requisitos-card',
 ].join(', ')
 
 export function useScrollReveal(dep) {
@@ -45,7 +41,7 @@ export function useCardGlow(dep) {
       let n = e.target
       if (n && n.nodeType === Node.TEXT_NODE) n = n.parentElement
       if (!n || !n.matches) return
-      // Actualizar --mouse en toda la cadena (p. ej. raza-card + raza-card-img-wrap anidados; tier-panel + tier-panel-content; tablas).
+      // Actualizar --mouse en toda la cadena (p. ej. raza-card + raza-card-img-wrap anidados).
       let el = n
       while (el && el !== document.documentElement) {
         if (el.matches(CARD_GLOW_SELECTOR)) {

@@ -14,7 +14,7 @@ export const razasData = {
       {
         label: 'Información General',
         html: `<p class="tier-desc">Elegantes, longevos y profundamente conectados con la magia y la naturaleza, los elfos son una de las razas más antiguas de Primus. Han dejado una huella imborrable en la historia: fundadores de ciudades majestuosas, pioneros de la magia y protagonistas de guerras legendarias.</p>
-<p class="tier-desc">Los elfos destacan por su gracia, longevidad y afinidad natural con el <span class="lore-term" data-tooltip="La energía vital que fluye por todo Primus, origen de toda magia.">Thae</span>. Aunque comparten raíces comunes, las distintas ramas de su linaje han desarrollado culturas muy diferenciadas.</p>
+<p class="tier-desc">Los elfos destacan por su gracia, longevidad y afinidad natural con el Thae. Aunque comparten raíces comunes, las distintas ramas de su linaje han desarrollado culturas muy diferenciadas.</p>
 <ul class="tier-perks"><li><strong>Longevidad:</strong> 100 a 600 años</li></ul>`,
       },
       {
@@ -23,7 +23,7 @@ export const razasData = {
       },
       {
         label: 'Apariencia Física',
-        html: `<ul class="tier-perks"><li><strong>Estatura Promedio:</strong> entre 1.70 m y 1.95 m.</li></ul><br>
+        html: `<ul class="tier-perks"><li><strong>Estatura Promedio:</strong> entre 1.70 m y 1.95 m.</li></ul>
 <div class="raza-variant-card"><h4 class="raza-variant-title">Elfos Primum</h4><p class="tier-desc">La casta privilegiada del reino. Orgullosos, sabios, muchas veces arrogantes. Fueron los primeros en dominar la magia, la arquitectura y el arte del gobierno.</p><ul class="tier-perks"><li><strong>Apariencia:</strong> Tonos de piel claros, cabellos rubios claros o blanquecinos, ojos azules, celestes o perlados. Orejas alargadas.</li><li><strong>Requisitos de apariencia:</strong> Eye Glow: 0.16</li></ul></div>
 <div class="raza-variant-card"><h4 class="raza-variant-title">Elfos Thal'dorei</h4><p class="tier-desc">Se alejaron de la soberbia de los Primum y buscaron una vida en armonía con la naturaleza. Viven en bosques y montañas, como cazadores, rastreadores y defensores de lo salvaje.</p><ul class="tier-perks"><li><strong>Apariencia:</strong> Piel en tonos morenos, cabello castaño (claro u oscuro) o rojizos, y ojos verdes, avellana o marrones.</li></ul></div>
 <div class="raza-variant-card"><h4 class="raza-variant-title">Elfos Drel'Shan</h4><p class="tier-desc">Raza mayormente esclavizada que vivieron siglos bajo el yugo élfico. Algunos se resistieron, se rebelaron y ahora sobreviven en cuevas, selvas oscuras.</p><ul class="tier-perks"><li><strong>Apariencia:</strong> Piel de tono oscuro, violeta o gris, cabello grisáceo o blanco y ojos violetas. (Color piel 1C2A46) (Color de ojos 250D30, Glow 0.16), cabellos blancos, grisáceos o negros.</li></ul></div>
@@ -179,7 +179,7 @@ export const razasData = {
         label: 'Apariencia Física',
         html: `<p class="tier-desc">La apariencia de los mestizos es muy variada, dependiendo del linaje de sus padres. Su piel puede adoptar tonalidades claras, oliva, cobrizas, azuladas o grises. El cabello y los ojos tienden a mostrar combinaciones únicas e inusuales: cabellos blancos, rojizos, oscuros como la obsidiana, y ojos de tonos muy intensos o extraños.</p>
 <p class="tier-desc">Los que están mestizos con los Drel'Shan, tienen las orejas más alargadas. Estas características los hacen fácilmente distinguibles en muchas regiones, lo que a veces les obliga a ocultar sus rasgos.</p>
-<ul class="tier-perks"><li><strong>Estatura Promedio:</strong> entre 1.65 m y 1.85 m. (en general son más bajos que los elfos puros).</li><li><strong>Longevidad:</strong> 70 a 120 años (según el linaje)</li></ul><br>
+<ul class="tier-perks"><li><strong>Estatura Promedio:</strong> entre 1.65 m y 1.85 m. (en general son más bajos que los elfos puros).</li><li><strong>Longevidad:</strong> 70 a 120 años (según el linaje)</li></ul>
 <div class="raza-variant-card"><h4 class="raza-sub-title">Lengua y Comunicación</h4>
 <p class="tier-desc">Los mestizos suelen hablar más de un idioma, dependiendo de su lugar de origen y crianza. La mayoría domina el Común, y si han crecido en comunidades élficas o humanas, también conocen esas lenguas.</p>
 <p class="tier-desc">En algunas regiones donde los mestizos han formado asentamientos duraderos, han surgido dialectos propios, mezcla de idiomas élficos y humanos, cargados de expresiones únicas y con fonética fluida.</p></div>`,
@@ -211,7 +211,7 @@ export const razasData = {
       {
         label: 'Mentalidad y Cultura',
         html: `<p class="tier-desc">La cultura Nhek'thal se basa en tres pilares fundamentales:</p>
-<ul class="tier-perks"><li>Disciplina</li><li>Adaptabilidad</li><li>Comunidad</li></ul><br>
+<ul class="tier-perks"><li>Disciplina</li><li>Adaptabilidad</li><li>Comunidad</li></ul>
 <p class="tier-desc">Desde temprana edad, cada individuo aprende al menos un arte marcial, no solo como forma de combate, sino como vía de control emocional y conexión espiritual. La rapidez y precisión son más valoradas que la fuerza bruta.</p>
 <p class="tier-desc tier-desc--italic">El honor personal está ligado al trabajo bien hecho: un pescador, agricultor o mercader es tan respetado como un guerrero. Los conflictos internos son raros y suelen resolverse mediante duelos rituales o mediación de ancianos.</p>`,
       },
@@ -219,7 +219,7 @@ export const razasData = {
         label: 'Apariencia Física',
         html: `<p class="tier-desc">Los Nhek'thal presentan una fisiología humanoide con claras características aviares y reptilianas:</p>
 <ul class="tier-perks"><li>Rasgos faciales afilados</li><li>Ojos penetrantes, adaptados a la luz costera</li><li>Extremidades inferiores con garras fuertes, ideales para terrenos irregulares</li><li>Brazos con desde su nacimiento plumas rígidas, utilizadas tanto como símbolo cultural como extensión marcial</li><li>Cabello que varía entre tonos castaños, rojizos y oscuros</li><li>Uso frecuente de collares rituales, tatuajes tribales y marcas de linaje</li><li>Garras en sus manos como aves</li></ul>
-<ul class="tier-perks"><li><strong>Estatura:</strong> entre 1.60 m y 1.80 m</li><li><strong>Reproducción:</strong> ovíparos (nacen de huevos, protegidos en cámaras comunales)</li><li><strong>Esperanza de vida:</strong> similar a la humana, aunque con una vejez más activa</li></ul>
+<ul class="tier-perks"><li><strong>Estatura Promedio:</strong> entre 1.60 m y 1.80 m</li><li><strong>Reproducción:</strong> ovíparos (nacen de huevos, protegidos en cámaras comunales)</li><li><strong>Longevidad:</strong> similar a la humana, aunque con una vejez más activa</li></ul>
 <div class="raza-requisitos-card"><h4 class="raza-sub-title">Requisitos de apariencia</h4><ul class="tier-perks">
 <li><strong>Ojos:</strong> Texture: Cat eyes / Iris Size: 0.26 / Iris color: (Colores varios) / Glow: 0.002 / Sectoral shape: C / Sectoral Color: 304F6C / Sectoral Glow: 0.165 / Pupil size: 0 / Pupil Color: negro / Sclera Color: Blanco / Veins: 0.5</li>
 <li><strong>Add-ons (Obligatorio):</strong> Harpy Shoulder Feathers flat, Harpy leg Feathers, Elf Brows 3, Small feather headdress (Accesory).</li>
@@ -296,17 +296,17 @@ export const razasData = {
       {
         label: 'Mentalidad y Cultura',
         html: `<p class="tier-desc">La cultura Rosavëld está marcada por el hambre ritual y el temor a la pérdida de control:</p>
-<ul class="tier-perks"><li>Hambre</li><li>Dolor</li><li>Ritual</li></ul><br>
+<ul class="tier-perks"><li>Hambre</li><li>Dolor</li><li>Ritual</li></ul>
 <p class="tier-desc">Los Rosavëld viven bajo la certeza de que no alimentarse de carne o sangre desencadena la Maldición de la Dentadura en Flor, un proceso degenerativo que culmina en la Rabia del Capullo.</p>
-<ul class="tier-perks"><span class="tier-desc">Su sociedad se divide principalmente en dos corrientes:</span>
-<ul class="tier-desc"><li><strong>Los Devotos del Clavel Umbrío:</strong> que buscan controlar la maldición mediante rituales estrictos y extracción medida de sangre.</li><li><strong>Los Rosavëld Rubrum:</strong> que celebran la deformación, el exceso y la Rabia como una bendición incompleta.</li></ul></ul>
+<p class="tier-desc">Su sociedad se divide principalmente en dos corrientes:</p>
+<ul class="tier-perks"><li><strong>Los Devotos del Clavel Umbrío:</strong> que buscan controlar la maldición mediante rituales estrictos y extracción medida de sangre.</li><li><strong>Los Rosavëld Rubrum:</strong> que celebran la deformación, el exceso y la Rabia como una bendición incompleta.</li></ul>
 <p class="tier-desc">Matar a un hermano que ha sucumbido a la Rabia es considerado un acto de piedad.</p>`,
       },
       {
         label: 'Apariencia Física',
         html: `<p class="tier-desc">Los Rosavëld presentan una anatomía humanoide alterada por injertos florales y rasgos bestiales:</p>
 <ul class="tier-perks"><li>Orejas de conejo alargadas y sensibles</li><li>Dentadura excesiva con colmillos regenerativos</li><li>Garras ferales no removibles</li><li>Pelaje corporal visible, especialmente en extremidades</li><li>Flores o protuberancias vegetales bajo la piel en individuos ancianos o rabiosos</li><li>Ojos de iris brillante y tono antinatural</li></ul>
-<ul class="tier-perks"><li><strong>Estatura:</strong> similar a la humana</li><li><strong>Reproducción:</strong> desconocida o no documentada</li><li><strong>Esperanza de vida:</strong> indeterminada; muchos mueren por la Rabia o por persecución inquisitorial</li></ul>
+<ul class="tier-perks"><li><strong>Estatura Promedio:</strong> similar a la humana</li><li><strong>Reproducción:</strong> desconocida o no documentada</li><li><strong>Longevidad:</strong> indeterminada; muchos mueren por la Rabia o por persecución inquisitorial</li></ul>
 <div class="raza-requisitos-card"><h4 class="raza-sub-title">Requisitos de apariencia</h4>
 <p class="tier-desc"><strong>Ítems raciales (obligatorios):</strong> Bunny Ears, Sharp Teeth, Bastet's Feral Claws (No removibles), Cola de conejo, Paws V1</p>
 <h5 class="raza-sub-title">Variantes raciales</h5>
@@ -340,8 +340,7 @@ export const razasData = {
       },
       {
         label: 'Mentalidad y Cultura',
-        html: `<h4 class="raza-sub-title">Mentalidad y cultura</h4>
-<p class="tier-desc">Su cultura tiene raíces tribales, con una fuerte jerarquía y ritos ligados a la naturaleza y los ancestros. Cada acción tiene un valor espiritual, cada decisión se mide con honor. El liderazgo en sus clanes suele recaer en quien demuestre sabiduría, fuerza o visión.</p>
+        html: `<p class="tier-desc">Su cultura tiene raíces tribales, con una fuerte jerarquía y ritos ligados a la naturaleza y los ancestros. Cada acción tiene un valor espiritual, cada decisión se mide con honor. El liderazgo en sus clanes suele recaer en quien demuestre sabiduría, fuerza o visión.</p>
 <p class="tier-desc">A pesar de su pasado cerrado, hoy muchos Shazari interactúan con otras razas, sin olvidar su esencia felina y su conexión con la selva.</p>`,
       },
       {

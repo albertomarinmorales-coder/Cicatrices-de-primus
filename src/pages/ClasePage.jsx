@@ -50,12 +50,19 @@ function ClaseFicha({ ficha }) {
         </div>
 
         <div className="clase-ficha-grid">
-          {fichaBlocks.map(([label, key]) => (
-            <article key={key} className={`clase-ficha-field${key === 'descripcion' ? ' clase-ficha-field--wide' : ''}`}>
-              <h3>{label}</h3>
-              <p>{ficha[key]}</p>
-            </article>
-          ))}
+          {fichaBlocks.map(([label, key]) => {
+            const raw = ficha[key]
+            const blocks =
+              typeof raw === 'string' ? raw.split(/\n\n/).map((s) => s.trim()).filter(Boolean) : [String(raw)]
+            return (
+              <article key={key} className={`clase-ficha-field${key === 'descripcion' ? ' clase-ficha-field--wide' : ''}`}>
+                <h3>{label}</h3>
+                {blocks.map((block, i) => (
+                  <p key={i}>{block}</p>
+                ))}
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>
@@ -89,7 +96,7 @@ function ClaseHabilidadesSection() {
       </div>
       <div className="gremio-aventuras-card__inner">
         <p className="tier-desc clase-habilidades-intro">
-          Las habilidades adquiribles se publicarán próximamente.
+          &nbsp;
         </p>
 
         <div className="oficio-tiers clase-habilidades-tiers">
@@ -161,7 +168,7 @@ function ClaseTextTabs({ chapterTitle, contentHtml }) {
     <section className="clase-detail-panel clase-text-panel">
       <div className="gremio-aventuras-card__head">
         <i className="ra ra-scroll-unfurled" aria-hidden />
-        <span>Textos de clase</span>
+        <span>Historia</span>
       </div>
 
       {chapterTitle && (

@@ -4793,28 +4793,14 @@ a.btn-primary:active {
 }
 
 @media (max-width: 900px) {
-  :is(#page-clases, #page-razas, #page-profesiones) .razas-grid {
+  /* Sin #page-clases: va aparte para poder usar 1 col sin pelear con esta regla */
+  :is(#page-razas, #page-profesiones) .razas-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  :is(#page-clases, #page-razas, #page-profesiones) .razas-grid:has(.raza-card:nth-child(10):last-child) .raza-card:nth-child(9),
-  :is(#page-clases, #page-razas, #page-profesiones) .razas-grid:has(.raza-card:nth-child(10):last-child) .raza-card:nth-child(10) {
+  :is(#page-razas, #page-profesiones) .razas-grid:has(.raza-card:nth-child(10):last-child) .raza-card:nth-child(9),
+  :is(#page-razas, #page-profesiones) .razas-grid:has(.raza-card:nth-child(10):last-child) .raza-card:nth-child(10) {
     grid-column: auto;
-  }
-
-  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card {
-    grid-column: auto;
-  }
-
-  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(9),
-  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(10),
-  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(11) {
-    position: static;
-    left: auto;
   }
 }
 
@@ -4830,6 +4816,117 @@ a.btn-primary:active {
 
   #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card {
     grid-column: auto;
+  }
+}
+
+/* --- #page-clases: responsive (rejilla, chips largos, sección, filtros) --- */
+#page-clases .razas-grid {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tablets / portátiles estrechos: 3 columnas en lugar de 4 (tarjetas más anchas, chips legibles) */
+@media (max-width: 1279px) and (min-width: 901px) {
+  #page-clases .razas-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card {
+    grid-column: auto;
+  }
+
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(9),
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(10),
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card:nth-child(11) {
+    position: static;
+    left: auto;
+  }
+}
+
+/*
+ * Clases: 1 columna en tablet/móvil. Este bloque va *después* del de 3 cols (901–1279px)
+ * para que no quede anulado en cascada (antes el grid de 3 ganaba y seguías viendo filas horizontales).
+ */
+@media (max-width: 1024px) {
+  #page-clases .razas-grid,
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #page-clases .razas-grid:has(.raza-card:nth-child(11):last-child) > .raza-card {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  #page-clases .section {
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+
+  #page-clases .clases-filter-bar {
+    padding-inline: 2px;
+    gap: 0.45rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #page-clases .section {
+    padding-top: 48px;
+    padding-bottom: 56px;
+    padding-left: max(14px, env(safe-area-inset-left, 0px));
+    padding-right: max(14px, env(safe-area-inset-right, 0px));
+  }
+
+  #page-clases .section-underline {
+    margin-bottom: 36px;
+  }
+
+  /* Mayor especificidad que :is(#page-clases,…) .clase-card (definido más abajo) */
+  #page-clases .razas-grid .clase-card {
+    min-height: 0;
+  }
+
+  #page-clases .razas-grid .clase-card .raza-card-img-wrap {
+    height: clamp(232px, 68vw, 300px);
+  }
+
+  #page-clases .clase-card-role-chip {
+    font-size: 0.52rem;
+    letter-spacing: 0.03em;
+    padding: 0.36rem 0.4rem;
+    left: 0.45rem;
+    top: 0.45rem;
+    max-width: calc(100% - 0.9rem);
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  #page-clases .clases-filter-chip {
+    padding: 0.42rem 0.58rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (max-width: 380px) {
+  #page-clases .clases-filter-bar {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    margin-bottom: 1.35rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  #page-clases .clases-filter-chip {
+    flex-shrink: 0;
   }
 }
 
@@ -6884,6 +6981,11 @@ body.modal-active .audio-toggle {
   line-height: 1.65;
   color: var(--text-muted);
   margin: 0;
+  overflow-wrap: break-word;
+}
+
+.clase-ficha-field p + p {
+  margin-top: 0.65rem;
 }
 
 @media (max-width: 720px) {

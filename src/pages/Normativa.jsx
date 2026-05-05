@@ -11,7 +11,7 @@ const NORM_ITEMS = [
   },
   {
     path: '/norm-cordura',
-    icon: 'psychic-waves',
+    icon: 'brain-freeze',
     label: 'Sistema de Cordura',
     desc: 'Estabilidad mental frente a los horrores del mundo.',
     className: 'norm-item norm-featured',

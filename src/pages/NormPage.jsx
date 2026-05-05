@@ -88,7 +88,14 @@ export default function NormPage({ slug }) {
                   return (
                     <div key={ci} className={`norm-card-v2${warnClass}${sevClass ? ` ${sevClass}` : ''}`}>
                       <div className="norm-card-v2__top-accent" aria-hidden="true" />
-                      {card.num && <span className="norm-card-v2__num">{card.num}</span>}
+                      <div className="norm-card-v2__header">
+                        {card.icon && (
+                          <div className="norm-card-v2__icon">
+                            <i className={`ra ra-${card.icon}`} aria-hidden="true" />
+                          </div>
+                        )}
+                        {card.num && <span className="norm-card-v2__num">{card.num}</span>}
+                      </div>
                       <h4 className="norm-card-v2__title">{card.title}</h4>
                       <div className="norm-card-v2__divider" aria-hidden="true" />
                       <div className="norm-card-v2__text" dangerouslySetInnerHTML={{ __html: card.text }} />

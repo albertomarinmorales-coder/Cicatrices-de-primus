@@ -12,8 +12,8 @@ export const normativaData = {
         steps: [
           { label: 'Tier 1 (80-99%)', icon: 'heart-bottle' },
           { label: 'Tier 2 (30-79%)', icon: 'broken-heart' },
-          { label: 'Tier 3 (1-29%)', icon: 'bleeding-heart' },
-          { label: 'Tier 4 (0%)', icon: 'skull-and-bones' },
+          { label: 'Tier 3 (1-29%)', icon: 'bleeding-hearts' },
+          { label: 'Tier 4 (0%)', icon: 'skull' },
         ],
       },
       {
@@ -22,24 +22,28 @@ export const normativaData = {
           { 
             num: 'Tier 1', 
             title: 'Leves', 
+            icon: 'health',
             text: 'Heridas menores que pueden sanar por sí solas.<br/>• Rasguños<br/>• Golpes<br/>• Cortes pequeños<br/>• Contusiones leves<br/>• Quemaduras leves<br/>• Mordeduras menores', 
             severity: 1 
           },
           { 
             num: 'Tier 2', 
             title: 'Medias', 
+            icon: 'medical-pack',
             text: 'Heridas que requieren atención básica.<br/>• Cortes profundos<br/>• Fracturas simples<br/>• Contusiones fuertes<br/>• Dislocaciones<br/>• Perforación sin daño a órganos<br/>• Envenenamiento leve<br/>• Mordeduras infectadas<br/>• Perforación media', 
             severity: 2 
           },
           { 
             num: 'Tier 3', 
             title: 'Graves', 
+            icon: 'hospital-cross',
             text: 'Comprometen tu salud seriamente.<br/>• Fracturas expuestas<br/>• Sangrado profuso<br/>• Órganos perforados<br/>• Arterias cortadas<br/>• Envenenamiento medio<br/>• Quemaduras de 3er grado<br/>• Desmembramiento parcial<br/>• Cortes profundos que exponen órganos', 
             severity: 3 
           },
           { 
             num: 'Tier 4', 
             title: 'Fatales', 
+            icon: 'skull',
             text: 'Heridas que ponen en riesgo inmediato tu vida.<br/>• Desmembramiento completo<br/>• Fallo de órganos<br/>• Sangrado masivo<br/>• Quemaduras internas fatales<br/>• Envenenamiento crítico', 
             severity: 4 
           },
@@ -51,24 +55,28 @@ export const normativaData = {
           { 
             num: 'L', 
             title: 'Leve', 
+            icon: 'clover',
             text: 'Puedes decidir si tratar la herida o no. Sanará por sí sola con el tiempo.', 
             severity: 1 
           },
           { 
             num: 'A', 
             title: 'Adolorido', 
+            icon: 'player-pain',
             text: 'No hay riesgo inmediato, pero si no te tratas podrías empeorar y quedar incapacitado.', 
             severity: 2 
           },
           { 
             num: 'I', 
             title: 'Incapacitado', 
+            icon: 'hospital-cross',
             text: 'Tu cuerpo está gravemente comprometido. Requiere tratamiento urgente o podrías morir o tener secuelas permanentes.', 
             severity: 3 
           },
           { 
             num: 'C', 
             title: 'Crítico', 
+            icon: 'death-skull',
             text: 'Estás al borde de la muerte. Tu respiración es débil, el pulso casi perdido y no eres consciente. Requiere atención inmediata.', 
             severity: 4 
           },
@@ -96,10 +104,10 @@ export const normativaData = {
         label: 'Escala de Puntos',
         type: 'process',
         steps: [
-          { label: 'Inestable (25-39)', icon: 'psychic-waves' },
+          { label: 'Inestable (25-39)', icon: 'brain-freeze' },
           { label: 'Errático (10-24)', icon: 'lightning-bolt' },
           { label: 'Perturbado (1-9)', icon: 'broken-skull' },
-          { label: 'Demente (0)', icon: 'void' },
+          { label: 'Demente (0)', icon: 'player-despair' },
         ],
       },
       {
@@ -108,24 +116,28 @@ export const normativaData = {
           { 
             num: 'T1', 
             title: 'Inestable', 
+            icon: 'brain-freeze',
             text: 'Inestabilidad leve a moderada.<br/>• Dolores de cabeza<br/>• Pesadillas frecuentes<br/>• Fatiga mental<br/>• Ansiedad<br/>• Irritabilidad', 
             severity: 1 
           },
           { 
             num: 'T2', 
             title: 'Errático', 
+            icon: 'lightning-bolt',
             text: 'Colapso incipiente.<br/>• Escuchas voces ocasionales<br/>• Dificultad para distinguir realidad de ilusión<br/>• Alucinaciones esporádicas<br/>• Desarrollo de fobias nuevas o agravación de miedos previos', 
             severity: 2 
           },
           { 
             num: 'T3', 
             title: 'Perturbado', 
+            icon: 'broken-skull',
             text: 'Fractura psíquica severa.<br/>• Disociación de personalidad<br/>• Visión de entidades que no deberían existir<br/>• Voces constantes<br/>• Alta vulnerabilidad a posesiones<br/>• Fobias múltiples y extremas', 
             severity: 3 
           },
           { 
             num: 'T4', 
             title: 'Demente', 
+            icon: 'player-despair',
             text: 'Colapso total de la mente.<br/>• Pérdida de identidad<br/>• Incapacidad para mantener interacciones sociales simples<br/>• Dificultad grave para el autocuidado<br/>• Dependencia casi total de terceros', 
             severity: 4 
           },
@@ -137,24 +149,28 @@ export const normativaData = {
           { 
             num: '01', 
             title: 'Inestable', 
+            icon: 'brain-freeze',
             text: 'La ansiedad y la falta de descanso afectan tu humor y concentración. Dolores de cabeza y fatiga son constantes, pero aún mantienes control.', 
             severity: 1 
           },
           { 
             num: '02', 
             title: 'Errático', 
+            icon: 'lightning-bolt',
             text: 'Tu comportamiento empieza a ser notado por otros. En ocasiones confundes la realidad con alucinaciones o voces internas.', 
             severity: 2 
           },
           { 
             num: '03', 
             title: 'Perturbado', 
+            icon: 'broken-skull',
             text: 'Tu mente ya no responde como antes. Pierdes el control de tus pensamientos y tu conducta resulta inquietante o peligrosa.', 
             severity: 3 
           },
           { 
             num: '04', 
             title: 'Demente', 
+            icon: 'player-despair',
             text: 'Tu identidad se fragmenta o desaparece. Apenas puedes cuidarte solo, olvidas comer, trabajar o incluso quién eres.', 
             severity: 4 
           },
@@ -163,7 +179,7 @@ export const normativaData = {
       {
         label: 'Recuperación',
         type: 'info',
-        icon: 'tent',
+        icon: 'campfire',
         title: 'Recuperación',
         text: 'No olviden, aventureros, que así como Primus ofrece la desolación, también ofrece el consuelo a aquellos que sepan donde encontrarlo.<br/><br/>En el mundo podrán encontrar métodos de sanación de cordura, pues incluso el más aguerrido de los guerreros necesita un descanso para poder enfrentar los horrores de estas tierras.',
       },
@@ -209,24 +225,28 @@ export const normativaData = {
           { 
             num: 'Fase 1', 
             title: 'Incipiente', 
+            icon: 'poison-cloud',
             text: 'Primer contacto. Síntomas leves según el tipo. Corresponde a Tier 1 de heridas. Salvable con cura básica.', 
             severity: 1 
           },
           { 
             num: 'Fase 2', 
             title: 'Latente', 
+            icon: 'biohazard',
             text: 'Comienza a arraigarse. Síntomas moderados. Tier 2 de heridas. Posibles secuelas físicas o mentales temporales.', 
             severity: 2 
           },
           { 
             num: 'Fase 3', 
             title: 'Fractura', 
+            icon: 'broken-skull',
             text: 'Síntomas graves y desviaciones físicas/mentales. Tier 3 de heridas. Posibles secuelas permanentes.', 
             severity: 3 
           },
           { 
             num: 'Fase 4', 
             title: 'Maldito', 
+            icon: 'death-skull',
             text: 'Punto de no retorno. Debe ser ejecutado en el acto o capturado para estudio.', 
             severity: 4 
           },
@@ -238,24 +258,28 @@ export const normativaData = {
           { 
             num: 'Opción 1', 
             title: 'CK Administrativo', 
+            icon: 'book',
             text: 'El personaje se entrega a la maldición, pierde la razón y se pierde por completo. Nuevo personaje en el mismo Tier.', 
             severity: 4 
           },
           { 
             num: 'Opción 2', 
             title: 'Supervivencia', 
+            icon: 'mountains',
             text: 'Prueba de supervivencia cazando libremente hasta morir. Nuevo PJ con un tier menos del alcanzado.', 
             severity: 3 
           },
           { 
             num: 'Nota', 
             title: 'CK Abierto', 
+            icon: 'crossed-swords',
             text: 'El personaje tendrá un CK abierto por parte del servidor entero. Podrá matar a todo el que le haga frente.', 
             severity: 4 
           },
           { 
             num: 'Ficha', 
             title: 'Repercusión', 
+            icon: 'quill-ink',
             text: 'Cada fase repercutirá directamente en la ficha del personaje de forma negativa y/o positiva.', 
             severity: 2 
           },
@@ -295,18 +319,21 @@ export const normativaData = {
           { 
             num: 'Objetivo', 
             title: 'Reclamar Zona', 
+            icon: 'crossed-swords',
             text: 'Establecer control inicial. Se realiza a través de narración administrativa aleatoria:<br/>• Limpieza directa de enemigos<br/>• Escolta de caravana con materiales<br/>• Defensa ante emboscadas durante instalación<br/>• Defensa improvisada mientras se asegura perímetro', 
             severity: 1 
           },
           { 
             num: 'POIs', 
             title: 'Puntos de Interés', 
+            icon: 'eyeball',
             text: 'Durante la exploración pueden hallarse:<br/>• Encuentros con enemigos para empujar frontera<br/>• Eventos ambientales (clima, terreno hostil)<br/>• Hallazgo de pistas sobre amenazas mayores<br/>• Descubrimiento de punto estratégico ideal', 
             severity: 1 
           },
           { 
             num: 'Puesto', 
             title: 'Construcción (48h)', 
+            icon: 'tower',
             text: 'Tras la conquista hay 48 horas para construir. Si no se completa narrativamente, la zona vuelve a estado inestable y debe ser recapturada.', 
             severity: 2 
           },
@@ -318,18 +345,21 @@ export const normativaData = {
           { 
             num: '01', 
             title: 'Personal', 
+            icon: 'player',
             text: 'Un forjador o un artífice (Profesiones).', 
             severity: 1 
           },
           { 
             num: '02', 
             title: 'Pericia', 
+            icon: 'large-hammer',
             text: 'Una tirada acumulativa grupal de “Pericia” igual o superior a 40.', 
             severity: 1 
           },
           { 
             num: '03', 
             title: 'Logística', 
+            icon: 'fast-ship',
             text: 'Uso de materiales otorgados en cofre público y emotes correspondientes para la estructura base.', 
             severity: 1 
           },
@@ -341,12 +371,14 @@ export const normativaData = {
           { 
             num: 'A', 
             title: 'Mantenimiento Activo', 
+            icon: 'repair',
             text: 'Aparecen POIs automáticos, NPC hostiles menores, pistas y eventos de sabotaje. Cada evento debe ser narrado en autorol y reportado por ticket.', 
             severity: 1 
           },
           { 
             num: 'B', 
             title: 'Fortificaciones', 
+            icon: 'shield',
             text: 'Mejoras con: Torre de vigía, Guardias adicionales, Muralla perimetral, Almacén de recursos y Emplazamientos fijos (ballestas, catapultas).', 
             severity: 1 
           },

@@ -6720,6 +6720,33 @@ body.modal-active .audio-toggle {
   opacity: 1;
 }
 
+.norm-card-v2__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.norm-card-v2__icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 168, 76, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 6px;
+  color: var(--gold);
+  font-size: 1.15rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.norm-card-v2:hover .norm-card-v2__icon {
+  transform: scale(1.05);
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
 .norm-card-v2__num {
   font-family: 'Cinzel', serif;
   font-size: 0.68rem;
@@ -6727,7 +6754,6 @@ body.modal-active .audio-toggle {
   color: rgba(201, 168, 76, 0.5);
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  margin-bottom: 0.65rem;
 }
 
 .norm-card-v2__title {
@@ -6778,60 +6804,83 @@ body.modal-active .audio-toggle {
 }
 
 /* Severity levels color coding */
-/* Sev 1: Green (Leve) */
 .norm-card-v2--sev1 {
-  border-color: rgba(46, 204, 113, 0.15);
+  --sev-color: #2ecc71;
+  --sev-glow: rgba(46, 204, 113, 0.1);
+  border-color: rgba(46, 204, 113, 0.25);
+  background: linear-gradient(180deg, rgba(46, 204, 113, 0.03) 0%, rgba(13, 11, 9, 0.4) 100%);
+}
+.norm-card-v2--sev1 .norm-card-v2__icon {
+  background: rgba(46, 204, 113, 0.1);
+  border-color: rgba(46, 204, 113, 0.3);
+  color: #2ecc71;
 }
 .norm-card-v2--sev1 .norm-card-v2__top-accent {
-  background: linear-gradient(90deg, transparent, rgba(46, 204, 113, 0.4), transparent);
-}
-.norm-card-v2--sev1 .norm-card-v2__title {
-  color: var(--gold);
+  background: linear-gradient(90deg, transparent, #2ecc71, transparent);
 }
 .norm-card-v2--sev1 .norm-card-v2__divider {
-  background: linear-gradient(90deg, rgba(46, 204, 113, 0.4), transparent);
+  background: linear-gradient(90deg, rgba(46, 204, 113, 0.5), transparent);
 }
 
-/* Sev 2: Yellow/Gold (Medio) */
 .norm-card-v2--sev2 {
-  border-color: rgba(241, 196, 15, 0.15);
+  --sev-color: #f1c40f;
+  --sev-glow: rgba(241, 196, 15, 0.1);
+  border-color: rgba(241, 196, 15, 0.25);
+  background: linear-gradient(180deg, rgba(241, 196, 15, 0.03) 0%, rgba(13, 11, 9, 0.4) 100%);
+}
+.norm-card-v2--sev2 .norm-card-v2__icon {
+  background: rgba(241, 196, 15, 0.1);
+  border-color: rgba(241, 196, 15, 0.3);
+  color: #f1c40f;
 }
 .norm-card-v2--sev2 .norm-card-v2__top-accent {
-  background: linear-gradient(90deg, transparent, rgba(241, 196, 15, 0.4), transparent);
-}
-.norm-card-v2--sev2 .norm-card-v2__title {
-  color: var(--gold);
+  background: linear-gradient(90deg, transparent, #f1c40f, transparent);
 }
 .norm-card-v2--sev2 .norm-card-v2__divider {
-  background: linear-gradient(90deg, rgba(241, 196, 15, 0.4), transparent);
+  background: linear-gradient(90deg, rgba(241, 196, 15, 0.5), transparent);
 }
 
-/* Sev 3: Orange (Grave) */
 .norm-card-v2--sev3 {
-  border-color: rgba(230, 126, 34, 0.15);
+  --sev-color: #e67e22;
+  --sev-glow: rgba(230, 126, 34, 0.1);
+  border-color: rgba(230, 126, 34, 0.25);
+  background: linear-gradient(180deg, rgba(230, 126, 34, 0.03) 0%, rgba(13, 11, 9, 0.4) 100%);
+}
+.norm-card-v2--sev3 .norm-card-v2__icon {
+  background: rgba(230, 126, 34, 0.1);
+  border-color: rgba(230, 126, 34, 0.3);
+  color: #e67e22;
 }
 .norm-card-v2--sev3 .norm-card-v2__top-accent {
-  background: linear-gradient(90deg, transparent, rgba(230, 126, 34, 0.4), transparent);
-}
-.norm-card-v2--sev3 .norm-card-v2__title {
-  color: var(--gold);
+  background: linear-gradient(90deg, transparent, #e67e22, transparent);
 }
 .norm-card-v2--sev3 .norm-card-v2__divider {
-  background: linear-gradient(90deg, rgba(230, 126, 34, 0.4), transparent);
+  background: linear-gradient(90deg, rgba(230, 126, 34, 0.5), transparent);
 }
 
-/* Sev 4: Red (Fatal/Critico) */
 .norm-card-v2--sev4 {
-  border-color: rgba(192, 57, 43, 0.15);
+  --sev-color: #e74c3c;
+  --sev-glow: rgba(231, 76, 60, 0.1);
+  border-color: rgba(231, 76, 60, 0.3);
+  background: linear-gradient(180deg, rgba(231, 76, 60, 0.04) 0%, rgba(13, 11, 9, 0.4) 100%);
+}
+.norm-card-v2--sev4 .norm-card-v2__icon {
+  background: rgba(231, 76, 60, 0.12);
+  border-color: rgba(231, 76, 60, 0.4);
+  color: #e74c3c;
+  box-shadow: 0 0 15px rgba(231, 76, 60, 0.1);
 }
 .norm-card-v2--sev4 .norm-card-v2__top-accent {
-  background: linear-gradient(90deg, transparent, rgba(192, 57, 43, 0.4), transparent);
-}
-.norm-card-v2--sev4 .norm-card-v2__title {
-  color: var(--gold);
+  background: linear-gradient(90deg, transparent, #e74c3c, transparent);
+  opacity: 0.8;
 }
 .norm-card-v2--sev4 .norm-card-v2__divider {
-  background: linear-gradient(90deg, rgba(192, 57, 43, 0.4), transparent);
+  background: linear-gradient(90deg, rgba(231, 76, 60, 0.5), transparent);
+}
+
+.norm-card-v2:hover[class*="--sev"] {
+  border-color: var(--sev-color);
+  box-shadow: 0 0 25px var(--sev-glow), 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .norm-card-v2__title {

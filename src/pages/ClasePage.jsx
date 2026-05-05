@@ -238,7 +238,7 @@ export default function ClasePage({ slug }) {
 
         <ClaseTextTabs chapterTitle={data.chapterTitle} contentHtml={data.contentHtml} />
 
-        <ClaseHabilidadesSection />
+        {slug !== 'ciudadano' && <ClaseHabilidadesSection />}
       </div>
 
       <Footer />

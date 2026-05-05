@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
@@ -14,7 +14,7 @@ const SLIDES = [
   { label: 'Clases',     desc: 'Caminos de poder marcados por la sangre',               img: '/assets/images/carousel/clases.png',                                  imgPos: 'center 10%',      stripeA: '#110a14', stripeB: '#7c4ba8' },
   { label: 'Profesiones',desc: 'Los que forjan, curan y sostienen el mundo',            img: '/assets/images/carousel/artifice.png',       imgPos: 'center 15%',  stripeA: '#0f0e08', stripeB: '#a87c2a' },
   { label: 'Gremios',    desc: 'Alianzas que mueven los hilos del poder',               img: '/assets/images/carousel/gremios-carrusel.png',                                  imgPos: 'center',      stripeA: '#0d1209', stripeB: '#4a8c3f' },
-  { label: 'Eventos',    desc: 'Momentos que cambiaron el curso de la historia',        img: null,                                  imgPos: 'center',      stripeA: '#140a0a', stripeB: '#8c2020' },
+  { label: 'Eventos',    desc: 'Momentos que cambiaron el curso de la historia',        img: '/assets/images/carousel/eventos.png',                                  imgPos: 'center',      stripeA: '#140a0a', stripeB: '#8c2020' },
 ]
 
 // [clone of last, slide0..slideN, clone of first]

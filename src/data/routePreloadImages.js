@@ -33,6 +33,13 @@ const VELUMS_HUB = [
   '/assets/images/classes/velum-cantoris/avatar.png',
 ]
 
+const SISTEMA_INTROS = [
+  '/assets/images/sistema/heridas.png',
+  '/assets/images/sistema/cordura.png',
+  '/assets/images/sistema/infectados.png',
+  '/assets/images/sistema/conquista.png',
+]
+
 /** @param {string} pathname */
 export function getPreloadImagesForPath(pathname) {
   switch (pathname) {
@@ -46,7 +53,7 @@ export function getPreloadImagesForPath(pathname) {
       return [MUNDO_HEADER]
     case '/normativa':
     case '/sistema':
-      return [LORE_HEADER]
+      return [...SISTEMA_INTROS, LORE_HEADER]
     case '/gremios':
       return [GREM_HEADER]
     case '/gremio-aventuras':

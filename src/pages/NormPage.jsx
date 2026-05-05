@@ -48,7 +48,11 @@ export default function NormPage({ slug }) {
         </span>
 
         {data.intro && (
-          <div className="norm-intro-block" dangerouslySetInnerHTML={{ __html: data.intro }} />
+          <div
+            className="norm-intro-block"
+            style={data.introGlow ? { '--norm-intro-glow': data.introGlow } : undefined}
+            dangerouslySetInnerHTML={{ __html: data.intro }}
+          />
         )}
 
         {data.sections.map((section, si) => (

@@ -2,7 +2,8 @@ export const normativaData = {
   heridas: {
     title: 'Sistema de Heridas y Estados',
     subtitle: 'Tiers de daño y vitalidad',
-    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
+    introImage: '/assets/images/sistema/heridas.png',
+    introGlow: '#b83a42',
     breadcrumb: 'Heridas',
     intro: `<blockquote class="norm-quote">"Todo acto tiene una consecuencia. Prepárate para enfrentar el daño que el mundo de Primus tiene reservado para los incautos."</blockquote>`,
     sections: [
@@ -95,7 +96,8 @@ export const normativaData = {
   cordura: {
     title: 'Sistema de Cordura',
     subtitle: 'Estabilidad Mental',
-    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
+    introImage: '/assets/images/sistema/cordura.png',
+    introGlow: '#7a6fd4',
     breadcrumb: 'Cordura',
     intro: `<blockquote class="norm-quote">Todos los personajes poseen el atributo de Cordura, que representa la estabilidad mental y emocional frente a los horrores del mundo. Cada jugador comienza con 50 puntos de Cordura, los cuales pueden disminuir por múltiples causas: eventos traumáticos como la muerte de un aliado, experiencias personales extremas o encuentros con criaturas sobrenaturales.<br/><br/>
     En las tierras de Primus, los peligros no son solo físicos. Existen entidades tan grotescas y antinaturales que no solo ponen a prueba el cuerpo, sino también la mente.</blockquote>`,
@@ -189,7 +191,8 @@ export const normativaData = {
   infectados: {
     title: 'Sistema de Infectados',
     subtitle: 'Fases y Corrupciones',
-    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
+    introImage: '/assets/images/sistema/infectados.png',
+    introGlow: '#4d9a5c',
     breadcrumb: 'Infectados',
     intro: `<blockquote class="norm-quote">Una rebelión abierta no es el único mal que azota las tierras de Primus, pues más allá del campo de batalla, escondiéndose entre las sombras del conflicto, acecha un mal mucho más oscuro y peligroso: Las corrupciones.<br/><br/>
     Los infectados son individuos afectados por una corrupción activa que irá agravándose a medida que pasa el tiempo. Son, a todo concepto, una bomba de tiempo que terminará, finalmente, por consumir a la persona infectada por completo.<br/><br/>
@@ -298,7 +301,8 @@ export const normativaData = {
   conquista: {
     title: 'Conquista y defensa territorial',
     subtitle: 'Control y expansión',
-    heroBg: '/assets/images/legacy/c41305-8ef9b64ba0524648ad1b1827a0d79e6c-mv2.png',
+    introImage: '/assets/images/sistema/conquista.png',
+    introGlow: '#d4a03a',
     breadcrumb: 'Conquista',
     intro: `<blockquote class="norm-quote">Primus, una tierra fracturada por innumerables guerras, conflictos y otros pareceres. Pero más allá de todo eso, existen territorios indomables… o así se pensaban que lo eran.<br/><br/>
     <strong>El Norte:</strong> Tierra de nadie, llena de pesadillas, muerte y desolación. Ha sido la tarea de los valientes Stormheilm explorar este territorio, dominarlo, y asegurarse que, a pesar de sus muchos peligros, fuese un lugar seguro de transitar. Por años se mantuvo salvaje, inhóspito, y despiadado.<br/><br/>

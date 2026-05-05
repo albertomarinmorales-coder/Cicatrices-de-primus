@@ -19,6 +19,7 @@ import Politica from './pages/Politica'
 import Gremios from './pages/Gremios'
 import GremioAventuras from './pages/GremioAventuras'
 import Normativa from './pages/Normativa'
+import NormPage from './pages/NormPage'
 import Galeria from './pages/Galeria'
 import Equipo from './pages/Equipo'
 import { useTheme } from './hooks/useTheme'
@@ -77,12 +78,10 @@ export default function App() {
         <Route path="/clase-luminari-vox" element={<ClasePage slug="luminari-vox" />} />
         <Route path="/clase-noc-thar" element={<ClasePage slug="noc-thar" />} />
         <Route path="/clase-stormheilm" element={<ClasePage slug="stormheilm" />} />
-        <Route path="/clase-velums" element={<Navigate to="/clase-velum-caedis" replace />} />
         <Route path="/clase-velum-caedis" element={<ClasePage slug="velum-caedis" />} />
         <Route path="/clase-velum-cantoris" element={<ClasePage slug="velum-cantoris" />} />
         <Route path="/clase-zereth-mor" element={<ClasePage slug="zereth-mor" />} />
         <Route path="/clase-magharyn" element={<ClasePage slug="magharyn" />} />
-        <Route path="/clase-desconocido" element={<ClasePage slug="desconocido" />} />
         <Route path="/profesiones" element={<Profesiones />} />
         <Route path="/oficio-gen-alquimista" element={<OficioPage slug="alquimista" />} />
         <Route path="/oficio-gen-artifices-del-velo-y-del-brillo" element={<OficioPage slug="artifices-del-velo-y-del-brillo" />} />
@@ -95,23 +94,16 @@ export default function App() {
         <Route path="/oficio-gen-seeker" element={<OficioPage slug="seeker" />} />
         <Route path="/oficio-gen-tabernero" element={<OficioPage slug="tabernero" />} />
         <Route path="/mundo" element={<Facciones />} />
-        <Route path="/facciones" element={<Navigate to="/mundo" replace />} />
         <Route path="/politica" element={<Politica />} />
         <Route path="/gremios" element={<Gremios />} />
         <Route path="/gremio-aventuras" element={<GremioAventuras />} />
         <Route path="/sistema" element={<Navigate to="/normativa" replace />} />
         <Route path="/normativa" element={<Normativa />} />
-        <Route path="/norm-tutorial" element={<Navigate to="/normativa" replace />} />
-        <Route path="/norm-general" element={<Navigate to="/normativa" replace />} />
-        <Route path="/norm-concepto" element={<Navigate to="/normativa" replace />} />
-        <Route path="/norm-ic" element={<Navigate to="/normativa" replace />} />
-        <Route path="/norm-construccion" element={<Navigate to="/normativa" replace />} />
-        <Route path="/norm-heridas" element={<Navigate to="/normativa" replace />} />
-        <Route path="/norm-combate" element={<Navigate to="/normativa" replace />} />
-        <Route path="/norm-esclavitud" element={<Navigate to="/normativa" replace />} />
-        <Route path="/norm-robo" element={<Navigate to="/normativa" replace />} />
-        <Route path="/norm-mazmorra" element={<Navigate to="/normativa" replace />} />
-        <Route path="/norm-housing" element={<Navigate to="/normativa" replace />} />
+        <Route path="/norm-heridas" element={<NormPage slug="heridas" />} />
+        <Route path="/norm-cordura" element={<NormPage slug="cordura" />} />
+        <Route path="/norm-infectados" element={<NormPage slug="infectados" />} />
+        <Route path="/norm-conquista" element={<NormPage slug="conquista" />} />
+        <Route path="/norm-*" element={<Navigate to="/normativa" replace />} />
         <Route path="/galeria" element={<Galeria />} />
         <Route path="/equipo" element={<Equipo />} />
         <Route path="*" element={<Navigate to="/" replace />} />

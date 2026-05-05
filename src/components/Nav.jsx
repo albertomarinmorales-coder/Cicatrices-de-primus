@@ -40,7 +40,6 @@ const NAV_ITEMS = [
       { label: 'Velum Cantoris', path: '/clase-velum-cantoris' },
       { label: 'Zereth-Mor', path: '/clase-zereth-mor' },
       { label: 'Magharyn', path: '/clase-magharyn' },
-      { label: 'Desconocido', path: '/clase-desconocido' },
     ],
   },
   {
@@ -64,7 +63,7 @@ const NAV_ITEMS = [
       { label: 'Gremio de Aventuras', path: '/gremio-aventuras' },
     ],
   },
-  { id: 'normativa', label: 'Normativa', path: '/normativa', alignRight: true },
+  { id: 'normativa', label: 'Sistemas', path: '/normativa', alignRight: true },
   { id: 'galeria', label: 'Galería', path: '/galeria' },
 ]
 

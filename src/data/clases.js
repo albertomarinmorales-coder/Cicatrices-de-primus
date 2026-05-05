@@ -550,14 +550,4 @@ ${ROW(
     )}`,
   },
 
-  desconocido: {
-    slug: 'desconocido',
-    name: 'Desconocido',
-    tag: null,
-    avatarImg: '/assets/images/classes/desconocido/avatar.png',
-    stats: [],
-    contentHtml: `<p class="tier-desc">Algunos nacen con acero, otros con fe, otros con dones que el mundo puede nombrar. Pero existen unos pocos cuya senda no figura en códices ni juramentos. No pertenecen a órdenes conocidas, no responden a linajes ni a doctrinas visibles. Caminan entre ruinas, guerras y sombras dejando señales que pocos entienden.</p>
-<p class="tier-desc">Se desconoce si son restos de una verdad olvidada… o ecos de algo que aún no ha despertado.</p>
-<p class="tier-desc">Nadie sabe de dónde vienen. Nadie sabe qué buscan.</p>`,
-  },
 }

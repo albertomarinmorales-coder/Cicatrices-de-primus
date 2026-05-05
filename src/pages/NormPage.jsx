@@ -2,7 +2,14 @@ import { useNavigate } from 'react-router-dom'
 import { normativaData } from '../data/normativa'
 import Footer from '../components/Footer'
 
-const SYSTEM_SLUGS = new Set(['construccion', 'combate', 'heridas', 'housing', 'mazmorra'])
+const SYSTEM_SLUGS = new Set(['construccion', 'combate', 'heridas', 'housing', 'mazmorra', 'cordura', 'infectados', 'conquista'])
+
+const SEVERITY_CLASS = {
+  1: 'norm-card-v2--sev1',
+  2: 'norm-card-v2--sev2',
+  3: 'norm-card-v2--sev3',
+  4: 'norm-card-v2--sev4',
+}
 
 export default function NormPage({ slug }) {
   const navigate = useNavigate()
@@ -22,7 +29,7 @@ export default function NormPage({ slug }) {
   }
 
   return (
-    <div className="page active">
+    <div className={`page active norm-page--${slug}`}>
       <div className="detail-hero">
         <div className="detail-hero-bg detail-hero-bg--norm" aria-hidden="true" />
         <div className="detail-hero-overlay" />
@@ -35,34 +42,66 @@ export default function NormPage({ slug }) {
         </div>
       </div>
 
-      <div className="detail-body">
+      <div className="detail-body norm-detail-body">
         <span className="back-btn" onClick={() => navigate(backTo)} style={{ cursor: 'pointer' }}>
           &#8592; Volver a {backLabel}
         </span>
 
         {data.intro && (
-          <div dangerouslySetInnerHTML={{ __html: data.intro }} />
+          <div className="norm-intro-block" dangerouslySetInnerHTML={{ __html: data.intro }} />
         )}
 
         {data.sections.map((section, si) => (
-          <div key={si}>
+          <div key={si} className="norm-section-block">
             {section.label && (
-              <span className="norm-section-label">{section.label}</span>
+              <div className="norm-section-header">
+                <div className="norm-section-header__line" aria-hidden="true" />
+                <span className="norm-section-header__label">{section.label}</span>
+                <div className="norm-section-header__line" aria-hidden="true" />
+              </div>
             )}
-            <div className="norm-cards-grid">
-              {section.cards.map((card, ci) => (
-                <div key={ci} className={`norm-card${card.warning ? ' norm-card--warning' : ''}`}>
-                  {card.num && <span className="norm-card-num">{card.num}</span>}
-                  <h4>{card.title}</h4>
-                  <p dangerouslySetInnerHTML={{ __html: card.text }} />
+
+            {section.type === 'process' ? (
+              <div className="norm-process-timeline">
+                {section.steps.map((step, spi) => (
+                  <div key={spi} className="norm-process-step">
+                    <div className="norm-process-step__icon">
+                      <i className={`ra ra-${step.icon}`} aria-hidden="true" />
+                    </div>
+                    <span className="norm-process-step__label">{step.label}</span>
+                  </div>
+                ))}
+              </div>
+            ) : section.type === 'info' ? (
+              <div className="norm-info-block">
+                <i className={`ra ra-${section.icon} norm-info-block__icon`} aria-hidden="true" />
+                <div className="norm-info-block__content">
+                  <h4 className="norm-info-block__title">{section.title}</h4>
+                  <div className="norm-info-block__text" dangerouslySetInnerHTML={{ __html: section.text }} />
                 </div>
-              ))}
-            </div>
+              </div>
+            ) : (
+              <div className="norm-cards-grid-v2">
+                {section.cards.map((card, ci) => {
+                  const sevClass = card.severity ? SEVERITY_CLASS[card.severity] || '' : ''
+                  const warnClass = card.warning && !card.severity ? ' norm-card-v2--warning' : ''
+                  return (
+                    <div key={ci} className={`norm-card-v2${warnClass}${sevClass ? ` ${sevClass}` : ''}`}>
+                      <div className="norm-card-v2__top-accent" aria-hidden="true" />
+                      {card.num && <span className="norm-card-v2__num">{card.num}</span>}
+                      <h4 className="norm-card-v2__title">{card.title}</h4>
+                      <div className="norm-card-v2__divider" aria-hidden="true" />
+                      <div className="norm-card-v2__text" dangerouslySetInnerHTML={{ __html: card.text }} />
+                    </div>
+                  )
+                })}
+              </div>
+            )}
           </div>
         ))}
 
         {data.outro && (
-          <div dangerouslySetInnerHTML={{ __html: data.outro }} />
+          <div className="norm-outro-block" dangerouslySetInnerHTML={{ __html: data.outro }} />
         )}
       </div>
       <Footer />

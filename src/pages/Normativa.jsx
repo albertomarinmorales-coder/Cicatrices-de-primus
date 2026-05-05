@@ -40,7 +40,7 @@ export default function Normativa({ title = 'Sistemas', subtitle = 'Sistemas del
 
       <div className="section">
         <h2 className="section-title">{title}</h2>
-        <div className="section-underline"><i className="ra ra-gavel" aria-hidden /></div>
+        <div className="section-underline" aria-hidden="true" />
 
         <div className="norm-grid-v2">
           {NORM_ITEMS.map((item) => {
@@ -54,7 +54,6 @@ export default function Normativa({ title = 'Sistemas', subtitle = 'Sistemas del
               onClick={() => navigate(item.path)}
               style={{ cursor: 'pointer', '--norm-intro-glow': glow }}
             >
-              <div className="norm-item__glow" aria-hidden="true" />
               {meta.introImage && (
                 <div className="norm-item__intro" aria-hidden="true">
                   <div className="norm-item__intro-frame">

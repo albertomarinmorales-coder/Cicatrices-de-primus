@@ -6463,6 +6463,13 @@ body.modal-active .audio-toggle {
   display: none;
 }
 
+/* Sistemas / Normativa: línea ornamental continua (sin hueco ni icono) */
+#page-normativa .section .section-underline {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 2.5rem;
+}
+
 /* ——— NORM GRID V2 (Sistemas index page) ——————————————————— */
 .norm-grid-v2 {
   display: grid;
@@ -6474,7 +6481,6 @@ body.modal-active .audio-toggle {
 
 .norm-grid-v2 .norm-item {
   --norm-intro-glow: rgb(201, 168, 76);
-  --norm-accent: color-mix(in srgb, var(--norm-intro-glow) 55%, rgba(255, 255, 255, 0.85));
   position: relative;
   overflow: visible;
   border-radius: 12px;
@@ -6486,24 +6492,6 @@ body.modal-active .audio-toggle {
   cursor: pointer;
   transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   min-height: 0;
-}
-
-.norm-grid-v2 .norm-item__glow {
-  position: absolute;
-  top: -40%;
-  right: -20%;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--norm-intro-glow) 75%, transparent) 0%, transparent 70%);
-  opacity: 0.1;
-  pointer-events: none;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.norm-grid-v2 .norm-item:hover .norm-item__glow {
-  opacity: 0.18;
-  transform: scale(1.3);
 }
 
 .norm-grid-v2 .norm-item:hover {

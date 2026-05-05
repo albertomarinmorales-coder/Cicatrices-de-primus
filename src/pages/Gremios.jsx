@@ -22,11 +22,17 @@ export default function Gremios() {
             <div className="oficio-card-img-wrap" style={{ background: '#111' }}>
               <img
                 className="oficio-card-img"
-                src="/assets/images/guilds/emblema.webp"
+                src="/assets/images/guilds/emblema.png"
                 alt="Gremio de Aventuras"
                 loading="lazy"
                 decoding="async"
-                style={{ objectFit: 'contain', padding: '2rem', boxSizing: 'border-box' }}
+                style={{
+                  objectFit: 'contain',
+                  padding: '2rem',
+                  boxSizing: 'border-box',
+                  filter:
+                    'drop-shadow(0 2px 6px rgba(139, 105, 20, 0.85)) drop-shadow(0 0 14px rgba(255, 200, 60, 0.65)) drop-shadow(0 0 28px rgba(212, 175, 55, 0.45))',
+                }}
               />
             </div>
             <div className="oficio-card-label">Gremio de Aventuras</div>

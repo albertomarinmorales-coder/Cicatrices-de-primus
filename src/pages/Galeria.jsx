@@ -242,7 +242,7 @@ function UserChip({ user, av, onLogout, onUpload, adminSession }) {
           <span className="galeria-chip-name">{user.username}</span>
           {(adminSession || user.is_admin) && <span className="galeria-chip-role">Admin</span>}
         </div>
-        <i className={`ra ra-heavy-fall galeria-chip-arrow${open ? ' open' : ''}`} aria-hidden />
+        <span className={`galeria-chip-arrow${open ? ' open' : ''}`} aria-hidden>▾</span>
       </div>
 
       <button className="galeria-upload-fab" onClick={onUpload} title="Subir foto">
@@ -253,7 +253,7 @@ function UserChip({ user, av, onLogout, onUpload, adminSession }) {
       {open && (
         <div className="galeria-chip-dropdown">
           <button className="galeria-chip-logout" onClick={() => { onLogout(); setOpen(false) }}>
-            <i className="ra ra-metal-gate" aria-hidden />
+            <span className="galeria-chip-logout-icon" aria-hidden>←</span>
             Cerrar sesión
           </button>
         </div>
@@ -433,7 +433,7 @@ export default function Galeria() {
         {/* Auth bar */}
         <div className="galeria-auth-bar">
           {user === undefined && (
-            <span className="galeria-auth-loading"><i className="ra ra-load ra-spin" aria-hidden /> Comprobando sesión...</span>
+            <span className="galeria-auth-loading"><span className="galeria-spinner" aria-hidden /> Comprobando sesión...</span>
           )}
           {user === null && (
             <div className="galeria-login-cta">
@@ -473,7 +473,7 @@ export default function Galeria() {
         {/* Grid */}
         {photosLoading ? (
           <div className="galeria-loading">
-            <i className="ra ra-load ra-spin" aria-hidden /> Cargando...
+            <span className="galeria-spinner galeria-spinner--lg" aria-hidden /> Cargando...
           </div>
         ) : photos.length === 0 ? (
           <div className="galeria-empty">

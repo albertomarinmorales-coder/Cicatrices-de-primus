@@ -3,8 +3,8 @@ import { createPortal } from 'react-dom'
 import { api, CATEGORIES } from '../../lib/api'
 
 const MODES = [
-  { id: 'foto',  label: 'Foto',  icon: 'mirror',  accept: 'image/*', maxMB: 10,  maxB: 10  * 1024 * 1024, hint: 'JPG, PNG, WEBP' },
-  { id: 'video', label: 'Vídeo', icon: 'telescope',   accept: 'video/*', maxMB: 100, maxB: 100 * 1024 * 1024, hint: 'MP4, WEBM, MOV' },
+  { id: 'foto',  label: 'Foto',  icon: '🖼️',  accept: 'image/*', maxMB: 10,  maxB: 10  * 1024 * 1024, hint: 'JPG, PNG, WEBP' },
+  { id: 'video', label: 'Vídeo', icon: '🎬',  accept: 'video/*', maxMB: 100, maxB: 100 * 1024 * 1024, hint: 'MP4, WEBM, MOV' },
 ]
 
 export default function UploadModal({ onClose, onUploaded }) {
@@ -83,7 +83,7 @@ export default function UploadModal({ onClose, onUploaded }) {
               className={`upload-tab${mode === m.id ? ' active' : ''}`}
               onClick={() => switchMode(m.id)}
             >
-              <i className={`ra ra-${m.icon}`} aria-hidden />
+              <span className="upload-tab-icon" aria-hidden>{m.icon}</span>
               {m.label}
             </button>
           ))}
@@ -113,7 +113,7 @@ export default function UploadModal({ onClose, onUploaded }) {
                   </button>
                 </div>
               : <>
-                  <i className={`ra ra-${currentMode.icon} upload-drop-icon`} aria-hidden />
+                  <span className="upload-drop-icon" aria-hidden>{currentMode.icon}</span>
                   <p>Arrastra {mode === 'foto' ? 'una imagen' : 'un vídeo'} o haz clic para seleccionar</p>
                   <span className="upload-drop-hint">
                     {currentMode.hint} — máx. {currentMode.maxMB} MB

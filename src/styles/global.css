@@ -9659,8 +9659,11 @@ body.modal-active {
   font-size: 2rem;
   color: var(--gold);
   opacity: 0.85;
-  margin-bottom: 0.75rem;
-  display: block;
+  margin: 0 auto 0.75rem;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
   line-height: 1;
 }
 
@@ -9698,6 +9701,12 @@ body.modal-active {
 
 .upload-tab-icon {
   font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
   line-height: 1;
 }
 

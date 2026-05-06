@@ -43,6 +43,7 @@ const BENTO_ITEMS = [
   {
     className: 'bento-item',
     bg: '/assets/images/carousel/gremios-carrusel.png',
+    bgPosition: 'center 5%',
     title: 'Gremios',
     desc: 'Organizaciones y hermandades del servidor.',
     path: '/gremios',
@@ -63,7 +64,13 @@ export default function Inicio() {
   function renderBentoItem(item, i) {
     const content = (
       <>
-        <div className="bento-bg" style={{ backgroundImage: `url('${item.bg}')` }} />
+        <div
+          className="bento-bg"
+          style={{
+            backgroundImage: `url('${item.bg}')`,
+            backgroundPosition: item.bgPosition ?? 'center',
+          }}
+        />
         <div className="bento-overlay" />
         <div className="bento-content">
           <h2>{item.title}</h2>

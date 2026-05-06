@@ -100,7 +100,7 @@ function GaleriaCarousel() {
               style={s.img ? { backgroundImage: `url('${s.img}')`, backgroundSize: 'cover', backgroundPosition: s.imgPos || 'center' } : {}}
             />
             <div className="galeria-slide-caption">
-              <span className="galeria-slide-label">{s.label}</span>
+              <span className={`galeria-slide-label${s.label === 'Clases' ? ' galeria-slide-label--clases' : ''}`}>{s.label}</span>
               <p>{s.desc}</p>
             </div>
           </div>

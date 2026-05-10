@@ -6825,18 +6825,20 @@ body.modal-active .audio-toggle {
 }
 
 .norm-card-v2__icon {
-  width: 34px;
-  height: 34px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(201, 168, 76, 0.06);
-  border: 1px solid rgba(201, 168, 76, 0.15);
-  border-radius: 6px;
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 12px;
   color: var(--gold);
-  font-size: 1.15rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  font-size: 1.75rem;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(201, 168, 76, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .norm-card-v2:hover .norm-card-v2__icon {
@@ -6846,11 +6848,20 @@ body.modal-active .audio-toggle {
 
 .norm-card-v2__num {
   font-family: 'Cinzel', serif;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  color: rgba(201, 168, 76, 0.5);
+  color: rgba(201, 168, 76, 0.65);
   letter-spacing: 0.25em;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.norm-card-v2__num i {
+  font-size: 1.5rem;
+  color: var(--gold);
+  filter: drop-shadow(0 0 10px rgba(201, 168, 76, 0.4));
 }
 
 .norm-card-v2__title {
@@ -10953,4 +10964,102 @@ body.modal-active {
 #page-velums .velums-choose-grid:not(:has(.raza-card:hover)):has(.raza-card:focus-within) .raza-card:not(:focus-within) {
   filter: brightness(0.48) saturate(0.72);
   opacity: 0.86;
+}
+
+/* —————————————————— NORMATIVA GENERAL —————————————————— */
+.normativa-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 2rem 0;
+}
+
+.rules-section__header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.rules-section__header i {
+  font-size: 2.5rem;
+  color: var(--gold);
+  filter: drop-shadow(0 0 15px rgba(201, 168, 76, 0.4));
+}
+
+.rules-section__header h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  color: var(--white);
+  letter-spacing: 0.1em;
+}
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.rule-card {
+  background: rgba(24, 21, 16, 0.4);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.rule-card:hover {
+  background: rgba(30, 26, 20, 0.6);
+  border-color: rgba(201, 168, 76, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.rule-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.rule-card p {
+  font-size: 1rem;
+  color: rgba(212, 201, 176, 0.7);
+  line-height: 1.7;
+}
+
+.rules-disclaimer {
+  max-width: 800px;
+  margin: 4rem auto 0;
+  text-align: center;
+  padding: 3rem;
+  background: linear-gradient(135deg, rgba(176, 16, 16, 0.05) 0%, rgba(201, 168, 76, 0.05) 100%);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 20px;
+}
+
+.rules-disclaimer p {
+  font-style: italic;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+}
+
+.page-header-bg--normativa {
+  background-image: url('/assets/images/common/hero.png'); /* Fallback or specific background */
+  filter: brightness(0.3) saturate(0.5);
+}
+
+@media (max-width: 768px) {
+  .rules-section__header h2 {
+    font-size: 1.5rem;
+  }
+  .rule-card {
+    padding: 1.5rem;
+  }
 }

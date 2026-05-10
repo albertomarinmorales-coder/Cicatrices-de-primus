@@ -63,7 +63,18 @@ const NAV_ITEMS = [
       { label: 'Gremio de Aventuras', path: '/gremio-aventuras' },
     ],
   },
-  { id: 'normativa', label: 'Sistemas', path: '/normativa', alignRight: true },
+  {
+    id: 'sistemas', label: 'Sistemas', path: '/sistemas', alignRight: true,
+    children: [
+      { label: 'Heridas y Estados', path: '/norm-heridas' },
+      { label: 'Cordura', path: '/norm-cordura' },
+      { label: 'Infectados', path: '/norm-infectados' },
+      { label: 'Conquista', path: '/norm-conquista' },
+      { label: 'Robos y Multas', path: '/norm-robos' },
+      { label: 'Combate', path: '/norm-combate' },
+    ]
+  },
+  { id: 'normativa', label: 'Normativas', path: '/normativa', alignRight: true },
   { id: 'galeria', label: 'Galería', path: '/galeria' },
 ]
 

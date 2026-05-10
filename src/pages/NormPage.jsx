@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { normativaData } from '../data/normativa'
 import Footer from '../components/Footer'
 
-const SYSTEM_SLUGS = new Set(['construccion', 'combate', 'heridas', 'housing', 'mazmorra', 'cordura', 'infectados', 'conquista'])
+const NORM_SLUGS = new Set(['general', 'housing', 'esclavitud'])
 
 const SEVERITY_CLASS = {
   1: 'norm-card-v2--sev1',
@@ -14,15 +14,16 @@ const SEVERITY_CLASS = {
 export default function NormPage({ slug }) {
   const navigate = useNavigate()
   const data = normativaData[slug]
-  const backTo = SYSTEM_SLUGS.has(slug) ? '/sistema' : '/normativa'
-  const backLabel = SYSTEM_SLUGS.has(slug) ? 'Sistema' : 'Normativa'
+  const isNorm = NORM_SLUGS.has(slug)
+  const backTo = isNorm ? '/normativa' : '/sistemas'
+  const backLabel = isNorm ? 'Normativas' : 'Sistemas'
 
   if (!data) {
     return (
       <div className="page active" style={{ paddingTop: '120px', textAlign: 'center' }}>
-        <h1>Normativa no encontrada</h1>
-        <span className="btn-ghost" onClick={() => navigate('/normativa')} style={{ cursor: 'pointer', marginTop: '2rem', display: 'inline-block' }}>
-          Volver a Normativa
+        <h1>Contenido no encontrado</h1>
+        <span className="btn-ghost" onClick={() => navigate(backTo)} style={{ cursor: 'pointer', marginTop: '2rem', display: 'inline-block' }}>
+          Volver a {backLabel}
         </span>
       </div>
     )
@@ -105,7 +106,15 @@ export default function NormPage({ slug }) {
                             <i className={`ra ra-${card.icon}`} aria-hidden="true" />
                           </div>
                         )}
-                        {card.num && <span className="norm-card-v2__num">{card.num}</span>}
+                        {card.num && (
+                          <span className="norm-card-v2__num">
+                            {typeof card.num === 'string' && card.num.startsWith('ra-') ? (
+                              <i className={`ra ${card.num}`} aria-hidden="true" />
+                            ) : (
+                              card.num
+                            )}
+                          </span>
+                        )}
                       </div>
                       <h4 className="norm-card-v2__title">{card.title}</h4>
                       <div className="norm-card-v2__divider" aria-hidden="true" />

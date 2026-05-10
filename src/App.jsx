@@ -19,6 +19,7 @@ import Politica from './pages/Politica'
 import Gremios from './pages/Gremios'
 import GremioAventuras from './pages/GremioAventuras'
 import Normativa from './pages/Normativa'
+import Sistemas from './pages/Sistemas'
 import NormPage from './pages/NormPage'
 import Galeria from './pages/Galeria'
 import Equipo from './pages/Equipo'
@@ -97,15 +98,19 @@ export default function App() {
         <Route path="/politica" element={<Politica />} />
         <Route path="/gremios" element={<Gremios />} />
         <Route path="/gremio-aventuras" element={<GremioAventuras />} />
-        <Route path="/sistema" element={<Navigate to="/normativa" replace />} />
+        <Route path="/sistema" element={<Navigate to="/sistemas" replace />} />
+        <Route path="/sistemas" element={<Sistemas />} />
         <Route path="/normativa" element={<Normativa />} />
+        <Route path="/norm-general" element={<NormPage slug="general" />} />
+        <Route path="/norm-housing" element={<NormPage slug="housing" />} />
+        <Route path="/norm-esclavitud" element={<NormPage slug="esclavitud" />} />
         <Route path="/norm-heridas" element={<NormPage slug="heridas" />} />
         <Route path="/norm-cordura" element={<NormPage slug="cordura" />} />
         <Route path="/norm-infectados" element={<NormPage slug="infectados" />} />
         <Route path="/norm-conquista" element={<NormPage slug="conquista" />} />
         <Route path="/norm-robos" element={<NormPage slug="robos" />} />
         <Route path="/norm-combate" element={<NormPage slug="combate" />} />
-        <Route path="/norm-*" element={<Navigate to="/normativa" replace />} />
+        <Route path="/norm-*" element={<Navigate to="/sistemas" replace />} />
         <Route path="/galeria" element={<Galeria />} />
         <Route path="/equipo" element={<Equipo />} />
         <Route path="*" element={<Navigate to="/" replace />} />

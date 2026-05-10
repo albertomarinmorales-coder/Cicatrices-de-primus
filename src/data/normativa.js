@@ -465,14 +465,14 @@ export const normativaData = {
         label: 'Consecuencias',
         cards: [
           { 
-            num: '💰', 
+            num: 'ra-coins', 
             title: 'Recompensa', 
             icon: 'gold-bar',
             text: 'La actividad de robo estará abierta para todos los jugadores. Igualmente, la capacidad de robo está ligada a los Tiers de profesión activos. Esto significa que un ladrón será capaz de robar una cantidad equivalente a un objeto de redux del tier ligado a la profesión.<br/><br/>Un ejemplo claro: Un ladrón de T2 podrá robar una cantidad igual a un objeto de redux de T2. Ya sea de tabernero, artífice, o forjador.', 
             severity: 1 
           },
           { 
-            num: '⚖️', 
+            num: 'ra-gavel', 
             title: 'Castigo', 
             icon: 'gavel',
             text: 'No todo es ganancia y festejo en la vida de un ladrón, pues aquellos que lo intenten tendrán un contador de criminalidad asociado a su ficha, el cuál subirá en base a los intentos fallidos hasta un límite de tres (3).', 
@@ -505,21 +505,21 @@ export const normativaData = {
         label: 'Categorías de Penas',
         cards: [
           { 
-            num: '🟡', 
+            num: 'ra-scroll-unfurled', 
             title: 'Penas leves', 
             icon: 'pills',
             text: '<strong>Infractor Menor</strong><br/><br/>• Ingreso a ficha criminal<br/>• Detención temporal por parte de la guardia (rol de captura y encarcelamiento). (10 mins OOC)<br/><br/>o<br/><br/>• Multa leve', 
             severity: 1 
           },
           { 
-            num: '🟠', 
+            num: 'ra-chain', 
             title: 'Penas moderadas', 
             icon: 'chain',
             text: '<strong>Criminal Reincidente</strong><br/><br/>Una vez tengas un antecedente penal, y se te capture por tercera vez con un estado de SOSPECHOSO, estarás en categoría de penas moderadas.<br/><br/>• Encarcelamiento de mediana duración (interpretado durante el día, 30 mins OOC)<br/><br/>o<br/><br/>• Multa media<br/>• Mutilación o marca permanente que lo identifique como un criminal del reino', 
             severity: 2 
           },
           { 
-            num: '🔴', 
+            num: 'ra-skull', 
             title: 'Penas severas', 
             icon: 'skull',
             text: '<strong>Enemigo del Orden</strong><br/><br/>Tras recibir tres penas moderadas, y volver a ser capturado, entrarás directamente en penas severas. Estas penas son las más peligrosas, y bien pueden causarte la muerte. En casos que implique la seguridad del reino, y sus ciudadanos, un criminal puede entrar directamente en esta categoría, y ser ejecutado en el acto de ser apresado.<br/><br/>• Encarcelamiento prolongado o incluso rol de juicio ante autoridades<br/>• Castigo público<br/>• Mutilación o marca permanente que lo identifique como un criminal del reino<br/>• En casos extremos, pena de muerte<br/>• Multa alta', 
@@ -554,6 +554,33 @@ export const normativaData = {
         text: 'Este sistema se encuentra alojado externamente para permitir una consulta rápida y dinámica de todas las mecánicas, habilidades y estados de combate.<br/><br/><div style="display: flex; justify-content: center; margin-top: 1.5rem;"><a href="https://rough-character-552.notion.site/Sistema-de-Combate-Primus-35c8d8f1501f80988168cd015b05debc?source=copy_link" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">Abrir en Notion</a></div><br/><br/><blockquote>Nota administrativa: Este sistema será enlazado externamente desde la web, de forma similar al funcionamiento actual del Gremio de Aventuras.</blockquote>',
       },
     ],
+  },
+  esclavitud: {
+    title: 'Normativa de Esclavitud',
+    subtitle: 'Reglas y límites del sometimiento',
+    introImage: '/assets/images/Normativa/Esclavitud.png',
+    introGlow: '#b01010',
+    breadcrumb: 'Esclavitud',
+    intro: `<blockquote class="norm-quote">Sección en construcción. Próximamente se detallará la normativa correspondiente.</blockquote>`,
+    sections: [],
+  },
+  housing: {
+    title: 'Normativa de Housing',
+    subtitle: 'Leyes de edificación y propiedad',
+    introImage: '/assets/images/Normativa/Housing.png',
+    introGlow: '#e7732bff',
+    breadcrumb: 'Vivienda',
+    intro: `<blockquote class="norm-quote">Sección en construcción. Próximamente se detallará la normativa correspondiente.</blockquote>`,
+    sections: [],
+  },
+  general: {
+    title: 'Normativa General de Rol',
+    subtitle: 'Leyes fundamentales del reino',
+    introImage: '/assets/images/Normativa/Normativa.png',
+    introGlow: '#ffffff',
+    breadcrumb: 'General',
+    intro: `<blockquote class="norm-quote">Sección en construcción. Próximamente se detallará la normativa correspondiente.</blockquote>`,
+    sections: [],
   },
 }
 

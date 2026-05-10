@@ -3,19 +3,19 @@ import { useLocation } from 'react-router-dom'
 import { auroraLock } from '../lib/auroraLock'
 
 const themeMap = {
-  '/': { color: '#c9a84c', accent: '#b01010', palette: ['#c9a84c', '#e8c96a', '#fdfbf0', '#b01010', '#a87f32'] },
-  '/lore': { color: '#c9a84c', accent: '#1c3a63', palette: ['#c9a84c', '#e8c96a', '#f5f0dc', '#1c3a63', '#162b4d'] },
-  '/historia': { color: '#b87333', accent: '#4e3416', palette: ['#b87333', '#cd7f32', '#4e3416', '#8b4513', '#f0e6c8'] },
+  '/': { color: '#c9a84c', accent: '#7a1a00', palette: ['#c9a84c', '#a87f30', '#e8c96a', '#8b6520', '#c9a84c55'] },
+  '/lore': { color: '#1e6b8a', accent: '#0d3a4f', palette: ['#1e6b8a', '#155e7a', '#2d8fad', '#0d3a4f', '#1a5470'] },
+  '/historia': { color: '#a0622a', accent: '#5c3010', palette: ['#a0622a', '#b87333', '#7a4a1e', '#cd8940', '#5c3010'] },
   '/deidades': { color: '#c9a84c', accent: '#250d30', palette: ['#6e4ba3', '#f1e9ba', '#c9a84c', '#960f2f', '#3d9550'] },
-  '/razas': { color: '#2d5a27', accent: '#1a2e1a', palette: ['#2d5a27', '#4e6b45', '#1a2e1a', '#d4af37', '#8a722e', '#fdfbf0'] },
-  '/profesiones': { color: '#4682b4', accent: '#1a2b3c', palette: ['#4682b4', '#5f9ea0', '#1a2b3c', '#8fa8bc', '#b8cddc', '#ffffff'] },
-  '/facciones': { color: '#008080', accent: '#004040', palette: ['#008080', '#20b2aa', '#004040', '#e97451', '#ffffff'] },
-  '/clases': { color: '#b01010', accent: '#440000', palette: ['#b01010', '#d4220f', '#660000', '#440000', '#f5c5c5'] },
-  '/sistemas': { color: '#696969', accent: '#222222', palette: ['#696969', '#a9a9a9', '#333333', '#222222', '#ffffff'] },
-  '/normativa': { color: '#b01010', accent: '#440000', palette: ['#b01010', '#d4220f', '#660000', '#440000', '#f5c5c5'] },
-  '/gremios': { color: '#008080', accent: '#004040', palette: ['#008080', '#20b2aa', '#004040', '#e97451', '#ffffff'] },
-  '/gremio-aventuras': { color: '#e97451', accent: '#8b4513', palette: ['#e97451', '#f4a460', '#8b4513', '#d2691e', '#4a6b8a', '#ffffff'] },
-  '/equipo': { color: '#c9a84c', accent: '#181510', palette: ['#c9a84c', '#e8c96a', '#fdfbf0', '#4a3a20', '#b01010'] },
+  '/razas': { color: '#2d6e35', accent: '#163b1c', palette: ['#2d6e35', '#1e5228', '#3d8a47', '#4a6b3a', '#163b1c'] },
+  '/profesiones': { color: '#1e4d7a', accent: '#0e2a45', palette: ['#1e4d7a', '#163860', '#2860a0', '#1a4570', '#0e2a45'] },
+  '/facciones': { color: '#4a1e8a', accent: '#28104a', palette: ['#4a1e8a', '#38166e', '#5c2aaa', '#3e1878', '#28104a'] },
+  '/clases': { color: '#8b1a2d', accent: '#4a0010', palette: ['#8b1a2d', '#6e1020', '#a8223a', '#c0284a', '#4a0010'] },
+  '/sistemas': { color: '#3a3a50', accent: '#1c1c28', palette: ['#3a3a50', '#2c2c3e', '#4e4e68', '#303045', '#1c1c28'] },
+  '/normativa': { color: '#7a3a10', accent: '#3e1c06', palette: ['#7a3a10', '#5c2a08', '#9a4a18', '#6a3010', '#3e1c06'] },
+  '/gremios': { color: '#1a5c45', accent: '#0c3026', palette: ['#1a5c45', '#124535', '#228a65', '#186050', '#0c3026'] },
+  '/gremio-aventuras': { color: '#c05010', accent: '#6a2800', palette: ['#c05010', '#a03c08', '#e06020', '#8a3800', '#6a2800'] },
+  '/equipo': { color: '#c9a84c', accent: '#4a3010', palette: ['#c9a84c', '#a87f30', '#e8c96a', '#8b6520', '#4a3010'] },
 }
 
 function getThemeForPath(pathname) {

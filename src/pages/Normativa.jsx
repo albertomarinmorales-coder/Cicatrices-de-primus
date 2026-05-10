@@ -23,6 +23,16 @@ const NORM_ITEMS = [
     label: 'Conquista Territorial',
     desc: 'Conquista, defensa y consolidación de puestos de avanzada.',
   },
+  {
+    path: '/norm-robos',
+    label: 'Robo y Multas',
+    desc: 'Reglas de hurto, habilidad de robo, multas y penas criminales.',
+  },
+  {
+    path: '/norm-combate',
+    label: 'Sistema de Combate',
+    desc: 'Manual estratégico de combate, posicionamiento y cooperación.',
+  },
 ]
 
 export default function Normativa({ title = 'Sistemas', subtitle = 'Sistemas del servidor' }) {
@@ -48,27 +58,27 @@ export default function Normativa({ title = 'Sistemas', subtitle = 'Sistemas del
             const meta = normativaData[slug] || {}
             const glow = meta.introGlow || 'rgb(201, 168, 76)'
             return (
-            <div
-              key={item.path}
-              className="norm-item"
-              onClick={() => navigate(item.path)}
-              style={{ cursor: 'pointer', '--norm-intro-glow': glow }}
-            >
-              {meta.introImage && (
-                <div className="norm-item__intro" aria-hidden="true">
-                  <div className="norm-item__intro-frame">
-                    <img className="norm-item__intro-img" src={meta.introImage} alt="" decoding="async" loading="lazy" />
+              <div
+                key={item.path}
+                className="norm-item"
+                onClick={() => navigate(item.path)}
+                style={{ cursor: 'pointer', '--norm-intro-glow': glow }}
+              >
+                {meta.introImage && (
+                  <div className="norm-item__intro" aria-hidden="true">
+                    <div className="norm-item__intro-frame">
+                      <img className="norm-item__intro-img" src={meta.introImage} alt="" decoding="async" loading="lazy" />
+                    </div>
                   </div>
+                )}
+                <div className="norm-item__content">
+                  <h3 className="norm-item__title">{item.label}</h3>
+                  <p className="norm-item__desc">{item.desc}</p>
+                  <span className="norm-item__cta">
+                    Explorar <span className="norm-item__arrow">→</span>
+                  </span>
                 </div>
-              )}
-              <div className="norm-item__content">
-                <h3 className="norm-item__title">{item.label}</h3>
-                <p className="norm-item__desc">{item.desc}</p>
-                <span className="norm-item__cta">
-                  Explorar <span className="norm-item__arrow">→</span>
-                </span>
               </div>
-            </div>
             )
           })}
         </div>

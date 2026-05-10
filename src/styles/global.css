@@ -6474,9 +6474,9 @@ body.modal-active .audio-toggle {
 .norm-grid-v2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-  margin: 0 auto 3rem;
-  max-width: 920px;
+  gap: 1.5rem;
+  margin: 0 auto 4rem;
+  max-width: 1000px;
 }
 
 .norm-grid-v2 .norm-item {
@@ -6598,6 +6598,10 @@ body.modal-active .audio-toggle {
 
 .norm-grid-v2 .norm-item:hover .norm-item__arrow {
   transform: translateX(3px);
+}
+
+.norm-grid-v2 .norm-item__arrow {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -6886,14 +6890,17 @@ body.modal-active .audio-toggle {
   border-color: rgba(46, 204, 113, 0.25);
   background: linear-gradient(180deg, rgba(46, 204, 113, 0.03) 0%, rgba(13, 11, 9, 0.4) 100%);
 }
+
 .norm-card-v2--sev1 .norm-card-v2__icon {
   background: rgba(46, 204, 113, 0.1);
   border-color: rgba(46, 204, 113, 0.3);
   color: #2ecc71;
 }
+
 .norm-card-v2--sev1 .norm-card-v2__top-accent {
   background: linear-gradient(90deg, transparent, #2ecc71, transparent);
 }
+
 .norm-card-v2--sev1 .norm-card-v2__divider {
   background: linear-gradient(90deg, rgba(46, 204, 113, 0.5), transparent);
 }
@@ -6904,14 +6911,17 @@ body.modal-active .audio-toggle {
   border-color: rgba(241, 196, 15, 0.25);
   background: linear-gradient(180deg, rgba(241, 196, 15, 0.03) 0%, rgba(13, 11, 9, 0.4) 100%);
 }
+
 .norm-card-v2--sev2 .norm-card-v2__icon {
   background: rgba(241, 196, 15, 0.1);
   border-color: rgba(241, 196, 15, 0.3);
   color: #f1c40f;
 }
+
 .norm-card-v2--sev2 .norm-card-v2__top-accent {
   background: linear-gradient(90deg, transparent, #f1c40f, transparent);
 }
+
 .norm-card-v2--sev2 .norm-card-v2__divider {
   background: linear-gradient(90deg, rgba(241, 196, 15, 0.5), transparent);
 }
@@ -6922,14 +6932,17 @@ body.modal-active .audio-toggle {
   border-color: rgba(230, 126, 34, 0.25);
   background: linear-gradient(180deg, rgba(230, 126, 34, 0.03) 0%, rgba(13, 11, 9, 0.4) 100%);
 }
+
 .norm-card-v2--sev3 .norm-card-v2__icon {
   background: rgba(230, 126, 34, 0.1);
   border-color: rgba(230, 126, 34, 0.3);
   color: #e67e22;
 }
+
 .norm-card-v2--sev3 .norm-card-v2__top-accent {
   background: linear-gradient(90deg, transparent, #e67e22, transparent);
 }
+
 .norm-card-v2--sev3 .norm-card-v2__divider {
   background: linear-gradient(90deg, rgba(230, 126, 34, 0.5), transparent);
 }
@@ -6940,16 +6953,19 @@ body.modal-active .audio-toggle {
   border-color: rgba(231, 76, 60, 0.3);
   background: linear-gradient(180deg, rgba(231, 76, 60, 0.04) 0%, rgba(13, 11, 9, 0.4) 100%);
 }
+
 .norm-card-v2--sev4 .norm-card-v2__icon {
   background: rgba(231, 76, 60, 0.12);
   border-color: rgba(231, 76, 60, 0.4);
   color: #e74c3c;
   box-shadow: 0 0 15px rgba(231, 76, 60, 0.1);
 }
+
 .norm-card-v2--sev4 .norm-card-v2__top-accent {
   background: linear-gradient(90deg, transparent, #e74c3c, transparent);
   opacity: 0.8;
 }
+
 .norm-card-v2--sev4 .norm-card-v2__divider {
   background: linear-gradient(90deg, rgba(231, 76, 60, 0.5), transparent);
 }
@@ -7024,7 +7040,8 @@ body.modal-active .audio-toggle {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-muted);
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
   transition: color 0.3s ease;
 }
 
@@ -7079,7 +7096,7 @@ body.modal-active .audio-toggle {
     align-items: flex-start;
     padding-left: 2rem;
   }
-  
+
   .norm-process-timeline::before {
     top: 0;
     bottom: 0;
@@ -7087,13 +7104,13 @@ body.modal-active .audio-toggle {
     width: 2px;
     height: auto;
   }
-  
+
   .norm-process-step {
     flex-direction: row;
     text-align: left;
     flex: none;
   }
-  
+
   .norm-process-step__label {
     max-width: none;
   }
@@ -7214,6 +7231,7 @@ body.modal-active .audio-toggle {
 }
 
 @media (max-width: 640px) {
+
   .norm-content-grid,
   .norm-cards-grid {
     grid-template-columns: 1fr;
@@ -7224,6 +7242,7 @@ body.modal-active .audio-toggle {
     grid-column: 1;
   }
 }
+
 /* Clases: mismos bloques que Historia (ano-block + cuerpo tipo ano-body) */
 /* No usar .reveal aquí: opacity:0 dejaba el contenido invisible hasta el scroll */
 .clase-codex .clase-feature-row.reveal,

@@ -103,6 +103,8 @@ export default function App() {
         <Route path="/norm-cordura" element={<NormPage slug="cordura" />} />
         <Route path="/norm-infectados" element={<NormPage slug="infectados" />} />
         <Route path="/norm-conquista" element={<NormPage slug="conquista" />} />
+        <Route path="/norm-robos" element={<NormPage slug="robos" />} />
+        <Route path="/norm-combate" element={<NormPage slug="combate" />} />
         <Route path="/norm-*" element={<Navigate to="/normativa" replace />} />
         <Route path="/galeria" element={<Galeria />} />
         <Route path="/equipo" element={<Equipo />} />

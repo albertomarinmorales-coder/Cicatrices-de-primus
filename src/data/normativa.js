@@ -11,10 +11,10 @@ export const normativaData = {
         label: 'Porcentaje de Vida según el Tier',
         type: 'process',
         steps: [
-          { label: 'Tier 1 — Heridas leves (80% - 99%)', icon: 'heart-bottle' },
-          { label: 'Tier 2 — Heridas medias (30% - 79%)', icon: 'broken-heart' },
-          { label: 'Tier 3 — Heridas graves (1% - 29%)', icon: 'bleeding-hearts' },
-          { label: 'Tier 4 — Heridas fatales / Estado crítico (0%)', icon: 'skull' },
+          { label: 'Tier 1<br/>(80% - 99%)', icon: 'heart-bottle' },
+          { label: 'Tier 2<br/>(30% - 79%)', icon: 'broken-heart' },
+          { label: 'Tier 3<br/>(1% - 29%)', icon: 'bleeding-hearts' },
+          { label: 'Tier 4<br/>(0%)', icon: 'skull' },
         ],
       },
       {
@@ -106,10 +106,10 @@ export const normativaData = {
         label: 'Escala de Puntos',
         type: 'process',
         steps: [
-          { label: 'Inestable (25 – 39)', icon: 'brain-freeze' },
-          { label: 'Errático (10 – 24)', icon: 'lightning-bolt' },
-          { label: 'Perturbado (1 – 9)', icon: 'broken-skull' },
-          { label: 'Demente (0)', icon: 'player-despair' },
+          { label: 'Inestable<br/>(25 – 39)', icon: 'brain-freeze' },
+          { label: 'Errático<br/>(10 – 24)', icon: 'lightning-bolt' },
+          { label: 'Perturbado<br/>(1 – 9)', icon: 'broken-skull' },
+          { label: 'Demente<br/>(0)', icon: 'player-despair' },
         ],
       },
       {
@@ -199,6 +199,16 @@ export const normativaData = {
     Son conocidos, y su erradicación ha sido la misión de la orden desde su concepción, y ahora, con el caos que se asienta en el reino, han vuelto a resurgir.</blockquote>`,
     sections: [
       {
+        label: 'Fases de Infección',
+        type: 'process',
+        steps: [
+          { label: 'Fase I<br/>Asintomático', icon: 'poison-cloud' },
+          { label: 'Fase II<br/>Síntomas leves', icon: 'biohazard' },
+          { label: 'Fase III<br/>Deterioro físico', icon: 'broken-skull' },
+          { label: 'Fase IV<br/>Punto de no retorno', icon: 'death-skull' },
+        ],
+      },
+      {
         label: 'Estado social y legal',
         type: 'info',
         icon: 'gavel',
@@ -274,7 +284,8 @@ export const normativaData = {
             title: 'CK Abierto', 
             icon: 'crossed-swords',
             text: 'El personaje tendrá un CK abierto por parte del servidor entero. Así mismo, el personaje podrá matar a todo aquel que le haga frente.', 
-            severity: 4 
+            severity: 4,
+            fullWidth: true
           },
         ],
       },
@@ -327,9 +338,10 @@ export const normativaData = {
           { 
             num: '03', 
             title: 'Formas de conquistar', 
-            icon: 'map',
+            icon: 'crossed-swords',
             text: 'La conquista será realizada a través de una narración administrativa por parte del narrador a cargo. Será elegida de forma aleatoria de alguno de estos tipos:<br/><br/>• Limpieza directa de enemigos<br/>• Escolta de caravana con materiales de construcción<br/>• Defensa ante emboscadas durante la instalación<br/>• Defensa improvisada mientras se asegura el perímetro', 
-            severity: 1 
+            severity: 1,
+            fullWidth: true
           },
         ],
       },
@@ -374,7 +386,8 @@ export const normativaData = {
             title: 'Fortificaciones', 
             icon: 'castle-flag',
             text: 'Los puestos de avanzada podrán ser mejorados con algunas de las siguientes fortificaciones, que a su vez contarán con distintas bonificaciones prácticas:<br/><br/>• Torre de vigía<br/>• Guardias adicionales<br/>• Muralla perimetral<br/>• Almacén de recursos<br/>• Emplazamientos fijos (Ballestas, catapultas, etc.)', 
-            severity: 1 
+            severity: 1,
+            fullWidth: true
           },
         ],
       },
@@ -399,4 +412,148 @@ export const normativaData = {
     • Perder control del territorio puede, y tendrá consecuencias graves para el entorno.<br/><br/>
     • La actividad en el evento es constante, aunque no requiere de una gran cantidad de personas, sino organización por su parte. Un grupo de jugadores pueden actuar de exploradores para verificar que los puestos de avanzada no tengan actividad. Si la tienen, reportarla a los demás en base a la severidad del evento para organizar las acciones pertinentes.</blockquote>`,
   },
+
+  robos: {
+    title: 'Sistema de Robo y Multas',
+    subtitle: 'Profesión de alto riesgo',
+    introImage: '/assets/images/sistema/robos.png',
+    introGlow: '#d4a03a',
+    breadcrumb: 'Robos',
+    intro: `<blockquote class="norm-quote">El robo es una profesión de alto riesgo y alta recompensa dentro de Azimra. A diferencia de otros oficios, su práctica depende del sigilo, la oportunidad y la capacidad de evitar consecuencias. Un ladrón puede obtener grandes beneficios, comparables o superiores a otras profesiones, pero cada hurto fallido o descubierto acerca al infractor al castigo del poder establecido.</blockquote>`,
+    sections: [
+      {
+        label: 'Guías para el Rol del Robo',
+        type: 'info',
+        icon: 'hand',
+        title: 'Guías para el Rol del Robo',
+        text: '• La prioridad del ladrón es no ser descubierto.<br/><br/>• Si el robo es exitoso, la víctima puede no darse cuenta hasta mucho después… o jamás.<br/><br/>• Si el robo falla, la víctima sabrá que intentaron robarle, pero no necesariamente quién fue.<br/><br/>• Robar de forma absurda o evidente (por ejemplo, intentar hurtar a alguien estando completamente a solas con esa persona) aumenta drásticamente las probabilidades de ser identificado.<br/><br/>• El ladrón debe ser creativo, y saber utilizar oportunidades correctas para hacer sus fechorías.',
+      },
+      {
+        label: 'Habilidad ROBAR',
+        cards: [
+          { 
+            num: '01', 
+            title: 'Éxito Alto', 
+            icon: 'clover',
+            text: '<strong>Critical success</strong><br/><br/>• El robo se completa.<br/>• La víctima no nota el hurto inmediatamente.<br/>• No se registra denuncia automática.', 
+            severity: 1 
+          },
+          { 
+            num: '02', 
+            title: 'Éxito Parcial', 
+            icon: 'plain-dagger',
+            text: '• El robo se completa.<br/>• La víctima nota que algo falta o que hubo un intento.<br/>• Identificar al culpable se basará en tu capacidad de razonamiento del espacio.', 
+            severity: 2 
+          },
+          { 
+            num: '03', 
+            title: 'Fallo', 
+            icon: 'uncertainty',
+            text: '• El robo fracasa.<br/>• La víctima detecta el intento, pero no identifica a quién lo intentó.<br/>• Existe posibilidad de denuncia por parte del afectado.<br/>• Se aplica un contador de robo fallido al ladrón.', 
+            severity: 3 
+          },
+          { 
+            num: '04', 
+            title: 'Fallo Crítico', 
+            icon: 'death-skull',
+            text: '<strong>Critical fail</strong><br/><br/>• El ladrón es identificado directamente (Estado de SOSPECHOSO).<br/>• La guardia puede actuar directamente sobre alguien que porte el estado SOSPECHOSO.<br/>• Puede haber represalias inmediatas según contexto narrativo.<br/>• La víctima puede tomar acciones en contra del ladrón.', 
+            severity: 4 
+          },
+        ],
+      },
+      {
+        label: 'Consecuencias',
+        cards: [
+          { 
+            num: '💰', 
+            title: 'Recompensa', 
+            icon: 'gold-bar',
+            text: 'La actividad de robo estará abierta para todos los jugadores. Igualmente, la capacidad de robo está ligada a los Tiers de profesión activos. Esto significa que un ladrón será capaz de robar una cantidad equivalente a un objeto de redux del tier ligado a la profesión.<br/><br/>Un ejemplo claro: Un ladrón de T2 podrá robar una cantidad igual a un objeto de redux de T2. Ya sea de tabernero, artífice, o forjador.', 
+            severity: 1 
+          },
+          { 
+            num: '⚖️', 
+            title: 'Castigo', 
+            icon: 'gavel',
+            text: 'No todo es ganancia y festejo en la vida de un ladrón, pues aquellos que lo intenten tendrán un contador de criminalidad asociado a su ficha, el cuál subirá en base a los intentos fallidos hasta un límite de tres (3).', 
+            severity: 3 
+          },
+        ],
+      },
+      {
+        label: 'Funcionamiento del Castigo',
+        type: 'info',
+        icon: 'interdiction',
+        title: 'Para el ladrón y el guardia',
+        text: '<strong>Para el ladrón:</strong><br/>Un ladrón que falle tres veces, y acumule los tres contadores de criminalidad recibirá el estado de SOSPECHOSO. A partir de este punto cualquier guardia podrá aplicarle una multa al ladrón (Con su rol asociado). Las multas variarán según las reincidencias registradas por parte del criminal.<br/><br/><strong>Para el guardia:</strong><br/>Como se menciona anteriormente, cualquier personaje con el estado de SOSPECHOSO podrá ser multado directamente.<br/><br/><blockquote>TIENE QUE HABER UN ROL ASOCIADO. Toda multa colocada sin rol será penalizada de forma IC y OOC. La severidad de la multa variará según la actividad criminal pasada del multado.</blockquote>',
+      },
+      {
+        label: 'Trabajo comunitario',
+        type: 'info',
+        icon: 'campfire',
+        title: 'Trabajo comunitario',
+        text: 'El ladrón podrá optar a realizar trabajo comunitario en tierras de la corona. Cosas como ayudar en el orfanato, hacer asistencia civil en las calles de Azimra, o colaborar con las autoridades será bien visto, y por ende terminará con la reducción de un punto de contador.<br/><br/><blockquote>ESTO SÓLO PODRÁ REALIZARSE 1 VEZ A LA SEMANA.</blockquote> Así mismo, y a criterio de la administración y narradores, ciertas acciones tomadas en el mundo podrán ayudar a un ladrón a bajar su contador de criminalidad, siempre y cuando confiese sus crímenes para poder realizar la intervención adecuada por parte de la entidad a la que hayan asistido.',
+      },
+      {
+        label: 'Niveles de Multa y Castigo',
+        type: 'info',
+        icon: 'scroll-unfurled',
+        title: 'Niveles de Multa',
+        text: 'En el reino no sólo se castiga al ladrón, pues el crimen es un concepto amplio y que deberá ser vigilado por las fuerzas del orden. Robos, exposición indecente, asesinatos, esclavitud, y traición son sólo uno de los pocos ejemplos que pueden traer problemas a cualquier ciudadano de estas tierras.',
+      },
+      {
+        label: 'Categorías de Penas',
+        cards: [
+          { 
+            num: '🟡', 
+            title: 'Penas leves', 
+            icon: 'pills',
+            text: '<strong>Infractor Menor</strong><br/><br/>• Ingreso a ficha criminal<br/>• Detención temporal por parte de la guardia (rol de captura y encarcelamiento). (10 mins OOC)<br/><br/>o<br/><br/>• Multa leve', 
+            severity: 1 
+          },
+          { 
+            num: '🟠', 
+            title: 'Penas moderadas', 
+            icon: 'chain',
+            text: '<strong>Criminal Reincidente</strong><br/><br/>Una vez tengas un antecedente penal, y se te capture por tercera vez con un estado de SOSPECHOSO, estarás en categoría de penas moderadas.<br/><br/>• Encarcelamiento de mediana duración (interpretado durante el día, 30 mins OOC)<br/><br/>o<br/><br/>• Multa media<br/>• Mutilación o marca permanente que lo identifique como un criminal del reino', 
+            severity: 2 
+          },
+          { 
+            num: '🔴', 
+            title: 'Penas severas', 
+            icon: 'skull',
+            text: '<strong>Enemigo del Orden</strong><br/><br/>Tras recibir tres penas moderadas, y volver a ser capturado, entrarás directamente en penas severas. Estas penas son las más peligrosas, y bien pueden causarte la muerte. En casos que implique la seguridad del reino, y sus ciudadanos, un criminal puede entrar directamente en esta categoría, y ser ejecutado en el acto de ser apresado.<br/><br/>• Encarcelamiento prolongado o incluso rol de juicio ante autoridades<br/>• Castigo público<br/>• Mutilación o marca permanente que lo identifique como un criminal del reino<br/>• En casos extremos, pena de muerte<br/>• Multa alta', 
+            severity: 4,
+            fullWidth: true
+          },
+        ],
+      },
+      {
+        label: 'Estado de sospechoso',
+        type: 'info',
+        icon: 'search',
+        title: 'Estado de sospechoso',
+        text: 'El estado que identifica a un criminal como tal.<br/><br/>Una vez tengas este estado no podrás acceder a los servicios públicos del reino; interacciones como tu profesión, los servicios de caravaneros y todo lo asociado a un ciudadano de bien estará prohibido para un sospechoso.<br/><br/>Igualmente, al tener una multa activa estos efectos se mantendrán. Has de considerar que con un estado de SOSPECHOSO no tendrás acceso al banco.<br/><br/>Para librarte del estado de sospechoso tendrás que entregarte a la guardia, recibir tu multa, y proceder desde ahí.',
+      },
+    ],
+  },
+
+  combate: {
+    title: 'Sistema de Combate Primus',
+    subtitle: 'Estrategia y cooperación',
+    introImage: '/assets/images/sistema/combate.jpg',
+    introGlow: '#b83a42',
+    breadcrumb: 'Combate',
+    intro: `<blockquote class="norm-quote">El combate en Primus es un combate basado en estrategia, posicionamiento, y cooperación. Los jugadores, al mando de sus personajes habrán de trabajar en equipo para cubrir sus debilidades, y aprovechar sus fortalezas.</blockquote>`,
+    sections: [
+      {
+        label: 'Acceso al Sistema',
+        type: 'info',
+        icon: 'crossed-swords',
+        title: 'Códice de Combate',
+        text: 'Este sistema se encuentra alojado externamente para permitir una consulta rápida y dinámica de todas las mecánicas, habilidades y estados de combate.<br/><br/><div style="display: flex; justify-content: center; margin-top: 1.5rem;"><a href="https://rough-character-552.notion.site/Sistema-de-Combate-Primus-35c8d8f1501f80988168cd015b05debc?source=copy_link" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">Abrir en Notion</a></div><br/><br/><blockquote>Nota administrativa: Este sistema será enlazado externamente desde la web, de forma similar al funcionamiento actual del Gremio de Aventuras.</blockquote>',
+      },
+    ],
+  },
 }
+

@@ -72,7 +72,10 @@ export default function NormPage({ slug }) {
                     <div className="norm-process-step__icon">
                       <i className={`ra ra-${step.icon}`} aria-hidden="true" />
                     </div>
-                    <span className="norm-process-step__label">{step.label}</span>
+                    <span 
+                      className="norm-process-step__label" 
+                      dangerouslySetInnerHTML={{ __html: step.label }} 
+                    />
                   </div>
                 ))}
               </div>
@@ -90,7 +93,11 @@ export default function NormPage({ slug }) {
                   const sevClass = card.severity ? SEVERITY_CLASS[card.severity] || '' : ''
                   const warnClass = card.warning && !card.severity ? ' norm-card-v2--warning' : ''
                   return (
-                    <div key={ci} className={`norm-card-v2${warnClass}${sevClass ? ` ${sevClass}` : ''}`}>
+                    <div 
+                      key={ci} 
+                      className={`norm-card-v2${warnClass}${sevClass ? ` ${sevClass}` : ''}`}
+                      style={card.fullWidth ? { gridColumn: '1 / -1' } : {}}
+                    >
                       <div className="norm-card-v2__top-accent" aria-hidden="true" />
                       <div className="norm-card-v2__header">
                         {card.icon && (

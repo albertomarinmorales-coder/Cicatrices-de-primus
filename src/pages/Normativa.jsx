@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import { normativaData } from '../data/normativa'
@@ -37,6 +38,8 @@ const NORM_ITEMS = [
 
 export default function Normativa({ title = 'Sistemas', subtitle = 'Sistemas del servidor' }) {
   const navigate = useNavigate()
+  const [hoveredPath, setHoveredPath] = useState(null)
+
   return (
     <div className="page active" id="page-normativa">
       <div className="page-header">
@@ -57,11 +60,20 @@ export default function Normativa({ title = 'Sistemas', subtitle = 'Sistemas del
             const slug = item.path.replace(/^\/norm-/, '')
             const meta = normativaData[slug] || {}
             const glow = meta.introGlow || 'rgb(201, 168, 76)'
+            
+            // Determinar nivel de brillo
+            let glowLevel = 'glow-2' // Nivel 2 base
+            if (hoveredPath) {
+              glowLevel = hoveredPath === item.path ? 'glow-3' : 'glow-1'
+            }
+
             return (
               <div
                 key={item.path}
-                className="norm-item"
+                className={`norm-item norm-item--${glowLevel}`}
                 onClick={() => navigate(item.path)}
+                onMouseEnter={() => setHoveredPath(item.path)}
+                onMouseLeave={() => setHoveredPath(null)}
                 style={{ cursor: 'pointer', '--norm-intro-glow': glow }}
               >
                 {meta.introImage && (

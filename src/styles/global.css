@@ -6484,22 +6484,39 @@ body.modal-active .audio-toggle {
   position: relative;
   overflow: visible;
   border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--norm-intro-glow) 22%, rgba(201, 168, 76, 0.12));
   background: linear-gradient(165deg, rgba(18, 15, 11, 0.95) 0%, rgba(10, 8, 6, 0.92) 100%);
   padding: 0;
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   min-height: 0;
 }
 
-.norm-grid-v2 .norm-item:hover {
-  border-color: color-mix(in srgb, var(--norm-intro-glow) 48%, transparent);
+/* NIVEL 2: BASE (Sin hover en el grid) */
+.norm-item--glow-2 {
+  border: 1px solid color-mix(in srgb, var(--norm-intro-glow) 25%, rgba(255,255,255,0.05));
+  opacity: 0.9;
+}
+
+/* NIVEL 1: ATENUADO (Cuando otra tiene hover) */
+.norm-item--glow-1 {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  opacity: 0.35;
+  filter: grayscale(0.5) blur(1px);
+  transform: scale(0.98);
+}
+
+/* NIVEL 3: FOCO (La tarjeta con hover) */
+.norm-item--glow-3 {
+  border-color: var(--norm-intro-glow);
+  opacity: 1;
+  transform: translateY(-8px) scale(1.04);
+  z-index: 10;
   box-shadow:
-    0 0 48px color-mix(in srgb, var(--norm-intro-glow) 22%, transparent),
-    0 20px 50px rgba(0, 0, 0, 0.45);
-  transform: translateY(-3px);
+    0 0 30px color-mix(in srgb, var(--norm-intro-glow) 30%, transparent),
+    0 0 60px color-mix(in srgb, var(--norm-intro-glow) 15%, transparent),
+    0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 .norm-grid-v2 .norm-item__intro {

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { normativaData } from '../data/normativa'
 import Footer from '../components/Footer'
+import { FaCaravan, FaUserShield } from 'react-icons/fa6'
 
 const NORM_SLUGS = new Set(['general', 'housing', 'esclavitud'])
 
@@ -9,6 +10,11 @@ const SEVERITY_CLASS = {
   2: 'norm-card-v2--sev2',
   3: 'norm-card-v2--sev3',
   4: 'norm-card-v2--sev4',
+}
+
+const REACT_ICONS = {
+  'fa-caravan': <FaCaravan />,
+  'fa-user-shield': <FaUserShield />
 }
 
 export default function NormPage({ slug }) {
@@ -67,7 +73,9 @@ export default function NormPage({ slug }) {
             )}
 
             {section.type === 'process' ? (
-              <div className="norm-process-timeline">
+              <div className="norm-process-wrap">
+                {section.introText && <p className="norm-section-intro-text">{section.introText}</p>}
+                <div className="norm-process-timeline">
                 {section.steps.map((step, spi) => (
                   <div key={spi} className="norm-process-step">
                     <div className="norm-process-step__icon">
@@ -79,6 +87,7 @@ export default function NormPage({ slug }) {
                     />
                   </div>
                 ))}
+                </div>
               </div>
             ) : section.type === 'info' ? (
               <div className="norm-info-block">
@@ -89,7 +98,9 @@ export default function NormPage({ slug }) {
                 </div>
               </div>
             ) : (
-              <div className="norm-cards-grid-v2">
+              <div className="norm-cards-wrap">
+                {section.introText && <p className="norm-section-intro-text">{section.introText}</p>}
+                <div className="norm-cards-grid-v2">
                 {section.cards.map((card, ci) => {
                   const sevClass = card.severity ? SEVERITY_CLASS[card.severity] || '' : ''
                   const warnClass = card.warning && !card.severity ? ' norm-card-v2--warning' : ''
@@ -103,7 +114,11 @@ export default function NormPage({ slug }) {
                       <div className="norm-card-v2__header">
                         {card.icon && (
                           <div className="norm-card-v2__icon">
-                            <i className={`ra ra-${card.icon}`} aria-hidden="true" />
+                            {REACT_ICONS[card.icon] ? (
+                              REACT_ICONS[card.icon]
+                            ) : (
+                              <i className={`ra ra-${card.icon}`} aria-hidden="true" />
+                            )}
                           </div>
                         )}
                         {card.num && (
@@ -122,6 +137,7 @@ export default function NormPage({ slug }) {
                     </div>
                   )
                 })}
+                </div>
               </div>
             )}
           </div>

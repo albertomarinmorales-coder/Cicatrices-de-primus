@@ -565,13 +565,213 @@ export const normativaData = {
     sections: [],
   },
   housing: {
-    title: 'Normativa de Housing',
-    subtitle: 'Leyes de edificación y propiedad',
+    title: 'Normativa de Construcción y Housing',
+    subtitle: 'Vivienda y Asentamientos',
     introImage: '/assets/images/Normativa/Housing.png',
     introGlow: '#e7732bff',
-    breadcrumb: 'Vivienda',
-    intro: `<blockquote class="norm-quote">Sección en construcción. Próximamente se detallará la normativa correspondiente.</blockquote>`,
-    sections: [],
+    breadcrumb: 'Housing',
+    intro: `<blockquote class="norm-quote">Para mantener el servidor equilibrado, evitar sobrecargas innecesarias y permitir que todos los jugadores puedan disfrutar de sus espacios, se establecen las siguientes normas. No buscamos limitar tu creatividad, sino fomentar un entorno justo y funcional.<br/><br/>
+    <strong>Nota de Lore:</strong> En esta season, las viviendas por el mapa están restringidas. Debido a la situación actual, no es seguro vivir fuera de las ciudades por las constantes amenazas del entorno.</blockquote>`,
+    sections: [
+      {
+        label: 'Vivienda y Asentamientos',
+        type: 'cards',
+        cards: [
+          {
+            num: '01',
+            title: 'Asentamientos Seguros',
+            icon: 'castle-flag',
+            text: '<strong>¿Dónde puedo adquirir una vivienda segura?</strong><br/><br/>Actualmente existen asentamientos protegidos para individuos o clanes:<br/><br/>• Azimra<br/>• Ash’torin<br/>• Ashbourne<br/>• Skalford',
+            severity: 1
+          },
+          {
+            num: '02',
+            title: 'Vivienda Exterior',
+            icon: 'mountains',
+            text: '<strong>¿Se puede vivir fuera de las ciudades?</strong><br/><br/>Sí, pero no es inmediato. Se requiere utilizar el <strong>Sistema de Conquista</strong> para convertir cuadrantes en zonas "seguras" antes de construir.',
+            severity: 2
+          },
+          {
+            num: '03',
+            title: '¿Cómo adquirir una casa?',
+            icon: 'scroll-unfurled',
+            text: 'Para adquirir una casa en la ciudad, sigue estos pasos:<br/><br/>1. Acércate al asentamiento de la guardia más cercano.<br/>2. Habla con el censista, quien notificará al staff.<br/><br/><strong>Impuestos:</strong><br/>Tras la primera semana, se pagará un tributo semanal:<br/>• Desde 1 hasta 30 platas.<br/>• Según el tamaño del clan.',
+            severity: 1,
+            fullWidth: true
+          }
+        ]
+      },
+      {
+        label: 'Reglas Básicas de Construcción',
+        type: 'cards',
+        cards: [
+          {
+            num: 'A',
+            title: 'Responsabilidad',
+            icon: 'hand',
+            text: 'Evita bloquear grandes extensiones de terreno. El espacio es compartido.',
+            severity: 1
+          },
+          {
+            num: 'B',
+            title: 'Rendimiento (Lag)',
+            icon: 'lightning-bolt',
+            text: 'Prioriza lámparas sin fuego animado y evita exceso de decoraciones con movimiento para mantener estables los FPS.',
+            severity: 2
+          },
+          {
+            num: 'C',
+            title: 'Limpieza',
+            icon: 'repair',
+            text: 'Prohibido dejar "basura visual" (petates, mesas sueltas o fogatas abandonadas). Si no lo usas, elimínalo.',
+            severity: 1
+          },
+          {
+            num: 'D',
+            title: 'Zonas Públicas',
+            icon: 'interdiction',
+            text: 'No se puede construir cerca de ciudades, zonas de farmeo o caravaneros sin justificación de rol y permiso previo.',
+            severity: 3
+          }
+        ]
+      },
+      {
+        label: 'Límites de Construcción (Caps)',
+        type: 'info',
+        icon: 'book',
+        title: 'Límites de Construcción (Caps)',
+        text: `Para asegurar la estabilidad del entorno, se establecen los siguientes límites:<br/><br/>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; color: rgba(212, 201, 176, 0.85); font-size: 0.95rem;">
+          <tr style="border-bottom: 1px solid rgba(201, 168, 76, 0.2);">
+            <th style="text-align: left; padding: 0.5rem;">Concepto</th>
+            <th style="text-align: center; padding: 0.5rem;">Límite por Jugador</th>
+            <th style="text-align: center; padding: 0.5rem;">Aumento por Miembro</th>
+            <th style="text-align: center; padding: 0.5rem;">Máximo de Clan (12+ miemb.)</th>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 0.5rem;">Piezas de construcción</td>
+            <td style="text-align: center; padding: 0.5rem;">350 piezas</td>
+            <td style="text-align: center; padding: 0.5rem;">+100 piezas</td>
+            <td style="text-align: center; padding: 0.5rem;">1.450 piezas</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">Objetos (Placeables)</td>
+            <td style="text-align: center; padding: 0.5rem;">100 objetos</td>
+            <td style="text-align: center; padding: 0.5rem;">+50 objetos</td>
+            <td style="text-align: center; padding: 0.5rem;">700 objetos</td>
+          </tr>
+        </table>`,
+      },
+      {
+        label: 'Fundación de Asentamientos Exteriores',
+        type: 'process',
+        steps: [
+          { label: '1. Completar el proceso de conquista del lugar.', icon: 'crossed-swords' },
+          { label: '2. Obtener permiso de la guardia local o del Consejo de la Capital.', icon: 'gavel' },
+          { label: '3. Pagar 2 platas por miembro al momento de la fundación (y por cada civil que se una después).', icon: 'gold-bar' },
+        ],
+        introText: 'Los grupos que deseen fundar su propia base fuera de la capital deben seguir estos pasos:'
+      },
+      {
+        label: 'Restricciones Estéticas',
+        type: 'cards',
+        cards: [
+          {
+            num: '01',
+            title: 'Estilo',
+            icon: 'eyeball',
+            text: 'Evitar casas "cubo". La construcción debe ser coherente con el entorno de rol.',
+            severity: 1
+          },
+          {
+            num: '02',
+            title: 'Arenisca',
+            icon: 'large-hammer',
+            text: 'No se permite como material definitivo (solo uso temporal).',
+            severity: 2
+          },
+          {
+            num: '03',
+            title: 'Cimientos',
+            icon: 'tower',
+            text: 'Prohibido el "stackeo" o apilado de cimientos para fortificar (genera carga innecesaria).',
+            severity: 3
+          },
+          {
+            num: '04',
+            title: 'Templos',
+            icon: 'skull',
+            text: 'No está permitida su construcción por jugadores.',
+            severity: 4
+          }
+        ]
+      },
+      {
+        label: 'Adicionales y Mejoras',
+        type: 'cards',
+        cards: [
+          {
+            num: 'ra-compass',
+            title: 'Marca en el mapa',
+            icon: 'compass',
+            text: '50 platas (Pago único).',
+            severity: 1
+          },
+          {
+            num: 'ra-horseshoe',
+            title: 'Caravanero',
+            icon: 'fa-caravan',
+            text: '3 oros (Pago único) + 20 platas de mantenimiento semanal.',
+            severity: 2
+          },
+          {
+            num: 'ra-expand',
+            title: 'Expansión',
+            icon: 'large-hammer',
+            text: '50 platas por cada +100 piezas de construcción (Mejora única, no incluye decoración).',
+            severity: 1,
+            fullWidth: true
+          }
+        ]
+      },
+      {
+        label: 'Rol de Entorno (Guardias/Trabajadores)',
+        type: 'cards',
+        introText: 'Funciones y Limitaciones',
+        cards: [
+          {
+            num: 'ra-scroll-unfurled',
+            title: 'Contrato y Costes',
+            icon: 'scroll-unfurled',
+            text: 'Se pueden contratar mediante Contrato de trabajadores:<br/><br/>• 2 oros por unidad.<br/>• Máximo 5 por asentamiento.<br/>• ToT Basic.',
+            severity: 1,
+            fullWidth: true
+          },
+          {
+            num: '✅',
+            title: 'Sí pueden:',
+            icon: 'shield',
+            text: '• Reducir enemigos (captura).<br/>• Expulsar invasores mediante combate roleado.<br/>• Trasladar presos.<br/>• Defender pasivamente en eventos PvE.',
+            severity: 1
+          },
+          {
+            num: '❌',
+            title: 'No pueden:',
+            icon: 'interdiction',
+            text: '• Matar.<br/>• Escuchar conversaciones.<br/>• Avisar de enemigos si el clan está ausente.',
+            severity: 3
+          },
+          {
+            num: '!',
+            title: 'Beneficio de Defensa',
+            icon: 'knight-helmet',
+            text: 'En caso de PvP-E en territorio registrado, el líder del clan recibe un Turno de Ambiente adicional al final del combate.',
+            severity: 2,
+            fullWidth: true
+          }
+        ]
+      }
+    ]
   },
   general: {
     title: 'Normativa General de Rol',

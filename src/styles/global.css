@@ -7103,6 +7103,14 @@ body.modal-active .audio-toggle {
   color: var(--gold);
 }
 
+.norm-section-intro-text {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  color: rgba(212, 201, 176, 0.8);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
 /* Info Alert Blocks */
 .norm-info-block {
   background: rgba(12, 10, 8, 0.72);
@@ -8236,14 +8244,14 @@ body.modal-active .audio-toggle {
   gap: 16px;
   padding: 80px 0;
   color: var(--text-muted);
-  opacity: 0.45;
+
 }
 
 .galeria-empty i,
 .galeria-empty .ra {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   color: var(--gold);
-  opacity: 0.4;
+
 }
 
 .galeria-empty p {

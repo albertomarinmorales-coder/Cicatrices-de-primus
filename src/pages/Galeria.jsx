@@ -491,8 +491,8 @@ export default function Galeria() {
           </div>
         ) : photos.length === 0 ? (
           <div className="galeria-empty">
-            <i className="ra ra-scroll " aria-hidden />
-            <p>No hay fotos en esta categoria todavia.</p>
+            <i className="ra ra-parchment" aria-hidden />
+            <p>No hay fotos todavia. Sé el primero en subir una</p>
             {user && <button className="galeria-upload-btn" onClick={() => setShowUpload(true)}>
               Sé el primero en subir una
             </button>}

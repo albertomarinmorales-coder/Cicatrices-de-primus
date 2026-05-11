@@ -10032,6 +10032,24 @@ body.modal-active {
   color: #fff;
 }
 
+/* ── Upload: inline spinner ──────────────────────────────────── */
+.upload-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(201, 168, 76, 0.25);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: upload-spin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+@keyframes upload-spin {
+  to { transform: rotate(360deg); }
+}
+
 /* ── Gallery: card component ─────────────────────────────────── */
 .galeria-card {
   position: relative;
@@ -10222,7 +10240,9 @@ body.modal-active {
       rgba(14, 12, 10, 0.55) 100%);
   border: 1px solid rgba(201, 168, 76, 0.22);
   color: var(--gold);
-  font-size: 0.85rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;

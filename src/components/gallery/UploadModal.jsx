@@ -110,7 +110,7 @@ export default function UploadModal({ onClose, onUploaded }) {
                     onClick={e => { e.stopPropagation(); setFile(null); setPreview(null); inputRef.current && (inputRef.current.value = '') }}
                     title="Quitar archivo"
                   >
-                    <i className="ra ra-demolish" aria-hidden />
+                    ✕
                   </button>
                 </div>
               : <>
@@ -158,8 +158,8 @@ export default function UploadModal({ onClose, onUploaded }) {
 
           <button className="upload-submit" type="submit" disabled={loading || !file || !title.trim()}>
             {loading
-              ? <><i className="ra ra-load ra-spin" aria-hidden /> Subiendo…</>
-              : <><i className="ra ra-splash" aria-hidden /> Publicar</>
+              ? <>Subiendo… <span className="upload-spinner" aria-hidden /></>
+              : 'Publicar'
             }
           </button>
         </form>

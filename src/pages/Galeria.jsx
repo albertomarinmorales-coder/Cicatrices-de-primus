@@ -335,7 +335,7 @@ function PhotoCard({ photo, user, onClick, onDelete }) {
         </div>
         {canDelete && (
           <button className="galeria-card-delete" onClick={e => { e.stopPropagation(); setConfirmOpen(true) }} title="Borrar">
-            <i className="ra ra-demolish" aria-hidden />
+            ✕
           </button>
         )}
       </div>
@@ -491,7 +491,7 @@ export default function Galeria() {
           </div>
         ) : photos.length === 0 ? (
           <div className="galeria-empty">
-            <i className="ra ra-crystals" aria-hidden />
+            <i className="ra ra-scroll " aria-hidden />
             <p>No hay fotos en esta categoria todavia.</p>
             {user && <button className="galeria-upload-btn" onClick={() => setShowUpload(true)}>
               Sé el primero en subir una
@@ -519,7 +519,7 @@ export default function Galeria() {
                   onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                   aria-label="Página anterior"
                 >
-                  <i className="ra ra-arrow-left" aria-hidden />
+                  ‹
                 </button>
 
                 <div className="galeria-pagination-numbers">
@@ -552,7 +552,7 @@ export default function Galeria() {
                   onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                   aria-label="Página siguiente"
                 >
-                  <i className="ra ra-arrow-right" aria-hidden />
+                  ›
                 </button>
               </div>
             )}

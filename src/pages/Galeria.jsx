@@ -271,7 +271,7 @@ function ConfirmModal({ message, onConfirm, onCancel, busy }) {
         <div className="confirm-btns">
           <button className="confirm-btn-cancel" onClick={onCancel} disabled={busy}>Cancelar</button>
           <button className="confirm-btn-delete" onClick={onConfirm} disabled={busy}>
-            {busy ? <><i className="ra ra-load ra-spin" aria-hidden /> Borrando…</> : <><i className="ra ra-demolish" aria-hidden /> Borrar</>}
+            {busy ? <>Borrando… <span className="upload-spinner" aria-hidden /></> : 'Borrar'}
           </button>
         </div>
       </div>

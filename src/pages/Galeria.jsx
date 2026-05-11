@@ -364,7 +364,7 @@ export default function Galeria() {
   const [showAdmin, setShowAdmin]   = useState(false)
   const [photosLoading, setPhotosLoading] = useState(true)
   const [currentPage, setCurrentPage]     = useState(1)
-  const ITEMS_PER_PAGE = 6
+  const ITEMS_PER_PAGE = 8
   const titleClickCount = useRef(0)
   const titleClickTimer = useRef(null)
 

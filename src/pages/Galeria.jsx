@@ -363,6 +363,8 @@ export default function Galeria() {
   const [showUpload, setShowUpload] = useState(false)
   const [showAdmin, setShowAdmin]   = useState(false)
   const [photosLoading, setPhotosLoading] = useState(true)
+  const [currentPage, setCurrentPage]     = useState(1)
+  const ITEMS_PER_PAGE = 6
   const titleClickCount = useRef(0)
   const titleClickTimer = useRef(null)
 
@@ -386,7 +388,10 @@ export default function Galeria() {
   useEffect(() => {
     setPhotosLoading(true)
     api.getPhotos(category)
-      .then(data => setPhotos(data))
+      .then(data => {
+        setPhotos(data)
+        setCurrentPage(1)
+      })
       .catch(() => setPhotos([]))
       .finally(() => setPhotosLoading(false))
   }, [category])
@@ -419,6 +424,15 @@ export default function Galeria() {
   }
 
   const av = user ? avatarUrl(user) : null
+  const totalPages = Math.ceil(photos.length / ITEMS_PER_PAGE)
+
+  // Scroll to top of grid when page changes
+  useEffect(() => {
+    if (currentPage > 1 || photos.length > ITEMS_PER_PAGE) {
+      const header = document.querySelector('.galeria-header-row')
+      if (header) header.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [currentPage])
 
   return (
     <div className="page active" id="page-galeria">
@@ -484,17 +498,56 @@ export default function Galeria() {
             </button>}
           </div>
         ) : (
-          <div className="galeria-grid">
-            {photos.map((photo, i) => (
-              <PhotoCard
-                key={photo.id}
-                photo={photo}
-                user={user}
-                onClick={() => setLightboxIdx(i)}
-                onDelete={handleDelete}
-              />
-            ))}
-          </div>
+          <>
+            <div className="galeria-grid">
+              {photos.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE).map((photo, i) => (
+                <PhotoCard
+                  key={photo.id}
+                  photo={photo}
+                  user={user}
+                  onClick={() => setLightboxIdx((currentPage - 1) * ITEMS_PER_PAGE + i)}
+                  onDelete={handleDelete}
+                />
+              ))}
+            </div>
+
+            {totalPages > 1 && (
+              <div className="galeria-pagination">
+                <button
+                  className="galeria-pagination-btn"
+                  disabled={currentPage === 1}
+                  onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                  aria-label="Página anterior"
+                >
+                  <i className="ra ra-arrow-left" aria-hidden />
+                </button>
+
+                <div className="galeria-pagination-numbers">
+                  {[...Array(totalPages)].map((_, i) => {
+                    const p = i + 1
+                    return (
+                      <button
+                        key={p}
+                        className={`galeria-pagination-number${currentPage === p ? ' active' : ''}`}
+                        onClick={() => setCurrentPage(p)}
+                      >
+                        {p}
+                      </button>
+                    )
+                  })}
+                </div>
+
+                <button
+                  className="galeria-pagination-btn"
+                  disabled={currentPage === totalPages}
+                  onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                  aria-label="Página siguiente"
+                >
+                  <i className="ra ra-arrow-right" aria-hidden />
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
 

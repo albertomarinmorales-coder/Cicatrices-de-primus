@@ -364,7 +364,7 @@ export default function Galeria() {
   const [showAdmin, setShowAdmin]   = useState(false)
   const [photosLoading, setPhotosLoading] = useState(true)
   const [currentPage, setCurrentPage]     = useState(1)
-  const ITEMS_PER_PAGE = 12
+  const ITEMS_PER_PAGE = 6
   const titleClickCount = useRef(0)
   const titleClickTimer = useRef(null)
 
@@ -523,18 +523,27 @@ export default function Galeria() {
                 </button>
 
                 <div className="galeria-pagination-numbers">
-                  {[...Array(totalPages)].map((_, i) => {
-                    const p = i + 1
-                    return (
-                      <button
-                        key={p}
-                        className={`galeria-pagination-number${currentPage === p ? ' active' : ''}`}
-                        onClick={() => setCurrentPage(p)}
-                      >
-                        {p}
-                      </button>
-                    )
-                  })}
+                  {(() => {
+                    const pages = []
+                    let start = 1
+                    if (totalPages > 3) {
+                      start = Math.max(1, Math.min(currentPage, totalPages - 2))
+                    }
+                    const end = Math.min(start + 2, totalPages)
+                    
+                    for (let p = start; p <= end; p++) {
+                      pages.push(
+                        <button
+                          key={p}
+                          className={`galeria-pagination-number${currentPage === p ? ' active' : ''}`}
+                          onClick={() => setCurrentPage(p)}
+                        >
+                          {p}
+                        </button>
+                      )
+                    }
+                    return pages
+                  })()}
                 </div>
 
                 <button

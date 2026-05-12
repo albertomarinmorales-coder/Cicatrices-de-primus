@@ -11734,6 +11734,13 @@ body.modal-active {
   margin-top: 4rem;
 }
 
+/* Última fila con una sola card: centrar en la columna del medio (p. ej. 7 staff) */
+@media (min-width: 901px) {
+  .staff-grid > .staff-card:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
+
 .staff-card {
   background: rgba(13, 11, 9, 0.6);
   border: 1px solid rgba(201, 168, 76, 0.12);

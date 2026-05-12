@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import { normativaData } from '../data/normativa'
 import Footer from '../components/Footer'
-import { FaCaravan, FaUserShield } from 'react-icons/fa6'
+import { FaBan, FaCaravan, FaHand, FaMasksTheater, FaUserShield, FaUsers } from 'react-icons/fa6'
 
 const NORM_SLUGS = new Set(['general', 'housing', 'esclavitud'])
+const NEUTRAL_COLOR_SLUGS = new Set(['housing', 'general', 'esclavitud'])
 
 const SEVERITY_CLASS = {
   1: 'norm-card-v2--sev1',
@@ -12,9 +13,15 @@ const SEVERITY_CLASS = {
   4: 'norm-card-v2--sev4',
 }
 
+const REACT_ICON_PX = 28
+
 const REACT_ICONS = {
-  'fa-caravan': <FaCaravan />,
-  'fa-user-shield': <FaUserShield />
+  'fa-ban': <FaBan size={REACT_ICON_PX} />,
+  'fa-caravan': <FaCaravan size={REACT_ICON_PX} />,
+  'fa-hand': <FaHand size={REACT_ICON_PX} />,
+  'fa-masks-theater': <FaMasksTheater size={REACT_ICON_PX} />,
+  'fa-user-shield': <FaUserShield size={REACT_ICON_PX} />,
+  'fa-users': <FaUsers size={REACT_ICON_PX} />,
 }
 
 export default function NormPage({ slug }) {
@@ -50,7 +57,7 @@ export default function NormPage({ slug }) {
       </div>
 
       <div className="detail-body norm-detail-body">
-        <span className="back-btn" onClick={() => navigate(backTo)} style={{ cursor: 'pointer' }}>
+        <span className="back-btn" onClick={() => navigate(backTo)} style={{ cursor: 'pointer', marginBottom: '3rem', display: 'inline-block' }}>
           &#8592; Volver a {backLabel}
         </span>
 
@@ -79,7 +86,11 @@ export default function NormPage({ slug }) {
                 {section.steps.map((step, spi) => (
                   <div key={spi} className="norm-process-step">
                     <div className="norm-process-step__icon">
-                      <i className={`ra ra-${step.icon}`} aria-hidden="true" />
+                      {/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/.test(step.icon) ? (
+                        <span className="norm-emoji-icon">{step.icon}</span>
+                      ) : (
+                        <i className={`ra ra-${step.icon}`} aria-hidden="true" />
+                      )}
                     </div>
                     <span 
                       className="norm-process-step__label" 
@@ -91,7 +102,11 @@ export default function NormPage({ slug }) {
               </div>
             ) : section.type === 'info' ? (
               <div className="norm-info-block">
-                <i className={`ra ra-${section.icon} norm-info-block__icon`} aria-hidden="true" />
+                {/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/.test(section.icon) ? (
+                  <span className="norm-emoji-icon norm-info-block__icon">{section.icon}</span>
+                ) : (
+                  <i className={`ra ra-${section.icon} norm-info-block__icon`} aria-hidden="true" />
+                )}
                 <div className="norm-info-block__content">
                   <h4 className="norm-info-block__title">{section.title}</h4>
                   <div className="norm-info-block__text" dangerouslySetInnerHTML={{ __html: section.text }} />
@@ -102,8 +117,9 @@ export default function NormPage({ slug }) {
                 {section.introText && <p className="norm-section-intro-text">{section.introText}</p>}
                 <div className="norm-cards-grid-v2">
                 {section.cards.map((card, ci) => {
-                  const sevClass = card.severity ? SEVERITY_CLASS[card.severity] || '' : ''
-                  const warnClass = card.warning && !card.severity ? ' norm-card-v2--warning' : ''
+                  const isNeutral = NEUTRAL_COLOR_SLUGS.has(slug);
+                  const sevClass = (card.severity && !isNeutral) ? SEVERITY_CLASS[card.severity] || '' : '';
+                  const warnClass = card.warning && !card.severity ? ' norm-card-v2--warning' : '';
                   return (
                     <div 
                       key={ci} 
@@ -117,17 +133,18 @@ export default function NormPage({ slug }) {
                             {REACT_ICONS[card.icon] ? (
                               REACT_ICONS[card.icon]
                             ) : (
-                              <i className={`ra ra-${card.icon}`} aria-hidden="true" />
+                              // Si el icono es un emoji (como 👍 o 👎), lo renderizamos como texto
+                              /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/.test(card.icon) ? (
+                                <span className="norm-emoji-icon">{card.icon}</span>
+                              ) : (
+                                <i className={`ra ra-${card.icon}`} aria-hidden="true" />
+                              )
                             )}
                           </div>
                         )}
                         {card.num && (
                           <span className="norm-card-v2__num">
-                            {typeof card.num === 'string' && card.num.startsWith('ra-') ? (
-                              <i className={`ra ${card.num}`} aria-hidden="true" />
-                            ) : (
-                              card.num
-                            )}
+                            {card.num}
                           </span>
                         )}
                       </div>

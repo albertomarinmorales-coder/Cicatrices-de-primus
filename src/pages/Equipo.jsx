@@ -1,102 +1,72 @@
 import Footer from '../components/Footer'
+import { STAFF_MEMBERS, EQUIPO_DISCORD_INVITE } from '../data/equipo'
 import DiscordIcon from '../components/DiscordIcon'
-import { EQUIPO_DISCORD_INVITE, EQUIPO_NARRADORES, EQUIPO_OWNERS } from '../data/equipo'
-import { resolveDiscordAvatarUrl } from '../lib/discordAvatar'
-
-function initials(name) {
-  if (!name || !name.trim()) return '?'
-  const p = name.trim().split(/\s+/)
-  if (p.length === 1) return p[0].slice(0, 2).toUpperCase()
-  return (p[0][0] + p[p.length - 1][0]).toUpperCase()
-}
-
-function TeamAvatar({ member, size }) {
-  const url = resolveDiscordAvatarUrl(member, size === 'owner' ? 128 : 96)
-  const cls = size === 'owner' ? 'equipo-card__avatar-wrap--owner' : 'equipo-card__avatar-wrap--narrador'
-  if (url) {
-    return (
-      <div className={`equipo-card__avatar-wrap ${cls}`}>
-        <img
-          src={url}
-          alt=""
-          className="equipo-card__avatar-img"
-          loading="lazy"
-          decoding="async"
-          width={size === 'owner' ? 80 : 64}
-          height={size === 'owner' ? 80 : 64}
-        />
-      </div>
-    )
-  }
-  return (
-    <div className={`equipo-card__avatar-wrap ${cls}`} aria-hidden="true">
-      <span className="equipo-card__avatar-fallback">{initials(member.name)}</span>
-    </div>
-  )
-}
 
 export default function Equipo() {
   return (
-    <div className="page active" id="page-equipo">
-      <div className="page-header">
-        <div className="page-header-bg" aria-hidden="true" />
-        <div className="page-header-overlay" />
-        <div className="page-header-content">
-          <h1>El Concilio</h1>
-          <p>Servidor de rol y narrativa · Equipo oficial</p>
+    <div className="page active" id="page-staff">
+      <div className="detail-hero">
+        <div className="detail-hero-bg detail-hero-bg--staff" aria-hidden="true" />
+        <div className="detail-hero-overlay" />
+        <div className="detail-hero-content">
+          <div className="breadcrumb">
+            Primus <span>/ El Equipo</span>
+          </div>
+          <h1>El equipo de Primus</h1>
+          <span className="detail-tag">Guardianes de la Narrativa</span>
         </div>
       </div>
 
-      <div className="equipo-page">
-        <div className="equipo-intro">
-          <span className="equipo-intro__eyebrow">Archivo del Concilio</span>
-          <p>
-            Custodios de la continuidad, la mesa y las historias vivas de Primus. Este es el equipo que
-            mantiene el mundo en movimiento y acompaña a la comunidad en sus tramas.
-          </p>
+      <div className="detail-body staff-detail-body">
+        <div className="staff-intro-card">
+          <div className="staff-intro-inner">
+            <blockquote className="staff-quote">
+              "Bienvenidos, valientes, insensatos y futuras víctimas de sus propias decisiones."
+            </blockquote>
+
+            <div className="staff-desc">
+              <p>Estamos aquí para construir una historia entre todos. Nosotros ponemos el mundo, las reglas, los sistemas, los peligros, las tragedias inevitables y, ocasionalmente, algún trauma narrativo bien colocado… pero sin ustedes, los jugadores, nada de esto realmente cobra vida. Primus, sus caminos, sus guerras, sus tabernas, sus ruinas y sus gloriosas malas decisiones existen porque ustedes los recorren.</p>
+              
+              <p>Nuestro trabajo como staff es echarles una mano en lo que necesiten: desde crear personajes, levantar casas, entender sistemas, resolver dudas, o incluso acompañarlos en esas inevitables crisis existenciales sobre quiénes son, a dónde van y por qué tomaron ESA decisión claramente cuestionable. También estaremos presentes para brindar apoyo moral, espiritual y probablemente sarcasmo terapéutico cuando llegue ese momento que todos temen… el infame, oscuro y siempre acechante CK.</p>
+              
+              <p>Intentaremos ser un staff eficiente, amable y razonablemente cuerdo. Los ayudaremos siempre que podamos, responderemos dudas, guiaremos el caos… y solo seremos levemente tiránicos cuando la ocasión realmente lo amerite. Después de todo, todo gran reino necesita orden… incluso si a veces ese orden viene acompañado de mirar fijamente sus tickets hasta que aparezcan correctamente rellenados.</p>
+              
+              <p>Así que exploren, construyan, conspiren, sobrevivan… y recuerden: estamos para ayudar.</p>
+            </div>
+
+            <div className="staff-intro-footer">
+              <div className="staff-signature">
+                <p className="staff-p staff-p--small">O para juzgarlos en silencio. Depende bastante del contexto.</p>
+                <div className="staff-signature-line" />
+                <span>El staff de Primus</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <section className="equipo-section" aria-labelledby="equipo-owners-title">
-          <h2 id="equipo-owners-title" className="section-title">
-            Owners
-          </h2>
-          <div className="section-underline" aria-hidden="true">
-            <i className="ra ra-crown" aria-hidden />
-          </div>
-          <div className="equipo-grid equipo-grid--owners">
-            {EQUIPO_OWNERS.map((m) => (
-              <article key={m.id} className="equipo-card equipo-card--owner">
-                <TeamAvatar member={m} size="owner" />
-                <span className="equipo-card__badge">Owner</span>
-                <h3 className="equipo-card__name">{m.name}</h3>
-                <p className="equipo-card__role">{m.role}</p>
-                <p className="equipo-card__desc">{m.desc}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+        <div className="norm-section-header">
+          <div className="norm-section-header__line" aria-hidden="true" />
+          <span className="norm-section-header__label">STAFF</span>
+          <div className="norm-section-header__line" aria-hidden="true" />
+        </div>
 
-        <section className="equipo-section" aria-labelledby="equipo-nar-title">
-          <h2 id="equipo-nar-title" className="section-title">
-            Narradores
-          </h2>
-          <div className="section-underline" aria-hidden="true">
-            <i className="ra ra-burning-book" aria-hidden />
-          </div>
-          <div className="equipo-grid equipo-grid--narradores">
-            {EQUIPO_NARRADORES.map((m) => (
-              <article key={m.id} className="equipo-card">
-                <TeamAvatar member={m} size="narrador" />
-                <h3 className="equipo-card__name">{m.name}</h3>
-                <p className="equipo-card__role">{m.role}</p>
-                <p className="equipo-card__desc">{m.desc}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+        <div className="staff-grid">
+          {STAFF_MEMBERS.map((m) => (
+            <div key={m.id} className="staff-card">
+              <div className="staff-card__img-wrap">
+                <img src={m.image} alt={m.name} className="staff-card__img" loading="lazy" />
+                <div className="staff-card__overlay" />
+              </div>
+              <div className="staff-card__content">
+                <h3 className="staff-card__name">{m.name}</h3>
+                <div className="staff-card__divider" />
+              </div>
+            </div>
+          ))}
+        </div>
 
-        <div className="equipo-footer-cta">
-          <p className="equipo-footer-cta__label">Únete a la comunidad</p>
+        <div className="equipo-footer-cta" style={{ marginTop: '5rem' }}>
+          <p className="equipo-footer-cta__label">¿Alguna duda? Únete al Discord</p>
           <a
             className="equipo-discord-btn"
             href={EQUIPO_DISCORD_INVITE}
@@ -104,7 +74,7 @@ export default function Equipo() {
             rel="noopener noreferrer"
           >
             <DiscordIcon className="equipo-discord-btn__icon" />
-            Discord
+            Discord Oficial
           </a>
         </div>
       </div>

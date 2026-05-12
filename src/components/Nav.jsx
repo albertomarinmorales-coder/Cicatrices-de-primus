@@ -74,8 +74,16 @@ const NAV_ITEMS = [
       { label: 'Combate', path: '/norm-combate' },
     ]
   },
-  { id: 'normativa', label: 'Normativas', path: '/normativa', alignRight: true },
+  {
+    id: 'normativa', label: 'Normativas', path: '/normativa', alignRight: true,
+    children: [
+      { label: 'Normativa General', path: '/norm-general' },
+      { label: 'Vivienda y Construcción', path: '/norm-housing' },
+      { label: 'Esclavitud', path: '/norm-esclavitud' },
+    ],
+  },
   { id: 'galeria', label: 'Galería', path: '/galeria' },
+  { id: 'equipo', label: 'Staff', path: '/equipo', alignRight: true },
 ]
 
 export default function Nav() {

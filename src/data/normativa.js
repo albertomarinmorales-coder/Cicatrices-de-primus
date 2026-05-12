@@ -394,7 +394,7 @@ export const normativaData = {
       {
         label: 'Sistema de actividad hostil',
         type: 'info',
-        icon: 'uncertainty',
+        icon: 'ringing-bell',
         title: 'Alerta de Almenaras',
         text: 'Si durante 48 horas:<br/>• No se reportan bajas de NPC<br/>• No se investigan POIs<br/><br/>Entonces:<br/>• Se encienden las Almenaras/Campanas (llamado público de auxilio)<br/><br/>Esto indica que el puesto está en peligro. Los jugadores deberán reportar la actividad, el cuadrante del campamento bajo ataque, y formar un grupo de refuerzo para asistir.',
       },
@@ -448,7 +448,7 @@ export const normativaData = {
           { 
             num: '03', 
             title: 'Fallo', 
-            icon: 'uncertainty',
+            icon: 'cancel',
             text: '• El robo fracasa.<br/>• La víctima detecta el intento, pero no identifica a quién lo intentó.<br/>• Existe posibilidad de denuncia por parte del afectado.<br/>• Se aplica un contador de robo fallido al ladrón.', 
             severity: 3 
           },
@@ -465,14 +465,14 @@ export const normativaData = {
         label: 'Consecuencias',
         cards: [
           { 
-            num: 'ra-coins', 
+            num: '01', 
             title: 'Recompensa', 
             icon: 'gold-bar',
             text: 'La actividad de robo estará abierta para todos los jugadores. Igualmente, la capacidad de robo está ligada a los Tiers de profesión activos. Esto significa que un ladrón será capaz de robar una cantidad equivalente a un objeto de redux del tier ligado a la profesión.<br/><br/>Un ejemplo claro: Un ladrón de T2 podrá robar una cantidad igual a un objeto de redux de T2. Ya sea de tabernero, artífice, o forjador.', 
             severity: 1 
           },
           { 
-            num: 'ra-gavel', 
+            num: '02', 
             title: 'Castigo', 
             icon: 'gavel',
             text: 'No todo es ganancia y festejo en la vida de un ladrón, pues aquellos que lo intenten tendrán un contador de criminalidad asociado a su ficha, el cuál subirá en base a los intentos fallidos hasta un límite de tres (3).', 
@@ -505,21 +505,21 @@ export const normativaData = {
         label: 'Categorías de Penas',
         cards: [
           { 
-            num: 'ra-scroll-unfurled', 
+            num: '01', 
             title: 'Penas leves', 
             icon: 'pills',
             text: '<strong>Infractor Menor</strong><br/><br/>• Ingreso a ficha criminal<br/>• Detención temporal por parte de la guardia (rol de captura y encarcelamiento). (10 mins OOC)<br/><br/>o<br/><br/>• Multa leve', 
             severity: 1 
           },
           { 
-            num: 'ra-chain', 
+            num: '02', 
             title: 'Penas moderadas', 
             icon: 'chain',
             text: '<strong>Criminal Reincidente</strong><br/><br/>Una vez tengas un antecedente penal, y se te capture por tercera vez con un estado de SOSPECHOSO, estarás en categoría de penas moderadas.<br/><br/>• Encarcelamiento de mediana duración (interpretado durante el día, 30 mins OOC)<br/><br/>o<br/><br/>• Multa media<br/>• Mutilación o marca permanente que lo identifique como un criminal del reino', 
             severity: 2 
           },
           { 
-            num: 'ra-skull', 
+            num: '03', 
             title: 'Penas severas', 
             icon: 'skull',
             text: '<strong>Enemigo del Orden</strong><br/><br/>Tras recibir tres penas moderadas, y volver a ser capturado, entrarás directamente en penas severas. Estas penas son las más peligrosas, y bien pueden causarte la muerte. En casos que implique la seguridad del reino, y sus ciudadanos, un criminal puede entrar directamente en esta categoría, y ser ejecutado en el acto de ser apresado.<br/><br/>• Encarcelamiento prolongado o incluso rol de juicio ante autoridades<br/>• Castigo público<br/>• Mutilación o marca permanente que lo identifique como un criminal del reino<br/>• En casos extremos, pena de muerte<br/>• Multa alta', 
@@ -566,12 +566,13 @@ export const normativaData = {
   },
   housing: {
     title: 'Normativa de Construcción y Housing',
-    subtitle: 'Vivienda y Asentamientos',
+    subtitle: 'Reglamento de Vivienda y Arquitectura en Primus',
     introImage: '/assets/images/Normativa/Housing.png',
     introGlow: '#e7732bff',
     breadcrumb: 'Housing',
-    intro: `<blockquote class="norm-quote">Para mantener el servidor equilibrado, evitar sobrecargas innecesarias y permitir que todos los jugadores puedan disfrutar de sus espacios, se establecen las siguientes normas. No buscamos limitar tu creatividad, sino fomentar un entorno justo y funcional.<br/><br/>
-    <strong>Nota de Lore:</strong> En esta season, las viviendas por el mapa están restringidas. Debido a la situación actual, no es seguro vivir fuera de las ciudades por las constantes amenazas del entorno.</blockquote>`,
+    intro: `<blockquote class="norm-quote">Para mantener el servidor equilibrado, evitar sobrecargas innecesarias y permitir que todos los jugadores puedan disfrutar y desarrollarse en sus espacios, se establecen las siguientes normas de construcción.<br/><br/>
+    No buscamos limitar tu creatividad, sino fomentar un entorno más justo, ordenado y funcional para toda la comunidad.<br/><br/>
+    <strong>Nota de Lore:</strong> En esta season, las construcciones de viviendas por el mapa estarán más restringidas, ya que, debido a la situación actual del lore, no es seguro vivir fuera de las ciudades por las constantes amenazas del entorno.</blockquote>`,
     sections: [
       {
         label: 'Vivienda y Asentamientos',
@@ -581,72 +582,72 @@ export const normativaData = {
             num: '01',
             title: 'Asentamientos Seguros',
             icon: 'castle-flag',
-            text: '<strong>¿Dónde puedo adquirir una vivienda segura?</strong><br/><br/>Actualmente existen asentamientos protegidos para individuos o clanes:<br/><br/>• Azimra<br/>• Ash’torin<br/>• Ashbourne<br/>• Skalford',
+            text: '<strong>¿Dónde puedo adquirir una vivienda para vivir?</strong><br/><br/>Actualmente contamos con asentamientos que permitirán vivir a ti o a tu clan de forma segura:<br/><br/>• Azimra<br/>• Ash’torin<br/>• Ashbourne<br/>• Skalford',
             severity: 1
           },
           {
             num: '02',
             title: 'Vivienda Exterior',
             icon: 'mountains',
-            text: '<strong>¿Se puede vivir fuera de las ciudades?</strong><br/><br/>Sí, pero no es inmediato. Se requiere utilizar el <strong>Sistema de Conquista</strong> para convertir cuadrantes en zonas "seguras" antes de construir.',
+            text: '<strong>¿Se puede vivir fuera de las ciudades?</strong><br/><br/>Claro, pero no es simplemente llegar, colocar un cimiento y ya. Para ello contamos con un <strong>Sistema de conquista</strong>, el cual permitirá volver ciertos cuadrantes “seguros”, para la construcción de viviendas en el futuro.',
             severity: 2
           },
           {
             num: '03',
-            title: '¿Cómo adquirir una casa?',
+            title: 'Adquisición en Ciudades',
             icon: 'scroll-unfurled',
-            text: 'Para adquirir una casa en la ciudad, sigue estos pasos:<br/><br/>1. Acércate al asentamiento de la guardia más cercano.<br/>2. Habla con el censista, quien notificará al staff.<br/><br/><strong>Impuestos:</strong><br/>Tras la primera semana, se pagará un tributo semanal:<br/>• Desde 1 hasta 30 platas.<br/>• Según el tamaño del clan.',
+            text: '<strong>¿Cómo puedo adquirir una casa dentro de las ciudades?</strong><br/><br/>Primero debes acercarte al asentamiento de la guardia más cercano al lugar donde deseas vivir. Allí estará el censista, quien notificará al staff para atender tu solicitud.<br/><br/>Luego de la primera semana, comenzarás a pagar impuestos de forma semanal. Estos variarán según la cantidad de miembros que tenga el clan, desde <strong>1 plata</strong> hasta un máximo de <strong>30 platas</strong>.',
             severity: 1,
             fullWidth: true
           }
         ]
       },
       {
-        label: 'Reglas Básicas de Construcción',
+        label: 'Reglas Básicas',
         type: 'cards',
         cards: [
           {
-            num: 'A',
-            title: 'Responsabilidad',
+            num: '01',
+            title: 'Responsabilidad y Respeto',
             icon: 'hand',
-            text: 'Evita bloquear grandes extensiones de terreno. El espacio es compartido.',
+            text: 'Evita ocupar grandes extensiones de terreno que puedan bloquear espacio para otros jugadores. El espacio es compartido, a pesar de estar fuera del mapa (en caso de las capas por TP) debemos ser conscientes a la hora de construir.',
             severity: 1
           },
           {
-            num: 'B',
-            title: 'Rendimiento (Lag)',
+            num: '02',
+            title: 'Rendimiento y FPS',
             icon: 'lightning-bolt',
-            text: 'Prioriza lámparas sin fuego animado y evita exceso de decoraciones con movimiento para mantener estables los FPS.',
+            text: 'Recomendamos usar lámparas sin fuego animado, evitar decoraciones con demasiado movimiento y prescindir de elementos que puedan generar lag o bajones de FPS, tanto para ti como para los demás. Tu zona debe ser estética y también funcional.',
             severity: 2
           },
           {
-            num: 'C',
-            title: 'Limpieza',
+            num: '03',
+            title: 'Mantén el mapa limpio',
             icon: 'repair',
-            text: 'Prohibido dejar "basura visual" (petates, mesas sueltas o fogatas abandonadas). Si no lo usas, elimínalo.',
+            text: 'Está prohibido dejar estructuras innecesarias como petates, mesas sueltas, fogatas, etc. Si ya no usas un objeto o estructura, elimínalo. Ayudemos entre todos a que el mapa no se llene de “basura visual”.',
             severity: 1
           },
           {
-            num: 'D',
-            title: 'Zonas Públicas',
+            num: '04',
+            title: 'Lugares Públicos',
             icon: 'interdiction',
-            text: 'No se puede construir cerca de ciudades, zonas de farmeo o caravaneros sin justificación de rol y permiso previo.',
+            text: 'Cualquier construcción en las cercanías de lugares públicos (Ciudades, Zonas de farmeo, Caravaneros) deberá estar justificada mediante rol y contar con el consentimiento necesario; de lo contrario, será eliminada sin previo aviso.<br/><br/><em>Construir es parte del rol, y hacerlo con responsabilidad mejora la experiencia de todos.</em>',
             severity: 3
           }
         ]
       },
       {
-        label: 'Límites de Construcción (Caps)',
+        label: 'Reglas de Construcción y Decoración',
         type: 'info',
-        icon: 'book',
-        title: 'Límites de Construcción (Caps)',
-        text: `Para asegurar la estabilidad del entorno, se establecen los siguientes límites:<br/><br/>
+        icon: 'large-hammer',
+        title: 'Gestión de Piezas y Objetos',
+        text: `Para asegurar la estabilidad, se aplican los siguientes límites de construcción:<br/><br/>
         <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; color: rgba(212, 201, 176, 0.85); font-size: 0.95rem;">
           <tr style="border-bottom: 1px solid rgba(201, 168, 76, 0.2);">
             <th style="text-align: left; padding: 0.5rem;">Concepto</th>
-            <th style="text-align: center; padding: 0.5rem;">Límite por Jugador</th>
-            <th style="text-align: center; padding: 0.5rem;">Aumento por Miembro</th>
-            <th style="text-align: center; padding: 0.5rem;">Máximo de Clan (12+ miemb.)</th>
+            <th style="text-align: center; padding: 0.5rem;">Base / Jugador</th>
+            <th style="text-align: center; padding: 0.5rem;">Por Miembro</th>
+            <th style="text-align: center; padding: 0.5rem;">Máximo Clan (12+ miemb.)</th>
           </tr>
           <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
             <td style="padding: 0.5rem;">Piezas de construcción</td>
@@ -660,112 +661,113 @@ export const normativaData = {
             <td style="text-align: center; padding: 0.5rem;">+50 objetos</td>
             <td style="text-align: center; padding: 0.5rem;">700 objetos</td>
           </tr>
-        </table>`,
+        </table>
+        <p style="margin-top: 1rem; font-style: italic; opacity: 0.8;">Sabemos que los clanes tienen un máximo de 30 miembros; sin embargo, esto no significa que podrán tener 3250 piezas. Cuando vuestro clan alcance los 12 miembros, ese será el máximo permitido, siendo un total de 1450 piezas.</p>`,
       },
       {
-        label: 'Fundación de Asentamientos Exteriores',
+        label: 'Asentamientos Exteriores',
         type: 'process',
         steps: [
-          { label: '1. Completar el proceso de conquista del lugar.', icon: 'crossed-swords' },
-          { label: '2. Obtener permiso de la guardia local o del Consejo de la Capital.', icon: 'gavel' },
-          { label: '3. Pagar 2 platas por miembro al momento de la fundación (y por cada civil que se una después).', icon: 'gold-bar' },
+          { label: '1. Respetar el proceso del sistema de conquista para volver “seguro” el lugar.', icon: 'crossed-swords' },
+          { label: '2. Conseguir permiso de la guardia local o del Consejo de la Capital.', icon: 'gavel' },
+          { label: '3. Pagar una cuota de 2 platas por miembro del clan al momento de fundar el asentamiento, además de cada civil añadido al clan.', icon: 'gold-bar' },
         ],
-        introText: 'Los grupos que deseen fundar su propia base fuera de la capital deben seguir estos pasos:'
+        introText: 'Los clanes o grupos que deseen asentarse fuera de la capital podrán hacerlo mediante el siguiente proceso:'
       },
       {
-        label: 'Restricciones Estéticas',
+        label: 'Estética y Restricciones',
         type: 'cards',
         cards: [
           {
             num: '01',
-            title: 'Estilo',
+            title: 'Ambientación en Rol',
             icon: 'eyeball',
-            text: 'Evitar casas "cubo". La construcción debe ser coherente con el entorno de rol.',
+            text: 'Evita construcciones incoherentes con el entorno o fuera del estilo del servidor (como casas cúbicas sin ambientación). Estamos en un mundo de rol y tu base también debe formar parte de la historia.',
             severity: 1
           },
           {
             num: '02',
-            title: 'Arenisca',
-            icon: 'large-hammer',
-            text: 'No se permite como material definitivo (solo uso temporal).',
+            title: 'Uso de Arenisca',
+            icon: 'radial-balance',
+            text: 'No está permitido el uso definitivo de estructuras de arenisca. Estas construcciones se consideran temporales o de baja calidad estética, por lo que deberán ser reemplazadas.',
             severity: 2
           },
           {
             num: '03',
-            title: 'Cimientos',
+            title: 'Apilado de Cimientos',
             icon: 'tower',
-            text: 'Prohibido el "stackeo" o apilado de cimientos para fortificar (genera carga innecesaria).',
+            text: 'Está prohibido apilar cimientos con intención de fortificar estructuras. El daño a construcciones está desactivado por norma general, salvo excepciones por eventos o acuerdos entre jugadores. Apilar cimientos genera carga innecesaria al servidor y rompe la inmersión visual del entorno.',
             severity: 3
           },
           {
             num: '04',
-            title: 'Templos',
+            title: 'Los templos no están permitidos',
             icon: 'skull',
-            text: 'No está permitida su construcción por jugadores.',
+            text: 'Buscamos mantener la coherencia del mapa y evitar estructuras que puedan generar confusión o sobrecarga.',
             severity: 4
           }
         ]
       },
       {
-        label: 'Adicionales y Mejoras',
+        label: 'Adicionales Opcionales',
         type: 'cards',
         cards: [
           {
-            num: 'ra-compass',
+            num: '01',
             title: 'Marca en el mapa',
             icon: 'compass',
-            text: '50 platas (Pago único).',
+            text: '50 de plata (pago único).',
             severity: 1
           },
           {
-            num: 'ra-horseshoe',
+            num: '02',
             title: 'Caravanero',
             icon: 'fa-caravan',
-            text: '3 oros (Pago único) + 20 platas de mantenimiento semanal.',
+            text: '3 de oro (pago único) + 20 de platas de mantenimiento semanal.',
             severity: 2
           },
           {
-            num: 'ra-expand',
-            title: 'Expansión',
+            num: '03',
+            title: 'Expansión Construcción',
             icon: 'large-hammer',
-            text: '50 platas por cada +100 piezas de construcción (Mejora única, no incluye decoración).',
+            text: '50 platas por cada ampliación de 100 piezas (solo construcción; mejora única, sin decoración).',
             severity: 1,
             fullWidth: true
           }
         ]
       },
       {
-        label: 'Rol de Entorno (Guardias/Trabajadores)',
+        label: 'Rol de Entorno',
         type: 'cards',
-        introText: 'Funciones y Limitaciones',
+        introText: 'Límites y funciones del entorno (Guardias/Trabajadores):',
         cards: [
           {
-            num: 'ra-scroll-unfurled',
+            num: '01',
             title: 'Contrato y Costes',
             icon: 'scroll-unfurled',
-            text: 'Se pueden contratar mediante Contrato de trabajadores:<br/><br/>• 2 oros por unidad.<br/>• Máximo 5 por asentamiento.<br/>• ToT Basic.',
+            text: 'Se pueden contratar mediante Contrato de trabajadores:<br/><br/>• 2 oro por cada unidad de entorno.<br/>• Máximo 5 por asentamiento.<br/>• Solo servirán como entorno.<br/>• Los ToT Basic.',
             severity: 1,
             fullWidth: true
           },
           {
-            num: '✅',
+            num: '02',
             title: 'Sí pueden:',
-            icon: 'shield',
-            text: '• Reducir enemigos (captura).<br/>• Expulsar invasores mediante combate roleado.<br/>• Trasladar presos.<br/>• Defender pasivamente en eventos PvE.',
+            icon: '👍',
+            text: '• Reducir enemigos (dejarlos en estado de captura).<br/>• Expulsar invasores (sacarlos de la zona mediante combates roleados).<br/>• Trasladar enemigos capturados a prisión dentro del asentamiento.<br/>• Defender pasivamente estructuras o puntos clave en eventos PvE.',
             severity: 1
           },
           {
-            num: '❌',
+            num: '03',
             title: 'No pueden:',
-            icon: 'interdiction',
-            text: '• Matar.<br/>• Escuchar conversaciones.<br/>• Avisar de enemigos si el clan está ausente.',
+            icon: '👎',
+            text: '• Matar.<br/>• Escuchar conversaciones.<br/>• Avisar sobre la presencia de jugadores enemigos en ausencia del clan.',
             severity: 3
           },
           {
-            num: '!',
+            num: '04',
             title: 'Beneficio de Defensa',
             icon: 'knight-helmet',
-            text: 'En caso de PvP-E en territorio registrado, el líder del clan recibe un Turno de Ambiente adicional al final del combate.',
+            text: 'El entorno deberá ser roleado de manera narrativa y equilibrada, evitando su uso como “guardias automáticos”.<br/><br/>En caso de PvP-E dentro del territorio del asentamiento, el líder del clan recibirá un <strong>Turno de Ambiente</strong> adicional al final del combate (únicamente dentro de su zona reclamada y registrada).',
             severity: 2,
             fullWidth: true
           }
@@ -774,13 +776,248 @@ export const normativaData = {
     ]
   },
   general: {
-    title: 'Normativa General de Rol',
-    subtitle: 'Leyes fundamentales del reino',
+    title: 'Normativa de Comunidad y Rol',
+    subtitle: 'Leyes Fundamentales y Convivencia en Primus',
     introImage: '/assets/images/Normativa/Normativa.png',
-    introGlow: '#ffffff',
+    introGlow: '#ffffffcc',
     breadcrumb: 'General',
-    intro: `<blockquote class="norm-quote">Sección en construcción. Próximamente se detallará la normativa correspondiente.</blockquote>`,
-    sections: [],
+    intro: `<blockquote class="norm-quote">Bienvenido a Cicatrices de Primus. Para asegurar una experiencia inmersiva, respetuosa y equilibrada para todos, hemos establecido este marco de convivencia y reglas de interpretación. El respeto mutuo y la coherencia narrativa son los pilares de nuestra comunidad.</blockquote>`,
+    sections: [
+      {
+        label: 'Normativa de Comunidad',
+        type: 'cards',
+        cards: [
+          {
+            num: '01',
+            title: 'Contenido Adulto',
+            icon: 'eyeball',
+            text: 'Nuestro servidor incluye narrativa oscura, violencia, lenguaje explícito y contenido erótico. Por eso, sugerimos que los participantes tengan al menos 18 años.',
+            severity: 1
+          },
+          {
+            num: '02',
+            title: 'Multicuentas',
+            icon: 'fa-users',
+            text: 'Si se detectan cuentas dobles, serán eliminadas inmediatamente. También se tomarán medidas con cuentas secundarias pertenecientes a usuarios ya expulsados.',
+            severity: 4
+          },
+          {
+            num: '03',
+            title: 'Respeto y Educación',
+            icon: 'hand',
+            text: 'Trata a todos los miembros con educación y consideración. Comunícate siempre de forma madura, constructiva y cordial. Queremos que este servidor sea un lugar donde todos puedan disfrutar del rol y las historias que surgen.',
+            severity: 1
+          },
+          {
+            num: '04',
+            title: 'Cero Toxicidad',
+            icon: 'shield',
+            text: 'No se permite el bullying, el abuso ni ningún tipo de comportamiento que genere mal ambiente. El respeto es la base de todo lo que construimos aquí.',
+            severity: 4
+          },
+          {
+            num: '05',
+            title: 'Spam y Orden',
+            icon: 'speech-bubbles',
+            text: 'No envíes mensajes, imágenes, emojis, comandos o menciones de forma excesiva. Mantenemos los canales ordenados para que todos podamos disfrutar de una buena experiencia.',
+            severity: 2
+          },
+          {
+            num: '06',
+            title: 'Uso de Canales',
+            icon: 'quill-ink',
+            text: 'Cada canal tiene su propósito. Te pedimos que leas las descripciones y publiques tu contenido en el lugar correspondiente.',
+            severity: 1
+          },
+          {
+            num: '07',
+            title: '¿Necesitas ayuda?',
+            icon: 'help',
+            text: 'Puedes contactar al Staff abriendo un ticket en la sala destinada para ello o entrando al canal de voz “Ayuda Soporte”. Si algún miembro del Staff está disponible, te atenderá con gusto.',
+            severity: 1,
+            fullWidth: true
+          }
+        ]
+      },
+      {
+        label: 'Conceptos de Rol',
+        type: 'cards',
+        cards: [
+          {
+            num: '01',
+            title: "In Character 'IC'",
+            icon: 'player',
+            text: 'Este concepto se refiere a todo lo que ocurre DENTRO de rol y de la interpretación del personaje.',
+            severity: 1
+          },
+          {
+            num: '02',
+            title: "Out of Character 'OOC'",
+            icon: 'hood',
+            text: 'Este concepto se refiere a todo lo que ocurre FUERA de rol y de la interpretación del personaje.',
+            severity: 1
+          },
+          {
+            num: '03',
+            title: 'MetaGaming',
+            icon: 'brain-freeze',
+            text: 'El uso de información adquirida OOC para tu beneficio IC. Si en una sala de Discord un MD o cualquier medio fuera del rol obtienes información sobre algo que ha ocurrido IC tu personaje no debe interpretar que tiene dicha información.',
+            severity: 3
+          },
+          {
+            num: '04',
+            title: 'PowerGaming',
+            icon: 'muscle-up',
+            text: 'Cuando una acción de rol sale de los límites de la realidad o de las capacidades naturales del personaje.',
+            severity: 3
+          },
+          {
+            num: '05',
+            title: 'Fear RP',
+            icon: 'fa-hand',
+            text: 'No demostrar miedo al ver criaturas sobrenaturales o alguna situación en la que el rol lo requiera dentro de la coherencia del personaje y de la situación.',
+            severity: 2
+          },
+          {
+            num: '06',
+            title: "Player Kill 'PK'",
+            icon: 'tombstone',
+            text: 'Muerte temporal de nuestro pj, solo se recordara hasta el momento antes de la muerte del pj.',
+            severity: 2
+          },
+          {
+            num: '07',
+            title: "Character Kill 'CK'",
+            icon: 'skull',
+            text: 'Fin de la historia de nuestro personaje. Ya sea porque muera o porque “se va de viaje”, es el punto y final, o punto y aparte, de nuestro personaje. Ya sea por decisión propia, o ajena. Toca empezar una historia nueva, nuevas amistades, nuevos logros, etcetera.',
+            severity: 4
+          },
+          {
+            num: '08',
+            title: 'Rol de Entorno',
+            icon: 'mountains',
+            text: 'Con el rol de entorno nos referimos a todo aquello que ocurre a nuestro alrededor y nos rodea. Sea visible o no, ya que por limitaciones del juego a veces te encontrarás zonas pobladas o concurridas y aunque no veas NPC’s esa zona tiene vida igualmente. Recordamos que toda acción que realicemos tiene consecuencias.',
+            severity: 1
+          }
+        ]
+      },
+      {
+        label: 'Interpretación y Fairplay',
+        type: 'cards',
+        cards: [
+          {
+            num: '01',
+            title: 'Interpretación de Personaje',
+            icon: 'fa-masks-theater',
+            text: 'La interpretación de personaje tiene que ser FUNDAMENTAL a la hora de rolear en el servidor. Su vestimenta, expresiones, edad, carácter, clase social, conocimientos, costumbres hacen que tu personaje sea único. Cada cosa que afecte a tu personaje le afectará solo a él. Puesto que estamos interpretando un papel, no deberemos salir del mismo en ningún momento, y deberemos representar a nuestro personaje en las diferentes situaciones por las que pase, así como dos actores en una escena siguen el guion, nosotros debemos seguir fielmente la evolución de nuestro personaje a lo largo de su historia.<br/><br/>No obstante, no estamos obligados a seguir un rol que nos haga sentir incómodos.<br/><br/>Hay que ceñirse al lenguaje de la época, sin salirse de esta, y no usar expresiones que se utilizan en la actualidad, como por ejemplo ‘’Ok bro’’.',
+            severity: 1,
+            fullWidth: true
+          },
+          {
+            num: '02',
+            title: 'Fairplay',
+            icon: 'gemini',
+            text: 'Más allá del juego limpio, el Fairplay trata sobre jugar sin hacer aprovecharnos de errores o fallas en la normativa o el juego. También entender que formamos parte de una comunidad, y nuestra finalidad debe ser divertirnos en conjunto. Dar oportunidad al otro jugador de participar del rol, y no buscar la victoria por encima del entretenimiento mutuo.',
+            severity: 1,
+            fullWidth: true
+          }
+        ]
+      },
+
+      {
+        label: 'Normativa IC (Rol en el Servidor)',
+        type: 'cards',
+        introText: 'Para mantener una experiencia de rol inmersiva, coherente y respetuosa para todos, te pedimos que leas y sigas estas normas cuando estés interpretando a tu personaje:',
+        cards: [
+          {
+            num: '01',
+            title: 'Trolleo y Cuerpo PJ',
+            icon: 'player',
+            text: 'Nada de trolleo con el cuerpo del personaje. Crear personajes con proporciones exageradas (como partes íntimas desproporcionadas) con la intención de molestar o burlarse está completamente prohibido. Cuidemos la estética y el ambiente del rol.',
+            severity: 3
+          },
+          {
+            num: '02',
+            title: 'Chat Local (IC)',
+            icon: 'speech-bubble',
+            text: 'El chat local es solo para rol. El canal local debe usarse exclusivamente para interpretar a tu personaje (IC). No se permite utilizar el canal /channel para esto. Si necesitas comunicarte fuera de personaje (OOC), puedes usar el chat global o el de clan. En caso puntual, puedes escribir algo OOC en el chat local usando paréntesis: (así).',
+            severity: 1
+          },
+          {
+            num: '03',
+            title: 'Bugs y Reportes',
+            icon: 'repair',
+            text: 'Glitches y bugs deben reportarse. Si encuentras un error del juego, por favor no lo aproveches. Notifica a la administración para que pueda solucionarlo lo antes posible.',
+            severity: 4
+          },
+          {
+            num: '04',
+            title: 'Nombres Coherentes',
+            icon: 'scroll-unfurled',
+            text: 'Tu personaje debe tener un nombre acorde a una ambientación medieval y fantástica. No se permiten títulos (como "Rey", "Capitán", etc.), ni nombres de personajes famosos de series, videojuegos o películas. Además, tu personaje debe seguir las pautas raciales establecidas por el servidor.',
+            severity: 2
+          },
+          {
+            num: '05',
+            title: 'Coherencia del PJ',
+            icon: 'quill-ink',
+            text: 'Coherencia en la creación e interpretación del personaje. Evita crear personajes con elementos exagerados (como manos gigantes para usar armas de forma injusta) o cambios bruscos de personalidad sin justificación narrativa. Todo debe tener sentido dentro del rol.',
+            severity: 2
+          },
+          {
+            num: '06',
+            title: 'El Brazalete',
+            icon: 'gem-pendant',
+            text: 'El brazalete no es un medio de transporte. No se puede usar para teletransportarse a camas, petates o moverse por el mapa para evadir rol. Solo está permitido usarlo para resolver bugs, siempre con aviso previo a la administración.',
+            severity: 3
+          },
+          {
+            num: '07',
+            title: 'Pensamientos',
+            icon: 'brain-freeze',
+            text: 'No se rolean pensamientos. Los demás personajes no pueden leer tu mente. Si quieres que alguien sepa lo que tu personaje piensa, exprésalo con gestos, palabras o acciones interpretadas.',
+            severity: 1
+          },
+          {
+            num: '08',
+            title: 'Roles Intensos (Consenso)',
+            icon: 'fa-ban',
+            text: 'Roles intensos deben ser consensuados. Escenas de tortura, esclavitud o violencia extrema solo se permiten si todos los involucrados están de acuerdo. Nadie puede ser forzado a participar en este tipo de rol.<br/><br/>Si un jugador desea abandonar la escena, podrá usar el brazalete, y se deberá continuar el rol con el cuerpo que queda en el lugar. Además, el personaje deberá rolear las heridas o consecuencias físicas correspondientes a lo sucedido.',
+            severity: 4,
+            fullWidth: true
+          },
+          {
+            num: '09',
+            title: 'Entorno de Ciudades',
+            icon: 'castle-flag',
+            text: 'Lugares como ciudades o edificios oficiales están habitados por gente, guardias y defensores. Puedes intentar infiltrarte o generar conflictos allí, pero deberá hacerse con un rol bien trabajado y ser aprobado previamente por la administración mediante ticket. Acciones como "/me se cuela" no serán válidas.',
+            severity: 2
+          },
+          {
+            num: '10',
+            title: 'Desconexión',
+            icon: 'clover',
+            text: 'Ten cuidado al desconectarte. Asegúrate de salir del juego en un lugar apropiado, para no interrumpir o afectar el rol de otros al volver a conectarte.',
+            severity: 1
+          },
+          {
+            num: '!',
+            title: 'Consecuencias',
+            icon: 'spinning-sword',
+            text: 'Toda acción tiene una consecuencia. Recuerda siempre que estás en un servidor de rol. Cada decisión que tomes como personaje puede tener repercusiones. Usa el sentido común y sé coherente con lo que interpretas.',
+            severity: 2,
+            fullWidth: true
+          }
+        ]
+      },
+      {
+        label: 'Contenido Prohibido',
+        type: 'info',
+        icon: 'interdiction',
+        title: 'IMPORTANTE: Prohibición Absoluta',
+        text: 'Está TERMINANTEMENTE PROHIBIDO cualquier tipo de rol sexual con personajes menores de edad (tanto NPC como jugadores). Ante cualquier situación de este tipo, los responsables serán sancionados de forma inmediata y severa por la administración.',
+      }
+    ]
   },
 }
 

@@ -375,3 +375,104 @@ Entonces:
 • Perder control del territorio puede, y tendrá consecuencias graves para el entorno.  
 
 • La actividad en el evento es constante, aunque no requiere de una gran cantidad de personas, sino organización por su parte. Un grupo de jugadores pueden actuar de exploradores para verificar que los puestos de avanzada no tengan actividad. Si la tienen, reportarla a los demás en base a la severidad del evento para organizar las acciones pertinentes.
+
+---
+
+# Normativa de Esclavitud
+
+¡Hola aventureros! Aquí dejamos unas reglas importantes para manejar el tema de la esclavitud en el rol. Hagamos una pequeña aclaración antes de pasar a la normativa:
+
+La esclavitud se verá, principalmente, destinada a la administración como herramienta narrativa; podrán sentenciarte a un período de esclavitud como parte de las consecuencias de tus actos dentro del rol.
+
+Si deseas participar del rol de esclavista/esclavo puedes hacerlo, pero debes tener en cuenta el contexto actual y las siguientes normas.
+
+## Contexto
+
+La trata de personas y posesión de estas como propiedad está abolida en las tierras bajo dominio directo de la Corona, por lo tanto, cualquier persona que posea, compre, venda o maltrate a otro como esclavo será considerado criminal ante la ley, imponiéndose castigos y multas a quien es visto en público realizando estas prácticas. Se rumora que aún se realizan estas prácticas como parte de actividades criminales de alto nivel, y que las víctimas de este trato eran únicamente los elfos drel’shan y los mestizos, pero ahora han dejado esas preferencias de lado, pudiendo ser víctima cualquier habitante, sin importar raza.
+
+Se rumora que aún se realizan estas prácticas como parte de actividades criminales de alto nivel, y que las víctimas de este trato eran únicamente los elfos drel’shan y los mestizos, pero ahora han dejado esas preferencias de lado, pudiendo ser víctima cualquier habitante, sin importar raza.
+
+## Esclavitud entre jugadores
+
+Al participar voluntariamente en el rol de esclavista o esclavo por iniciativa propia, ambas partes deben contar con consentimiento explícito fuera del personaje, dejando constancia de ello en el ticket de cada implicado. Dicho consentimiento puede revocarse en cualquier momento si se incumple lo pactado o se sobrepasan los límites.
+Ten en cuenta que, al participar en tramas que impliquen activamente la compraventa, posesión o trato de esclavos (en cualquiera de los roles: esclavista o esclavo), *estás realizando algo ilegal* dentro del lore. El contexto es importante.
+Está terminantemente prohibido usar la esclavitud para acosar, humillar o hacer bullying a otro jugador en la vida real, así como el lenguaje discriminatorio u ofensivo fuera del personaje. Mantengamos el rol como lo que es. Si vas a tener un esclavo, es para darle rol, no solo para escenas sexuales. Los actos sexuales solo se permiten *si ambas partes están 100% de acuerdo*.
+
+*Si en algún momento te sientes incómodo o víctima de abuso real bajo la excusa del rol de esclavitud, debes avisar al staff inmediatamente.*
+
+## Juego Justo
+
+Un esclavo es siempre un personaje, nunca un objeto. Si interpretas a un esclavo debes saber que tu personaje tiene derecho a:
+
+- Recibir interacciones en rol por parte de su esclavista.
+- Buscar su libertad mediante misiones, fugas o rebeliones planificadas.
+- Formar alianzas con otros esclavos o personajes libres.
+- Recibir un trato digno dentro del lore por parte de otros (salvo que aceptes voluntariamente un trato más duro, siempre con límites claros).
+
+*La esclavitud no define permanentemente al personaje; existirán momentos narrativos especiales en los que tengas oportunidad de cambiar tu situación.*
+
+Recordemos que el respeto y la diversión van primero.
+
+**Si tienes dudas o quieres hablar acerca del tema, contáctanos vía ticket.**
+
+---
+
+# Sistema de Combate PvP
+
+En Primus el conflicto es inevitable, tanto contra el entorno como entre sus propios habitantes. Estas tierras son peligrosas, y el PvP estará siempre abierto para aquellos que deseen resolver cualquier situación por medidas menos diplomáticas.
+
+Por este motivo, especificaremos ciertas reglas y procedimientos para asegurarnos de que las cosas no se salgan de la mano y siempre exista el fair play.
+
+## Consentimiento
+
+El PvP es abierto de forma libre. Si un jugador desea abrir PvP deberá declararlo, adjuntando igualmente su tirada de iniciativa, pero siempre con un rol justificativo del porqué se está abriendo PvP.
+
+Una vez declarada la apertura de PvP, los jugadores deberán pactar si el combate será hecho a Redux o a motor. En caso de desacuerdo, el método predeterminado será siempre Redux.
+
+El ganador del combate decidirá las consecuencias del derrotado, pudiendo ser este último víctima de robo de monedas, objetos u otras consecuencias que se describirán a continuación.
+
+Si el atacante es un personaje maldito, y por las mecánicas asociadas a estos personajes en particular, el CK estará abierto mutuamente. El combate necesariamente tiene que terminar en la muerte de uno de los combatientes.
+
+Sin CK autorizado por la administración, solo se validarán heridas T2 a los participantes.
+
+## Huida
+
+Si un jugador no quiere combatir, puede huir de la pelea utilizando su dado correspondiente frente a los enemigos con los que se ha iniciado el combate.
+
+La tirada de huida es definitiva. Si es un éxito, el combate termina y el jugador abandona la escena.
+
+## Ingreso al combate de forma tardía
+
+Los jugadores que lleguen una vez comenzado el combate deben esperar dos (2) rondas completas para intervenir.
+
+Durante esas rondas, los jugadores ya involucrados pueden decidir si continuar o huir.
+
+Si escogen huir y tienen éxito en la tirada, los recién llegados no podrán impedir la huida.
+
+## Combate a motor
+
+El combate a motor se realizará únicamente con consentimiento mutuo de parte de todos los involucrados.
+
+Cada jugador contará con tres (3) vidas por cada tier de heridas. Una vez alcanzado el T2 de heridas —6 muertes— el combate se detiene y se declara al vencedor.
+
+Con un CK abierto y autorizado se llegará al CK en la muerte número trece (13) —3 vidas por tier de heridas y una muerte más después de llegar a T4—.
+
+## Final del combate
+
+El sistema de heridas es automático. Sin embargo, justificándolo en ticket como combate PvP —con su rol correspondiente— las heridas se reasignarán como T2 por parte de un administrador mientras no exista un CK abierto.
+
+El ganador del combate puede robar uno (1) de los siguientes:
+
+- Objeto Redux legendario (si lo posee).
+- 1 objeto de Redux (buff).
+- 25% del total de dinero del derrotado.
+
+En caso de iniciar el combate con heridas abiertas de T2, el final del combate resultará en una herida T3, incrementándose en un tier por cada nivel superior a este.
+
+Reiterando: si hay un personaje maldito involucrado en el combate, la consecuencia es un CK para el perdedor. Más allá de eso, habrán indicaciones adicionales para el maldito según su maldición.
+
+## Combates de entrenamiento
+
+Habrán zonas designadas por el mapa para realizar combates de entrenamiento seguros. En estas zonas, el sistema de heridas no aplicará y podrán llegar a 0 HP de forma segura.
+
+Estas zonas estarán ubicadas en cada centro de rol principal, como lo son la ciudad de Ash’torin —en el gremio de aventuras— y las zonas de clase.

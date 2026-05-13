@@ -38,6 +38,7 @@ const SISTEMA_INTROS = [
   '/assets/images/sistema/cordura.png',
   '/assets/images/sistema/infectados.png',
   '/assets/images/sistema/conquista.png',
+  '/assets/images/sistema/pvp.png',
 ]
 
 /** @param {string} pathname */

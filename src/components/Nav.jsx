@@ -72,6 +72,7 @@ const NAV_ITEMS = [
       { label: 'Conquista', path: '/norm-conquista' },
       { label: 'Robos y Multas', path: '/norm-robos' },
       { label: 'Combate', path: '/norm-combate' },
+      { label: 'Combate PvP', path: '/norm-pvp' },
     ]
   },
   {

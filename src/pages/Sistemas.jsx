@@ -34,6 +34,11 @@ const NORM_ITEMS = [
     label: 'Sistema de Combate',
     desc: 'Manual estratégico de combate, posicionamiento y cooperación.',
   },
+  {
+    path: '/norm-pvp',
+    label: 'Sistema de Combate PvP',
+    desc: 'Apertura de PvP, consentimiento, huida, combate a motor y consecuencias.',
+  },
 ]
 
 export default function Sistemas({ title = 'Sistemas de Juego', subtitle = 'Mecánicas y funcionamiento del servidor' }) {

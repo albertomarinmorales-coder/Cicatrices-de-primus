@@ -421,58 +421,69 @@ Recordemos que el respeto y la diversión van primero.
 
 En Primus el conflicto es inevitable, tanto contra el entorno como entre sus propios habitantes. Estas tierras son peligrosas, y el PvP estará siempre abierto para aquellos que deseen resolver cualquier situación por medidas menos diplomáticas.
 
-Por este motivo, especificaremos ciertas reglas y procedimientos para asegurarnos de que las cosas no se salgan de la mano y siempre exista el fair play.
+Pero hemos de advertirles, aventureros, la vida en Primus tiene valor, y deberán ustedes cuidarla con todo lo que tienen… pues sólo tienen una. En el momento en el que tu vida llega a 0, te encontrarás en las puertas de la muerte. ¿Habrá alguien cercano para salvarte? ¿O acaso morirás desangrado en mitad de la nada? Lee a continuación para saber la respuesta.
 
-## Consentimiento
+A continuación, especificaremos ciertas reglas y procedimientos para asegurarnos que siempre exista el fair play:
 
-El PvP es abierto de forma libre. Si un jugador desea abrir PvP deberá declararlo, adjuntando igualmente su tirada de iniciativa, pero siempre con un rol justificativo del porqué se está abriendo PvP.
+## Bases fundamentales
 
-Una vez declarada la apertura de PvP, los jugadores deberán pactar si el combate será hecho a Redux o a motor. En caso de desacuerdo, el método predeterminado será siempre Redux.
+- El PvP es abierto de forma libre; si un jugador desea abrir PvP deberá declararlo, adjuntando igualmente su tirada de iniciativa. Pero siempre con un rol justificativo del porque se está abriendo PvP.
+- Una vez declarada la apertura de PvP, los jugadores deberán pactar si el combate será hecho a Redux o a motor. En caso de un desacuerdo, el método predeterminado será siempre Redux.
+- El ganador del combate decidirá el destino del derrotado, pudiendo ser este último víctima de robo de monedas, objetos, e incluso, la muerte.
+- El combate “No letal” será medido por el propio jugador que lo ejecuta. Si desean, por ejemplo, sólo darle una paliza a alguien, será responsabilidad de los jugadores determinar donde detenerse. Llegar a 0 de HP resultará en heridas T4 sin excepción.
+- Si el atacante es un personaje maldito, y por las mecánicas asociadas a estos personajes en particular, deberá luchas a matar o morir. Para estos personajes no hay rendición válida, y no podrá perdonar la vida a nadie.
+- **NOTA IMPORTANTE:** Todos los ataques realizados con habilidades de clase serán catalogados como “Letales”. Consideren sus opciones cuidadosamente, pues vida sólo hay una, y no habrá retorno de un accidente.
 
-El ganador del combate decidirá las consecuencias del derrotado, pudiendo ser este último víctima de robo de monedas, objetos u otras consecuencias que se describirán a continuación.
+## Entorno
 
-Si el atacante es un personaje maldito, y por las mecánicas asociadas a estos personajes en particular, el CK estará abierto mutuamente. El combate necesariamente tiene que terminar en la muerte de uno de los combatientes.
+Recuerda que el entorno existe, si estás dentro de un centro poblado, una zona de oficio, o campamentos del sistema de conquista, todo PvP abierto tendrá consecuencias para el agresor. Y en ciertos casos, para ambos.
 
-Sin CK autorizado por la administración, solo se validarán heridas T2 a los participantes.
+## Huida y Rendición
 
-## Huida
-
-Si un jugador no quiere combatir, puede huir de la pelea utilizando su dado correspondiente frente a los enemigos con los que se ha iniciado el combate.
-
-La tirada de huida es definitiva. Si es un éxito, el combate termina y el jugador abandona la escena.
+- Si un jugador no quiere combatir, puede huir de la pelea utilizando su dado correspondiente frente a los enemigos con los que se ha iniciado el combate.
+- La tirada de huida es definitiva. **Si es un éxito, el combate termina, y el jugador abandona la escena.**
+- La supervivencia es primordial, si te ves superado o en riesgo, siempre puedes rendirte ante tu oponente. Una vez determinado el fin de combate por medio de la rendición, el vencedor podrá elegir uno (1) de los siguientes:
+  - Objeto redux legendario (Si lo posee).
+  - 1 objeto de redux (buff).
+  - 25% del total de dinero del derrotado.
+- El vencedor puede optar por matar a su oponente al finalizar el combate sin aceptar la rendición.
+- Tras rendirse, ambos jugadores deberán “terminar combate” y el sistema asignará las heridas correspondientes de forma automática.
 
 ## Ingreso al combate de forma tardía
 
-Los jugadores que lleguen una vez comenzado el combate deben esperar dos (2) rondas completas para intervenir.
-
-Durante esas rondas, los jugadores ya involucrados pueden decidir si continuar o huir.
-
-Si escogen huir y tienen éxito en la tirada, los recién llegados no podrán impedir la huida.
+- Los jugadores que lleguen una vez comenzado el combate deben esperar dos (2) rondas completas para intervenir.
+- Durante esas rondas, los jugadores ya involucrados pueden decidir si continuar o huir.
+- Si escogen huir y tienen éxito en la tirada, los recién llegados no podrán impedir la huida.
 
 ## Combate a motor
 
-El combate a motor se realizará únicamente con consentimiento mutuo de parte de todos los involucrados.
-
-Cada jugador contará con tres (3) vidas por cada tier de heridas. Una vez alcanzado el T2 de heridas —6 muertes— el combate se detiene y se declara al vencedor.
-
-Con un CK abierto y autorizado se llegará al CK en la muerte número trece (13) —3 vidas por tier de heridas y una muerte más después de llegar a T4—.
+- El combate a motor se realizará únicamente con consentimiento mutuo de parte de todos los involucrados.
+- Cada jugador contará con tres (3) vidas por cada tier de heridas. Por medio de este, se llegará al CK en la muerte número trece (13) —3 vidas por tier de heridas, y una muerte más después de llegar a T4—.
 
 ## Final del combate
 
-El sistema de heridas es automático. Sin embargo, justificándolo en ticket como combate PvP —con su rol correspondiente— las heridas se reasignarán como T2 por parte de un administrador mientras no exista un CK abierto.
+- El sistema de heridas es automático. Por ende, al llegar a 0hp entrarás en estado “caído en combate (T4)”. Una vez en este estado estarás completamente incapacitado, inconsciente, y a merced de tu rival.
+- El vencedor podrá ejecutar abiertamente al perdedor del combate, aplicándose un CK al personaje.
+- El vencedor podrá robarse todas las pertenencias del perdedor (Objetos redux, monedas, legandarias y equipo motor).
+- Ambos jugadores deberán “Terminar combate” y el sistema asignará las heridas correspondientes de forma automática.
+- **SUPERVIVENCIA:** Si el combate termina y el vencedor no ejecuta a su oponente, el perdedor podrá sobrevivir a sus heridas si se encuentra a dos (2) tiles de una zona con entorno público. Puedes caminar al hospital con la narrativa de que fuiste llevado allí inconsciente.
+- Si te encuentras fuera de este alcance, tu personaje morirá desangrado, y quien encuentre posteriormente el sitio del enfrentamiento econtrará sólo un cadaver.
+- Reiterando: Si hay un personaje maldito involucrado en el combate, su instinto lo llevará a intentar matar o pelear hasta morir.
+- **AMBOS JUGADORES DEBERÁN REPORTAR EL ROL HOSTIL Y POSTERIOR COMBATE EN SUS TICKETS DE FORMA COMPLETA PARA EVALUACIÓN.**
 
-El ganador del combate puede robar uno (1) de los siguientes:
+## Consecuencias
 
-- Objeto Redux legendario (si lo posee).
-- 1 objeto de Redux (buff).
-- 25% del total de dinero del derrotado.
+En Primus toda acción tiene consecuencias, y el asesinato no será excepción:
 
-En caso de iniciar el combate con heridas abiertas de T2, el final del combate resultará en una herida T3, incrementándose en un tier por cada nivel superior a este.
-
-Reiterando: si hay un personaje maldito involucrado en el combate, la consecuencia es un CK para el perdedor. Más allá de eso, habrán indicaciones adicionales para el maldito según su maldición.
+- Después de finalizar el combate el vencedor podrá utilizar un dado de supervivencia para esconder tanta evidencia como le sea posible. EL DADO DEBE COINCIDIR EN AMBOS TICKETS.
+- Por muy buen dado que consiga el vencedor, SIEMPRE quedará evidencia en la zona.
+- Las evidencias serán colocadas por parte del STAFF y se realizará la investigación en conjunto con los jugadores que deseen hacerla en busca de justicia.
+- La guardia del sector podrá investigar esta evidencia siguiendo las pautas correspondientes para encontrar al asesino.
+- Si el asesino es encontrado por la guardia, se verá sometido a un juicio dependiendo de las leyes del sector donde haya cometido el crímen.
+- El vencedor puede optar a entregarse, exponer su punto y colaborar con la investigación. Si las pruebas coinciden con las historia, el vencedor podrá ser absuelto de su crímen (en caso de defensa propia) o pagar multas más leves. **NOTA IMPORTANTE:** Esto no significa que un asesino quedará impune; si debe ser ejecutado, lo será.
 
 ## Combates de entrenamiento
 
-Habrán zonas designadas por el mapa para realizar combates de entrenamiento seguros. En estas zonas, el sistema de heridas no aplicará y podrán llegar a 0 HP de forma segura.
-
-Estas zonas estarán ubicadas en cada centro de rol principal, como lo son la ciudad de Ash’torin —en el gremio de aventuras— y las zonas de clase.
+- Habrán zonas designadas por el mapa para realizar combates de entrenamiento seguros. En estas zonas, el sistema de heridas no aplicará, y podrán llegar a 0HP de forma segura.
+- Estas zonas estarán ubicadas en cada centro de rol principal, como lo son la ciudad de Ash’torin —En el gremio de aventuras—, y las zonas de clase.
+- Tras finalizar un combate de entrenamiento, todos los participantes verán heridas T1 aplicadas automáticamente por el sistema. Esto está diseñado para indicar que el entrenamiento, por más que haya sido eso, sigue teniendo efecto y consecuencia. Esto será, narrativamente, explicado como cansancio físico, moretones, y alguno que otro dolor por el cuerpo.

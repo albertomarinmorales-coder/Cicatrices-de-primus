@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom'
+import { Dices } from 'lucide-react'
 import { normativaData } from '../data/normativa'
 import Footer from '../components/Footer'
 import { FaBan, FaCaravan, FaHand, FaMasksTheater, FaUserShield, FaUsers } from 'react-icons/fa6'
 
 const NORM_SLUGS = new Set(['general', 'housing', 'esclavitud'])
-const NEUTRAL_COLOR_SLUGS = new Set(['housing', 'general', 'esclavitud'])
+const NEUTRAL_COLOR_SLUGS = new Set(['housing', 'general', 'esclavitud', 'pvp'])
 
 const SEVERITY_CLASS = {
   1: 'norm-card-v2--sev1',
@@ -22,6 +23,7 @@ const REACT_ICONS = {
   'fa-masks-theater': <FaMasksTheater size={REACT_ICON_PX} />,
   'fa-user-shield': <FaUserShield size={REACT_ICON_PX} />,
   'fa-users': <FaUsers size={REACT_ICON_PX} />,
+  'lucide-dices': <Dices size={REACT_ICON_PX} strokeWidth={1.75} aria-hidden="true" />,
 }
 
 export default function NormPage({ slug }) {

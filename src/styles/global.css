@@ -6978,9 +6978,55 @@ body.modal-active .audio-toggle {
 
 .norm-card-v2__text {
   font-family: 'EB Garamond', serif;
-  font-size: 1rem;
-  color: rgba(212, 201, 176, 0.8);
-  line-height: 1.85;
+  font-size: 1.05rem;
+  color: rgba(212, 201, 176, 0.85);
+  line-height: 1.75;
+}
+
+.norm-card-v2__text strong {
+  color: var(--gold2);
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(201, 168, 76, 0.1);
+}
+
+.norm-card-v2__text p {
+  margin-bottom: 0.85rem;
+}
+
+.norm-card-v2__text p:last-child {
+  margin-bottom: 0;
+}
+
+.norm-card-v2__text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0;
+}
+
+.norm-card-v2__text li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.norm-card-v2__text li::before {
+  content: '◈';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.7rem;
+  top: 0.1rem;
+  opacity: 0.7;
+}
+
+.norm-card-v2__text blockquote {
+  margin: 1.25rem 0;
+  padding: 0.75rem 1.25rem;
+  background: rgba(201, 168, 76, 0.04);
+  border-left: 2px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: var(--text);
 }
 
 .norm-card-v2--warning {
@@ -11818,6 +11864,7 @@ body.modal-active {
 
 /* Norm hero: espacio bajo la nav cuando el título ocupa varias líneas (Housing, Comunidad y Rol) */
 .norm-page--housing .detail-hero,
-.norm-page--general .detail-hero {
+.norm-page--general .detail-hero,
+.norm-page--pvp .detail-hero {
   margin-top: clamp(28px, 5vw, var(--nav-h));
 }

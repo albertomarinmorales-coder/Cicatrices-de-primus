@@ -605,7 +605,7 @@ function ChronicleTabs({ items, ariaLabel, onOpenImage }) {
 
 const HISTORIA_TABS = [
   { id: 'antiguedad', label: 'Crónicas de Antaño' },
-  { id: 'caida', label: 'Tras la Caída' },
+  { id: 'caida', label: 'VI Era' },
   { id: 'ciudades', label: 'Geografía del Reino' },
 ]
 

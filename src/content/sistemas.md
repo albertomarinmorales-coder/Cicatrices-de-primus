@@ -388,9 +388,9 @@ Si deseas participar del rol de esclavista/esclavo puedes hacerlo, pero debes te
 
 ## Contexto
 
-La trata de personas y posesión de estas como propiedad está abolida en las tierras bajo dominio directo de la Corona, por lo tanto, cualquier persona que posea, compre, venda o maltrate a otro como esclavo será considerado criminal ante la ley, imponiéndose castigos y multas a quien es visto en público realizando estas prácticas. Se rumora que aún se realizan estas prácticas como parte de actividades criminales de alto nivel, y que las víctimas de este trato eran únicamente los elfos drel’shan y los mestizos, pero ahora han dejado esas preferencias de lado, pudiendo ser víctima cualquier habitante, sin importar raza.
+La trata de personas y posesión de estas como propiedad está abolida en las tierras bajo dominio directo de la Corona, por lo tanto, cualquier persona que posea, compre, venda o maltrate a otro como esclavo será considerado criminal ante la ley, imponiéndose castigos y multas a quien es visto en público realizando estas prácticas. 
 
-Se rumora que aún se realizan estas prácticas como parte de actividades criminales de alto nivel, y que las víctimas de este trato eran únicamente los elfos drel’shan y los mestizos, pero ahora han dejado esas preferencias de lado, pudiendo ser víctima cualquier habitante, sin importar raza.
+Se rumorea que aún se realizan estas prácticas como parte de actividades criminales de alto nivel, y que las víctimas de este trato eran únicamente los elfos drel’shan y los mestizos, pero ahora han dejado esas preferencias de lado, pudiendo ser víctima cualquier habitante, sin importar raza.
 
 ## Esclavitud entre jugadores
 

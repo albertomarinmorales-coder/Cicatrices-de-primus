@@ -11830,7 +11830,18 @@ body.modal-active {
   font-family: 'Cinzel', serif;
   font-size: 1.4rem;
   color: var(--gold);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.05em;
+}
+
+.staff-card__handle {
+  display: block;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  opacity: 0.6;
+  margin-bottom: 0.65rem;
+  font-style: italic;
   letter-spacing: 0.05em;
 }
 

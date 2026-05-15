@@ -602,7 +602,7 @@ export const normativaData = {
             num: '01',
             title: 'Declaración y rol de apertura',
             icon: 'crossed-swords',
-            text: '<p>El PvP es abierto de forma libre; si un jugador desea abrir PvP deberá declararlo, adjuntando igualmente su tirada de iniciativa. Pero siempre con un rol justificativo del porque se está abriendo PvP.</p>',
+            text: '<p>El PvP es abierto de forma libre; si un jugador desea abrir PvP deberá declararlo, adjuntando igualmente su tirada de iniciativa. Pero siempre con un rol justificativo del porque se está abriendo PvP.</p><p>Todos los combates a PvP, una vez declarados y decidida la iniciativa, deberán ejecutarse en "gritar" en el chat.</p>',
             severity: 1,
           },
           {

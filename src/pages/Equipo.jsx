@@ -59,6 +59,7 @@ export default function Equipo() {
               </div>
               <div className="staff-card__content">
                 <h3 className="staff-card__name">{m.name}</h3>
+                {m.handle && <span className="staff-card__handle">{m.handle}</span>}
                 <div className="staff-card__divider" />
               </div>
             </div>

@@ -24,6 +24,7 @@ passport.use(new DiscordStrategy(
     try {
       // 1. Obtener datos básicos del perfil como fallback
       let displayName = profile.global_name || profile.username;
+      let guildAvatar = null;
 
       // 2. Intentar obtener el nombre del miembro en el servidor configurado (Guild)
       const guildId = process.env.DISCORD_GUILD_ID;
@@ -35,16 +36,25 @@ passport.use(new DiscordStrategy(
           
           if (response.ok) {
             const member = await response.json();
+            console.log(`[Discord Auth] Miembro encontrado en el guild ${guildId}:`, {
+              nick: member.nick,
+              user_display: member.user?.display_name,
+              global_name: profile.global_name
+            });
+            
             /**
-             * Prioridad solicitada:
+             * Prioridad:
              * 1. member.nick (nickname específico del guild)
-             * 2. member.user.display_name (nombre mostrado en el guild/global)
+             * 2. member.user.display_name o member.user.global_name
              * 3. profile.global_name (nombre global de Discord)
              * 4. profile.username (username único/legacy)
              */
-            displayName = member.nick || member.user?.display_name || profile.global_name || profile.username;
+            displayName = member.nick || member.user?.display_name || member.user?.global_name || profile.global_name || profile.username;
+            guildAvatar = member.avatar || null;
           } else {
             console.warn(`[Discord Auth] No se pudo obtener info del miembro en el guild ${guildId}. Código: ${response.status}`);
+            const errorData = await response.json().catch(() => ({}));
+            console.warn(`[Discord Auth] Detalle error:`, errorData);
           }
         } catch (fetchErr) {
           console.error('[Discord Auth] Error al consultar el nickname del guild:', fetchErr);
@@ -56,17 +66,19 @@ passport.use(new DiscordStrategy(
       const isAdmin = adminIds.includes(profile.id);
 
       await pool.query(`
-        INSERT INTO users (id, username, avatar, is_admin)
-        VALUES ($1, $2, $3, $4)
+        INSERT INTO users (id, username, avatar, guild_avatar, is_admin)
+        VALUES ($1, $2, $3, $4, $5)
         ON CONFLICT (id) DO UPDATE SET
-          username = EXCLUDED.username,
-          avatar   = EXCLUDED.avatar,
-          is_admin = EXCLUDED.is_admin
-      `, [profile.id, displayName, profile.avatar ?? null, isAdmin ? 1 : 0]);
+          username     = EXCLUDED.username,
+          avatar       = EXCLUDED.avatar,
+          guild_avatar = EXCLUDED.guild_avatar,
+          is_admin     = EXCLUDED.is_admin
+      `, [profile.id, displayName, profile.avatar ?? null, guildAvatar, isAdmin ? 1 : 0]);
 
       const { rows } = await pool.query('SELECT * FROM users WHERE id = $1', [profile.id]);
       return done(null, rows[0]);
     } catch (err) {
+      console.error('[Discord Auth] Critical error:', err);
       return done(err);
     }
   }

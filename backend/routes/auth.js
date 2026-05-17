@@ -57,8 +57,8 @@ router.get('/me', (req, res) => {
     return res.json({ user: req.session.adminUser });
   }
   if (!req.user) return res.json({ user: null });
-  const { id, username, avatar, is_admin } = req.user;
-  res.json({ user: { id, username, avatar, is_admin: !!is_admin } });
+  const { id, username, avatar, guild_avatar, is_admin } = req.user;
+  res.json({ user: { id, username, avatar, guild_avatar, is_admin: !!is_admin } });
 });
 
 module.exports = router;

@@ -53,12 +53,12 @@ router.get('/', async (req, res) => {
   try {
     const { cat } = req.query;
     const { rows } = cat && cat !== 'all'
-      ? await pool.query('SELECT p.*, u.username, u.avatar FROM photos p LEFT JOIN users u ON p.uploader_id = u.id WHERE p.category = $1 ORDER BY p.created_at DESC', [cat])
-      : await pool.query('SELECT p.*, u.username, u.avatar FROM photos p LEFT JOIN users u ON p.uploader_id = u.id ORDER BY p.created_at DESC');
+      ? await pool.query('SELECT p.*, u.username, u.avatar, u.guild_avatar FROM photos p LEFT JOIN users u ON p.uploader_id = u.id WHERE p.category = $1 ORDER BY p.created_at DESC', [cat])
+      : await pool.query('SELECT p.*, u.username, u.avatar, u.guild_avatar FROM photos p LEFT JOIN users u ON p.uploader_id = u.id ORDER BY p.created_at DESC');
 
     const result = rows.map(r => ({
       ...r,
-      uploader: { username: r.username, avatar: r.avatar }
+      uploader: { username: r.username, avatar: r.avatar, guild_avatar: r.guild_avatar }
     }));
     res.json(result);
   } catch (err) {

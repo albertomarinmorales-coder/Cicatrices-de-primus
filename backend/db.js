@@ -20,11 +20,14 @@ const pool = new Pool(parseDbUrl(dbUrl));
 // Inicializar tablas al arrancar
 pool.query(`
   CREATE TABLE IF NOT EXISTS users (
-    id       TEXT PRIMARY KEY,
-    username TEXT NOT NULL,
-    avatar   TEXT,
-    is_admin INTEGER NOT NULL DEFAULT 0
+    id           TEXT PRIMARY KEY,
+    username     TEXT NOT NULL,
+    avatar       TEXT,
+    guild_avatar TEXT,
+    is_admin     INTEGER NOT NULL DEFAULT 0
   );
+
+  ALTER TABLE users ADD COLUMN IF NOT EXISTS guild_avatar TEXT;
 
   CREATE TABLE IF NOT EXISTS photos (
     id            SERIAL PRIMARY KEY,

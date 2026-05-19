@@ -34,8 +34,11 @@ router.post('/admin-login', (req, res) => {
 router.get('/discord', (req, res, next) => {
   // Guardamos la página de origen en la sesión para redirigir después
   req.session.loginFrom = req.query.from || 'galeria';
-  // prompt: 'consent' fuerza re-autorización para garantizar el scope guilds.members.read
-  passport.authenticate('discord', { prompt: 'consent' })(req, res, next);
+  // Pasamos explícitamente los scopes y prompt: 'consent' para forzar la aceptación de los permisos
+  passport.authenticate('discord', {
+    scope: ['identify', 'guilds', 'guilds.members.read'],
+    prompt: 'consent'
+  })(req, res, next);
 });
 
 // Callback tras login en Discord

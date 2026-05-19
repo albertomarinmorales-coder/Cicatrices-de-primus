@@ -30,16 +30,20 @@ passport.use(new DiscordStrategy(
       const guildId = process.env.DISCORD_GUILD_ID;
       if (guildId) {
         try {
+          console.log(`[Discord Auth] Fetching guild member for user ${profile.id} in guild ${guildId}...`);
           const response = await fetch(`https://discord.com/api/v10/users/@me/guilds/${guildId}/member`, {
             headers: { Authorization: `Bearer ${accessToken}` }
           });
           
           if (response.ok) {
             const member = await response.json();
-            console.log(`[Discord Auth] Miembro encontrado en el guild ${guildId}:`, {
+            console.log(`[Discord Auth] ✓ Guild member data:`, {
               nick: member.nick,
-              user_display: member.user?.display_name,
-              global_name: profile.global_name
+              user_global_name: member.user?.global_name,
+              user_display_name: member.user?.display_name,
+              has_guild_avatar: !!member.avatar,
+              profile_global_name: profile.global_name,
+              profile_username: profile.username,
             });
             
             /**
@@ -51,15 +55,20 @@ passport.use(new DiscordStrategy(
              */
             displayName = member.nick || member.user?.display_name || member.user?.global_name || profile.global_name || profile.username;
             guildAvatar = member.avatar || null;
+            console.log(`[Discord Auth] → Resolved displayName: "${displayName}", guildAvatar: ${guildAvatar ? 'yes' : 'no'}`);
           } else {
-            console.warn(`[Discord Auth] No se pudo obtener info del miembro en el guild ${guildId}. Código: ${response.status}`);
-            const errorData = await response.json().catch(() => ({}));
-            console.warn(`[Discord Auth] Detalle error:`, errorData);
+            const errorText = await response.text().catch(() => '(no body)');
+            console.warn(`[Discord Auth] ✗ Guild member fetch FAILED. Status: ${response.status}. Body: ${errorText}`);
+            console.warn(`[Discord Auth] → This usually means the user hasn't re-authorized with guilds.members.read scope`);
           }
         } catch (fetchErr) {
-          console.error('[Discord Auth] Error al consultar el nickname del guild:', fetchErr);
+          console.error('[Discord Auth] ✗ Error al consultar el nickname del guild:', fetchErr.message);
         }
+      } else {
+        console.warn('[Discord Auth] ✗ DISCORD_GUILD_ID not set! Cannot fetch guild nicknames.');
       }
+
+      console.log(`[Discord Auth] Final → User ${profile.id}: name="${displayName}", avatar=${profile.avatar ? 'global' : 'none'}, guild_avatar=${guildAvatar ? 'yes' : 'no'}`);
 
       const adminIds = (process.env.ADMIN_DISCORD_IDS || process.env.ADMIN_DISCORD_ID || '')
         .split(',').map(s => s.trim()).filter(Boolean);

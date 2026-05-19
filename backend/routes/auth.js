@@ -34,7 +34,8 @@ router.post('/admin-login', (req, res) => {
 router.get('/discord', (req, res, next) => {
   // Guardamos la página de origen en la sesión para redirigir después
   req.session.loginFrom = req.query.from || 'galeria';
-  passport.authenticate('discord')(req, res, next);
+  // prompt: 'consent' fuerza re-autorización para garantizar el scope guilds.members.read
+  passport.authenticate('discord', { prompt: 'consent' })(req, res, next);
 });
 
 // Callback tras login en Discord

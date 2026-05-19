@@ -84,7 +84,6 @@ const NAV_ITEMS = [
     ],
   },
   { id: 'galeria', label: 'Galería', path: '/galeria' },
-  { id: 'libro-firmas', label: 'Libro de Firmas', path: '/libro-de-firmas' },
   { id: 'equipo', label: 'Staff', path: '/equipo', alignRight: true },
 ]
 

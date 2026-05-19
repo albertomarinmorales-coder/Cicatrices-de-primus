@@ -2,6 +2,7 @@ const router    = require('express').Router();
 const multer    = require('multer');
 const cloudinary = require('cloudinary').v2;
 const pool      = require('../db');
+const { resolveAvatarUrl } = require('../utils/avatarUrl');
 
 // ── Cloudinary config ────────────────────────────────────────────
 cloudinary.config({
@@ -58,7 +59,12 @@ router.get('/', async (req, res) => {
 
     const result = rows.map(r => ({
       ...r,
-      uploader: { username: r.username, avatar: r.avatar, guild_avatar: r.guild_avatar }
+      uploader: {
+        username: r.username,
+        avatar: r.avatar,
+        guild_avatar: r.guild_avatar,
+        avatar_url: resolveAvatarUrl(r.uploader_id, r.avatar, r.guild_avatar),
+      }
     }));
     res.json(result);
   } catch (err) {

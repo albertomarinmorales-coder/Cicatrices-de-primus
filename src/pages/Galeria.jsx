@@ -318,10 +318,10 @@ function PhotoCard({ photo, user, onClick, onDelete }) {
             <span className="galeria-card-cat">{photo.category}</span>
             {photo.uploader?.username && (
               <div className="galeria-card-uploader">
-                {photo.uploader.avatar
+                {photo.uploader.avatar_url
                   ? <img
                       className="galeria-card-uploader-av"
-                      src={`https://cdn.discordapp.com/avatars/${photo.uploader_id}/${photo.uploader.avatar}.png?size=32`}
+                      src={photo.uploader.avatar_url}
                       alt={photo.uploader.username}
                     />
                   : <span className="galeria-card-uploader-av galeria-card-uploader-av--fallback">

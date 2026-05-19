@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const pool   = require('../db');
+const { resolveAvatarUrl } = require('../utils/avatarUrl');
 
 // ── GET /api/guestbook — Obtener todas las firmas ────────────────
 router.get('/', async (_req, res) => {
@@ -11,7 +12,11 @@ router.get('/', async (_req, res) => {
       JOIN users u ON u.id = g.user_id
       ORDER BY g.created_at DESC
     `);
-    res.json(rows);
+    const result = rows.map(r => ({
+      ...r,
+      avatar_url: resolveAvatarUrl(r.user_id, r.avatar, r.guild_avatar),
+    }));
+    res.json(result);
   } catch (err) {
     console.error('[Guestbook] GET error:', err);
     res.status(500).json({ error: 'Error al obtener las firmas' });
@@ -43,10 +48,11 @@ router.post('/', async (req, res) => {
     const entry = rows[0];
     res.status(201).json({
       ...entry,
-      user_id:  user.id,
-      username: user.username,
-      avatar:   user.avatar,
+      user_id:      user.id,
+      username:     user.username,
+      avatar:       user.avatar,
       guild_avatar: user.guild_avatar || null,
+      avatar_url:   resolveAvatarUrl(user.id, user.avatar, user.guild_avatar || null),
     });
   } catch (err) {
     console.error('[Guestbook] POST error:', err);

@@ -1,6 +1,7 @@
 const router   = require('express').Router();
 const passport = require('passport');
 const crypto   = require('crypto');
+const { resolveAvatarUrl } = require('../utils/avatarUrl');
 require('../passport'); // registra la estrategia
 
 // ── Login secreto para admins (sin Discord) ───────────────────────
@@ -65,7 +66,11 @@ router.get('/me', (req, res) => {
   }
   if (!req.user) return res.json({ user: null });
   const { id, username, avatar, guild_avatar, is_admin } = req.user;
-  res.json({ user: { id, username, avatar, guild_avatar, is_admin: !!is_admin } });
+  res.json({ user: {
+    id, username, avatar, guild_avatar,
+    avatar_url: resolveAvatarUrl(id, avatar, guild_avatar),
+    is_admin: !!is_admin
+  } });
 });
 
 module.exports = router;

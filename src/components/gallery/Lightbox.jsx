@@ -28,7 +28,7 @@ export default function Lightbox({ photos, index, user, onClose, onDelete, onNav
 
   if (!photo) return null
 
-  const av = photo.uploader ? avatarUrl({ id: photo.uploader_id, avatar: photo.uploader.avatar }) : null
+  const av = photo.uploader?.avatar_url || (photo.uploader ? avatarUrl({ id: photo.uploader_id, avatar: photo.uploader.avatar }) : null)
 
   return createPortal(
     <div className="lb-overlay" onClick={onClose}>

@@ -55,6 +55,8 @@ export function isVideoUrl(url) {
 
 export function avatarUrl(user) {
   if (!user) return null
+  // Prefer server-computed URL (resolves guild avatar correctly)
+  if (user.avatar_url) return user.avatar_url
   if (user.avatar) return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=64`
   // IDs de Discord son numéricos; IDs especiales como 'admin-secret' no son BigInt válidos
   try {

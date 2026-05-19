@@ -28,9 +28,8 @@ function timeAgo(dateStr) {
 }
 
 function getEntryAvatar(entry) {
-  if (entry.guild_avatar) {
-    return `https://cdn.discordapp.com/guilds/${import.meta.env.VITE_DISCORD_GUILD_ID || ''}/users/${entry.user_id}/avatars/${entry.guild_avatar}.png?size=64`
-  }
+  // Prefer server-computed URL (resolves guild avatar correctly)
+  if (entry.avatar_url) return entry.avatar_url
   if (entry.avatar) {
     return `https://cdn.discordapp.com/avatars/${entry.user_id}/${entry.avatar}.png?size=64`
   }

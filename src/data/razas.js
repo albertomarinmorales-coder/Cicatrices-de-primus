@@ -134,7 +134,7 @@ export const razasData = {
       {
         label: 'Apariencia Física',
         html: `<p class="tier-desc">Seres humanoides con tonos de piel pálidos, cálidos, morenos y cuerpos adornados con tatuajes y cicatrices. Presentan múltiples cuernos en diferentes partes del cuerpo, reflejando su herencia oscura y exótica. Sus rasgos son afilados y su presencia imponente, Color de pelo variado.</p>
-<ul class="tier-perks"><li><strong>Estatura Promedio:</strong> entre 1.80 m y 2.10 m.</li></ul>
+<ul class="tier-perks"><li><strong>Estatura Promedio:</strong> entre 1.80 m y 2.10 m.</li><li><strong>Longevidad:</strong> 90 a 120 años</li></ul>
 <div class="raza-requisitos-card"><h4 class="raza-sub-title">Requisitos de apariencia</h4><ul class="tier-perks">
 <li><strong>Ojos:</strong> Texture: Human / Iris Size: 0.0 / Iris color: (Colores rojizos, anaranjados o amarillos) / Glow: 1.0 / Sectoral shape: Radial Gradient / Sectoral Color: Negro / Sectoral Glow: 1.0 / Pupil size: -1.0 / Pupil Color: 121212 / Pupil Glow: 1.0 / Sclera Color: Negro / Sclera glow: 1.0 / Veins: 0.5</li>
 <li><strong>Piel y Marcas:</strong> Skin Complexion: Face Scar: (CS) Dragon Scales V2, Face Scar Age: 0.795, Body Scar: (CS) Tiefling, Body Scar age: 0.90 - 1.0</li>

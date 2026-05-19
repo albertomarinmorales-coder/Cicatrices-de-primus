@@ -42,6 +42,11 @@ export const api = {
   },
 
   deletePhoto: (id) => req(`/api/photos/${id}`, { method: 'DELETE' }),
+
+  // Guestbook
+  getGuestbook:    ()      => req('/api/guestbook'),
+  postGuestbook:   (message) => req('/api/guestbook', { method: 'POST', body: JSON.stringify({ message }) }),
+  deleteGuestbook: (id)    => req(`/api/guestbook/${id}`, { method: 'DELETE' }),
 }
 
 export function isVideoUrl(url) {

@@ -6,8 +6,9 @@ const { Pool }   = require('pg');
 const passport   = require('passport');
 const cors       = require('cors');
 
-const authRouter   = require('./routes/auth');
-const photosRouter = require('./routes/photos');
+const authRouter      = require('./routes/auth');
+const photosRouter    = require('./routes/photos');
+const guestbookRouter = require('./routes/guestbook');
 
 const app = express();
 app.set('trust proxy', 1); // Render corre detrás de un proxy HTTPS
@@ -57,6 +58,7 @@ app.use(express.json());
 // ── Rutas ─────────────────────────────────────────────────────────
 app.use('/auth', authRouter);
 app.use('/api/photos', photosRouter);
+app.use('/api/guestbook', guestbookRouter);
 
 // ── Health check ──────────────────────────────────────────────────
 app.get('/api/health', (_req, res) => res.json({ ok: true }));

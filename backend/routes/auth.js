@@ -29,7 +29,12 @@ router.post('/admin-login', (req, res) => {
 });
 
 // Redirige a Discord para login
-router.get('/discord', passport.authenticate('discord'));
+// Acepta ?from=libro-de-firmas para redirigir tras el callback
+router.get('/discord', (req, res, next) => {
+  // Guardamos la página de origen en la sesión para redirigir después
+  req.session.loginFrom = req.query.from || 'galeria';
+  passport.authenticate('discord')(req, res, next);
+});
 
 // Callback tras login en Discord
 const FRONTEND_ORIGIN = (process.env.FRONTEND_URL || '').split(',')[0].trim();
@@ -37,8 +42,10 @@ const FRONTEND_ORIGIN = (process.env.FRONTEND_URL || '').split(',')[0].trim();
 router.get('/discord/callback',
   passport.authenticate('discord', { failureRedirect: `${FRONTEND_ORIGIN}/#galeria?login=error` }),
   (req, res) => {
-    // Redirige al frontend con éxito
-    res.redirect(`${FRONTEND_ORIGIN}/#galeria?login=ok`);
+    // Redirige al frontend con éxito, respetando la página de origen
+    const from = req.session.loginFrom || 'galeria';
+    delete req.session.loginFrom;
+    res.redirect(`${FRONTEND_ORIGIN}/#${from}?login=ok`);
   }
 );
 

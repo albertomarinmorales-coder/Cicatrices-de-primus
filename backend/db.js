@@ -39,6 +39,13 @@ pool.query(`
     created_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
   );
 
+  CREATE TABLE IF NOT EXISTS guestbook_entries (
+    id         SERIAL PRIMARY KEY,
+    user_id    TEXT NOT NULL REFERENCES users(id),
+    message    TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  );
+
   INSERT INTO users (id, username, avatar, is_admin)
   VALUES ('admin-secret', 'Admin', NULL, 1)
   ON CONFLICT (id) DO NOTHING;

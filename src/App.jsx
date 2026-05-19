@@ -22,6 +22,7 @@ import Normativa from './pages/Normativa'
 import Sistemas from './pages/Sistemas'
 import NormPage from './pages/NormPage'
 import Galeria from './pages/Galeria'
+import LibroDeFirmas from './pages/LibroDeFirmas'
 import Equipo from './pages/Equipo'
 import { useTheme } from './hooks/useTheme'
 import { useLocation } from 'react-router-dom'
@@ -113,6 +114,7 @@ export default function App() {
         <Route path="/norm-pvp" element={<NormPage slug="pvp" />} />
         <Route path="/norm-*" element={<Navigate to="/sistemas" replace />} />
         <Route path="/galeria" element={<Galeria />} />
+        <Route path="/libro-de-firmas" element={<LibroDeFirmas />} />
         <Route path="/equipo" element={<Equipo />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

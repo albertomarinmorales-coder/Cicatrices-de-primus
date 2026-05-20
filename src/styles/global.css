@@ -4521,6 +4521,89 @@ a.btn-primary:active {
   text-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
 }
 
+/* Modal de continentes: altura según contenido, bordes visibles */
+.ciudad-modal--continente {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 0;
+  max-height: calc(100vh - 32px);
+  overflow: visible;
+}
+
+.modern-ciudad-modal--continente {
+  flex: 1 1 auto;
+  gap: 16px;
+  grid-template-rows: auto auto;
+  height: auto;
+  max-height: calc(100vh - 96px);
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modern-ciudad-modal--continente .m-ciudad-hero {
+  min-height: 130px;
+  padding: 24px 68px 22px;
+  border: 1px solid rgba(201, 168, 76, 0.14);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.14);
+  overflow: visible;
+}
+
+.modern-ciudad-modal--continente .m-ciudad-hero::after {
+  display: none;
+}
+
+.modern-ciudad-modal--continente .m-ciudad-info {
+  align-items: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  min-height: 0;
+  overflow: visible;
+  padding: 0;
+}
+
+.modern-ciudad-modal--continente .m-ciudad-desc {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  height: auto;
+  max-width: 780px;
+  overflow: visible;
+  width: 100%;
+}
+
+.ciudad-modal--continente .ciudad-modal-nav,
+.ciudad-modal--continente .ciudad-modal-close {
+  z-index: 10001;
+}
+
+.m-ciudad-meta {
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+  margin: 10px 0 0;
+  opacity: 0.88;
+  text-transform: none;
+}
+
+.m-ciudad-desc--continente p + p {
+  margin-top: 14px;
+}
+
+.m-ciudad-desc--continente p:not(:first-child)::first-letter {
+  color: inherit;
+  float: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin-right: 0;
+  margin-top: 0;
+  text-shadow: none;
+}
+
 .ciudad-modal-close {
   position: absolute;
   top: 0;
@@ -4603,6 +4686,11 @@ a.btn-primary:active {
     max-height: calc(100vh - 28px);
   }
 
+  .ciudad-modal--continente {
+    height: auto;
+    max-height: calc(100vh - 28px);
+  }
+
   .modern-ciudad-modal {
     padding: 18px;
   }
@@ -4639,6 +4727,11 @@ a.btn-primary:active {
   .ciudad-modal-nav--next {
     right: -46px;
   }
+
+  .modern-ciudad-modal--continente .m-ciudad-hero {
+    min-height: 104px;
+    padding: 24px 52px 20px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -4649,6 +4742,11 @@ a.btn-primary:active {
   .ciudad-modal {
     width: 96vw;
     height: min(540px, calc(100vh - 16px));
+    max-height: calc(100vh - 16px);
+  }
+
+  .ciudad-modal--continente {
+    height: auto;
     max-height: calc(100vh - 16px);
   }
 
@@ -4703,6 +4801,16 @@ a.btn-primary:active {
 
   .m-ciudad-desc p::first-letter {
     font-size: 1.9rem;
+  }
+
+  .modern-ciudad-modal--continente .m-ciudad-hero {
+    min-height: 88px;
+    padding: 18px 42px 16px;
+  }
+
+  .m-ciudad-meta {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
   }
 
   .ciudad-modal-close {

@@ -268,13 +268,28 @@ function ContinentModal({ continent, onClose, onPrev, onNext }) {
   const [isClosing, setIsClosing] = useState(false)
   const closeTimerRef = useRef(null)
   const isClosingRef = useRef(false)
+  const onCloseRef = useRef(onClose)
+  onCloseRef.current = onClose
 
   const requestClose = useCallback(() => {
     if (isClosingRef.current) return
     isClosingRef.current = true
     setIsClosing(true)
-    closeTimerRef.current = window.setTimeout(onClose, 260)
-  }, [onClose])
+    closeTimerRef.current = window.setTimeout(() => {
+      closeTimerRef.current = null
+      isClosingRef.current = false
+      onCloseRef.current()
+    }, 260)
+  }, [])
+
+  useEffect(() => {
+    isClosingRef.current = false
+    setIsClosing(false)
+    if (closeTimerRef.current) {
+      window.clearTimeout(closeTimerRef.current)
+      closeTimerRef.current = null
+    }
+  }, [continent.nombre])
 
   useEffect(() => {
     const onKey = (e) => {
@@ -285,7 +300,10 @@ function ContinentModal({ continent, onClose, onPrev, onNext }) {
     document.addEventListener('keydown', onKey)
     document.body.style.overflow = 'hidden'
     return () => {
-      if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current)
+      if (closeTimerRef.current) {
+        window.clearTimeout(closeTimerRef.current)
+        closeTimerRef.current = null
+      }
       document.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
     }
@@ -293,40 +311,26 @@ function ContinentModal({ continent, onClose, onPrev, onNext }) {
 
   return createPortal(
     <div className={`ciudad-modal-overlay open${isClosing ? ' is-closing' : ''}`} onClick={requestClose}>
-      <style>{`
-        .m-ciudad-desc--continente p:not(:first-child)::first-letter {
-          font-size: inherit;
-          font-family: inherit;
-          float: none;
-          line-height: inherit;
-          margin-right: 0;
-          margin-top: 0;
-          color: inherit;
-          text-shadow: none;
-        }
-      `}</style>
-      <div className="ciudad-modal" role="dialog" aria-modal="true" aria-labelledby="continent-modal-title" onClick={(e) => e.stopPropagation()}>
+      <div className="ciudad-modal ciudad-modal--continente" role="dialog" aria-modal="true" aria-labelledby="continent-modal-title" onClick={(e) => e.stopPropagation()}>
         <button className="ciudad-modal-close" onClick={requestClose} aria-label="Cerrar">✕</button>
         <button className="ciudad-modal-nav ciudad-modal-nav--prev" type="button" onClick={onPrev} aria-label="Continente anterior">‹</button>
         <button className="ciudad-modal-nav ciudad-modal-nav--next" type="button" onClick={onNext} aria-label="Continente siguiente">›</button>
-        <div className="modern-ciudad-modal" key={continent.nombre}>
-          <div className="m-ciudad-hero" style={{ minHeight: '130px', padding: '24px' }}>
+        <div className="modern-ciudad-modal modern-ciudad-modal--continente" key={continent.nombre}>
+          <div className="m-ciudad-hero">
             <div className="m-ciudad-hero-overlay" />
             <div className="m-ciudad-hero-content">
               <h2 className="m-ciudad-title" id="continent-modal-title">{continent.nombre}</h2>
               <div className="m-ciudad-divider" />
               <p className="m-ciudad-subtitle">{continent.subtitulo}</p>
               {continent.meta && (
-                <div style={{ color: 'var(--gold)', fontSize: '0.78rem', letterSpacing: '0.05em', marginTop: '8px', opacity: 0.85, fontFamily: 'Cinzel, serif' }}>
-                  {continent.meta}
-                </div>
+                <p className="m-ciudad-meta">{continent.meta}</p>
               )}
             </div>
           </div>
-          <div className="m-ciudad-info" style={{ display: 'flex', flexDirection: 'column', height: '100%', overflowY: 'auto', paddingRight: '4px', marginTop: '24px' }}>
-            <div className="m-ciudad-desc m-ciudad-desc--continente" style={{ padding: '20px clamp(20px, 3vw, 32px)', margin: '0 auto', width: '100%' }}>
+          <div className="m-ciudad-info">
+            <div className="m-ciudad-desc m-ciudad-desc--continente">
               {continent.paragraphs.map((p, idx) => (
-                <p key={idx} style={{ marginBottom: '14px' }}>{p}</p>
+                <p key={idx}>{p}</p>
               ))}
             </div>
           </div>
@@ -1082,6 +1086,7 @@ export default function Historia() {
 
       {modalContinente && CONTINENTES_DATA[modalContinente] && (
         <ContinentModal
+          key={modalContinente}
           continent={CONTINENTES_DATA[modalContinente]}
           onClose={() => setModalContinente(null)}
           onPrev={showPrevContinente}

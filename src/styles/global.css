@@ -112,6 +112,9 @@ button,
 .tier-tab,
 .discord-btn,
 .equipo-discord-btn,
+.new-mapa-region,
+.mapa-svg-outline-poly,
+.ciudad-pin,
 #audioPlayer.audio-toggle {
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 2L20 11.5L12.5 13L9 22L3 2Z" fill="%23b01010" stroke="%23c9a84c" stroke-width="1.5"/></svg>') 2 2, pointer !important;
 }
@@ -3803,6 +3806,284 @@ a.btn-primary:active {
 }
 
 /* â”€â”€ MAPA INTERACTIVO DE CIUDADES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── NUEVO MAPA INTERACTIVO (MAPAMUNDI) ────────────────────────── */
+.new-mapa-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.85);
+  background: #060504;
+  border-radius: 4px;
+}
+
+/* Bordes dorados para el mapeo mediante SVG */
+.new-mapa-svg-outlines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none; /* Deja pasar eventos a los clip-paths de abajo */
+}
+
+.mapa-svg-outline-poly {
+  fill: rgba(201, 168, 76, 0);
+  stroke: var(--gold);
+  stroke-width: 2px;
+  stroke-opacity: 0.18; /* Borde sutil por defecto */
+  transition: stroke-opacity 0.4s ease, fill-opacity 0.4s ease, stroke-width 0.4s ease, stroke 0.4s ease;
+}
+
+.mapa-svg-outline-poly.active {
+  stroke: #ffe0a3; /* Brillo dorado claro */
+  stroke-opacity: 0.95;
+  stroke-width: 3.5px;
+  fill: rgba(201, 168, 76, 0.05); /* Relleno ámbar sumamente elegante */
+  filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.5));
+}
+
+.new-mapa-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: saturate(0.85) brightness(0.9);
+  transition: filter 0.5s ease;
+}
+
+.new-mapa-container.is-hovered .new-mapa-img {
+  filter: saturate(0.5) brightness(0.45) contrast(0.95);
+}
+
+.new-mapa-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(10, 8, 5, 0.1), rgba(0, 0, 0, 0.4));
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.new-mapa-container.is-hovered .new-mapa-overlay {
+  opacity: 1;
+}
+
+.new-mapa-regions {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.new-mapa-region {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: auto;
+}
+
+.new-mapa-region:hover {
+  opacity: 1;
+  filter: brightness(1.15) saturate(1.1) drop-shadow(0 0 16px rgba(201, 168, 76, 0.45));
+  z-index: 3;
+}
+
+.new-mapa-region-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* Tooltip de la región */
+.new-mapa-region-tooltip {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(20, 16, 12, 0.95), rgba(10, 8, 6, 0.98));
+  border: 1px solid var(--gold);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.8),
+    0 0 16px rgba(201, 168, 76, 0.15);
+  padding: 10px 24px;
+  border-radius: 2px;
+  z-index: 10;
+  pointer-events: none;
+  animation: tooltipFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.new-mapa-region-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.5), transparent);
+}
+
+.new-mapa-region-tooltip span {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: block;
+  text-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Seccion y Grid de Ciudades */
+.geografia-ciudades-seccion {
+  margin-top: 50px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.geografia-ciudades-titulo {
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--gold) !important;
+  font-size: 1.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.geografia-ciudades-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto 34px;
+  color: var(--gold);
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+.geografia-ciudades-divider::before,
+.geografia-ciudades-divider::after {
+  content: '';
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.ciudades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+/* Tarjeta de Ciudad estilo Fantasía */
+.ciudad-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(22, 18, 14, 0.8), rgba(12, 10, 8, 0.95));
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  text-align: left;
+}
+
+.ciudad-card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.ciudad-card-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ciudad-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  color: var(--gold);
+  margin: 0 0 8px 0 !important;
+  letter-spacing: 0.06em;
+  transition: color 0.3s ease;
+}
+
+.ciudad-card p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0 0 16px 0 !important;
+  flex-grow: 1;
+}
+
+.ciudad-card .ver-detalles {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  margin-top: auto;
+}
+
+/* Hover effects */
+.ciudad-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(201, 168, 76, 0.12);
+}
+
+.ciudad-card:hover .ciudad-card-glow {
+  opacity: 1;
+}
+
+.ciudad-card:hover h3 {
+  color: var(--white);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+.ciudad-card:hover .ver-detalles {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
 .mapa-wrap {
   position: relative;
   display: inline-block;

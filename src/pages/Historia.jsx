@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useLayoutEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
@@ -72,6 +72,72 @@ const CIUDADES_DATA = {
     fotos: ["/assets/images/lore/cities/skalford/1.png", "/assets/images/lore/cities/skalford/2.png", "/assets/images/lore/cities/skalford/3.png"]
   }
 }
+
+const CONTINENTES_DATA = {
+  'seryan': {
+    nombre: "Archipiélago de Seryan",
+    subtitulo: "Las Islas del Ojo Eterno",
+    meta: "Descubiertas por los Ossalyth hace más de 300 años",
+    paragraphs: [
+      "Este conjunto de islas tropicales al suroeste de Primus fue descubierto por exploradores Ossalyth durante una gran expedición marítima. Las islas son selváticas, llenas de lagunas de agua cristalina, acantilados de coral y templos antiguos que datan de civilizaciones previas.",
+      "Allí encontraron tribus humanas de piel oscura, descendientes de una etnia aislada del continente original. Estos pueblos poseían conocimientos avanzados de navegación astral, medicina herbaria y control de fauna local. Los Ossalyth respetaron sus territorios y mantuvieron una relación comercial y ritual con ellos, basada en el intercambio de saberes y especias raras.",
+      "Hoy en día, algunas islas del archipiélago están bajo influencia de Ash’Torin, pero otras siguen siendo territorio libre o fuertemente protegido por sus habitantes nativos."
+    ]
+  },
+  'akan-thaal': {
+    nombre: "Akan'Thaal",
+    subtitulo: "Tierra de los Mil Ecos",
+    meta: "Colonizada por grupos humanos durante el Segundo y Tercer Éxodo",
+    paragraphs: [
+      "Situado al este de Primus, Akan'Thaal es un vasto continente de montañas de jade, ríos eternos y bosques que cantan al viento. Los humanos llegaron aquí tras las guerras contra los elfos primales, buscando una nueva tierra lejos de las castas.",
+      "En Akan’Thaal florecieron etnias humanas de rasgos orientales y nómadas, que desarrollaron su cultura en armonía con la naturaleza y el espíritu del viento, encontrándose y aprendiendo a vivir junto a los Nhek’thal. Aquí surgieron ciudades nómadas sobre lomos de bestias gigantes, monjes que entrenaban bajo cascadas flotantes y reinos pequeños unidos por la sabiduría más que por la fuerza.",
+      "Aunque algunas razas intentaron colonizar Akan’Thaal, el espíritu indómito de su gente y las defensas naturales impidieron una conquista total. Actualmente, es un continente autónomo, rico en espiritualidad y saber oculto."
+    ]
+  },
+  'velgrad': {
+    nombre: "Velgrad",
+    subtitulo: "Las Tierras Rotas",
+    meta: "Migración de enanos, Shazari y humanos resistentes",
+    paragraphs: [
+      "Más allá de las tormentas del norte, cruzando los mares helados al sureste de Primus, se encuentra Velgrad, un continente fragmentado por glaciares, tundras y volcanes dormidos. Fue colonizado por supervivientes del norte de Primus, entre ellos clanes humanos del frío, Shazari montañeses y enanos exiliados de guerras pasadas.",
+      "Aquí se mezclaron culturas rudas y adaptadas a la hostilidad. Surgieron fortalezas enterradas en el hielo, aldeas construidas dentro de cuevas volcánicas y refugios nómadas que se mueven sobre lagos congelados.",
+      "La sociedad en Velgrad valora la fuerza, la disciplina y la tradición. El clima extremo ha forjado una cultura resiliente y silenciosa, que desconfía de los forasteros pero honra a los suyos con lealtad inquebrantable."
+    ]
+  },
+  'drah-zuun': {
+    nombre: "Drah'Zuun",
+    subtitulo: "La Espina del Sol",
+    meta: "Migración de elfos oscuros y mestizos rebeldes",
+    paragraphs: [
+      "Ubicado al sur del continente principal, más allá del Desierto del Fin del Mundo, Drah'Zuun es un territorio salvaje donde el sol nunca se oculta completamente. Elfos oscuros que escaparon de las antiguas castas de Primus, junto a mestizos que fueron rechazados por ambos bandos, llegaron hasta este desierto y lo reclamaron como suyo.",
+      "Aquí desarrollaron una cultura guerrera y ritual, adoradora de antiguos dioses del fuego y del renacimiento. Crearon ciudades subterráneas protegidas del calor y refugios entre grietas volcánicas.",
+      "En estas tierras también hay etnias humanas de tez cobriza y ojos dorados, que mantienen pactos con espíritus del desierto y bestias dormidas en las dunas.",
+      "Drah'Zuun no responde a ninguna capital: su pueblo se guía por la sangre, el fuego y la libertad."
+    ]
+  },
+  'ith-karel': {
+    nombre: "Islas Errantes de Ith'Karel",
+    subtitulo: "El Laberinto de los Náufragos",
+    meta: "Exploradas por los Ossalyth y comerciantes humanos",
+    paragraphs: [
+      "Estas islas cambian constantemente de posición en el océano occidental. Los Ossalyth las descubrieron por accidente, siguiendo rutas de estrellas errantes. Se dice que el tiempo fluye distinto allí, y que existen portales antiguos que conectan con lugares olvidados del mundo.",
+      "Algunas islas están habitadas por tribus humanas aisladas con rasgos exóticos, mezclas de todas las etnias que han naufragado allí a lo largo de los siglos.",
+      "Es un lugar de misterio, ideal para exploradores, arqueólogos o buscadores de poder arcano prohibido."
+    ]
+  },
+  'desconocido': {
+    nombre: "Tierra más allá de lo conocido",
+    subtitulo: "El Continente Eterno",
+    meta: "Explorado en sus comienzos por los Ossalyth",
+    paragraphs: [
+      "Es originalmente un continente quizá del mismo tamaño que Primus, donde surgieron, al igual que en Primus, las mismas razas, e incluso algunas cuya procedencia sigue siendo desconocida.",
+      "Muchos lo llaman el Continente Eterno, pues nadie ha logrado llegar al fin de este. Muchas casas nobles o incluso clanes tienen origen en aquel continente, viajando estos a Primus con intención de una nueva vida o simplemente por expansionismo."
+    ]
+  }
+}
+
+const CONTINENTE_KEYS = ['seryan', 'ith-karel', 'drah-zuun', 'velgrad', 'akan-thaal', 'desconocido']
+
 
 function HistoriaImageLightbox({ images, index, onClose, onNav }) {
   const image = images[index]
@@ -176,7 +242,7 @@ function CiudadModal({ ciudad, onClose, onPrev, onNext, onOpenImage }) {
               <p className="m-ciudad-subtitle">{ciudad.subtitulo}</p>
             </div>
           </div>
-          <div className="m-ciudad-gallery">
+          <div className="m-ciudad-gallery" style={{ marginTop: '16px' }}>
             {ciudadImages.map((image, i) => (
               <button
                 key={image.src}
@@ -188,8 +254,81 @@ function CiudadModal({ ciudad, onClose, onPrev, onNext, onOpenImage }) {
               </button>
             ))}
           </div>
-          <div className="m-ciudad-info">
+          <div className="m-ciudad-info" style={{ marginTop: '16px' }}>
             <div className="m-ciudad-desc"><p>{ciudad.desc}</p></div>
+          </div>
+        </div>
+      </div>
+    </div>,
+    document.body
+  )
+}
+
+function ContinentModal({ continent, onClose, onPrev, onNext }) {
+  const [isClosing, setIsClosing] = useState(false)
+  const closeTimerRef = useRef(null)
+  const isClosingRef = useRef(false)
+
+  const requestClose = useCallback(() => {
+    if (isClosingRef.current) return
+    isClosingRef.current = true
+    setIsClosing(true)
+    closeTimerRef.current = window.setTimeout(onClose, 260)
+  }, [onClose])
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') requestClose()
+      if (e.key === 'ArrowLeft') onPrev()
+      if (e.key === 'ArrowRight') onNext()
+    }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current)
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [requestClose, onPrev, onNext])
+
+  return createPortal(
+    <div className={`ciudad-modal-overlay open${isClosing ? ' is-closing' : ''}`} onClick={requestClose}>
+      <style>{`
+        .m-ciudad-desc--continente p:not(:first-child)::first-letter {
+          font-size: inherit;
+          font-family: inherit;
+          float: none;
+          line-height: inherit;
+          margin-right: 0;
+          margin-top: 0;
+          color: inherit;
+          text-shadow: none;
+        }
+      `}</style>
+      <div className="ciudad-modal" role="dialog" aria-modal="true" aria-labelledby="continent-modal-title" onClick={(e) => e.stopPropagation()}>
+        <button className="ciudad-modal-close" onClick={requestClose} aria-label="Cerrar">✕</button>
+        <button className="ciudad-modal-nav ciudad-modal-nav--prev" type="button" onClick={onPrev} aria-label="Continente anterior">‹</button>
+        <button className="ciudad-modal-nav ciudad-modal-nav--next" type="button" onClick={onNext} aria-label="Continente siguiente">›</button>
+        <div className="modern-ciudad-modal" key={continent.nombre}>
+          <div className="m-ciudad-hero" style={{ minHeight: '130px', padding: '24px' }}>
+            <div className="m-ciudad-hero-overlay" />
+            <div className="m-ciudad-hero-content">
+              <h2 className="m-ciudad-title" id="continent-modal-title">{continent.nombre}</h2>
+              <div className="m-ciudad-divider" />
+              <p className="m-ciudad-subtitle">{continent.subtitulo}</p>
+              {continent.meta && (
+                <div style={{ color: 'var(--gold)', fontSize: '0.78rem', letterSpacing: '0.05em', marginTop: '8px', opacity: 0.85, fontFamily: 'Cinzel, serif' }}>
+                  {continent.meta}
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="m-ciudad-info" style={{ display: 'flex', flexDirection: 'column', height: '100%', overflowY: 'auto', paddingRight: '4px', marginTop: '24px' }}>
+            <div className="m-ciudad-desc m-ciudad-desc--continente" style={{ padding: '20px clamp(20px, 3vw, 32px)', margin: '0 auto', width: '100%' }}>
+              {continent.paragraphs.map((p, idx) => (
+                <p key={idx} style={{ marginBottom: '14px' }}>{p}</p>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -358,6 +497,52 @@ const CIUDADES = [
   { id: 'ashtorin', name: "Ash'Torin", sub: 'El Enclave del Silencio Ardiente', px: '52.80%', py: '66.50%' },
   { id: 'ruinas-dolgaran', name: 'Ruinas Dol-Garan', sub: 'Lo Que Quedó Tras la Caída', px: '73.70%', py: '35.15%' },
 ]
+
+const REGIONES = [
+  {
+    id: 'primus',
+    nombre: 'Primus',
+    clipPath: 'polygon(12.11% 19.87%, 18.81% 12.71%, 25.41% 9.27%, 41.01% 9.96%, 50.55% 15.47%, 53.85% 19.60%, 52.48% 26.90%, 53.30% 29.93%, 55.32% 34.75%, 56.33% 38.05%, 56.42% 42.05%, 55.96% 45.08%, 55.41% 50.86%, 54.31% 56.09%, 52.57% 60.78%, 46.88% 66.84%, 42.66% 68.90%, 37.52% 68.90%, 31.83% 64.91%, 27.89% 59.12%, 25.69% 53.48%, 27.43% 51.41%, 25.78% 45.08%)',
+    points: '306,335 475,214 642,156 1037,168 1278,260 1361,330 1327,453 1347,504 1399,585 1424,641 1426,708 1415,759 1401,856 1373,945 1329,1023 1185,1126 1078,1160 949,1160 805,1093 705,996 649,901 693,866 652,759'
+  },
+  {
+    id: 'seryan',
+    nombre: 'Archipiélago de Seryan',
+    clipPath: 'polygon(5.78% 28.27%, 10.83% 27.86%, 13.76% 29.24%, 17.61% 33.09%, 20.64% 37.78%, 22.66% 42.87%, 24.68% 47.00%, 24.31% 52.24%, 22.57% 56.78%, 20.09% 60.23%, 14.40% 62.98%, 10.18% 65.46%, 2.84% 61.47%, 2.11% 50.31%, 1.56% 39.02%, 1.56% 34.33%)',
+    points: '146,476 274,469 348,492 445,557 522,636 573,722 624,792 615,880 571,956 508,1014 364,1061 257,1102 72,1035 53,847 39,657 39,578'
+  },
+  {
+    id: 'ith-karel',
+    nombre: "Islas Errantes de Ith'Karel",
+    clipPath: 'polygon(5.87% 74.69%, 13.30% 66.70%, 16.97% 62.15%, 23.21% 62.71%, 27.52% 66.01%, 30.00% 69.18%, 27.06% 78.96%, 24.40% 81.99%, 25.50% 85.98%, 24.86% 90.25%, 21.65% 94.38%, 16.06% 95.48%, 13.12% 92.87%, 9.36% 88.87%, 7.25% 83.36%, 5.78% 79.23%)',
+    points: '148,1258 336,1123 429,1047 587,1056 696,1112 758,1165 684,1330 617,1381 645,1448 629,1520 547,1589 406,1608 332,1564 237,1497 183,1404 146,1334'
+  },
+  {
+    id: 'drah-zuun',
+    nombre: "Drah'Zuun",
+    clipPath: 'polygon(37.71% 98.51%, 56.70% 98.24%, 60.64% 95.48%, 64.22% 89.15%, 64.40% 86.39%, 62.57% 85.15%, 61.38% 82.95%, 60.28% 79.51%, 57.89% 75.65%, 55.14% 72.76%, 53.39% 71.79%, 47.25% 70.00%, 43.94% 70.00%, 40.28% 70.69%, 35.96% 70.42%, 32.57% 71.11%, 31.10% 71.66%, 30.09% 76.20%, 29.17% 79.37%, 27.52% 85.29%, 28.81% 89.01%, 30.83% 94.79%)',
+    points: '953,1659 1433,1654 1533,1608 1623,1501 1628,1455 1582,1434 1552,1397 1524,1339 1463,1274 1394,1225 1350,1209 1194,1179 1111,1179 1018,1190 909,1186 823,1197 786,1207 761,1283 738,1337 696,1436 728,1499 779,1596'
+  },
+  {
+    id: 'velgrad',
+    nombre: 'Velgrad',
+    clipPath: 'polygon(74.68% 97.82%, 92.84% 93.42%, 96.79% 85.29%, 98.53% 75.10%, 94.68% 69.87%, 88.72% 68.08%, 80.09% 67.53%, 72.02% 64.77%, 66.06% 60.91%, 60.83% 58.99%, 55.32% 62.43%, 53.39% 67.11%)',
+    points: '1888,1647 2347,1573 2447,1436 2491,1265 2393,1177 2243,1146 2025,1137 1821,1091 1670,1026 1538,993 1399,1051 1350,1130'
+  },
+  {
+    id: 'akan-thaal',
+    nombre: "Akan'Thaal",
+    clipPath: 'polygon(80.46% 64.77%, 96.15% 51.00%, 93.30% 40.94%, 86.15% 33.78%, 78.72% 27.86%, 60.64% 21.39%, 55.05% 25.93%, 55.41% 29.38%, 56.88% 34.20%, 57.98% 39.71%, 57.25% 44.80%, 56.51% 49.35%, 58.62% 53.62%, 61.01% 57.33%)',
+    points: '2034,1091 2431,859 2359,690 2178,569 1990,469 1533,360 1392,437 1401,495 1438,576 1466,669 1447,754 1429,831 1482,903 1542,966'
+  },
+  {
+    id: 'desconocido',
+    nombre: 'Tierra más allá de lo conocido',
+    clipPath: 'polygon(53.85% 14.09%, 67.52% 6.79%, 76.97% 4.59%, 83.76% 1.69%, 96.24% 9.54%, 96.97% 21.53%, 96.88% 34.61%, 94.22% 35.16%, 63.30% 21.11%)',
+    points: '1361,237 1707,114 1946,77 2117,29 2433,161 2451,362 2449,583 2382,592 1600,356'
+  }
+]
+
 
 function chapterImages(item) {
   if (item.imgs && item.imgs.length > 0) return item.imgs
@@ -619,12 +804,40 @@ export default function Historia() {
     return HISTORIA_TABS.some((tab) => tab.id === saved) ? saved : 'antiguedad'
   })
   const [modalCiudad, setModalCiudad] = useState(null)
+  const [hoveredRegion, setHoveredRegion] = useState(null)
   const [showTabsReturn, setShowTabsReturn] = useState(false)
   const [tabsReturnBottom, setTabsReturnBottom] = useState(32)
   const [imageLightbox, setImageLightbox] = useState(null)
   const [sectionNavOpen, setSectionNavOpen] = useState(false)
   const activeCiudadIndex = modalCiudad ? CIUDADES.findIndex((c) => c.id === modalCiudad) : -1
   const activeCiudad = modalCiudad ? CIUDADES_DATA[modalCiudad] : null
+
+  const [mapView, setMapView] = useState('mundi')
+  const [modalContinente, setModalContinente] = useState(null)
+
+  const showPrevContinente = useCallback(() => {
+    setModalContinente((currentId) => {
+      const currentIndex = CONTINENTE_KEYS.indexOf(currentId)
+      const prevIndex = currentIndex <= 0 ? CONTINENTE_KEYS.length - 1 : currentIndex - 1
+      return CONTINENTE_KEYS[prevIndex]
+    })
+  }, [])
+
+  const showNextContinente = useCallback(() => {
+    setModalContinente((currentId) => {
+      const currentIndex = CONTINENTE_KEYS.indexOf(currentId)
+      const nextIndex = currentIndex < 0 || currentIndex >= CONTINENTE_KEYS.length - 1 ? 0 : currentIndex + 1
+      return CONTINENTE_KEYS[nextIndex]
+    })
+  }, [])
+
+  const handleRegionClick = useCallback((regionId) => {
+    if (regionId === 'primus') {
+      setMapView('primus')
+    } else {
+      setModalContinente(regionId)
+    }
+  }, [])
 
   const openImageLightbox = useCallback((images, index) => {
     setImageLightbox({ images, index })
@@ -776,24 +989,83 @@ export default function Historia() {
 
         {activeTab === 'ciudades' && (
           <div className="lore-panel active">
-            <div className="mapa-wrap">
-              <img src="/assets/images/common/map.png" className="mapa-img" alt="Mapa de Primus" draggable="false" />
-              {CIUDADES.map((c) => (
-                <div
-                  key={c.id}
-                  className="ciudad-pin"
-                  style={{ '--px': c.px, '--py': c.py }}
-                  onClick={() => setModalCiudad(c.id)}
-                  title={c.name}
-                >
-                  <div className="ciudad-pin-dot" />
-                  <div className="ciudad-tooltip">
-                    <strong>{c.name}</strong>
-                    <span>{c.sub}</span>
-                  </div>
+            {mapView === 'mundi' ? (
+              <div className={`new-mapa-container${hoveredRegion ? ' is-hovered' : ''}`} style={{ animation: 'fadeIn 0.35s ease' }}>
+                <img src="/assets/images/common/MapaMundi.png" className="new-mapa-img" alt="Mapa de Primus" draggable="false" />
+                <div className="new-mapa-overlay" />
+                <div className="new-mapa-regions">
+                  {REGIONES.map((r) => (
+                    <div
+                      key={r.id}
+                      className="new-mapa-region"
+                      style={{ clipPath: r.clipPath }}
+                      onMouseEnter={() => setHoveredRegion(r.nombre)}
+                      onMouseLeave={() => setHoveredRegion(null)}
+                      onClick={() => handleRegionClick(r.id)}
+                    >
+                      <img src="/assets/images/common/MapaMundi.png" className="new-mapa-region-img" alt={r.nombre} draggable="false" />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+                <svg viewBox="0 0 2528 1684" className="new-mapa-svg-outlines">
+                  {REGIONES.map((r) => (
+                    <polygon
+                      key={`outline-${r.id}`}
+                      points={r.points}
+                      className={`mapa-svg-outline-poly ${hoveredRegion === r.nombre ? 'active' : ''}`}
+                    />
+                  ))}
+                </svg>
+                {hoveredRegion && (
+                  <div className="new-mapa-region-tooltip">
+                    <span>{hoveredRegion}</span>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div style={{ animation: 'fadeIn 0.4s ease' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '1.5rem', maxWidth: '900px', margin: '0 auto 1.5rem' }}>
+                  <button
+                    type="button"
+                    className="caida-year-tab active"
+                    style={{
+                      minHeight: 'auto',
+                      padding: '10px 20px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      fontFamily: 'Cinzel, serif',
+                      fontSize: '0.8rem',
+                      letterSpacing: '0.1em',
+                      border: '1px solid var(--gold)',
+                      borderRadius: '2px',
+                      cursor: 'pointer'
+                    }}
+                    onClick={() => setMapView('mundi')}
+                  >
+                    <span>← Volver al Mapamundi</span>
+                  </button>
+                </div>
+                <div className="mapa-wrap">
+                  <img src="/assets/images/common/map.png" className="mapa-img" alt="Mapa de Primus" draggable="false" />
+                  {CIUDADES.map((c) => (
+                    <div
+                      key={c.id}
+                      className="ciudad-pin"
+                      style={{ '--px': c.px, '--py': c.py }}
+                      onClick={() => setModalCiudad(c.id)}
+                      title={c.name}
+                    >
+                      <div className="ciudad-pin-dot" />
+                      <div className="ciudad-tooltip">
+                        <strong>{c.name}</strong>
+                        <span>{c.sub}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -805,6 +1077,15 @@ export default function Historia() {
           onPrev={showPrevCiudad}
           onNext={showNextCiudad}
           onOpenImage={openImageLightbox}
+        />
+      )}
+
+      {modalContinente && CONTINENTES_DATA[modalContinente] && (
+        <ContinentModal
+          continent={CONTINENTES_DATA[modalContinente]}
+          onClose={() => setModalContinente(null)}
+          onPrev={showPrevContinente}
+          onNext={showNextContinente}
         />
       )}
 

@@ -16,7 +16,7 @@ const BENTO_ITEMS = [
     className: 'bento-item',
     bg: '/assets/images/lore/eras/ano5/1.png',
     title: 'Lore',
-    desc: 'Cinco eras de historia descritas al detalle.',
+    desc: 'Seis eras de historia descritas al detalle.',
     path: '/lore',
   },
   {

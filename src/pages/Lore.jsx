@@ -21,7 +21,7 @@ export default function Lore() {
         <div className="lore-grid">
           <div className="lore-card" onClick={() => navigate('/historia')} style={{ cursor: 'pointer' }}>
             <div className="lore-card-img-wrap">
-              <img className="lore-card-img" src="/assets/images/common/map.png"
+              <img className="lore-card-img" src="/assets/images/common/MapaMundi.png"
                 alt="Historia y Geografía" loading="lazy" decoding="async" />
             </div>
             <div className="lore-card-body">

@@ -3151,30 +3151,32 @@ a.btn-primary:active {
     width: 100%;
   }
 
-  .lore-tabs-trigger i {
+  .lore-tabs-trigger .dropdown-chevron,
+  .caida-year-tabs-trigger .dropdown-chevron {
     color: var(--gold);
-    font-size: 0.72rem;
-    transition: transform 0.25s ease;
-  }
-
-  .lore-tabs.open .lore-tabs-trigger i {
-    transform: rotate(180deg);
+    flex-shrink: 0;
   }
 
   .lore-tabs-list {
     display: none;
-    margin-top: 6px;
     flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
   }
 
   .lore-tabs.open .lore-tabs-list {
     display: flex;
+    gap: 10px;
   }
 
   .lore-tab {
+    align-items: center;
     border-right: 0;
     border-bottom: 1px solid rgba(201, 168, 76, 0.12);
-    padding: 16px 18px;
+    display: flex;
+    justify-content: center;
+    padding: 18px 18px;
+    text-align: center;
     width: 100%;
   }
 
@@ -6026,7 +6028,7 @@ span.lore-term {
   }
 
   .caida-year-tabs-wrap .mobile-dropdown-label {
-    margin-bottom: -12px;
+    margin-bottom: 6px;
   }
 
   .caida-year-tabs-trigger {
@@ -6065,25 +6067,19 @@ span.lore-term {
     white-space: nowrap;
   }
 
-  .caida-year-tabs-trigger i {
-    font-size: 0.72rem;
-    transition: transform 0.25s ease;
-  }
-
-  .caida-year-tabs-wrap.open .caida-year-tabs-trigger i {
-    transform: rotate(180deg);
-  }
 
   .caida-year-tabs {
     display: none;
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 12px;
+    margin-top: 10px;
     padding-bottom: 0;
   }
 
   .caida-year-tabs-wrap.open .caida-year-tabs {
     display: flex;
     flex-direction: column;
+    gap: 12px;
   }
 
   .caida-year-tabs::before,
@@ -6094,15 +6090,25 @@ span.lore-term {
   .caida-year-tab {
     align-items: center;
     display: flex;
-    justify-content: space-between;
-    min-height: 0;
-    padding: 14px 16px;
-    text-align: left;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    min-height: 52px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+
+  .caida-year-tab span {
+    line-height: 1.4;
+    text-align: center;
+    width: 100%;
   }
 
   .caida-year-tab strong {
+    line-height: 1.45;
     margin-top: 0;
-    text-align: right;
+    text-align: center;
+    width: 100%;
   }
 
   .ano-title {
@@ -7036,9 +7042,37 @@ body.modal-active .audio-toggle {
   display: none;
 }
 
-@media (max-width: 768px) {
+.norm-grid-v2 .norm-item--centered {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin: 0 auto;
+  max-width: 492px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
   .norm-grid-v2 {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .norm-grid-v2 .norm-item,
+  .norm-grid-v2 .norm-item--centered {
+    grid-column: auto;
+    justify-self: stretch;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+  }
+
+  .norm-grid-v2 .norm-item--glow-1 {
+    filter: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .norm-grid-v2 .norm-item--glow-3 {
+    transform: translateY(-4px);
   }
 
   .norm-grid-v2 .norm-item__content {
@@ -7260,7 +7294,7 @@ body.modal-active .audio-toggle {
   margin: 0.5rem 0 0;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .norm-cards-grid-v2 {
     grid-template-columns: 1fr;
   }

@@ -54,14 +54,13 @@ export default function Normativa() {
             return (
               <div
                 key={item.path}
-                className={`norm-item norm-item--${glowLevel}`}
+                className={`norm-item norm-item--${glowLevel}${item.path === '/norm-esclavitud' ? ' norm-item--centered' : ''}`}
                 onClick={() => navigate(item.path)}
                 onMouseEnter={() => setHoveredPath(item.path)}
                 onMouseLeave={() => setHoveredPath(null)}
-                style={{ 
-                  cursor: 'pointer', 
+                style={{
+                  cursor: 'pointer',
                   '--norm-intro-glow': glow,
-                  ...(item.path === '/norm-esclavitud' ? { gridColumn: '1 / span 2', margin: '0 auto', width: '100%', maxWidth: '492px' } : {})
                 }}
               >
                 {meta.introImage && (

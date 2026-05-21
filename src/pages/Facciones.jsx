@@ -1,4 +1,5 @@
 ﻿import { useState } from 'react'
+import DropdownChevron from '../components/DropdownChevron'
 import Footer from '../components/Footer'
 
 const FACTIONS = [
@@ -121,7 +122,7 @@ export default function Facciones() {
             onClick={() => setTabsOpen((open) => !open)}
           >
             <span>{activeFaction.name}</span>
-            <i className="ra ra-heavy-fall" aria-hidden />
+            <DropdownChevron open={tabsOpen} />
           </button>
           <div className="lore-tabs-list" id="facciones-tabs-list">
             {FACTIONS.map((faction) => (

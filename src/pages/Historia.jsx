@@ -1,6 +1,7 @@
 import { useState, useEffect, useLayoutEffect, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { useNavigate } from 'react-router-dom'
+import DropdownChevron from '../components/DropdownChevron'
 import Footer from '../components/Footer'
 
 const CIUDADES_DATA = {
@@ -740,7 +741,7 @@ function ChronicleTabs({ items, ariaLabel, onOpenImage }) {
       >
         <span>{activeItem.num}</span>
         <strong>{activeItem.title}</strong>
-        <i className="ra ra-heavy-fall" aria-hidden />
+        <DropdownChevron open={periodNavOpen} />
       </button>
       <div className="caida-year-tabs" role="tablist" aria-label={ariaLabel}>
         {items.map((item, idx) => {
@@ -960,7 +961,7 @@ export default function Historia() {
             onClick={() => setSectionNavOpen((open) => !open)}
           >
             <span>{activeSectionLabel}</span>
-            <i className="ra ra-heavy-fall" aria-hidden />
+            <DropdownChevron open={sectionNavOpen} />
           </button>
           <div className="lore-tabs-list" id="historia-tabs-list">
             {tabs.map((t) => (
@@ -987,7 +988,7 @@ export default function Historia() {
 
         {activeTab === 'caida' && (
           <div className="lore-panel active">
-            <ChronicleTabs items={ANOS} ariaLabel="Años de La Caída del Cuervo" onOpenImage={openImageLightbox} />
+            <ChronicleTabs items={ANOS} ariaLabel="LA VI ERA" onOpenImage={openImageLightbox} />
           </div>
         )}
 
